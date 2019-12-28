@@ -50,7 +50,14 @@
 
 							<li><a href="#blockchain">Blockchain</a></li>
 							<li><a href="#cclib">CC Lib</a></li>
-							<li><a href="#control">Control</a></li>
+							<li class="menu-has-children"><a href="#control">Control</a>
+								<ul>
+									<li><a href="#getinfo">getinfo</a></li>
+									<li><a href="#help">help</a></li>
+									<li><a href="#stop">stop</a></li>	
+								</ul>
+							</li>
+
 							<li><a href="#disclosure">Disclosure</a></li>
 							<li><a href="#generate">Generate</a></li>
 
@@ -912,7 +919,342 @@
 		<div class="container" id="control">
 		<h1>Control</h1>
 		<hr>
-		In progress
+		<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</p>
+		<br>
+		<h2><a id="getinfo"></a>getinfo</h2><hr>
+		<p><strong>getinfo</strong></p>
+		<p>The <code>getinfo</code> method returns an object containing various state info.</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>(none)</td>
+		<td></td>
+		<td></td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“version”</td>
+		<td>(numeric)</td>
+		<td>the server version</td>
+		</tr>
+		<tr>
+		<td>“protocolversion”</td>
+		<td>(numeric)</td>
+		<td>the protocol version</td>
+		</tr>
+		<tr>
+		<td>“walletversion”</td>
+		<td>(numeric)</td>
+		<td>the wallet version</td>
+		</tr>
+		<tr>
+		<td>“balance”</td>
+		<td>(numeric)</td>
+		<td>the total balance of the wallet</td>
+		</tr>
+		<tr>
+		<td>“blocks”</td>
+		<td>(numeric)</td>
+		<td>the current number of blocks processed in the server</td>
+		</tr>
+		<tr>
+		<td>“timeoffset”</td>
+		<td>(numeric)</td>
+		<td>the time offset</td>
+		</tr>
+		<tr>
+		<td>“connections”</td>
+		<td>(numeric)</td>
+		<td>the number of connections</td>
+		</tr>
+		<tr>
+		<td>“proxy”</td>
+		<td>(string, optional)</td>
+		<td>the proxy used by the server</td>
+		</tr>
+		<tr>
+		<td>“difficulty”</td>
+		<td>(numeric)</td>
+		<td>the current difficulty</td>
+		</tr>
+		<tr>
+		<td>“testnet”</td>
+		<td>(boolean)</td>
+		<td>if the server is using testnet or not</td>
+		</tr>
+		<tr>
+		<td>“keypoololdest”</td>
+		<td>(numeric)</td>
+		<td>the timestamp (seconds since GMT epoch) of the oldest pre-generated key in the key pool</td>
+		</tr>
+		<tr>
+		<td>“keypoolsize”</td>
+		<td>(numeric)</td>
+		<td>how many new keys are pre-generated</td>
+		</tr>
+		<tr>
+		<td>“unlocked_until”</td>
+		<td>(numeric)</td>
+		<td>the timestamp in seconds since epoch (midnight Jan 1 1970 GMT) that the wallet is unlocked for transfers, or 0 if the wallet is locked</td>
+		</tr>
+		<tr>
+		<td>“paytxfee”</td>
+		<td>(numeric)</td>
+		<td>the transaction fee set in COIN/kB</td>
+		</tr>
+		<tr>
+		<td>“relayfee”</td>
+		<td>(numeric)</td>
+		<td>minimum relay fee for non-free transactions in COIN/kB</td>
+		</tr>
+		<tr>
+		<td>“errors”</td>
+		<td>(string)</td>
+		<td>any error messages</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli getinfo</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-number">1001550</span></span>,
+		  "<span class="hljs-attribute">protocolversion</span>": <span class="hljs-value"><span class="hljs-number">170003</span></span>,
+		  "<span class="hljs-attribute">KMDversion</span>": <span class="hljs-value"><span class="hljs-string">"0.2.0"</span></span>,
+		  "<span class="hljs-attribute">notarized</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+		  "<span class="hljs-attribute">prevMoMheight</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+		  "<span class="hljs-attribute">notarizedhash</span>": <span class="hljs-value"><span class="hljs-string">"0000000000000000000000000000000000000000000000000000000000000000"</span></span>,
+		  "<span class="hljs-attribute">notarizedtxid</span>": <span class="hljs-value"><span class="hljs-string">"0000000000000000000000000000000000000000000000000000000000000000"</span></span>,
+		  "<span class="hljs-attribute">notarizedtxid_height</span>": <span class="hljs-value"><span class="hljs-string">"mempool"</span></span>,
+		  "<span class="hljs-attribute">KMDnotarized_height</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+		  "<span class="hljs-attribute">notarized_confirms</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+		  "<span class="hljs-attribute">walletversion</span>": <span class="hljs-value"><span class="hljs-number">60000</span></span>,
+		  "<span class="hljs-attribute">balance</span>": <span class="hljs-value"><span class="hljs-number">10.16429765</span></span>,
+		  "<span class="hljs-attribute">blocks</span>": <span class="hljs-value"><span class="hljs-number">459</span></span>,
+		  "<span class="hljs-attribute">longestchain</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+		  "<span class="hljs-attribute">timeoffset</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+		  "<span class="hljs-attribute">tiptime</span>": <span class="hljs-value"><span class="hljs-number">1536624090</span></span>,
+		  "<span class="hljs-attribute">connections</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+		  "<span class="hljs-attribute">proxy</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+		  "<span class="hljs-attribute">difficulty</span>": <span class="hljs-value"><span class="hljs-number">1.000026345948652</span></span>,
+		  "<span class="hljs-attribute">testnet</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+		  "<span class="hljs-attribute">keypoololdest</span>": <span class="hljs-value"><span class="hljs-number">1536262464</span></span>,
+		  "<span class="hljs-attribute">keypoolsize</span>": <span class="hljs-value"><span class="hljs-number">101</span></span>,
+		  "<span class="hljs-attribute">paytxfee</span>": <span class="hljs-value"><span class="hljs-number">0.0</span></span>,
+		  "<span class="hljs-attribute">relayfee</span>": <span class="hljs-value"><span class="hljs-number">0.000001</span></span>,
+		  "<span class="hljs-attribute">errors</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+		  "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"SIDD"</span></span>,
+		  "<span class="hljs-attribute">p2pport</span>": <span class="hljs-value"><span class="hljs-number">9800</span></span>,
+		  "<span class="hljs-attribute">rpcport</span>": <span class="hljs-value"><span class="hljs-number">9801</span></span>,
+		  "<span class="hljs-attribute">magic</span>": <span class="hljs-value">-<span class="hljs-number">759875707</span></span>,
+		  "<span class="hljs-attribute">premine</span>": <span class="hljs-value"><span class="hljs-number">10</span>
+</span>}</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hus3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code class="has-line-data" data-line-start="109" data-line-end="111" class="language-bash">curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getinfo", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code class="has-line-data" data-line-start="115" data-line-end="152" class="language-json">{
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+			"<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-number">1001550</span></span>,
+			"<span class="hljs-attribute">protocolversion</span>": <span class="hljs-value"><span class="hljs-number">170003</span></span>,
+			"<span class="hljs-attribute">KMDversion</span>": <span class="hljs-value"><span class="hljs-string">"0.2.0"</span></span>,
+			"<span class="hljs-attribute">notarized</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">prevMoMheight</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">notarizedhash</span>": <span class="hljs-value"><span class="hljs-string">"0000000000000000000000000000000000000000000000000000000000000000"</span></span>,
+			"<span class="hljs-attribute">notarizedtxid</span>": <span class="hljs-value"><span class="hljs-string">"0000000000000000000000000000000000000000000000000000000000000000"</span></span>,
+			"<span class="hljs-attribute">notarizedtxid_height</span>": <span class="hljs-value"><span class="hljs-string">"mempool"</span></span>,
+			"<span class="hljs-attribute">KMDnotarized_height</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">notarized_confirms</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">walletversion</span>": <span class="hljs-value"><span class="hljs-number">60000</span></span>,
+			"<span class="hljs-attribute">balance</span>": <span class="hljs-value"><span class="hljs-number">10.16429765</span></span>,
+			"<span class="hljs-attribute">blocks</span>": <span class="hljs-value"><span class="hljs-number">459</span></span>,
+			"<span class="hljs-attribute">longestchain</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">timeoffset</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">tiptime</span>": <span class="hljs-value"><span class="hljs-number">1536624090</span></span>,
+			"<span class="hljs-attribute">connections</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">proxy</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+			"<span class="hljs-attribute">difficulty</span>": <span class="hljs-value"><span class="hljs-number">1.000026345948652</span></span>,
+			"<span class="hljs-attribute">testnet</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+			"<span class="hljs-attribute">keypoololdest</span>": <span class="hljs-value"><span class="hljs-number">1536262464</span></span>,
+			"<span class="hljs-attribute">keypoolsize</span>": <span class="hljs-value"><span class="hljs-number">101</span></span>,
+			"<span class="hljs-attribute">relayfee</span>": <span class="hljs-value"><span class="hljs-number">1e-6</span></span>,
+			"<span class="hljs-attribute">paytxfee</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">errors</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+			"<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"SIDD"</span></span>,
+			"<span class="hljs-attribute">p2pport</span>": <span class="hljs-value"><span class="hljs-number">9800</span></span>,
+			"<span class="hljs-attribute">rpcport</span>": <span class="hljs-value"><span class="hljs-number">9801</span></span>,
+			"<span class="hljs-attribute">magic</span>": <span class="hljs-value">-<span class="hljs-number">759875707</span></span>,
+			"<span class="hljs-attribute">premine</span>": <span class="hljs-value"><span class="hljs-number">10</span>
+		  </span>}</span>,
+		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		<h2><a id="help"></a>help</h2><hr>
+		<p><strong>help ( “command” )</strong></p>
+		<p>The <code>help</code> method lists all commands, or all information for a specified command.</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“command”</td>
+		<td>(string, optional)</td>
+		<td>the command requiring assistance</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“command”</td>
+		<td>(string, optional)</td>
+		<td>the command requiring assistance</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli <span class="hljs-built_in">help</span></code></pre>
+		<a>Response:</a>
+		<pre><code>== Addressindex ==
+		getaddressbalance
+		getaddressdeltas
+		getaddressmempool
+		getaddresstxids
+		getaddressutxos
+		getsnapshot
+		
+		== Auction ==
+		auctionaddress [pubkey]
+		
+		== Blockchain ==
+		coinsupply &lt;height&gt;
+		getbestblockhash
+		getblock <span class="hljs-string">"hash|height"</span> ( verbose )
+		getblockchaininfo
+		getblockcount
+		
+		getblockhash index
+		getblockhashes timestamp
+		getblockheader <span class="hljs-string">"hash"</span> ( verbose )
+		getchaintips
+		getdifficulty
+		
+		........ (other responses omitted <span class="hljs-keyword">for</span> brevity)</code></pre>
+		<a>Command:</a>
+		<pre><code>./hush-cli <span class="hljs-built_in">help</span> getaddressbalance</code></pre>
+		<a>Response:</a>
+		<pre><code>Returns the balance <span class="hljs-keyword">for</span> an address(es) (requires addressindex to be enabled).
+		
+		Arguments:
+		{
+		  <span class="hljs-string">"addresses"</span>
+			[
+			  <span class="hljs-string">"address"</span>  (string) The base58check encoded address
+			  ,...
+			]
+		}
+		
+		Result:
+		{
+		  <span class="hljs-string">"balance"</span>  (string) The current balance <span class="hljs-keyword">in</span> satoshis
+		  <span class="hljs-string">"received"</span>  (string) The total number of satoshis received (including change)
+		}
+		
+		Examples:
+		&gt; hush-cli getaddressbalance <span class="hljs-string">'{"addresses": ["RY5LccmGiX9bUHYGtSWQouNy1yFhc5rM87"]}'</span>
+		&gt; curl --user myusername --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressbalance", "params": [{"addresses": ["RY5LccmGiX9bUHYGtSWQouNy1yFhc5rM87"]}] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">7771</span>/
+		</code></pre><br>
+		<h2><a id="stop"></a>stop</h2><hr>
+		<p><strong>stop</strong></p>
+		<p>The <code>stop</code> method instructs the Hush daemon to shut down.</p>
+		<p>The amount of time it takes to shut down the chain will vary depending on the chain’s current state.</p>
+		<p>::: warning<br>
+		Forcefully stopping the chain should be avoided, as it may corrupt the local database. In the event of a corrupted database, the user will need to &lt;b&gt;resync&lt;/b&gt;.<br>
+		:::</p>
+		<h3><a id="Arguments"></a>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>(none)</td>
+		<td></td>
+		<td></td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>Hush server stopping</td>
+		<td></td>
+		<td></td>
+		</tr>
+		<tr>
+		<td>[COIN] Hush server stopping</td>
+		<td></td>
+		<td></td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli stop</code></pre>
+		<a>Response</a>
+		<pre><code><span class="hljs-string">"Hush server stopping"</span></code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "stop", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response</a>
+		<pre><code>{ "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"Hush server stopping"</span></span>, "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>, "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span> </span>}</code></pre>
 		</div>
 	</section>
 
