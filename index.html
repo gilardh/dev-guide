@@ -1705,10 +1705,9 @@
 		</table>
 		<h4>Examples</h4>
 		<a>Command:</a>
-		<pre><code>./hush-cli z_getpaymentdisclosure <span class="hljs-number">96</span>f12882450429324d5f3b48630e3168220e49ab7b0f066e5c2935a6b88bb0f2 <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-string">"refund"</span></code></pre>
+		<pre><code>./hush-cli z_getpaymentdisclosure 96f12882450429324d5f3b48630e3168220e49ab7b0f066e5c2935a6b88bb0f2 <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-string">"refund"</span></code></pre>
 		<a>Response:</a>
-		<pre><code>(currently disabled)
-		</code></pre>
+		<pre><code>(currently disabled)</code></pre>
 		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in your coin’s .conf file.</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_getpaymentdisclosure", "params": ["96f12882450429324d5f3b48630e3168220e49ab7b0f066e5c2935a6b88bb0f2", 0, 0, "refund"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
