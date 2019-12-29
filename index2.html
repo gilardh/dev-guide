@@ -1,0 +1,2724 @@
+	<!DOCTYPE html>
+	<html lang="en" class="no-js">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="theme-color" content="#2d2d2d">
+		<meta name="msapplication-navbutton-color" content="#2d2d2d">
+		<link rel="shortcut icon" href="./images/favicon.ico">
+		<meta name="author" content="The Hush developers">
+		<meta name="description" content="Private Cryptocurrency and Messenger on Zero Knowledge Proof Encryption">
+		<meta name="keywords" content="Hush, private, cryptocurrency, messenger">
+		<meta charset="UTF-8">
+		<title>Hush</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<link rel="stylesheet" href="css/katex_0.11.1_min.css">
+			<link rel="stylesheet" href="css/linearicons.css">
+     		<link rel="stylesheet" href="css/magnific-popup.css">
+			<link rel="stylesheet" href="css/nice-select.css">							
+			<link rel="stylesheet" href="css/font-awesome.min.css">
+			<link rel="stylesheet" href="css/bootstrap.css">			
+			<link rel="stylesheet" href="css/jquery-ui.css">			
+			<link rel="stylesheet" href="css/styles.css">
+	</head>
+		<body>
+		  <header id="header">
+		    <div class="container main-menu">
+		    	<div class="row align-items-center justify-content-between d-flex">
+			      <div id="logo">
+			        <a href="#"><img src="images/logo.png" alt="" title="Hush" /></a>
+			      </div>
+			      <nav id="nav-menu-container">
+			        <ul class="nav-menu">
+			          <li><a href="#">Home</a></li>
+			          <li><a href="#get_started">Get started</a></li>
+			          <!-- <li><a href="#hushd.html">hushd</a></li>-->
+			          <li class="menu-has-children"><a href="#hush-cli">hush-cli</a>
+			            <ul>
+					        <li class="menu-has-children"><a href="#address">Address</a>
+					            <ul>
+					              <li><a href="#getaddressbalance">getaddressbalance</a></li>
+								  <li><a href="#getaddressdeltas">getaddressdeltas</a></li>
+								  <li><a href="#getaddressmempool">getaddressmempool</a></li>
+								  <li><a href="#getaddresstxids">getaddresstxids</a></li>
+								  <li><a href="#getaddressutxos">getaddressutxos</a></li>
+								  <li><a href="#getsnapshot">getsnapshot</a></li>
+					            </ul>
+							</li>
+
+							<li><a href="#blockchain">Blockchain</a></li>
+
+
+
+
+							<li><a class="menu-has-children" href="#cclib">CC Lib</a>
+								<ul>
+									<li><a href="#cclib">cclib</a></li>
+									<li><a href="#cclibaddress">cclibaddress</a></li>
+									<li><a href="#cclibinfo">cclibinfo</a></li>
+								</ul>
+							</li>
+
+							<li class="menu-has-children"><a href="#control">Control</a>
+								<ul>
+									<li><a href="#getinfo">getinfo</a></li>
+									<li><a href="#help">help</a></li>
+									<li><a href="#stop">stop</a></li>	
+								</ul>
+							</li>
+
+							<li class="menu-has-children"><a href="#disclosure">Disclosure</a>
+								<ul>
+									<li><a href="#z_getpaymentdisclosure">z_getpaymentdisclosure</a></li>
+									<li><a href="#z_validatepaymentdisclosure">z_validatepaymentdisclosure</a></li>
+								</ul>
+							</li>
+
+
+
+
+							<li><a href="#generate">Generate</a></li>
+
+							<li class="menu-has-children"><a href="#mining">Mining</a>
+								<ul>
+									<li><a href="#getblocksubsidy">getblocksubsidy</a></li>
+									<li><a href="#getblocktemplate">getblocktemplate</a></li>
+									<li><a href="#getlocalsolps">getlocalsolps</a></li>
+									<li><a href="#getmininginfo">getmininginfo</a></li>
+									<li><a href="#getnetworkhashps">getnetworkhashps</a></li>
+									<li><a href="#getnetworksolps">getnetworksolps</a></li>
+									<li><a href="#prioritisetransaction">prioritisetransaction</a></li>
+									<li><a href="#submitblock">submitblock</a></li>
+								</ul>
+							</li>
+
+							<li><a href="#jumblr">Jumblr</a></li>		
+							<li><a href="#network">Network</a></li>
+							<li><a href="#rawtransactions">Raw Transactions</a></li>		
+							<li><a href="#util">Util</a></li>
+							<li><a href="#wallet">Wallet</a></li>											                		
+			            </ul>
+			         </li>					          					          		          
+					  <li><a href="#contact">Contact</a></li>
+					  <li class="menu-has-children"><a style="pointer-events: none; cursor: default;" href="">Language</a>
+			            <ul>
+						  <li><a class="english" id="english" href="javascript:;" onclick="testch(this.id)">English</a></li>
+			              <li><a class="french" id="french" href="javascript:;" onclick="testch(this.id)">Français</a></li>
+						</ul>
+					  </li>
+			        </ul>
+			      </nav>		    		
+		    	</div>
+		    </div>
+		  </header>
+
+		  <section class="banner-area relative" id="home">
+			<div class="overlay overlay-bg"></div>	
+			<div class="container">
+				<div class="row fullscreen d-flex align-items-center justify-content-between">
+					<div class="banner-content col-lg-12 col-md-12">
+						<h1 class="homelang_01">
+							HUSH			
+						</h1>
+						<p class="banner-text-02 homelang_02">
+							The Hush Guide is a free and open-source reference guide that explains how to use hushd and hush-cli.
+						</p>
+						<a href="#get_started" class="primary-btn homelang_03">Get Started</a>
+					</div>										
+				</div>
+			</div>					
+		</section>
+
+		<section class="head-section" id="get_started">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-9 col-md-9 cta-left">
+						<h1>Get started</h1>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="text-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-9 col-md-9">
+						<h2>What’s is?</h2>
+						<hr>
+						<p><strong>hushd</strong> is a Hush service daemon, which is a program that runs in the background and with which a user can’t usually interact directly during it’s runtime. This is a full node server that downloads that creates a P2P network and synchronizes the blockchain and verifies transactions and blocks.</p>
+						<p><strong>hush-cli</strong> is a command-line interface for Hush Core client that connects to a running instance of hushd daemon. User can interact with this program and do any necessary functions with it that will control the hushd service as well as the possibility of using a Hush wallet to send and receive funds, among other functions that Hush Core client provides.</p>
+
+						<h2>Why use hushd?</h2>
+						<hr>
+						<p>In progress</p><br>
+						<h2>Why use hush-cli?</h2>
+						<hr>
+						<p>In progress</p><br>
+						<h2>How Does it Work?</h2>
+						<hr>
+						<p>In progress</p><br>
+						<h2>How does it set up?</h2>
+						<hr>
+						<h3>Install</h3>
+						<blockquote>
+							<p>git clone <a href="https://github.com/MyHush/hush3.git">https://github.com/MyHush/hush3.git</a><br>
+							cd hush3<br>
+							# Build<br>
+							./zcutil/build.sh -j8</p>
+						</blockquote>
+						<h3>Run</h3>
+						<p>To use locally, first start the program in daemon mode:</p>
+						<blockquote>
+							<p>hushd -daemon</p>
+						</blockquote>
+						<p>Then you can execute API commands, e.g.:</p>
+						<blockquote>
+							<p>hush-cli getinfo<br>
+							hush-cli listtransactions</p>
+						</blockquote>
+						<p>To stop the Hush daemon, execute:</p>
+						<blockquote>
+							<p>hush-cli stop</p>
+						</blockquote>
+					</div>
+					</div>
+				</div>
+		</section>
+
+
+		<section class="head-section" id="hush-cli">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-9 col-md-9 cta-left">
+						<h1>hush-cli</h1>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		  
+		<section class="text-area" id="preview">
+			<div class="container" id="address">
+			<h1>Address</h1>
+			<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</p><br>
+			<h2><a id="getaddressbalance"></a>getaddressbalance</h2>
+			<hr>
+			<p><strong>getaddressbalance ‘{ “addresses” : [ “address” , … ] }’</strong></p>
+			<p>The <code>getaddressbalance</code> method returns the confirmed balance for an address, or addresses. It requires <code>addressindex</code> to be enabled.</p>
+			<h3>Arguments</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>“address”</td>
+			<td>(string)</td>
+			<td>the address</td>
+			</tr>
+			</tbody>
+			</table>
+			<h3>Response</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>“balance”</td>
+			<td>(number)</td>
+			<td>the current confirmed balance in satoshis</td>
+			</tr>
+			<tr>
+			<td>“received”</td>
+			<td>(number)</td>
+			<td>the total confirmed number of satoshis received (including change)</td>
+			</tr>
+			</tbody>
+			</table>
+			<h4>Examples</h4>
+			<a>Command:</a>
+			<pre>./hush-cli getaddressbalance <span class="hljs-string">'{"addresses":["RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"]}'</span></pre>
+			<a>Response:</a>
+			<pre><code>{
+	<span>balance</span>: <span class="hljs-value"><span class="hljs-number">40000</span></span>,
+	<span>received</span>: <span class="hljs-value"><span class="hljs-number">1011916229</span>
+</span>}</code></pre>
+			You can find the <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in huhs3.conf file.
+			<a>Command:</a>
+			<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressbalance", "params": [{"addresses": ["RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"]}] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span></code></pre>
+			<a>Response:</a>
+			<pre><code>{
+	"result": {
+		"<span class="hljs-attribute">balance</span>": <span class="hljs-value"><span class="hljs-number">40000</span></span>,
+		"<span class="hljs-attribute">received</span>": <span class="hljs-value"><span class="hljs-number">1011916229</span></span>
+	},
+	"<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+	"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre>
+<br>
+			<h2><a id="getaddressdeltas"></a>getaddressdeltas</h2>
+			<hr>
+			<p><strong>getaddressdeltas ‘{ “addresses” : [ “address” , … ] }’</strong><br>
+			<strong>getaddressdeltas ‘{ “addresses” : [ “address” , … ] , “start”: start, “end”: end, “chainInfo”: boolean }’</strong></p>
+			<p>The <code>getaddressdeltas</code> method returns all confirmed balance changes of an address. The user can optionally limit the response to a given interval of blocks. The method requires <code>addressindex</code> to be enabled.</p>
+			<h3>Arguments</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>“address”</td>
+			<td>(string)</td>
+			<td>the address</td>
+			</tr>
+			<tr>
+			<td>“start”</td>
+			<td>(number)</td>
+			<td>the start block height</td>
+			</tr>
+			<tr>
+			<td>“end”</td>
+			<td>(number)</td>
+			<td>the end block height</td>
+			</tr>
+			<tr>
+			<td>“chainInfo”</td>
+			<td>(boolean)</td>
+			<td>include chain info in results (only applies if start and end specified)</td>
+			</tr>
+			</tbody>
+			</table>
+			<h3>Response</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>“satoshis”</td>
+			<td>(number)</td>
+			<td>the difference in satoshis</td>
+			</tr>
+			<tr>
+			<td>“txid”</td>
+			<td>(string)</td>
+			<td>the related transaction id</td>
+			</tr>
+			<tr>
+			<td>“index”</td>
+			<td>(number)</td>
+			<td>the related input or output index</td>
+			</tr>
+			<tr>
+			<td>“height”</td>
+			<td>(number)</td>
+			<td>the block height</td>
+			</tr>
+			<tr>
+			<td>“address”</td>
+			<td>(string)</td>
+			<td>the address</td>
+			</tr>
+			</tbody>
+			</table>
+			<h4>Examples</h4>
+			<a>Command:</a>
+			<pre><code>./hush-cli getaddressdeltas <span class="hljs-string">'{"addresses": ["RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"]}'</span></code></pre>
+			<a>Reponse:</a>
+			<pre><code>[
+	{
+		"<span class="hljs-attribute">satoshis</span>": <span class="hljs-value"><span class="hljs-number">1011876229</span></span>,
+		"<span class="hljs-attribute">txid</span>": <span class="hljs-value"><span class="hljs-string">"39c61e8ea769ba1fc971cb7dadc531f25a2528d01a4244f379043248b6c51cc1"</span></span>,
+		"<span class="hljs-attribute">index</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+		"<span class="hljs-attribute">blockindex</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+		"<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+		"<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"</span>
+	</span>}
+]</code></pre>
+			<a>Command:</a>
+			<pre><code>./hush-cli getaddressdeltas <span class="hljs-string">'{"addresses":["RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"],"start":1,"end":200,"chainInfo":true}'</span></code></pre>
+			<a>Response:</a>
+			<pre><code>{
+	"<span class="hljs-attribute">deltas</span>": <span class="hljs-value">[
+		{
+			"<span class="hljs-attribute">satoshis</span>": <span class="hljs-value"><span class="hljs-number">1011876229</span></span>,
+			"<span class="hljs-attribute">txid</span>": <span class="hljs-value"><span class="hljs-string">"39c61e8ea769ba1fc971cb7dadc531f25a2528d01a4244f379043248b6c51cc1"</span></span>,
+			"<span class="hljs-attribute">index</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">blockindex</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+			"<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"</span>
+		</span>}
+	]</span>,
+	"<span class="hljs-attribute">start</span>": <span class="hljs-value">{
+		"<span class="hljs-attribute">hash</span>": <span class="hljs-value"><span class="hljs-string">"022df4cd1b0bdf548fedc48f27c6367536a560857f61f9bec4b35179c8a45734"</span></span>,
+		"<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+	</span>}</span>,
+	"<span class="hljs-attribute">end</span>": <span class="hljs-value">{
+		"<span class="hljs-attribute">hash</span>": <span class="hljs-value"><span class="hljs-string">"001fd35407abd8f4e2ec9734ce6f91d820ff553efcb9c39d657afed84da84963"</span></span>,
+		"<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">200</span>
+	</span>}
+</span>}</code></pre>
+			<p>You can find the <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in huhs3.conf file.</p>
+			<a>Command:</a>
+			<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressdeltas", "params": [{"addresses": ["RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"]}] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+			<a>Response:</a>
+			<pre><code>{
+			  "<span class="hljs-attribute">result</span>": <span class="hljs-value">[
+				{
+				  "<span class="hljs-attribute">satoshis</span>": <span class="hljs-value"><span class="hljs-number">1011876229</span></span>,
+				  "<span class="hljs-attribute">txid</span>": <span class="hljs-value"><span class="hljs-string">"39c61e8ea769ba1fc971cb7dadc531f25a2528d01a4244f379043248b6c51cc1"</span></span>,
+				  "<span class="hljs-attribute">index</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+				  "<span class="hljs-attribute">blockindex</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+				  "<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+				  "<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"</span>
+				</span>}
+			  ]</span>,
+			  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+			  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre>
+
+			You can find the <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in hush3.conf file.
+			<a>Command:</a>
+			<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressdeltas", "params": [{"addresses": ["RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"],"start":1,"end":200,"chainInfo":true}]}'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+			<a>Response:</a>
+			<pre><code>{
+			  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+				"<span class="hljs-attribute">deltas</span>": <span class="hljs-value">[
+				  {
+					"<span class="hljs-attribute">satoshis</span>": <span class="hljs-value"><span class="hljs-number">1011876229</span></span>,
+					"<span class="hljs-attribute">txid</span>": <span class="hljs-value"><span class="hljs-string">"39c61e8ea769ba1fc971cb7dadc531f25a2528d01a4244f379043248b6c51cc1"</span></span>,
+					"<span class="hljs-attribute">index</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+					"<span class="hljs-attribute">blockindex</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+					"<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+					"<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"</span>
+				  </span>}
+				]</span>,
+				"<span class="hljs-attribute">start</span>": <span class="hljs-value">{
+				  "<span class="hljs-attribute">hash</span>": <span class="hljs-value"><span class="hljs-string">"022df4cd1b0bdf548fedc48f27c6367536a560857f61f9bec4b35179c8a45734"</span></span>,
+				  "<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+				</span>}</span>,
+				"<span class="hljs-attribute">end</span>": <span class="hljs-value">{
+				  "<span class="hljs-attribute">hash</span>": <span class="hljs-value"><span class="hljs-string">"001fd35407abd8f4e2ec9734ce6f91d820ff553efcb9c39d657afed84da84963"</span></span>,
+				  "<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">200</span>
+				</span>}
+			  </span>}</span>,
+			  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+			  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+			<h2><a id="getaddressmempool"></a>getaddressmempool</h2>
+			<hr>
+			<p><strong>getaddressmempool ‘{ “addresses” : [ “address” , … ] }’</strong></p>
+			<p>The <code>getaddressmempool</code> method returns all mempool deltas for an address, or addresses. The method requires <code>addressindex</code> to be enabled.</p>
+			<h3>Arguments</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>“address”</td>
+			<td>(string)</td>
+			<td>the address</td>
+			</tr>
+			</tbody>
+			</table>
+			<h3>Response</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>“address”</td>
+			<td>(string)</td>
+			<td>the address</td>
+			</tr>
+			<tr>
+			<td>“txid”</td>
+			<td>(string)</td>
+			<td>the related txid</td>
+			</tr>
+			<tr>
+			<td>“index”</td>
+			<td>(number)</td>
+			<td>the related input or output index</td>
+			</tr>
+			<tr>
+			<td>“satoshis”</td>
+			<td>(number)</td>
+			<td>the difference in satoshis</td>
+			</tr>
+			<tr>
+			<td>“timestamp”</td>
+			<td>(number)</td>
+			<td>the time the transaction entered the mempool (seconds)</td>
+			</tr>
+			<tr>
+			<td>“prevtxid”</td>
+			<td>(string)</td>
+			<td>the previous txid (if spending)</td>
+			</tr>
+			<tr>
+			<td>“prevout”</td>
+			<td>(string)</td>
+			<td>the previous transaction output index (if spending)</td>
+			</tr>
+			</tbody>
+			</table>
+			<h4>Examples</h4>
+			<a>Command:</a>
+			<pre><code>./hush-cli getaddressmempool <span class="hljs-string">'{"addresses": ["RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"]}'</span></code></pre>
+			<a>Response:</a>
+			<pre><code>[
+			  {
+				"<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"</span></span>,
+				"<span class="hljs-attribute">txid</span>": <span class="hljs-value"><span class="hljs-string">"55c9830c0b2efcbbbac4fb813ff0d85722c6d720a748459287b60ef96cdb6732"</span></span>,
+				"<span class="hljs-attribute">index</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+				"<span class="hljs-attribute">satoshis</span>": <span class="hljs-value"><span class="hljs-number">200000000</span></span>,
+				"<span class="hljs-attribute">timestamp</span>": <span class="hljs-value"><span class="hljs-number">1536356143</span>
+			  </span>}
+]</code></pre>
+			You can find the <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in hush3.conf file.
+			<a>Command:</a>
+			<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressmempool", "params": [{"addresses": ["RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"]}] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+			<a>Response:</a>
+			<pre><code>{
+			  "<span class="hljs-attribute">result</span>": <span class="hljs-value">[
+				{
+				  "<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"</span></span>,
+				  "<span class="hljs-attribute">txid</span>": <span class="hljs-value"><span class="hljs-string">"55c9830c0b2efcbbbac4fb813ff0d85722c6d720a748459287b60ef96cdb6732"</span></span>,
+				  "<span class="hljs-attribute">index</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+				  "<span class="hljs-attribute">satoshis</span>": <span class="hljs-value"><span class="hljs-number">200000000</span></span>,
+				  "<span class="hljs-attribute">timestamp</span>": <span class="hljs-value"><span class="hljs-number">1536356143</span>
+				</span>}
+			  ]</span>,
+			  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+			  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+			<h2><a id="getaddresstxids"></a>getaddresstxids</h2>
+			<hr>
+			<p><strong>getaddresstxids ‘{ “addresses” : [ “address” , … ] }’</strong></p>
+			<p>The <code>getaddresstxids</code> method returns the txids for an address, or addresses. It requires <code>addressindex</code> to be enabled.</p>
+			<!-- <p>The <code>getaddresstxids</code> method returns the txids for an address, or addresses. It requires <a href="file:///C:/basic-docs/smart-chains/smart-chain-setup/common-runtime-parameters.html#addressindex">addressindex</a> to be enabled.</p>
+			-->
+			<h3>Arguments</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>“address”</td>
+			<td>(string)</td>
+			<td>the address</td>
+			</tr>
+			<tr>
+			<td>“start”</td>
+			<td>(number)</td>
+			<td>the start block height</td>
+			</tr>
+			<tr>
+			<td>“end”</td>
+			<td>(number)</td>
+			<td>the end block height</td>
+			</tr>
+			</tbody>
+			</table>
+			<h3>Response</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>“transaction_id”</td>
+			<td>(string)</td>
+			<td>the transaction id</td>
+			</tr>
+			</tbody>
+			</table>
+			<h4>Examples</h4>
+			<p>Command:</p>
+			<pre><code>hush-cli getaddresstxids <span class="hljs-string">'{"addresses": ["RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb","RQUAkqRiRMqxcNrB29B4duTK4qkqfV9HVJ"]}'</span></code></pre>
+			<a>Response:</a>
+			<pre><code>[
+	<span class="hljs-string">"39c61e8ea769ba1fc971cb7dadc531f25a2528d01a4244f379043248b6c51cc1"</span>,
+	<span class="hljs-string">"800e4331018d02458ff4f2a7722f0508b810f7fcf53bc1c5ac85aec4e5fa706b"</span>,
+	<span class="hljs-string">"2a3c3664851370ff762b47d735cc661e3dbce4cf36b6c1b74799f3b1c847bd52"</span>,
+	<span class="hljs-string">"275f8383d85c0873c91ebfea3917d4136c89f43526da053177922d6c036634af"</span>
+]</code></pre>
+			You can find the <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in hush3.conf file.
+			<a>Command:</a>
+			<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getaddresstxids", "params": [{"addresses": ["RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"]}] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+			<a>Response:</a>
+			<pre><code>{
+			  "<span class="hljs-attribute">result</span>": <span class="hljs-value">[
+				<span class="hljs-string">"39c61e8ea769ba1fc971cb7dadc531f25a2528d01a4244f379043248b6c51cc1"</span>,
+				<span class="hljs-string">"800e4331018d02458ff4f2a7722f0508b810f7fcf53bc1c5ac85aec4e5fa706b"</span>,
+				<span class="hljs-string">"2a3c3664851370ff762b47d735cc661e3dbce4cf36b6c1b74799f3b1c847bd52"</span>,
+				<span class="hljs-string">"275f8383d85c0873c91ebfea3917d4136c89f43526da053177922d6c036634af"</span>
+			  ]</span>,
+			  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+			  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+			<h2><a id="getaddressutxos"></a>getaddressutxos</h2>
+			<hr>
+			<p><strong>getaddressutxos ‘{ “addresses” : [ “address” , … ], “chaininfo” }’</strong></p>
+			<p>The <code>getaddressutxos</code> method returns all unspent outputs for an address. It requires <code>addressindex</code> to be enabled.</p>
+			<h3>Arguments</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>“address”</td>
+			<td>(string)</td>
+			<td>the address</td>
+			</tr>
+			<tr>
+			<td>“chainInfo”</td>
+			<td>(boolean)</td>
+			<td>include chain info with results</td>
+			</tr>
+			</tbody>
+			</table>
+			<h3>Response</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>“address”</td>
+			<td>(string)</td>
+			<td>the address</td>
+			</tr>
+			<tr>
+			<td>“txid”</td>
+			<td>(string)</td>
+			<td>the output txid</td>
+			</tr>
+			<tr>
+			<td>“height”</td>
+			<td>(number)</td>
+			<td>the block height</td>
+			</tr>
+			<tr>
+			<td>“outputIndex”</td>
+			<td>(number)</td>
+			<td>the output index</td>
+			</tr>
+			<tr>
+			<td>“script”</td>
+			<td>(string)</td>
+			<td>the script hex encoded</td>
+			</tr>
+			<tr>
+			<td>“satoshis”</td>
+			<td>(number)</td>
+			<td>the number of satoshis of the output</td>
+			</tr>
+			</tbody>
+			</table>
+			<h4>Examples</h4>
+			<a>Command:</a>
+			<pre><code>./hush-cli getaddressutxos <span class="hljs-string">'{"addresses": ["RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"]}'</span></code></pre>
+			<a>Response;</a>
+			<pre><code>[
+			  {
+				"<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"</span></span>,
+				"<span class="hljs-attribute">txid</span>": <span class="hljs-value"><span class="hljs-string">"2a3c3664851370ff762b47d735cc661e3dbce4cf36b6c1b74799f3b1c847bd52"</span></span>,
+				"<span class="hljs-attribute">outputIndex</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+				"<span class="hljs-attribute">script</span>": <span class="hljs-value"><span class="hljs-string">"2102e0d9ea73a391400ed2cb090e029d3f03eda0efaf371da11f436c076d817025e4ac"</span></span>,
+				"<span class="hljs-attribute">satoshis</span>": <span class="hljs-value"><span class="hljs-number">10000</span></span>,
+				"<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">3</span>
+			  </span>}
+]</code></pre>
+			<a>Command:</a>
+			<pre><code>./hush-cli getaddressutxos <span class="hljs-string">'{"addresses": ["RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"], "chainInfo": true}'</span></code></pre>
+			<a>Response:</a>
+			<pre><code>{
+			  "<span class="hljs-attribute">utxos</span>": <span class="hljs-value">[
+				{
+				  "<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"</span></span>,
+				  "<span class="hljs-attribute">txid</span>": <span class="hljs-value"><span class="hljs-string">"2a3c3664851370ff762b47d735cc661e3dbce4cf36b6c1b74799f3b1c847bd52"</span></span>,
+				  "<span class="hljs-attribute">outputIndex</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+				  "<span class="hljs-attribute">script</span>": <span class="hljs-value"><span class="hljs-string">"2102e0d9ea73a391400ed2cb090e029d3f03eda0efaf371da11f436c076d817025e4ac"</span></span>,
+				  "<span class="hljs-attribute">satoshis</span>": <span class="hljs-value"><span class="hljs-number">10000</span></span>,
+				  "<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">3</span>
+				</span>}
+			  ]</span>,
+			  "<span class="hljs-attribute">hash</span>": <span class="hljs-value"><span class="hljs-string">"0dd66ee1f151c38f73843378c08715ee3f4d3cf2888783e2846b81c057987084"</span></span>,
+			  "<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">398</span></span>}</code></pre>
+			You can find the <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in the hush3.conf file.
+			<a>Command:</a>
+			<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressutxos", "params": [{"addresses": ["RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"]}] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+			<a>Response:</a>
+			<pre><code>{
+			  "<span class="hljs-attribute">result</span>": <span class="hljs-value">[
+				{
+				  "<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"</span></span>,
+				  "<span class="hljs-attribute">txid</span>": <span class="hljs-value"><span class="hljs-string">"2a3c3664851370ff762b47d735cc661e3dbce4cf36b6c1b74799f3b1c847bd52"</span></span>,
+				  "<span class="hljs-attribute">outputIndex</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+				  "<span class="hljs-attribute">script</span>": <span class="hljs-value"><span class="hljs-string">"2102e0d9ea73a391400ed2cb090e029d3f03eda0efaf371da11f436c076d817025e4ac"</span></span>,
+				  "<span class="hljs-attribute">satoshis</span>": <span class="hljs-value"><span class="hljs-number">10000</span></span>,
+				  "<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">3</span>
+				</span>}
+			  ]</span>,
+			  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+			  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre>
+			You can find the <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in hush3.conf file.
+			<a>Command:</a>
+			<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressutxos", "params": [{"addresses": ["RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"], "chainInfo": true}] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+			<a>Response:</a>
+			<pre><code>{
+			  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+				"<span class="hljs-attribute">utxos</span>": <span class="hljs-value">[
+				  {
+					"<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb"</span></span>,
+					"<span class="hljs-attribute">txid</span>": <span class="hljs-value"><span class="hljs-string">"2a3c3664851370ff762b47d735cc661e3dbce4cf36b6c1b74799f3b1c847bd52"</span></span>,
+					"<span class="hljs-attribute">outputIndex</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+					"<span class="hljs-attribute">script</span>": <span class="hljs-value"><span class="hljs-string">"2102e0d9ea73a391400ed2cb090e029d3f03eda0efaf371da11f436c076d817025e4ac"</span></span>,
+					"<span class="hljs-attribute">satoshis</span>": <span class="hljs-value"><span class="hljs-number">10000</span></span>,
+					"<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">3</span>
+				  </span>}
+				]</span>,
+				"<span class="hljs-attribute">hash</span>": <span class="hljs-value"><span class="hljs-string">"0dd66ee1f151c38f73843378c08715ee3f4d3cf2888783e2846b81c057987084"</span></span>,
+				"<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">398</span>
+			  </span>}</span>,
+			  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+			  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+
+			<h2><a id="getsnapshot"></a>getsnapshot</h2>
+			<hr>
+			<p><strong>getsnapshot top</strong></p>
+			<p>The <code>getsnapshot</code> method returns a snapshot of addresses and their amounts at the Smart Chain’s current height.</p>
+			<p>The method requires <code>addressindex</code> to be enabled.</p>
+			<h3>Arguments</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>“top”</td>
+			<td>(number, optional)</td>
+			<td>Only return this many addresses, i.e. top N rich list</td>
+			</tr>
+			</tbody>
+			</table>
+			<h3>Response</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>“addresses”</td>
+			<td>(array of jsons)</td>
+			<td>the array containing the address and amount details</td>
+			</tr>
+			<tr>
+			<td>“addr”</td>
+			<td>(string)</td>
+			<td>an address</td>
+			</tr>
+			<tr>
+			<td>“amount”</td>
+			<td>(number)</td>
+			<td>the amount of Hush in the above address</td>
+			</tr>
+			<tr>
+			<td>“total”</td>
+			<td>(numeric)</td>
+			<td>the total amount in snapshot</td>
+			</tr>
+			<tr>
+			<td>“average”</td>
+			<td>(numeric)</td>
+			<td>the average amount in each address</td>
+			</tr>
+			<tr>
+			<td>“utxos”</td>
+			<td>(number)</td>
+			<td>the total number of utxos in snapshot</td>
+			</tr>
+			<tr>
+			<td>“total_addresses”</td>
+			<td>(number)</td>
+			<td>the total number of addresses in snapshot,</td>
+			</tr>
+			<tr>
+			<td>“start_height”</td>
+			<td>(number)</td>
+			<td>the block height snapshot began</td>
+			</tr>
+			<tr>
+			<td>“ending_height”</td>
+			<td>(number)</td>
+			<td>the block height snapshot finished,</td>
+			</tr>
+			<tr>
+			<td>“start_time”</td>
+			<td>(number)</td>
+			<td>the unix epoch time snapshot started</td>
+			</tr>
+			<tr>
+			<td>“end_time”</td>
+			<td>(number)</td>
+			<td>the unix epoch time snapshot finished</td>
+			</tr>
+			</tbody>
+			</table>
+			<h4>Examples</h4>
+			<a>Command:</a>
+			<pre><code>./hush-cli getsnapshot <span class="hljs-number">5</span></code></pre>
+			<a>Response:</a>
+			<pre><code>{
+			  "<span class="hljs-attribute">start_time</span>": <span class="hljs-value"><span class="hljs-number">1552473201</span></span>,
+			  "<span class="hljs-attribute">addresses</span>": <span class="hljs-value">[
+				{
+				  "<span class="hljs-attribute">addr</span>": <span class="hljs-value"><span class="hljs-string">"RRyyejME7LRTuvdziWsXkAbSW1fdiohGwK"</span></span>,
+				  "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-string">"6193787.46198546"</span></span>,
+				  "<span class="hljs-attribute">segid</span>": <span class="hljs-value"><span class="hljs-number">13</span>
+				</span>},
+				{
+				  "<span class="hljs-attribute">addr</span>": <span class="hljs-value"><span class="hljs-string">"RNaNh2fDvnoimuFGSFtp2c6xb5pN7mMWQV"</span></span>,
+				  "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-string">"6169247.09074260"</span></span>,
+				  "<span class="hljs-attribute">segid</span>": <span class="hljs-value"><span class="hljs-number">44</span>
+				</span>},
+				{
+				  "<span class="hljs-attribute">addr</span>": <span class="hljs-value"><span class="hljs-string">"RTu3JZZKLJTcfNwBa19dWRagEfQq49STqC"</span></span>,
+				  "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-string">"5124337.23955756"</span></span>,
+				  "<span class="hljs-attribute">segid</span>": <span class="hljs-value"><span class="hljs-number">61</span>
+				</span>},
+				{
+				  "<span class="hljs-attribute">addr</span>": <span class="hljs-value"><span class="hljs-string">"RBpEnyzuQNj1hNdAG1pKLALpAWEUS67PBj"</span></span>,
+				  "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-string">"3029259.10629025"</span></span>,
+				  "<span class="hljs-attribute">segid</span>": <span class="hljs-value"><span class="hljs-number">24</span>
+				</span>},
+				{
+				  "<span class="hljs-attribute">addr</span>": <span class="hljs-value"><span class="hljs-string">"RCyANUW2H5985zk8p6NHJfPyNBXnTVzGDh"</span></span>,
+				  "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-string">"2700034.72826615"</span></span>,
+				  "<span class="hljs-attribute">segid</span>": <span class="hljs-value"><span class="hljs-number">48</span>
+				</span>}
+			  ]</span>,
+			  "<span class="hljs-attribute">total</span>": <span class="hljs-value"><span class="hljs-number">23216665.62684202</span></span>,
+			  "<span class="hljs-attribute">average</span>": <span class="hljs-value"><span class="hljs-number">4643333</span></span>,
+			  "<span class="hljs-attribute">utxos</span>": <span class="hljs-value"><span class="hljs-number">2416430</span></span>,
+			  "<span class="hljs-attribute">total_addresses</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+			  "<span class="hljs-attribute">ignored_addresses</span>": <span class="hljs-value"><span class="hljs-number">31</span></span>,
+			  "<span class="hljs-attribute">start_height</span>": <span class="hljs-value"><span class="hljs-number">1266933</span></span>,
+			  "<span class="hljs-attribute">ending_height</span>": <span class="hljs-value"><span class="hljs-number">1266933</span></span>,
+			  "<span class="hljs-attribute">end_time</span>": <span class="hljs-value"><span class="hljs-number">1552473348</span>
+</span>}</code></pre>
+
+			You can find the <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in hush3.conf file.</p>
+			<a>Command:</a>
+			<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getsnapshot", "params": ["5"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+			<a>Response:</a>
+			<pre><code>{
+			  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+				"<span class="hljs-attribute">start_time</span>": <span class="hljs-value"><span class="hljs-number">1552473714</span></span>,
+				"<span class="hljs-attribute">addresses</span>": <span class="hljs-value">[
+				  {
+					"<span class="hljs-attribute">addr</span>": <span class="hljs-value"><span class="hljs-string">"RRyyejME7LRTuvdziWsXkAbSW1fdiohGwK"</span></span>,
+					"<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-string">"6193787.46198546"</span></span>,
+					"<span class="hljs-attribute">segid</span>": <span class="hljs-value"><span class="hljs-number">13</span>
+				  </span>},
+				  {
+					"<span class="hljs-attribute">addr</span>": <span class="hljs-value"><span class="hljs-string">"RNaNh2fDvnoimuFGSFtp2c6xb5pN7mMWQV"</span></span>,
+					"<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-string">"6169247.09074260"</span></span>,
+					"<span class="hljs-attribute">segid</span>": <span class="hljs-value"><span class="hljs-number">44</span>
+				  </span>},
+				  {
+					"<span class="hljs-attribute">addr</span>": <span class="hljs-value"><span class="hljs-string">"RTu3JZZKLJTcfNwBa19dWRagEfQq49STqC"</span></span>,
+					"<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-string">"5124337.23955756"</span></span>,
+					"<span class="hljs-attribute">segid</span>": <span class="hljs-value"><span class="hljs-number">61</span>
+				  </span>},
+				  {
+					"<span class="hljs-attribute">addr</span>": <span class="hljs-value"><span class="hljs-string">"RBpEnyzuQNj1hNdAG1pKLALpAWEUS67PBj"</span></span>,
+					"<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-string">"3029259.10629025"</span></span>,
+					"<span class="hljs-attribute">segid</span>": <span class="hljs-value"><span class="hljs-number">24</span>
+				  </span>},
+				  {
+					"<span class="hljs-attribute">addr</span>": <span class="hljs-value"><span class="hljs-string">"RCyANUW2H5985zk8p6NHJfPyNBXnTVzGDh"</span></span>,
+					"<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-string">"2700034.72826615"</span></span>,
+					"<span class="hljs-attribute">segid</span>": <span class="hljs-value"><span class="hljs-number">48</span>
+				  </span>}
+				]</span>,
+				"<span class="hljs-attribute">total</span>": <span class="hljs-value"><span class="hljs-number">23216665.62684202</span></span>,
+				"<span class="hljs-attribute">average</span>": <span class="hljs-value"><span class="hljs-number">4643333</span></span>,
+				"<span class="hljs-attribute">utxos</span>": <span class="hljs-value"><span class="hljs-number">2416443</span></span>,
+				"<span class="hljs-attribute">total_addresses</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+				"<span class="hljs-attribute">ignored_addresses</span>": <span class="hljs-value"><span class="hljs-number">31</span></span>,
+				"<span class="hljs-attribute">start_height</span>": <span class="hljs-value"><span class="hljs-number">1266941</span></span>,
+				"<span class="hljs-attribute">ending_height</span>": <span class="hljs-value"><span class="hljs-number">1266941</span></span>,
+				"<span class="hljs-attribute">end_time</span>": <span class="hljs-value"><span class="hljs-number">1552473829</span>
+			  </span>}</span>,
+			  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+			  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre>
+		</div>
+	</section>
+
+
+	<section class="text-area">
+		<div class="container" id="blockchain">
+		<h1>Blockchain</h1>
+		<hr>
+		In progress
+		</div>
+	</section>
+
+	<section class="text-area">
+		<div class="container" id="cclib">
+		<h1>CC Lib</h1>
+		<p>The following methods interact with Antara Modules that make use of the <code>-ac_cclib</code> parameter.</p>
+		<br>
+		<h2>cclib</h2>
+		<hr>
+		<p><strong>cclib insert_method insert_evalcode \&quot;[%22json_string%22, json_integer, … ]\&quot;</strong></p>
+		<p>The <code>cclib</code> method allows the user to interact with the dynamic Antara Module associated with <code>evalcode</code>.</p>
+		<p>Each <code>evalcode</code> module has unique methods and json parameters associated, as well as unique responses.</p>
+		<h4><a id="cclib_formatting"></a>cclib formatting</h4>
+		<p>Arguments for <code>cclib</code> methods are supplied as arrays. When executed in the terminal, the values for the array can be added in a normal fashion. However, when <code>cclib</code> methods are executed as a part of a script, the shell cannot parse the arrays without additional formatting.</p>
+		<h5><a id="Array_Formatting_for_Terminal"></a>Array Formatting for Terminal</h5>
+		<p>In the terminal, the array is bound by <code>''</code> single-quotation characters and strings are bound by <code>&quot;&quot;</code> double-quotation characters.</p>
+		<p>Terminal format:</p>
+		<pre><code>./hush-cli -ac_name=MUSIG  cclib send <span class="hljs-number">18</span> <span class="hljs-string">'["03d31479e789014a96ba6dd60d50210045aa8292fe693f293d44615929f04cf57a",1]'</span></code></pre>
+		<h5><a id="Array_Formatting_for_Bash_Scripts"></a>Array Formatting for Bash Scripts</h5>
+		<p>In a bash-script, the array is bound by <code>\&quot;\&quot;</code> escaped double-quotation characters and strings within the array are bound by <code>%22 %22</code> characters. (<code>0x22</code> is the ASCII encoding for <code>&quot;</code>.)</p>
+		<p>This format can be used in a terminal directly or in shell scripts, and therefore some developers may default to it, although the format is not always necessary.</p>
+		<p>Script format:</p>
+		<pre><code>./hush-cli -ac_name=MUSIG  cclib send <span class="hljs-number">18</span> \<span class="hljs-string">"[%2203d31479e789014a96ba6dd60d50210045aa8292fe693f293d44615929f04cf57a%22,1]\"</span></code></pre>
+		<p>::: tip<br>
+		The <a href="#cclibinfo">cclibinfo</a> method returns a complete list of available methods and their parameters for each unique <code>evalcode</code>.<br>
+		:::</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>method</td>
+		<td>(string)</td>
+		<td>the unique name of the method</td>
+		</tr>
+		<tr>
+		<td>evalcode</td>
+		<td>(decimal number)</td>
+		<td>the <code>EVALCODE</code> of the module of interest</td>
+		</tr>
+		<tr>
+		<td>json_params</td>
+		<td>(array)</td>
+		<td>the parameters to be supplied to the method, provided as an array</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>(the response for each <code>EVALCODE</code> is different)</td>
+		<td></td>
+		<td></td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli -ac_name=MUSIG cclib combine <span class="hljs-number">18</span> \<span class="hljs-string">"[%220225f1cbbda1a0c406bb8f6dc7a589d88b2f9e28cd4fdb3f59139f8aff1f5d270a%22,%2202d3431950c2f0f9654217b6ce3d44468d3a9ca7255741767fdeee7c5ec6b47567%22]\"</span></code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">pkhash</span>": <span class="hljs-value"><span class="hljs-string">"8897e150bfb07d3f967ffadb4b0f3c84ea73a94c0d715c4b7e6d9c816c5113a9"</span></span>,
+		  "<span class="hljs-attribute">combined_pk</span>": <span class="hljs-value"><span class="hljs-string">"03d31479e789014a96ba6dd60d50210045aa8292fe693f293d44615929f04cf57a"</span></span>,
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+</span>}</code></pre><br>
+		<h2><a id="cclibaddress"></a>cclibaddress</h2><hr>
+		<p><strong>cclibaddress evalcode pubkey</strong></p>
+		<p>The <code>cclibaddress</code> method returns information about the addresses related to the specified <code>pubkey</code>, and according to the Antara Module associated with the specified <code>evalcode</code>. If no <code>pubkey</code> is provided, the <code>pubkey</code> used to the launch the daemon is the default.</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>evalcode</td>
+		<td>(decimal number)</td>
+		<td>the <code>EVALCODE</code> of the module of interest</td>
+		</tr>
+		<tr>
+		<td>pubkey</td>
+		<td>(string, optional)</td>
+		<td>the public key related to the requested address information</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>result</td>
+		<td>(string)</td>
+		<td>whether the command executed successfully</td>
+		</tr>
+		<tr>
+		<td>CClibCCAddress</td>
+		<td>(string)</td>
+		<td>taking the parameter <code>evalcode</code> as a modifier, this is the public address that corresponds to the Antara Module’s privkey</td>
+		</tr>
+		<tr>
+		<td>CCbalance</td>
+		<td>(number)</td>
+		<td>the amount of coins in the <code>CClibCCAddress</code></td>
+		</tr>
+		<tr>
+		<td>CClibNormalAddress</td>
+		<td>(string)</td>
+		<td>the unmodified public address generated from the Antara Module’s privkey</td>
+		</tr>
+		<tr>
+		<td>CClibCCTokensAddress</td>
+		<td>(string)</td>
+		<td>this property is used for development purposes only and can otherwise be ignored</td>
+		</tr>
+		<tr>
+		<td>myAddress</td>
+		<td>(string)</td>
+		<td>the normal address generated from the <code>pubkey</code></td>
+		</tr>
+		<tr>
+		<td>myCCAddress(CClib)</td>
+		<td>(string)</td>
+		<td>taking the parameter <code>evalcode</code> as a modifier, this is the public address that corresponds to the <code>pubkey</code></td>
+		</tr>
+		<tr>
+		<td>PubkeyCCaddress(CClib)</td>
+		<td>(string)</td>
+		<td>taking the parameter <code>evalcode</code> as a modifier, this is the public address that corresponds to the <code>pubkey</code></td>
+		</tr>
+		<tr>
+		<td>myCCaddress</td>
+		<td>(string)</td>
+		<td>taking the parameter <code>evalcode</code> as a modifier, this is the public address that corresponds to the <code>pubkey</code></td>
+		</tr>
+		<tr>
+		<td>myCCbalance</td>
+		<td>(number)</td>
+		<td>the amount of coins in <code>myCCaddress</code></td>
+		</tr>
+		<tr>
+		<td>mybalance</td>
+		<td>(number)</td>
+		<td>the amount of coins in <code>myAddress</code></td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli -ac_name=MUSIG cclibaddress <span class="hljs-number">18</span> <span class="hljs-number">0225</span>f1cbbda1a0c406bb8f6dc7a589d88b2f9e28<span class="hljs-built_in">cd</span>4fdb3f59139f8aff1f5d270a</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"success"</span></span>,
+		  "<span class="hljs-attribute">CClibCCAddress</span>": <span class="hljs-value"><span class="hljs-string">"RKWS7jxyjPX9iaJttk8iMKf1AumanKypez"</span></span>,
+		  "<span class="hljs-attribute">CCbalance</span>": <span class="hljs-value"><span class="hljs-number">2.0977</span></span>,
+		  "<span class="hljs-attribute">CClibNormalAddress</span>": <span class="hljs-value"><span class="hljs-string">"RQHYfxb21ow4Xppt2H9x7k5XMhk7PMbKCc"</span></span>,
+		  "<span class="hljs-attribute">CClibCCTokensAddress</span>": <span class="hljs-value"><span class="hljs-string">"RVjvG3or8b8asoYBJua9p97pf3RSpaEhRG"</span></span>,
+		  "<span class="hljs-attribute">myAddress</span>": <span class="hljs-value"><span class="hljs-string">"RUfCUd3UryKJ49baQvSuAs42wakNunvvfT"</span></span>,
+		  "<span class="hljs-attribute">myCCAddress(CClib)</span>": <span class="hljs-value"><span class="hljs-string">"RPYCYEtS7GAt1W9LvJWXHsndozaA8yy4H9"</span></span>,
+		  "<span class="hljs-attribute">PubkeyCCaddress(CClib)</span>": <span class="hljs-value"><span class="hljs-string">"RPYCYEtS7GAt1W9LvJWXHsndozaA8yy4H9"</span></span>,
+		  "<span class="hljs-attribute">myCCaddress</span>": <span class="hljs-value"><span class="hljs-string">"RPYCYEtS7GAt1W9LvJWXHsndozaA8yy4H9"</span></span>,
+		  "<span class="hljs-attribute">myCCbalance</span>": <span class="hljs-value"><span class="hljs-number">0.0</span></span>,
+		  "<span class="hljs-attribute">myaddress</span>": <span class="hljs-value"><span class="hljs-string">"RUfCUd3UryKJ49baQvSuAs42wakNunvvfT"</span></span>,
+		  "<span class="hljs-attribute">mybalance</span>": <span class="hljs-value"><span class="hljs-number">94.60081561</span>
+</span>}</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in the coin’s <code>.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "cclibaddress", "params": ["18", "0225f1cbbda1a0c406bb8f6dc7a589d88b2f9e28cd4fdb3f59139f8aff1f5d270a"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+			"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"success"</span></span>,
+			"<span class="hljs-attribute">CClibCCAddress</span>": <span class="hljs-value"><span class="hljs-string">"RKWS7jxyjPX9iaJttk8iMKf1AumanKypez"</span></span>,
+			"<span class="hljs-attribute">CClibCCBalance</span>": <span class="hljs-value"><span class="hljs-number">0.0</span></span>,
+			"<span class="hljs-attribute">CClibNormalAddress</span>": <span class="hljs-value"><span class="hljs-string">"RQHYfxb21ow4Xppt2H9x7k5XMhk7PMbKCc"</span></span>,
+			"<span class="hljs-attribute">CClibNormalBalance</span>": <span class="hljs-value"><span class="hljs-number">0.0</span></span>,
+			"<span class="hljs-attribute">CClibCCTokensAddress</span>": <span class="hljs-value"><span class="hljs-string">"RVjvG3or8b8asoYBJua9p97pf3RSpaEhRG"</span></span>,
+			"<span class="hljs-attribute">PubkeyCCaddress(CClib)</span>": <span class="hljs-value"><span class="hljs-string">"RPYCYEtS7GAt1W9LvJWXHsndozaA8yy4H9"</span></span>,
+			"<span class="hljs-attribute">PubkeyCCbalance(CClib)</span>": <span class="hljs-value"><span class="hljs-number">0.0</span></span>,
+			"<span class="hljs-attribute">myCCAddress(CClib)</span>": <span class="hljs-value"><span class="hljs-string">"RJ2bk7v8nUZhensBW5FB2kx1TQcnmEtGTp"</span></span>,
+			"<span class="hljs-attribute">myCCbalance(CClib)</span>": <span class="hljs-value"><span class="hljs-number">0.0</span></span>,
+			"<span class="hljs-attribute">myaddress</span>": <span class="hljs-value"><span class="hljs-string">"RN727JeeiZ6NXic7PUKTCiHT1HvuBN4RDa"</span></span>,
+			"<span class="hljs-attribute">mybalance</span>": <span class="hljs-value"><span class="hljs-number">100005.1364497</span>
+		  </span>}</span>,
+		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span></span>
+}</code></pre><br>
+		<h2><a id="cclibinfo"></a>cclibinfo</h2><hr>
+		<p><strong>cclibinfo</strong></p>
+		<p>The <code>cclibinfo</code> method displays all the methods of all the modules that are available in the current library.</p>
+		<p>The library is loaded at runtime using the <a href="#ac-cclib">-ac_cclib</a> parameter.</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>(none)</td>
+		<td></td>
+		<td></td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>result</td>
+		<td>(string)</td>
+		<td>whether the command executed successfully</td>
+		</tr>
+		<tr>
+		<td>CClib</td>
+		<td>(string)</td>
+		<td>the name of the given CClibrary</td>
+		</tr>
+		<tr>
+		<td>methods</td>
+		<td>(array of json objects)</td>
+		<td>an array containing json objects, each of which describe a method of a module</td>
+		</tr>
+		<tr>
+		<td>evalcode</td>
+		<td>(decimal number)</td>
+		<td>the <code>EVALCODE</code> of the given Antara Module</td>
+		</tr>
+		<tr>
+		<td>funcid</td>
+		<td>(character)</td>
+		<td>this value is a mnemonic in the <code>OP_RETURN</code> for all generated transactions; if the provided method does not generate a transaction, this value is a single character that has no relevant meaning</td>
+		</tr>
+		<tr>
+		<td>name</td>
+		<td>(string)</td>
+		<td>the name of the Antara module</td>
+		</tr>
+		<tr>
+		<td>method</td>
+		<td>(string)</td>
+		<td>the name of the method</td>
+		</tr>
+		<tr>
+		<td>help</td>
+		<td>(string)</td>
+		<td>help for the method, including a description of the method’s arguments</td>
+		</tr>
+		<tr>
+		<td>params_required</td>
+		<td>(decimal number)</td>
+		<td>the number of parameters that are required for the method to succeed</td>
+		</tr>
+		<tr>
+		<td>params_max</td>
+		<td>(decimal number)</td>
+		<td>the maximum number of parameters the method can accept</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli -ac_name=MUSIG cclibinfo</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"success"</span></span>,
+		  "<span class="hljs-attribute">CClib</span>": <span class="hljs-value"><span class="hljs-string">"sudoku"</span></span>,
+		  "<span class="hljs-attribute">methods</span>": <span class="hljs-value">[
+			{
+			  "<span class="hljs-attribute">evalcode</span>": <span class="hljs-value"><span class="hljs-number">16</span></span>,
+			  "<span class="hljs-attribute">funcid</span>": <span class="hljs-value"><span class="hljs-string">"F"</span></span>,
+			  "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"faucet2"</span></span>,
+			  "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"fund"</span></span>,
+			  "<span class="hljs-attribute">help</span>": <span class="hljs-value"><span class="hljs-string">"amount"</span></span>,
+			  "<span class="hljs-attribute">params_required</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+			  "<span class="hljs-attribute">params_max</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+			</span>},
+			{
+			  "<span class="hljs-attribute">evalcode</span>": <span class="hljs-value"><span class="hljs-number">16</span></span>,
+			  "<span class="hljs-attribute">funcid</span>": <span class="hljs-value"><span class="hljs-string">"G"</span></span>,
+			  "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"faucet2"</span></span>,
+			  "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"get"</span></span>,
+			  "<span class="hljs-attribute">help</span>": <span class="hljs-value"><span class="hljs-string">"&lt;no args&gt;"</span></span>,
+			  "<span class="hljs-attribute">params_required</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			  "<span class="hljs-attribute">params_max</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+			</span>},
+			{
+			  "<span class="hljs-attribute">evalcode</span>": <span class="hljs-value"><span class="hljs-number">17</span></span>,
+			  "<span class="hljs-attribute">funcid</span>": <span class="hljs-value"><span class="hljs-string">"G"</span></span>,
+			  "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"sudoku"</span></span>,
+			  "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"gen"</span></span>,
+			  "<span class="hljs-attribute">help</span>": <span class="hljs-value"><span class="hljs-string">"&lt;no args&gt;"</span></span>,
+			  "<span class="hljs-attribute">params_required</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			  "<span class="hljs-attribute">params_max</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+			</span>},
+		..... (omitted for brevity)
+}</span></code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "cclibinfo", "params": [ ] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+			"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"success"</span></span>,
+			"<span class="hljs-attribute">CClib</span>": <span class="hljs-value"><span class="hljs-string">"sudoku"</span></span>,
+			"<span class="hljs-attribute">methods</span>": <span class="hljs-value">[
+			  {
+				"<span class="hljs-attribute">evalcode</span>": <span class="hljs-value"><span class="hljs-number">16</span></span>,
+				"<span class="hljs-attribute">funcid</span>": <span class="hljs-value"><span class="hljs-string">"F"</span></span>,
+				"<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"faucet2"</span></span>,
+				"<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"fund"</span></span>,
+				"<span class="hljs-attribute">help</span>": <span class="hljs-value"><span class="hljs-string">"amount"</span></span>,
+				"<span class="hljs-attribute">params_required</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+				"<span class="hljs-attribute">params_max</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+			  </span>},
+			  {
+				"<span class="hljs-attribute">evalcode</span>": <span class="hljs-value"><span class="hljs-number">16</span></span>,
+				"<span class="hljs-attribute">funcid</span>": <span class="hljs-value"><span class="hljs-string">"G"</span></span>,
+				"<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"faucet2"</span></span>,
+				"<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"get"</span></span>,
+				"<span class="hljs-attribute">help</span>": <span class="hljs-value"><span class="hljs-string">"&lt;no args&gt;"</span></span>,
+				"<span class="hljs-attribute">params_required</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+				"<span class="hljs-attribute">params_max</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+			  </span>},
+			  {
+				"<span class="hljs-attribute">evalcode</span>": <span class="hljs-value"><span class="hljs-number">17</span></span>,
+				"<span class="hljs-attribute">funcid</span>": <span class="hljs-value"><span class="hljs-string">"G"</span></span>,
+				"<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"sudoku"</span></span>,
+				"<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"gen"</span></span>,
+				"<span class="hljs-attribute">help</span>": <span class="hljs-value"><span class="hljs-string">"&lt;no args&gt;"</span></span>,
+				"<span class="hljs-attribute">params_required</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+				"<span class="hljs-attribute">params_max</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+			  </span>},
+			  ..... (omitted for brevity)
+		
+			]
+		  </span>}</span>,
+		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre>
+		</div>
+	</section>
+
+
+	<section class="text-area">
+		<div class="container" id="control">
+		<h1>Control</h1>
+		<hr>
+		<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</p>
+		<br>
+		<h2><a id="getinfo"></a>getinfo</h2><hr>
+		<p><strong>getinfo</strong></p>
+		<p>The <code>getinfo</code> method returns an object containing various state info.</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>(none)</td>
+		<td></td>
+		<td></td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“version”</td>
+		<td>(numeric)</td>
+		<td>the server version</td>
+		</tr>
+		<tr>
+		<td>“protocolversion”</td>
+		<td>(numeric)</td>
+		<td>the protocol version</td>
+		</tr>
+		<tr>
+		<td>“walletversion”</td>
+		<td>(numeric)</td>
+		<td>the wallet version</td>
+		</tr>
+		<tr>
+		<td>“balance”</td>
+		<td>(numeric)</td>
+		<td>the total balance of the wallet</td>
+		</tr>
+		<tr>
+		<td>“blocks”</td>
+		<td>(numeric)</td>
+		<td>the current number of blocks processed in the server</td>
+		</tr>
+		<tr>
+		<td>“timeoffset”</td>
+		<td>(numeric)</td>
+		<td>the time offset</td>
+		</tr>
+		<tr>
+		<td>“connections”</td>
+		<td>(numeric)</td>
+		<td>the number of connections</td>
+		</tr>
+		<tr>
+		<td>“proxy”</td>
+		<td>(string, optional)</td>
+		<td>the proxy used by the server</td>
+		</tr>
+		<tr>
+		<td>“difficulty”</td>
+		<td>(numeric)</td>
+		<td>the current difficulty</td>
+		</tr>
+		<tr>
+		<td>“testnet”</td>
+		<td>(boolean)</td>
+		<td>if the server is using testnet or not</td>
+		</tr>
+		<tr>
+		<td>“keypoololdest”</td>
+		<td>(numeric)</td>
+		<td>the timestamp (seconds since GMT epoch) of the oldest pre-generated key in the key pool</td>
+		</tr>
+		<tr>
+		<td>“keypoolsize”</td>
+		<td>(numeric)</td>
+		<td>how many new keys are pre-generated</td>
+		</tr>
+		<tr>
+		<td>“unlocked_until”</td>
+		<td>(numeric)</td>
+		<td>the timestamp in seconds since epoch (midnight Jan 1 1970 GMT) that the wallet is unlocked for transfers, or 0 if the wallet is locked</td>
+		</tr>
+		<tr>
+		<td>“paytxfee”</td>
+		<td>(numeric)</td>
+		<td>the transaction fee set in COIN/kB</td>
+		</tr>
+		<tr>
+		<td>“relayfee”</td>
+		<td>(numeric)</td>
+		<td>minimum relay fee for non-free transactions in COIN/kB</td>
+		</tr>
+		<tr>
+		<td>“errors”</td>
+		<td>(string)</td>
+		<td>any error messages</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli getinfo</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-number">1001550</span></span>,
+		  "<span class="hljs-attribute">protocolversion</span>": <span class="hljs-value"><span class="hljs-number">170003</span></span>,
+		  "<span class="hljs-attribute">KMDversion</span>": <span class="hljs-value"><span class="hljs-string">"0.2.0"</span></span>,
+		  "<span class="hljs-attribute">notarized</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+		  "<span class="hljs-attribute">prevMoMheight</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+		  "<span class="hljs-attribute">notarizedhash</span>": <span class="hljs-value"><span class="hljs-string">"0000000000000000000000000000000000000000000000000000000000000000"</span></span>,
+		  "<span class="hljs-attribute">notarizedtxid</span>": <span class="hljs-value"><span class="hljs-string">"0000000000000000000000000000000000000000000000000000000000000000"</span></span>,
+		  "<span class="hljs-attribute">notarizedtxid_height</span>": <span class="hljs-value"><span class="hljs-string">"mempool"</span></span>,
+		  "<span class="hljs-attribute">KMDnotarized_height</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+		  "<span class="hljs-attribute">notarized_confirms</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+		  "<span class="hljs-attribute">walletversion</span>": <span class="hljs-value"><span class="hljs-number">60000</span></span>,
+		  "<span class="hljs-attribute">balance</span>": <span class="hljs-value"><span class="hljs-number">10.16429765</span></span>,
+		  "<span class="hljs-attribute">blocks</span>": <span class="hljs-value"><span class="hljs-number">459</span></span>,
+		  "<span class="hljs-attribute">longestchain</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+		  "<span class="hljs-attribute">timeoffset</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+		  "<span class="hljs-attribute">tiptime</span>": <span class="hljs-value"><span class="hljs-number">1536624090</span></span>,
+		  "<span class="hljs-attribute">connections</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+		  "<span class="hljs-attribute">proxy</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+		  "<span class="hljs-attribute">difficulty</span>": <span class="hljs-value"><span class="hljs-number">1.000026345948652</span></span>,
+		  "<span class="hljs-attribute">testnet</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+		  "<span class="hljs-attribute">keypoololdest</span>": <span class="hljs-value"><span class="hljs-number">1536262464</span></span>,
+		  "<span class="hljs-attribute">keypoolsize</span>": <span class="hljs-value"><span class="hljs-number">101</span></span>,
+		  "<span class="hljs-attribute">paytxfee</span>": <span class="hljs-value"><span class="hljs-number">0.0</span></span>,
+		  "<span class="hljs-attribute">relayfee</span>": <span class="hljs-value"><span class="hljs-number">0.000001</span></span>,
+		  "<span class="hljs-attribute">errors</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+		  "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"SIDD"</span></span>,
+		  "<span class="hljs-attribute">p2pport</span>": <span class="hljs-value"><span class="hljs-number">9800</span></span>,
+		  "<span class="hljs-attribute">rpcport</span>": <span class="hljs-value"><span class="hljs-number">9801</span></span>,
+		  "<span class="hljs-attribute">magic</span>": <span class="hljs-value">-<span class="hljs-number">759875707</span></span>,
+		  "<span class="hljs-attribute">premine</span>": <span class="hljs-value"><span class="hljs-number">10</span>
+</span>}</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hus3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getinfo", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+			"<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-number">1001550</span></span>,
+			"<span class="hljs-attribute">protocolversion</span>": <span class="hljs-value"><span class="hljs-number">170003</span></span>,
+			"<span class="hljs-attribute">KMDversion</span>": <span class="hljs-value"><span class="hljs-string">"0.2.0"</span></span>,
+			"<span class="hljs-attribute">notarized</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">prevMoMheight</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">notarizedhash</span>": <span class="hljs-value"><span class="hljs-string">"0000000000000000000000000000000000000000000000000000000000000000"</span></span>,
+			"<span class="hljs-attribute">notarizedtxid</span>": <span class="hljs-value"><span class="hljs-string">"0000000000000000000000000000000000000000000000000000000000000000"</span></span>,
+			"<span class="hljs-attribute">notarizedtxid_height</span>": <span class="hljs-value"><span class="hljs-string">"mempool"</span></span>,
+			"<span class="hljs-attribute">KMDnotarized_height</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">notarized_confirms</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">walletversion</span>": <span class="hljs-value"><span class="hljs-number">60000</span></span>,
+			"<span class="hljs-attribute">balance</span>": <span class="hljs-value"><span class="hljs-number">10.16429765</span></span>,
+			"<span class="hljs-attribute">blocks</span>": <span class="hljs-value"><span class="hljs-number">459</span></span>,
+			"<span class="hljs-attribute">longestchain</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">timeoffset</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">tiptime</span>": <span class="hljs-value"><span class="hljs-number">1536624090</span></span>,
+			"<span class="hljs-attribute">connections</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">proxy</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+			"<span class="hljs-attribute">difficulty</span>": <span class="hljs-value"><span class="hljs-number">1.000026345948652</span></span>,
+			"<span class="hljs-attribute">testnet</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+			"<span class="hljs-attribute">keypoololdest</span>": <span class="hljs-value"><span class="hljs-number">1536262464</span></span>,
+			"<span class="hljs-attribute">keypoolsize</span>": <span class="hljs-value"><span class="hljs-number">101</span></span>,
+			"<span class="hljs-attribute">relayfee</span>": <span class="hljs-value"><span class="hljs-number">1e-6</span></span>,
+			"<span class="hljs-attribute">paytxfee</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">errors</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+			"<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"SIDD"</span></span>,
+			"<span class="hljs-attribute">p2pport</span>": <span class="hljs-value"><span class="hljs-number">9800</span></span>,
+			"<span class="hljs-attribute">rpcport</span>": <span class="hljs-value"><span class="hljs-number">9801</span></span>,
+			"<span class="hljs-attribute">magic</span>": <span class="hljs-value">-<span class="hljs-number">759875707</span></span>,
+			"<span class="hljs-attribute">premine</span>": <span class="hljs-value"><span class="hljs-number">10</span>
+		  </span>}</span>,
+		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		<h2><a id="help"></a>help</h2><hr>
+		<p><strong>help ( “command” )</strong></p>
+		<p>The <code>help</code> method lists all commands, or all information for a specified command.</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“command”</td>
+		<td>(string, optional)</td>
+		<td>the command requiring assistance</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“command”</td>
+		<td>(string, optional)</td>
+		<td>the command requiring assistance</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli <span class="hljs-built_in">help</span></code></pre>
+		<a>Response:</a>
+		<pre><code>== Addressindex ==
+		getaddressbalance
+		getaddressdeltas
+		getaddressmempool
+		getaddresstxids
+		getaddressutxos
+		getsnapshot
+		
+		== Auction ==
+		auctionaddress [pubkey]
+		
+		== Blockchain ==
+		coinsupply &lt;height&gt;
+		getbestblockhash
+		getblock <span class="hljs-string">"hash|height"</span> ( verbose )
+		getblockchaininfo
+		getblockcount
+		
+		getblockhash index
+		getblockhashes timestamp
+		getblockheader <span class="hljs-string">"hash"</span> ( verbose )
+		getchaintips
+		getdifficulty
+		
+		........ (other responses omitted <span class="hljs-keyword">for</span> brevity)</code></pre>
+		<a>Command:</a>
+		<pre><code>./hush-cli <span class="hljs-built_in">help</span> getaddressbalance</code></pre>
+		<a>Response:</a>
+		<pre><code>Returns the balance <span class="hljs-keyword">for</span> an address(es) (requires addressindex to be enabled).
+		
+		Arguments:
+		{
+		  <span class="hljs-string">"addresses"</span>
+			[
+			  <span class="hljs-string">"address"</span>  (string) The base58check encoded address
+			  ,...
+			]
+		}
+		
+		Result:
+		{
+		  <span class="hljs-string">"balance"</span>  (string) The current balance <span class="hljs-keyword">in</span> satoshis
+		  <span class="hljs-string">"received"</span>  (string) The total number of satoshis received (including change)
+		}
+		
+		Examples:
+		&gt; hush-cli getaddressbalance <span class="hljs-string">'{"addresses": ["RY5LccmGiX9bUHYGtSWQouNy1yFhc5rM87"]}'</span>
+		&gt; curl --user myusername --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressbalance", "params": [{"addresses": ["RY5LccmGiX9bUHYGtSWQouNy1yFhc5rM87"]}] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">7771</span>/
+		</code></pre><br>
+		<h2><a id="stop"></a>stop</h2><hr>
+		<p><strong>stop</strong></p>
+		<p>The <code>stop</code> method instructs the Hush daemon to shut down.</p>
+		<p>The amount of time it takes to shut down the chain will vary depending on the chain’s current state.</p>
+		<p>::: warning<br>
+		Forcefully stopping the chain should be avoided, as it may corrupt the local database. In the event of a corrupted database, the user will need to &lt;b&gt;resync&lt;/b&gt;.<br>
+		:::</p>
+		<h3><a id="Arguments"></a>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>(none)</td>
+		<td></td>
+		<td></td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>Hush server stopping</td>
+		<td></td>
+		<td></td>
+		</tr>
+		<tr>
+		<td>[COIN] Hush server stopping</td>
+		<td></td>
+		<td></td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli stop</code></pre>
+		<a>Response</a>
+		<pre><code><span class="hljs-string">"Hush server stopping"</span></code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "stop", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response</a>
+		<pre><code>{ "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"Hush server stopping"</span></span>, "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>, "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span> </span>}</code></pre>
+		</div>
+	</section>
+
+	<section class="text-area">
+		<div class="container" id="disclosure">
+		<h1>Disclosure</h1>
+		<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</p>
+		<br>
+		<h2><a id="z_getpaymentdisclosure"></a>z_getpaymentdisclosure</h2>
+		<hr>
+		<p>::: warning<br>
+		EXPERIMENTAL FEATURE: Payment disclosure is currently DISABLED. This call always fails.<br>
+		:::</p>
+		<p><strong>z_getpaymentdisclosure transaction js_index output_index (“message”)</strong></p>
+		<p>The <code>z_getpaymentdisclosure</code> method generates a payment disclosure for a given joinsplit output.</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“txid”</td>
+		<td>(string, required)</td>
+		<td>(in development) &lt;!–need to fill in this table–&gt;</td>
+		</tr>
+		<tr>
+		<td>“js_index”</td>
+		<td>(string, required)</td>
+		<td></td>
+		</tr>
+		<tr>
+		<td>“output_index”</td>
+		<td>(string, required)</td>
+		<td></td>
+		</tr>
+		<tr>
+		<td>“message”</td>
+		<td>(string, optional)</td>
+		<td></td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“paymentdisclosure”</td>
+		<td>(string)</td>
+		<td>a hex data string, with a “zpd:” prefix</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_getpaymentdisclosure 96f12882450429324d5f3b48630e3168220e49ab7b0f066e5c2935a6b88bb0f2 <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-string">"refund"</span></code></pre>
+		<a>Response:</a>
+		<pre><code>(currently disabled)</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in your coin’s .conf file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_getpaymentdisclosure", "params": ["96f12882450429324d5f3b48630e3168220e49ab7b0f066e5c2935a6b88bb0f2", 0, 0, "refund"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>(currently disabled)</code></pre><br>
+		<h2><a id="z_validatepaymentdisclosure"></a>z_validatepaymentdisclosure</h2><hr>
+		<p><strong>z_validatepaymentdisclosure “paymentdisclosure”</strong></p>
+		<p>The <code>z_validatepaymentdisclosure</code> method validates a payment disclosure.</p>
+		<p>::: warning<br>
+		EXPERIMENTAL FEATURE: Payment disclosure is currently DISABLED. This call always fails.<br>
+		:::</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“paymentdisclosure”</td>
+		<td>(string, required)</td>
+		<td>hex data string, with “zpd:” prefix</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>(currently disabled)</td>
+		<td></td>
+		<td></td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_validatepaymentdisclosure <span class="hljs-string">"zpd:706462ff004c561a0447ba2ec51184e6c204..."</span></code></pre>
+		<a>Response:</a>
+		<pre><code>(currently disabled)</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in the coin’s .conf file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_validatepaymentdisclosure", "params": ["zpd:706462ff004c561a0447ba2ec51184e6c204..."] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>(currently disabled)</code></pre>
+		</div>
+	</section>
+
+	<section class="text-area">
+		<div class="container" id="generate">
+		<h1>Generate</h1>
+		<hr>
+		In progress
+		</div>
+	</section>
+
+	<section class="text-area">
+		<div class="container" id="mining">
+		<h1>Mining</h1>
+		<hr>
+		<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</p>
+		<h2><a id="getblocksubsidy"></a>getblocksubsidy</h2>
+		<hr>
+		<p><strong>getblocksubsidy height_number</strong></p>
+		<p>The <code>getblocksubsidy</code> method returns the block-subsidy reward. The resulting calculation takes into account the mining slow start. This method can be used in conjunction with custom mining rewards designed by the developers of a KMD-based Smart Chain.</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>height</td>
+		<td>(numeric, optional)</td>
+		<td>the block height; if the block height is not provided, the method defaults to the current height of the chain</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“miner”</td>
+		<td>(numeric)</td>
+		<td>the mining reward amount</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli getblocksubsidy <span class="hljs-number">100</span></code></pre>
+		<a>Response:</a>
+		<pre><code>{
+	"<span class="hljs-attribute">miner</span>": <span class="hljs-value"><span class="hljs-number">3.0</span>
+</span>}</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getblocksubsidy", "params": [1000] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Responses</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+			"<span class="hljs-attribute">miner</span>": <span class="hljs-value"><span class="hljs-number">3.0</span>
+		  </span>}</span>,
+		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre>
+<br>
+		<h2><a id="getblocktemplate"></a>getblocktemplate</h2>
+		<hr>
+		<p><strong>getblocktemplate ( “jsonrequestobject” )</strong></p>
+		<p>::: tip<br>
+		See <a href="https://en.bitcoin.it/wiki/BIP_0022">https://en.bitcoin.it/wiki/BIP_0022</a> the Bitcoin wiki for the full specification.<br>
+		:::</p>
+		<p>The <code>getblocktemplate</code> method returns data that is necessary to construct a block.</p>
+		<p>If the request parameters include a <code>mode</code> key, it is used to explicitly select between the default ‘template’ request, a ‘proposal’ or ‘disablecb’.</p>
+		<h4>A Note on Unique Mining Circumstances</h4>
+		<p>There are many features in the Komodo Ecosystem that can make a Smart Chain’s daemon produce non-standard coinbase transactions. Examples include a Smart Chain parameter that creates new coins for a specific pubkey in every block or a CC module that adds outputs to the coinbase transaction.</p>
+		<p>This can be dealt using a mode called <code>disablecb</code></p>
+		<a>Usage:</a>
+		<pre><code>./hush-cli getblocktemplate <span class="hljs-string">'{"mode":"disablecb"}'</span></code></pre>
+		<p>The block template produced using this mode doesn’t have the <code>&quot;coinbasetxn&quot;: { ... }</code> json object but adds the coinbase transaction to the <code>&quot;transactions&quot;:[ ... ]</code> array, just like a regular transaction.</p>
+		<p>Now the pool software can use the <code>&quot;transactions&quot;:[ ... ]</code> array to create a block and take fees in the payment processor. The <code>knomp</code> <a href="https://github.com/blackjok3rtt/knomp">fork</a> by <a href="https://github.com/blackjok3rtt">@blackjok3rtt</a> uses this mode.</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“jsonrequestobject” : { … }</td>
+		<td>(string, optional)</td>
+		<td>a json object in the following spec</td>
+		</tr>
+		<tr>
+		<td>“mode”</td>
+		<td>(string, optional)</td>
+		<td>this must be set to “template” or omitted</td>
+		</tr>
+		<tr>
+		<td>“capabilities”: [ … ]</td>
+		<td>(array, optional)</td>
+		<td>a list of strings</td>
+		</tr>
+		<tr>
+		<td>“support”</td>
+		<td>(string)</td>
+		<td>client side supported features: “longpoll”, “coinbasetxn”, “coinbasevalue”, “proposal”, “serverlist”, “workid”</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3></a>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“version”</td>
+		<td>(numeric)</td>
+		<td>the block version</td>
+		</tr>
+		<tr>
+		<td>“previousblockhash”</td>
+		<td>(string)</td>
+		<td>the hash of current highest block</td>
+		</tr>
+		<tr>
+		<td>“finalsaplingroothash”</td>
+		<td>(string)</td>
+		<td>the hash of the final sapling root</td>
+		</tr>
+		<tr>
+		<td>“transactions”:[ … ]</td>
+		<td>(array)</td>
+		<td>the contents of non-coinbase transactions that should be included in the next block</td>
+		</tr>
+		<tr>
+		<td>“data”</td>
+		<td>(string)</td>
+		<td>transaction data encoded in hexadecimal (byte-for-byte)</td>
+		</tr>
+		<tr>
+		<td>“hash”</td>
+		<td>(string)</td>
+		<td>the hash/id encoded in little-endian hexadecimal</td>
+		</tr>
+		<tr>
+		<td>“depends” : [ … ]</td>
+		<td>(array)</td>
+		<td>an array of numbers</td>
+		</tr>
+		<tr>
+		<td>number</td>
+		<td>(numeric)</td>
+		<td>the indexes of transactions that must be present in the final block if this transaction is present in the final block; the index of the array of transactions starts with “1”</td>
+		</tr>
+		<tr>
+		<td>“fee”</td>
+		<td>(numeric)</td>
+		<td>the difference in value between transaction inputs and outputs in satoshis; for coinbase transactions, this is the negative number of the total collected block fees, not including the block subsidy; if a key is not present, the fee is unknown and clients MUST NOT assume it is not present</td>
+		</tr>
+		<tr>
+		<td>“sigops”</td>
+		<td>(numeric)</td>
+		<td>the total number of sigops, as counted for the purposes of block limits; if a key is not present, the sigop count is unknown and clients MUST NOT assume they are not present.</td>
+		</tr>
+		<tr>
+		<td>“required”</td>
+		<td>(boolean)</td>
+		<td>if provided and true, this transaction must be in the final block</td>
+		</tr>
+		<tr>
+		<td>“coinbasetxn”: { … }</td>
+		<td>(json object)</td>
+		<td>information for the coinbase transaction</td>
+		</tr>
+		<tr>
+		<td>“longpollid”</td>
+		<td>(string)</td>
+		<td>the last seen longpollid when this response was sent by the server</td>
+		</tr>
+		<tr>
+		<td>“data”</td>
+		<td>(string)</td>
+		<td>transaction data encoded in hexadecimal (byte-for-byte)</td>
+		</tr>
+		<tr>
+		<td>“hash”</td>
+		<td>(string)</td>
+		<td>the hash/id encoded in little-endian hexadecimal</td>
+		</tr>
+		<tr>
+		<td>“depends” : [ … ]</td>
+		<td>(array)</td>
+		<td>an array of numbers</td>
+		</tr>
+		<tr>
+		<td>“fee”</td>
+		<td>(numeric)</td>
+		<td>the difference in value between transaction inputs and outputs in satoshis; for coinbase transactions, this is the negative number of the total collected block fees, not including the block subsidy; if a key is not present, the fee is unknown and clients MUST NOT assume it is not present</td>
+		</tr>
+		<tr>
+		<td>“sigops”</td>
+		<td>(numeric)</td>
+		<td>the total number of sigops, as counted for the purposes of block limits; if a key is not present, the sigop count is unknown and clients MUST NOT assume they are not present.</td>
+		</tr>
+		<tr>
+		<td>“foundersreward”</td>
+		<td>(numeric)</td>
+		<td>the founder’s reward that should be paid out in this block; this key is present only in the blocks that payout the founder’s reward; present only in chains with <a href="#ac-founders">ac_founders</a> enabled</td>
+		</tr>
+		<tr>
+		<td>“coinbasevalue”</td>
+		<td>(numeric)</td>
+		<td>the value of the coinbase transaction (in satoshis)</td>
+		</tr>
+		<tr>
+		<td>“required”</td>
+		<td>(boolean)</td>
+		<td>if provided and true, this transaction must be in the final block</td>
+		</tr>
+		<tr>
+		<td>“target”</td>
+		<td>(string)</td>
+		<td>the hash target</td>
+		</tr>
+		<tr>
+		<td>“mintime”</td>
+		<td>(numeric)</td>
+		<td>the minimum timestamp appropriate for next block time in seconds since epoch (Jan 1 1970 GMT)</td>
+		</tr>
+		<tr>
+		<td>“mutable”: [ … ]</td>
+		<td>(array of strings)</td>
+		<td>a list of ways the block template may be changed</td>
+		</tr>
+		<tr>
+		<td>“value”</td>
+		<td>(string)</td>
+		<td>a way the block template may be changed, e.g. “time”, “transactions”, “prevblock”</td>
+		</tr>
+		<tr>
+		<td>“noncerange”</td>
+		<td>(string)</td>
+		<td>a range of valid nonces</td>
+		</tr>
+		<tr>
+		<td>“sigoplimit”</td>
+		<td>(numeric)</td>
+		<td>the limit of sigops in blocks</td>
+		</tr>
+		<tr>
+		<td>“sizelimit”</td>
+		<td>(numeric)</td>
+		<td>the limit of block size</td>
+		</tr>
+		<tr>
+		<td>“curtime”</td>
+		<td>(numeric)</td>
+		<td>current timestamp in seconds since epoch (Jan 1 1970 GMT)</td>
+		</tr>
+		<tr>
+		<td>“bits”</td>
+		<td>(string)</td>
+		<td>the compressed target of the next block</td>
+		</tr>
+		<tr>
+		<td>“height”</td>
+		<td>(numeric)</td>
+		<td>the height of the next block</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli getblocktemplate <span class="hljs-string">'{"mode":"template","capabilities":["workid"]}'</span></code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">capabilities</span>": <span class="hljs-value">[<span class="hljs-string">"proposal"</span>]</span>,
+		  "<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+		  "<span class="hljs-attribute">previousblockhash</span>": <span class="hljs-value"><span class="hljs-string">"01499bd2021bb8f74e65712fdeb2a689b12b183eb9e64584d9ea9ebd6e38754e"</span></span>,
+		  "<span class="hljs-attribute">finalsaplingroothash</span>": <span class="hljs-value"><span class="hljs-string">"3e49b5f954aa9d3545bc6c37744661eea48d7c34e3000d82b7f0010c30f4c2fb"</span></span>,
+		  "<span class="hljs-attribute">transactions</span>": <span class="hljs-value">[]</span>,
+		  "<span class="hljs-attribute">coinbasetxn</span>": <span class="hljs-value">{
+			"<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-string">"01000000010000000000000000000000000000000000000000000000000000000000000000ffffffff025600ffffffff0200e1f505000000002321039d6cc8a91d6551258a68e9d4bf8e8cfe3defd4be1f9e1c3f341f7a8592772fc8ac80c3c9010000000023210225f1cbbda1a0c406bb8f6dc7a589d88b2f9e28cd4fdb3f59139f8aff1f5d270aacb0918c5c"</span></span>,
+			"<span class="hljs-attribute">hash</span>": <span class="hljs-value"><span class="hljs-string">"ac7f63d0df14a996d77a2883e6341615245811b5a8e36a48b7ca8011eb6a149f"</span></span>,
+			"<span class="hljs-attribute">depends</span>": <span class="hljs-value">[]</span>,
+			"<span class="hljs-attribute">fee</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">sigops</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+			"<span class="hljs-attribute">foundersreward</span>": <span class="hljs-value"><span class="hljs-number">30000000</span></span>,
+			"<span class="hljs-attribute">coinbasevalue</span>": <span class="hljs-value"><span class="hljs-number">100000000</span></span>,
+			"<span class="hljs-attribute">required</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+		  </span>}</span>,
+		  "<span class="hljs-attribute">longpollid</span>": <span class="hljs-value"><span class="hljs-string">"01499bd2021bb8f74e65712fdeb2a689b12b183eb9e64584d9ea9ebd6e38754e7"</span></span>,
+		  "<span class="hljs-attribute">target</span>": <span class="hljs-value"><span class="hljs-string">"0f0f0f0000000000000000000000000000000000000000000000000000000000"</span></span>,
+		  "<span class="hljs-attribute">mintime</span>": <span class="hljs-value"><span class="hljs-number">1552716187</span></span>,
+		  "<span class="hljs-attribute">mutable</span>": <span class="hljs-value">[<span class="hljs-string">"time"</span>, <span class="hljs-string">"transactions"</span>, <span class="hljs-string">"prevblock"</span>]</span>,
+		  "<span class="hljs-attribute">noncerange</span>": <span class="hljs-value"><span class="hljs-string">"00000000ffffffff"</span></span>,
+		  "<span class="hljs-attribute">sigoplimit</span>": <span class="hljs-value"><span class="hljs-number">60000</span></span>,
+		  "<span class="hljs-attribute">sizelimit</span>": <span class="hljs-value"><span class="hljs-number">2000000</span></span>,
+		  "<span class="hljs-attribute">curtime</span>": <span class="hljs-value"><span class="hljs-number">1552716208</span></span>,
+		  "<span class="hljs-attribute">bits</span>": <span class="hljs-value"><span class="hljs-string">"200f0f0f"</span></span>,
+		  "<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">6</span>
+</span>}</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getblocktemplate", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+			"<span class="hljs-attribute">capabilities</span>": <span class="hljs-value">[<span class="hljs-string">"proposal"</span>]</span>,
+			"<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+			"<span class="hljs-attribute">previousblockhash</span>": <span class="hljs-value"><span class="hljs-string">"0c77fb62dcabffd39c0b4ad79da9a51ecc4265158b01ae09d7fd70f93ab7d499"</span></span>,
+			"<span class="hljs-attribute">transactions</span>": <span class="hljs-value">[
+			  {
+				"<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-string">"010000000d0bf48c25bbb9e5c9cf2959c39ea62266784932a17a8fe1ad190197c398e341870200000048473044022071db2fad2d5bab5f6cf8e2d415fe9cfbc146fc561ce55c379044d5eab7206e1b0220296970cf0265e28a49ac525faef6114386d2ed5c8ea2ced9ccfcd37ca4563bf401ffffffff50aca334345c7b4e7285d883d58efeb74c43e58d4fa61bac21f922a014f292aa1700000048473044022038f17fe42006a3f30ff658f0c8b1495567ffd0dbbe4ba36229df4bcabce201740220516ed6fca4a453f3305b47315d5efd2b230b3a575cb506cb04c89a730a62eade01ffffffff73e2bd82aa10c0bf751d7eabff50209e46827294c2b77932a096f89f7a4aa631210000004847304402200d7f4c2b8a537c98e19f0044d97c0d5ee6afb598d9b4523d586ec39b5be68ed0022071c5587f347bf56b0d1a340e6326c1ec612ee6a77abf5a24e93a446eeaee31af01ffffffffc335b0a285d04766b560bec88c191ed4494bb7e6e964eba1f5ccde3a89ad2e5a0100000049483045022100dce3c8e92b1487bb39681e58634f6414df14bf848b4a0de3ce11e2ddd4b5836202201e8ce810a67fb84350c62e3c5ed28bc1350d754f3a61a3c1a85e824c946fb30801ffffffff2ed2a51a1f8fe7feb456fa21c4ae172733d921c933e0ddc1368cfd9e09a746e5030000004847304402204f2c0eee23e34937b624e8ec4f0221ad3a43787fdbaa5b936ac39d2a3d30d7fe02200fd6e39b0eac4cbd80601f9625b40152e3bad6115f4d1e158b8709aa215778fb01ffffffff31b2c613750303538593437354af923637ee972932d1997fc93bf8d9199ebe905c000000494830450221008c760aef6b34d79e7076b6c249506c91070931f641039f44243e6abf798c731d02203c9a44d0adb04e64956720b4a97b49944825fa704679c21b18679a63c98e99ec01ffffffff0a81b4834feaa5f1044540928290e6d19667ede024923836d94bac13c7c9237914000000494830450221009d8ceb46e48dc0e86e13b0a549efbedc95ca199e1068f8e5e1f31cf4460dee3f022005079476092ac474c42ffae9fcf49fba82f68c94637ea97add61a5b1a147badb01ffffffffd81465cb221c3374a0a69bffc9f2bc225249328c50badd8683c351b2c30fdb171700000048473044022039da2916a77777c77b1a97840d1a888f2b12f0994ad134c8075a0b659884211a022006cbb6c807d1814b88f280e0036306e6d73cc79c0b6ff60966f47161feaccb3e01ffffffff59128ea85b2240d8b781a00b1ad0ebcdd8502d8d3f5722878f963b7f601e1d69020000004847304402203374d06656f35edf5d1b0d16455da2d6f22520a00c948a9c1d6bf51dba7a70ef0220529ec3146e080a637118b891a6b739f58e6f57d2aa3a24759a39eb6696af36ac01ffffffffc7d79714f379e9de8d752861f27d7e4685137dc6db5ad2cd50ec7b36429826d7050000004847304402207a426bb189ac657a9e8b699c67091de8df28306ce67b14653aea561800dfcb1502207e00216a6ff84e3f5b6d82c0683d8ea72a9fd6f636f9b3102b657e09a5f7481501ffffffffd872945ebfef211230ad8147f994892ab45c6cb4710ac29950e40354e1861d78e300000049483045022100af153b219376ffcbef42bd900e678d2504a6acd7c2bf945dcae895a9f07da79702201615016f196ad9452755d9c303fa151c242ed963b5373d148db733482487e8af01ffffffff671edc29af69a848081dd3790afb3fb113377d995e34ea9f219331d5c18c6885ad000000484730440220572ad6110ca5bafd749cfb77740f1aaac35e18c4a814cfb771c5286dd8b1249802207f4a27b90ff91663ee8ec6fc14dae64d16274fd2e35069ac6891de0385740a9801ffffffffba4dc1b3ef20747310640e4e0337c8db570ec63fa62eeffc492098502eaa9a2e5700000049483045022100f3ac3b80a66b6f1e6f96faf15a6535b104fbba987b357732e5b45830841a0a0a02202fee1f97494b2232a32517272d49992612729f4d9f762ede8d9b06ddf294293001ffffffff02f0810100000000002321020e46e79a2a8d12b9b5d12c7a91adb4e454edfae43c0a0cb805427d2ac7613fd9ac0000000000000000506a4c4da83be8f6e61cb9837708c1a847bdd80b8b8c1e1b9067b338433ca6c663869d004c6e01004345414c00e76cb540d63746c82676637b51e4f9f894c444822844224dd840975c7652dd760e00000000000000"</span></span>,
+				"<span class="hljs-attribute">hash</span>": <span class="hljs-value"><span class="hljs-string">"14473b8754bf69cc365784633e1a80787d4f9f950c95c48af0c6a28983c31098"</span></span>,
+				"<span class="hljs-attribute">depends</span>": <span class="hljs-value">[]</span>,
+				"<span class="hljs-attribute">fee</span>": <span class="hljs-value"><span class="hljs-number">31200</span></span>,
+				"<span class="hljs-attribute">sigops</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+			  </span>}
+			]</span>,
+			"<span class="hljs-attribute">coinbasetxn</span>": <span class="hljs-value">{
+			  "<span class="hljs-attribute">data</span>": <span class="hljs-value"><span class="hljs-string">"01000000010000000000000000000000000000000000000000000000000000000000000000ffffffff0503e6590f00ffffffff01a010e311000000002321029400ae04d9c0e3e49b114fc5e0a7e250ece5f5b5b8f1614075ddfd62c67319aeac57a4985b"</span></span>,
+			  "<span class="hljs-attribute">hash</span>": <span class="hljs-value"><span class="hljs-string">"334b02c0c2fa087862f845fefbd8f6ac4b72e4aed6d024f22b7fa0aa84759006"</span></span>,
+			  "<span class="hljs-attribute">depends</span>": <span class="hljs-value">[]</span>,
+			  "<span class="hljs-attribute">fee</span>": <span class="hljs-value">-<span class="hljs-number">93600</span></span>,
+			  "<span class="hljs-attribute">sigops</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+			  "<span class="hljs-attribute">coinbasevalue</span>": <span class="hljs-value"><span class="hljs-number">300000000</span></span>,
+			  "<span class="hljs-attribute">required</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+			</span>}</span>,
+			"<span class="hljs-attribute">longpollid</span>": <span class="hljs-value"><span class="hljs-string">"0c77fb62dcabffd39c0b4ad79da9a51ecc4265158b01ae09d7fd70f93ab7d499147"</span></span>,
+			"<span class="hljs-attribute">target</span>": <span class="hljs-value"><span class="hljs-string">"0000000670be0000000000000000000000000000000000000000000000000000"</span></span>,
+			"<span class="hljs-attribute">mintime</span>": <span class="hljs-value"><span class="hljs-number">1536729888</span></span>,
+			"<span class="hljs-attribute">mutable</span>": <span class="hljs-value">[<span class="hljs-string">"time"</span>, <span class="hljs-string">"transactions"</span>, <span class="hljs-string">"prevblock"</span>]</span>,
+			"<span class="hljs-attribute">noncerange</span>": <span class="hljs-value"><span class="hljs-string">"00000000ffffffff"</span></span>,
+			"<span class="hljs-attribute">sigoplimit</span>": <span class="hljs-value"><span class="hljs-number">20000</span></span>,
+			"<span class="hljs-attribute">sizelimit</span>": <span class="hljs-value"><span class="hljs-number">2000000</span></span>,
+			"<span class="hljs-attribute">curtime</span>": <span class="hljs-value"><span class="hljs-number">1536730200</span></span>,
+			"<span class="hljs-attribute">bits</span>": <span class="hljs-value"><span class="hljs-string">"1d0670be"</span></span>,
+			"<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">1006054</span>
+		  </span>}</span>,
+		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		<h2><a id="getlocalsolps"></a>getlocalsolps</h2>
+		<hr>
+		<p><strong>getlocalsolps</strong></p>
+		<p>The <code>getlocalsolps</code> method returns the average local solutions per second since this node was started.</p>
+		<p>::: tip<br>
+		This is the same information shown on the metrics screen (if enabled).<br>
+		:::</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>(none)</td>
+		<td></td>
+		<td></td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“data”</td>
+		<td>(numeric)</td>
+		<td>the solutions-per-second average</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli getlocalsolps</code></pre>
+		<a>Response:</a>
+		<pre><code><span class="hljs-number">0.4141607577247555</span></code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getlocalsolps", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+	"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-number">0.4141607577247555</span></span>,
+	"<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+	"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		<h2><a id="getmininginfo"></a>getmininginfo</h2>
+		<hr>
+		<p><strong>getmininginfo</strong></p>
+		<p>The <code>getmininginfo</code> method returns a json object containing mining-related information.</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>(none)</td>
+		<td>(none)</td>
+		<td></td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“blocks”</td>
+		<td>(numeric)</td>
+		<td>the current block</td>
+		</tr>
+		<tr>
+		<td>“currentblocksize”</td>
+		<td>(numeric)</td>
+		<td>the last block size</td>
+		</tr>
+		<tr>
+		<td>“currentblocktx”</td>
+		<td>(numeric)</td>
+		<td>the last block transaction</td>
+		</tr>
+		<tr>
+		<td>“difficulty”</td>
+		<td>(numeric)</td>
+		<td>the current difficulty</td>
+		</tr>
+		<tr>
+		<td>“errors”:</td>
+		<td></td>
+		<td></td>
+		</tr>
+		<tr>
+		<td>“generate”</td>
+		<td>(boolean)</td>
+		<td>if the generation is on or off (see <a href="#getgenerate">getgenerate</a> or <a href="#setgenerate">setgenerate</a> calls)</td>
+		</tr>
+		<tr>
+		<td>“genproclimit”</td>
+		<td>(numeric)</td>
+		<td>the processor limit for generation; <code>-1</code> if no generation (see <a href="#getgenerate">getgenerate</a> or <a href="#setgenerate">setgenerate</a> calls)</td>
+		</tr>
+		<tr>
+		<td>“localsolps”</td>
+		<td>(numeric)</td>
+		<td>the average local solution rate (solutions per second) since this node was started</td>
+		</tr>
+		<tr>
+		<td>“networksolps”</td>
+		<td>(numeric)</td>
+		<td>the estimated network solution rate (solutions per second)</td>
+		</tr>
+		<tr>
+		<td>“pooledtx”:</td>
+		<td></td>
+		<td></td>
+		</tr>
+		<tr>
+		<td>“testnet”</td>
+		<td>(boolean)</td>
+		<td>if using testnet or not</td>
+		</tr>
+		<tr>
+		<td>“chain”</td>
+		<td>(string)</td>
+		<td>the current network name as defined in BIP70 (main, test, regtest)</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli getmininginfo</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+	"<span class="hljs-attribute">blocks</span>": <span class="hljs-value"><span class="hljs-number">1007341</span></span>,
+	"<span class="hljs-attribute">currentblocksize</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+	"<span class="hljs-attribute">currentblocktx</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+	"<span class="hljs-attribute">difficulty</span>": <span class="hljs-value"><span class="hljs-number">42918151.0730477</span></span>,
+	"<span class="hljs-attribute">errors</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+	"<span class="hljs-attribute">genproclimit</span>": <span class="hljs-value">-<span class="hljs-number">1</span></span>,
+	"<span class="hljs-attribute">localsolps</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+	"<span class="hljs-attribute">networksolps</span>": <span class="hljs-value"><span class="hljs-number">11414148</span></span>,
+	"<span class="hljs-attribute">networkhashps</span>": <span class="hljs-value"><span class="hljs-number">11414148</span></span>,
+	"<span class="hljs-attribute">pooledtx</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+	"<span class="hljs-attribute">testnet</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+	"<span class="hljs-attribute">chain</span>": <span class="hljs-value"><span class="hljs-string">"main"</span></span>,
+	"<span class="hljs-attribute">generate</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+	"<span class="hljs-attribute">numthreads</span>": <span class="hljs-value">-<span class="hljs-number">1</span>
+</span>}</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getmininginfo", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+			"<span class="hljs-attribute">blocks</span>": <span class="hljs-value"><span class="hljs-number">1007341</span></span>,
+			"<span class="hljs-attribute">currentblocksize</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">currentblocktx</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">difficulty</span>": <span class="hljs-value"><span class="hljs-number">42918151.0730477</span></span>,
+			"<span class="hljs-attribute">errors</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+			"<span class="hljs-attribute">genproclimit</span>": <span class="hljs-value">-<span class="hljs-number">1</span></span>,
+			"<span class="hljs-attribute">localsolps</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">networksolps</span>": <span class="hljs-value"><span class="hljs-number">11414148</span></span>,
+			"<span class="hljs-attribute">networkhashps</span>": <span class="hljs-value"><span class="hljs-number">11414148</span></span>,
+			"<span class="hljs-attribute">pooledtx</span>": <span class="hljs-value"><span class="hljs-number">11</span></span>,
+			"<span class="hljs-attribute">testnet</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+			"<span class="hljs-attribute">chain</span>": <span class="hljs-value"><span class="hljs-string">"main"</span></span>,
+			"<span class="hljs-attribute">generate</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+			"<span class="hljs-attribute">numthreads</span>": <span class="hljs-value">-<span class="hljs-number">1</span>
+		  </span>}</span>,
+		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		<h2><a id="getnetworkhashps"></a>getnetworkhashps</h2>
+		<hr>
+		<p><strong>getnetworkhashps ( blocks height )</strong></p>
+		<p>::: warning<br>
+		DEPRECATED: Use getnetworksolps instead.<br>
+		:::</p>
+		<p>The <code>getnetworkhashps</code> method returns the estimated network solutions per second based on the last <code>n</code> blocks.</p>
+		<p>Pass in <code>blocks</code> value to override the default number of blocks. Passing in <code>-1</code> will return a value based on the average <code>hashps</code> of the relevant difficulty window.</p>
+		<p>Pass in <code>height</code> to estimate the network speed at the time when a certain block was found.</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>blocks</td>
+		<td>(numeric, optional, default=120)</td>
+		<td>the number of blocks (use <code>-1</code> to calculate over the relevant difficulty averaging window)</td>
+		</tr>
+		<tr>
+		<td>height</td>
+		<td>(numeric, optional, default=-1)</td>
+		<td>the block height that corresponds to the requested data</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>data</td>
+		<td>(numeric)</td>
+		<td>the solutions-per-second estimate</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli getnetworkhashps</code></pre>
+		<a>Response:</a>
+		<pre><code><span class="hljs-number">10724120</span></code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getnetworkhashps", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+	"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-number">10724120</span></span>,
+	"<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+	"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		<h2><a id="getnetworksolps"></a>getnetworksolps</h2><hr>
+		<p><strong>getnetworksolps ( blocks height )</strong></p>
+		<p>The <code>getnetworksolps</code> method returns the estimated network solutions per second based on the last <code>n</code> blocks.</p>
+		<p>Pass in <code>blocks</code> to override the default number of blocks. Use -1 to calculate according to the relevant difficulty averaging window.<br>
+		Pass in <code>height</code> to estimate the network speed at the time when a certain block was found.</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>blocks</td>
+		<td>(numeric, optional, default=120)</td>
+		<td>the number of blocks; use <code>-1</code> to calculate according to the relevant difficulty averaging window</td>
+		</tr>
+		<tr>
+		<td>height</td>
+		<td>(numeric, optional, default=-1)</td>
+		<td>the block height that corresponds to the requested data</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>data</td>
+		<td>(numeric)</td>
+		<td>solutions per second, estimated</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli getnetworksolps</code></pre>
+		<a>Response:</a>
+		<pre><code><span class="hljs-number">17547717</span></code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getnetworksolps", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+	"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-number">17547717</span></span>,
+	"<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+	"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		<h2><a id="prioritisetransaction"></a>prioritisetransaction</h2><hr>
+		<p><strong>prioritisetransaction “transaction_id” priority_delta fee_delta</strong></p>
+		<p>The <code>prioritisetransaction</code> method instructs the daemon to accept the indicated transaction into mined blocks at a higher (or lower) priority. The transaction selection algorithm considers the transaction as it would have a higher priority.</p>
+		<p>::: tip<br>
+		This method is inherited from the original Bitcoin protocol, of which KMD is a fork (via Zcash). For more examples regarding this method, please see <a href="https://bitcoincore.org/en/doc/0.16.1/rpc/mining/prioritisetransaction/"> the linked documentation</a>.<br>
+		:::</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“transaction_id”</td>
+		<td>(string, required)</td>
+		<td>the transaction id</td>
+		</tr>
+		<tr>
+		<td>priority_delta</td>
+		<td>(numeric, required)</td>
+		<td>the priority to add or subtract (if negative). The transaction selection algorithm assigns the tx a higher or lower priority. The transaction priority calculation: <code>coinage * value_in_satoshis / txsize</code></td>
+		</tr>
+		<tr>
+		<td>fee_delta</td>
+		<td>(numeric, required)</td>
+		<td>the fee value in satoshis to add or subtract (if negative); the fee is not actually paid, only the algorithm for selecting transactions into a block considers the transaction as if it paid a higher (or lower) fee.</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>true</td>
+		<td>(boolean)</td>
+		<td>returns true</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli prioritisetransaction <span class="hljs-string">"7dc902b280da27cf2dabe41ed6f4d04c828714f289435db193a49341005607eb"</span> <span class="hljs-number">0.0</span> <span class="hljs-number">10000</span></code></pre>
+		<a>Response:</a>
+		<pre><code><span class="hljs-literal">true</span></code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "prioritisetransaction", "params": ["7dc902b280da27cf2dabe41ed6f4d04c828714f289435db193a49341005607eb", 0.0, 10000] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+	"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+	"<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+	"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		<h2><a id="submitblock"></a>submitblock</h2><hr>
+		<p><strong>submitblock “hexdata” ( “jsonparametersobject” )</strong></p>
+		<p>The <code>submitblock</code> method instructs the daemon to propose a new block to the network.</p>
+		<p>::: tip<br>
+		The <strong>jsonparametersobject</strong> parameter is currently ignored. See <a href="https://github.com/bitcoin/bips/blob/master/bip-0022.mediawiki"> the linked documentation </a>for full specification details.<br>
+		:::</p>
+		<p>::: tip<br>
+		Note: for more information on <strong>submitblock</strong> parameters and results, see <a href="https://github.com/bitcoin/bips/blob/master/bip-0022.mediawiki#block-submission"> the linked documentation </a>.<br>
+		:::</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“hexdata”</td>
+		<td>(string, required)</td>
+		<td>the hex-encoded block data to submit</td>
+		</tr>
+		<tr>
+		<td>“jsonparametersobject” : { … }</td>
+		<td>(string, optional)</td>
+		<td>object of optional parameters</td>
+		</tr>
+		<tr>
+		<td>“workid”</td>
+		<td>(string, sometimes optional)</td>
+		<td>if the server provides a workid, it MUST be included with submissions</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“duplicate”</td>
+		<td></td>
+		<td>the node already has a valid copy of the block</td>
+		</tr>
+		<tr>
+		<td>“duplicate-invalid”</td>
+		<td></td>
+		<td>the node already has the block, but it is invalid</td>
+		</tr>
+		<tr>
+		<td>“duplicate-inconclusive”</td>
+		<td></td>
+		<td>the node already has the block but has not validated it</td>
+		</tr>
+		<tr>
+		<td>“inconclusive”</td>
+		<td></td>
+		<td>the node has not validated the block, it may not be on the node’s current best chain</td>
+		</tr>
+		<tr>
+		<td>“rejected”</td>
+		<td></td>
+		<td>the block was rejected as invalid</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli submitblock <span class="hljs-string">"0400000029865a4962f43d6f95fdf9ccc89f82377a23d1fdc41eaf943c7881a5ca55c5018973d81f5ce7ab99f027b15c86ca88ec5e4b6f35ad4018bfc2058568bbe7f526000000000000000000000000000000000000000000000000000000000000000097954a5b9e830c1d1600ac305580abea34bda62eb503b02fc4b7872428cfa60bf5824a9b78fc0000fd400500c80d4a8c84cec781a5740d8d3fb18587a850b6380f073cd861c4ce7c4290460c533e0d4dd3b89fe0f0052ccdf9d450a1dfcd7263a39422000378da3eeb621078af689447a5ed0a7265a857463a36d72cdd35910d14de9816a25d631aeb0249ede829aca77f9cce1a2e4a84b75e4bd515845043d52f718638fb41e92d8b18bfe1f49e1c0d23223a285b2850e8469dfbb9782b20c8bebf2a61d7b7d8eea310c7c8d5bfa612bf94fd05562ec8876eacafa0c334a651ef70c941459161b60c20511087d63223878052d4fd1a92298789d7c57609fe3a247489674592e8e34a1728b28e2c2b3165f01d5fefa22e6384f7fe4e566de1741e264f057a0feb1b35d51694647ba52afd71c3bd375b924da95e2b413dbea256a2de9ccddcab88bd2e69cc3acc8a778b4d1db78b41df9fea6d69b071f570f628ad47537d081740a4f2c4fa6666dbb862a6d02ff07b5ae0a9fa24b003fa0355dbde0425d6c14452f0d357f2cfd97960c343ba73789a2d7ba580ea8834ef656a9e79c49fc0f61aa9452a644c8bc06afe31dce2a7ca5d6995adc8ce1f77165a075399e1d006e2bb57c09ffd6e21fcff440645faef599264a3b8c005cf60683371ba1af8847d1992c64e512f13d9d2d364969759233a27c65e1f2f1113cdb665e3e8f7baa2c398c4a2ee85a6ad1bdb095962fafaa01c3d85bc820653544b89b6e75a584d8d04bc77e5284a9ebbcd46c1a6732b841e46c876976805d932a90ac215bcc37801900d49cfb87fe5c809b30ebd8ece38669153c1f1a2438253a56a6507d556cc16b2990f0bd290fea59462d25eebdbfcb78eb403c8080e0c68e8e2ef8f67145121bce83b94dc8f9d0a742752323c5a4b42409ffcc37053c58596deff7981a20e3f412c07c839a341fdc177d5e28f7909696f90c90efff14048f440e7ea3181378f66d35b0697dc02c60154778f438cdd3dba5dc4c2763319498bbb3b8fae17508b073d07d83f5f1dc71bf2dc205f06245872620dfa341dbcdf9c574598c121120e91dd687dfd08451369ab29a11dc73f69d0722992a1c70cf1498ec9b9143fcb0abfd7b1e39189125e8567cb2cc3d71fcdb541a0776a5a665161f98385633153fc9702f079269a1dac0d2c708f5d94e346159858cfd50624ff5a0505358739b5f41adbe739bf75852eebb06eeccd79e030019a5227cd9a19e77b6821ba0794fe09cb074f40ce0b92c081c31cda2d4711d53889fc6f0579839fa74309768ef0a796fa1fa660e150d3ea5c0a369e1297d11177fc284524d6d5e40eb7ee4b400f6dfd6a10402904394e1694de300ddd565622e7ca7ed62970ff5add0b36a513b5d90d2194cf414ecc97e5dcc88698e06405dea09f49503c81cc61518f8aee882da6eeae09b4127a7fcc0c0829fca8fda3502ebf13ece0a90a8dfd05d8e514452247f79472c20683e2b1fde5ec14a2453bf00f9f1cd5a088d229a7fdfdfdc24f176fb9a8a409af70d894998957394d30a46668d71cd16907aa800ee9d96c2b9fc7fb5a7944a9b8d4f76609fc186e3c0a4d80fb9c8c236f76eb00bc24dd9abddef7d653740ece7141ac6175f7e9cab1cb0216e85adde43907b60c0581336b50ccd7682f28f00f7efd663df4d31701141657da989d236d16052c4b59fc46fb41657a26d7074fbc9dee602f7d03b86179e4c12bc0df253f815319dff12353a478d95febd5f902e363734e6e5ef4bf1865eb70750b9238be3382a51ded182569d112f37870d43465615ca9174d41f7f3b9eb780a28c7dba674075bbe04538ad669eef7716d1b7b252d49da3b00993f0c829860a1efafdcdc865d46f2f8aec9893b5bc607db33272e5b9f7cf134595e1ad5e8f34b1b7f93ca181c513afc4d8a531c36929e95cfbb4d268a9d94f80201000000010000000000000000000000000000000000000000000000000000000000000000ffffffff0603860f0e0101ffffffff0188b6e1110000000023210383d0b37f59f4ee5e3e98a47e461c861d49d0d90c80e9e16f7e63686a2dc071f3ac67954a5b01000000010b1561554a46ec535c4972a3a16652b270ee4af847ec3bbfcf6ba663ebcfefcb1a00000049483045022100b9cd7c1c56d69d9b05d695f9ac86c1233427ec26860774a0eb4e6052fe11ca8502207eca5a4eda1ccf92ccdb501ab7d61cf084d0f4431f059e27ee13ce11f9aa159b01ffffffff0188130000000000002321020e46e79a2a8d12b9b5d12c7a91adb4e454edfae43c0a0cb805427d2ac7613fd9ac00000000"</span></code></pre>
+		<a>Response:</a>
+		<pre><code>duplicate</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "submitblock", "params": ["0400000029865a4962f43d6f95fdf9ccc89f82377a23d1fdc41eaf943c7881a5ca55c5018973d81f5ce7ab99f027b15c86ca88ec5e4b6f35ad4018bfc2058568bbe7f526000000000000000000000000000000000000000000000000000000000000000097954a5b9e830c1d1600ac305580abea34bda62eb503b02fc4b7872428cfa60bf5824a9b78fc0000fd400500c80d4a8c84cec781a5740d8d3fb18587a850b6380f073cd861c4ce7c4290460c533e0d4dd3b89fe0f0052ccdf9d450a1dfcd7263a39422000378da3eeb621078af689447a5ed0a7265a857463a36d72cdd35910d14de9816a25d631aeb0249ede829aca77f9cce1a2e4a84b75e4bd515845043d52f718638fb41e92d8b18bfe1f49e1c0d23223a285b2850e8469dfbb9782b20c8bebf2a61d7b7d8eea310c7c8d5bfa612bf94fd05562ec8876eacafa0c334a651ef70c941459161b60c20511087d63223878052d4fd1a92298789d7c57609fe3a247489674592e8e34a1728b28e2c2b3165f01d5fefa22e6384f7fe4e566de1741e264f057a0feb1b35d51694647ba52afd71c3bd375b924da95e2b413dbea256a2de9ccddcab88bd2e69cc3acc8a778b4d1db78b41df9fea6d69b071f570f628ad47537d081740a4f2c4fa6666dbb862a6d02ff07b5ae0a9fa24b003fa0355dbde0425d6c14452f0d357f2cfd97960c343ba73789a2d7ba580ea8834ef656a9e79c49fc0f61aa9452a644c8bc06afe31dce2a7ca5d6995adc8ce1f77165a075399e1d006e2bb57c09ffd6e21fcff440645faef599264a3b8c005cf60683371ba1af8847d1992c64e512f13d9d2d364969759233a27c65e1f2f1113cdb665e3e8f7baa2c398c4a2ee85a6ad1bdb095962fafaa01c3d85bc820653544b89b6e75a584d8d04bc77e5284a9ebbcd46c1a6732b841e46c876976805d932a90ac215bcc37801900d49cfb87fe5c809b30ebd8ece38669153c1f1a2438253a56a6507d556cc16b2990f0bd290fea59462d25eebdbfcb78eb403c8080e0c68e8e2ef8f67145121bce83b94dc8f9d0a742752323c5a4b42409ffcc37053c58596deff7981a20e3f412c07c839a341fdc177d5e28f7909696f90c90efff14048f440e7ea3181378f66d35b0697dc02c60154778f438cdd3dba5dc4c2763319498bbb3b8fae17508b073d07d83f5f1dc71bf2dc205f06245872620dfa341dbcdf9c574598c121120e91dd687dfd08451369ab29a11dc73f69d0722992a1c70cf1498ec9b9143fcb0abfd7b1e39189125e8567cb2cc3d71fcdb541a0776a5a665161f98385633153fc9702f079269a1dac0d2c708f5d94e346159858cfd50624ff5a0505358739b5f41adbe739bf75852eebb06eeccd79e030019a5227cd9a19e77b6821ba0794fe09cb074f40ce0b92c081c31cda2d4711d53889fc6f0579839fa74309768ef0a796fa1fa660e150d3ea5c0a369e1297d11177fc284524d6d5e40eb7ee4b400f6dfd6a10402904394e1694de300ddd565622e7ca7ed62970ff5add0b36a513b5d90d2194cf414ecc97e5dcc88698e06405dea09f49503c81cc61518f8aee882da6eeae09b4127a7fcc0c0829fca8fda3502ebf13ece0a90a8dfd05d8e514452247f79472c20683e2b1fde5ec14a2453bf00f9f1cd5a088d229a7fdfdfdc24f176fb9a8a409af70d894998957394d30a46668d71cd16907aa800ee9d96c2b9fc7fb5a7944a9b8d4f76609fc186e3c0a4d80fb9c8c236f76eb00bc24dd9abddef7d653740ece7141ac6175f7e9cab1cb0216e85adde43907b60c0581336b50ccd7682f28f00f7efd663df4d31701141657da989d236d16052c4b59fc46fb41657a26d7074fbc9dee602f7d03b86179e4c12bc0df253f815319dff12353a478d95febd5f902e363734e6e5ef4bf1865eb70750b9238be3382a51ded182569d112f37870d43465615ca9174d41f7f3b9eb780a28c7dba674075bbe04538ad669eef7716d1b7b252d49da3b00993f0c829860a1efafdcdc865d46f2f8aec9893b5bc607db33272e5b9f7cf134595e1ad5e8f34b1b7f93ca181c513afc4d8a531c36929e95cfbb4d268a9d94f80201000000010000000000000000000000000000000000000000000000000000000000000000ffffffff0603860f0e0101ffffffff0188b6e1110000000023210383d0b37f59f4ee5e3e98a47e461c861d49d0d90c80e9e16f7e63686a2dc071f3ac67954a5b01000000010b1561554a46ec535c4972a3a16652b270ee4af847ec3bbfcf6ba663ebcfefcb1a00000049483045022100b9cd7c1c56d69d9b05d695f9ac86c1233427ec26860774a0eb4e6052fe11ca8502207eca5a4eda1ccf92ccdb501ab7d61cf084d0f4431f059e27ee13ce11f9aa159b01ffffffff0188130000000000002321020e46e79a2a8d12b9b5d12c7a91adb4e454edfae43c0a0cb805427d2ac7613fd9ac00000000"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+	"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"duplicate"</span></span>,
+	"<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+	"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre>
+		</div>
+	</section>
+
+
+
+	<section class="text-area">
+		<div class="container" id="jumblr">
+		<h1>Jumblr</h1>
+		<hr>
+		In progress
+		</div>
+	</section>
+
+	<section class="text-area">
+		<div class="container" id="network">
+		<h1>Network</h1>
+		<hr>
+		In progress
+		</div>
+	</section>
+
+
+	<section class="text-area">
+		<div class="container" id="rawtransactions">
+		<h1>Raw Transactions</h1>
+		<hr>
+		In progress
+		</div>
+	</section>
+
+
+	<section class="text-area">
+		<div class="container" id="util">
+		<h1>util</h1>
+		<hr>
+		In progress
+		</div>
+	</section>
+
+
+	<section class="text-area">
+		<div class="container" id="wallet">
+		<h1>Wallet</h1>
+		<hr>
+		In progress
+		</div>
+	</section>
+
+	
+			<section class="head-section" id="contact">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-9 col-md-9 cta-left">
+							<h1>Contact</h1>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="contact-section">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 col-sm-offset-2">
+							<div class="title"><h3 class="con1lang">Join us!</h3></div>
+								<p><strong class="con2alang">Hush</strong><span class="con2blang"> is a community project. Everyone is welcomed with open arms!</span></p>
+							<div class="contact-text">				
+									<a class="discord" href="//myhush.org/discord/index.html" target="_blank" data-toggle="tooltip" title="Discord"><img src="images/logo_discord.svg" alt="Discord" height="45px" width="45px"/></a>
+									<a class="telegram" href="//t.me/Hush_Coin" target="_blank" data-toggle="tooltip" title="Telegram"><img src="images/logo_telegram.svg" alt="Telegram" height="45px" width="45px"/></a>
+									<a class="twitter" href="//twitter.com/MyHushTeam" target="_blank" data-toggle="tooltip" title="Twitter"><img src="images/logo_twitter.svg" alt="Twitter" height="45px" width="45px"/></a>
+									<a class="reddit" href="//reddit.com/r/Myhush" target="_blank" data-toggle="tooltip" title="Reddit"><img src="images/logo_reddit.svg" alt="Reddit" height="45px" width="45px"/></a>
+									<a class="btc" href="//bitcointalk.org/index.php?topic=2008578.0" target="_blank" data-toggle="tooltip" title="Bitcointalk"><img src="images/logo_bitcointalk.svg" alt="Bitcointalk" height="45px" width="45px"/></a>
+									<a class="github" href="//github.com/MyHush" target="_blank" data-toggle="tooltip" title="GitHub"><img src="images/logo_github.svg" alt="GitHub" height="45px" width="45px"/></a>
+							</div>
+							<div class="contact-copyright">
+								<p>Copyright &copy; 2016-<span id="s_year"></span> The Hush developers</p>
+							</div>
+	
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<script src="js/jquery-2.2.4.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="js/bootstrap.min.js"></script>			
+			<script src="js/easing.min.js"></script>
+			  			
+			<script src="js/hoverIntent.js"></script>
+			<script src="js/superfish.min.js"></script>
+
+			<script src="js/jquery.ajaxchimp.min.js"></script>
+			<script src="js/jquery.magnific-popup.min.js"></script>	
+    		<script src="js/jquery.tabs.min.js"></script>						
+			<script src="js/main.js"></script>		
+
+			<script type="text/javascript">
+				var today=new Date();
+				var year = today.getFullYear();
+				var syear = document.getElementById('s_year');
+				syear.innerHTML = year;
+		   </script>
+
+			<script>
+				$(document).ready(function() {
+					if(localStorage.getItem('language') != null) {
+						language = localStorage.getItem('language');
+						$.ajax({
+							url: 'translations/' + language + '.xml',
+							success: function(xml) {
+								$(xml).find('translation').each(function(){
+									var id = $(this).attr('id');
+									var text = $(this).text();
+									$("." + id).html(text);
+								});
+							}
+						});
+					}
+				});
+		
+				function testch(id) {
+						localStorage.setItem('language', id);
+						language = id
+						$.ajax({
+							url: 'translations/' + language + '.xml',
+							success: function(xml) {
+								$(xml).find('translation').each(function(){
+									var id = $(this).attr('id');
+									var text = $(this).text();
+									$("." + id).html(text);
+								});
+							}
+						});
+					};
+			</script>
+		</body>
+	</html>
