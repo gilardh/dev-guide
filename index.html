@@ -2278,7 +2278,7 @@
 		<pre><code>./hush-cli addmultisigaddress <span class="hljs-number">2</span> <span class="hljs-string">'["RSWwtqsNr9mW21UXRm6Lz4AzQnj4pVzzkp","RW8d8EChHTooVbwF3reqHYgkzWCnJFLXgh"]'</span></code></pre>
 		<a>Response</a>
 		<pre><code>bLz2YZ7Mm8MgPc9mPNiFqhjFPbFZU4WUD5</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in the coin’s <code>.conf</code> file.</p>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "addmultisigaddress", "params": [2, ["RL4CuA2MSAbBiqJKQEr2TKnKT2fSwK99mG","RBYVFCxpJdLgvUixhguxzuH1TJpoNLYCJ6"]] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
 		<a>Response</a>
@@ -2331,7 +2331,7 @@
 		<pre><code>./hush-cli backupwallet <span class="hljs-string">"mybackupdata"</span>
 		
 		/home/myusername/myexportdir/mybackupdata</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in the coin’s <code>.conf</code> file.</p>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<p>Command:</p>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "backupwallet", "params": ["backupdata"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
 		<a>Response</a>
@@ -2385,7 +2385,7 @@
 		<pre><code>./hush-cli dumpprivkey <span class="hljs-string">"RTcwYaQPDVN7V9SdfFHARWnoB7vcpSfdvs"</span></code></pre>
 		<a>Response</a>
 		<pre><code>DONOTUSExxxxxxxxxxxxxxxxxxxx4KkCmRnnSg7iXvAUjoYivC8K</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in the coin’s <code>.conf</code> file.</p>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "dumpprivkey", "params": ["RTcwYaQPDVN7V9SdfFHARWnoB7vcpSfdvs"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
 		<a>Response</a>
@@ -2440,7 +2440,7 @@
 		<pre><code>./hush-cli dumpwallet <span class="hljs-string">"test"</span></code></pre>
 		<p>Response</p>
 		<pre><code>/home/myusername/myexportdir/<span class="hljs-built_in">test</span></code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in the coin’s <code>.conf</code> file.</p>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<p>Command:</p>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "dumpwallet", "params": ["test"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
 		<a>Response:</a>
@@ -2557,7 +2557,7 @@
 		<pre><code>./hush-cli getaccount <span class="hljs-string">"RBtNBJjWKVKPFG4To5Yce9TWWmc2AenzfZ"</span></code></pre>
 		<a>Response</a>
 		<pre><code>(deprecated)</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in the coin’s <code>.conf</code> file.</p>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code>hush3 hush3file.</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getaccount", "params": ["RBtNBJjWKVKPFG4To5Yce9TWWmc2AenzfZ"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
 		<a>Response</a>
@@ -2607,7 +2607,7 @@
 		<pre><code>./hush-cli getaccountaddress</code></pre>
 		<a>Response</a>
 		<pre><code>(deprecated)</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in the coin’s <code>.conf</code> file.</p>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getaccountaddress", "params": ["myaccount"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
 		<a>Response</a>
@@ -2657,7 +2657,7 @@
 		<pre><code>./hush-cli getaddressesbyaccount <span class="hljs-string">"tabby"</span></code></pre>
 		<a>Response</a>
 		<pre><code>(deprecated)</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in the coin’s <code>.conf</code> file.</p>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressesbyaccount", "params": ["tabby"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
 		<p>Response</p>
@@ -2834,7 +2834,7 @@
 		<pre><code>./hush-cli getrawchangeaddress</code></pre>
 		<p>Response</p>
 		<pre><code>RS8oqzbjShKhftmuk2RpRmHH2hTAukp6yP</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in the coin’s <code>.conf</code> file.</p>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getrawchangeaddress", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
 		<a>Response</a>
@@ -2948,7 +2948,7 @@
 		<pre><code>./hush-cli getreceivedbyaddress <span class="hljs-string">"RJSDZjp7kjBNhHsbECDE1jwYNK7af41pZN"</span> <span class="hljs-number">6</span></code></pre>
 		<a>Response</a>
 		<pre><code><span class="hljs-number">10.0500000</span></code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in the coin’s <code>.conf</code> file.</p>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getreceivedbyaddress", "params": ["RJSDZjp7kjBNhHsbECDE1jwYNK7af41pZN", 6] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
 		<a>Response</a>
@@ -3356,7 +3356,7 @@
 		  "<span class="hljs-attribute">keypoolsize</span>": <span class="hljs-value"><span class="hljs-number">101</span></span>,
 		  "<span class="hljs-attribute">paytxfee</span>": <span class="hljs-value"><span class="hljs-number">0.0</span>
 </span>}</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in the coin’s <code>.conf</code> file.</p>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getwalletinfo", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
 		<a>Response</a>
@@ -6313,7 +6313,7 @@
 		<pre><code>./hush-cli z_importkey DONOTUSExxxxxxxxxxxxxxxxBP6ipkmBxmEQbugcCQ16vUaWGFK yes <span class="hljs-number">20000</span></code></pre>
 		<a>Response:</a>
 		<pre><code>(none)</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in the coin’s <code>.conf</code> file.</p>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_importkey", "params": ["DONOTUSExxxxxxxxxxxxxxxxBP6ipkmBxmEQbugcCQ16vUaWGFK", "no"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
 		<a>Response:</a>
@@ -6395,7 +6395,7 @@
 		<pre><code>./hush-cli z_importviewingkey <span class="hljs-string">"ZiVtfYkeyRY3y8Wykm5zjLcnssEkVrkej6j3kQ5B1AE2qp2F3VsKzpoXTzD82hrvMjWB9WxCHbXXrXax2ceyHLWrnQDaMrMja"</span> yes <span class="hljs-number">20000</span></code></pre>
 		<p>Response:</p>
 		<pre><code>(none)</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in the coin’s <code>.conf</code> file.</p>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_importviewingkey", "params": ["ZiVtfYkeyRY3y8Wykm5zjLcnssEkVrkej6j3kQ5B1AE2qp2F3VsKzpoXTzD82hrvMjWB9WxCHbXXrXax2ceyHLWrnQDaMrMja", "no"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
 		<a>Response:</a>
