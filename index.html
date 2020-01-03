@@ -1224,7 +1224,7 @@
 	<section class="text-area">
 		<div class="container" id="generating">
 		<h1>Generating</h1><hr>
-		<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>komodo-cli</code> software.</p><br>
+		<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</p><br>
 		<h2><a id="generate"></a>generate</h2><hr>
 		<p><strong>generate numblocks</strong></p>
 		<p>::: tip<br>
@@ -4183,7 +4183,7 @@ Use <strong>listbanned</strong> to view results.<br>
 <section class="text-area">
 <div class="container" id="wallet">
 <h1>Wallet</h1>
-<p>The following RPC calls interact with the <code>komodod</code> software, and are made available through the <code>komodo-cli</code> software.</p>
+<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</p>
 <h2><a id="addmultisigaddress"></a>addmultisigaddress</h2>
 <hr>
 		<p><strong>addmultisigaddress nrequired [ “key”, … ] ( “account” )</strong></p>
@@ -4480,7 +4480,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "encryptwallet", "params": ["mypassphrase"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
 		<a>Response:</a>
 		<pre><code>{
-			<span class="hljs-string">"result"</span>:<span class="hljs-string">"wallet encrypted; Komodo server stopping, restart to run with encrypted wallet. The keypool has been flushed, you need to make a new backup."</span>,
+			<span class="hljs-string">"result"</span>:<span class="hljs-string">"wallet encrypted; Hush server stopping, restart to run with encrypted wallet. The keypool has been flushed, you need to make a new backup."</span>,
 			<span class="hljs-string">"error"</span>:null,
 			<span class="hljs-string">"id"</span>:<span class="hljs-string">"curltest"</span>
 }</code></pre><br>
