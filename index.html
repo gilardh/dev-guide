@@ -2338,16 +2338,1052 @@
 
 
 
-
-
-
-	<section class="text-area">
-		<div class="container" id="network">
-		<h1>Network</h1>
-		<hr>
-		In progress
-		</div>
-	</section>
+<section class="text-area">
+<div class="container" id="network">
+<h1>Network</h1><hr>
+<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</p><br>
+<h2><a id="addnode"></a>addnode</h2><hr>
+<p><strong>addnode “node” “add|remove|onetry”</strong></p>
+<p>The <code>addnode</code> method attempts to add or remove a node from the addnode list, or to make a single attempt to connect to a node.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“node”</td>
+<td>(string, required)</td>
+<td>the node (see <a href="#getpeerinfo">getpeerinfo</a> for nodes)</td>
+</tr>
+<tr>
+<td>“command”</td>
+<td>(string, required)</td>
+<td>‘add’ to add a node to the list, ‘remove’ to remove a node from the list, ‘onetry’ to try a connection to the node once</td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli addnode <span class="hljs-string">"192.168.0.6:8233"</span> <span class="hljs-string">"onetry"</span></code></pre>
+<a>Response:</a>
+<pre><code>(none)</code></pre>
+<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "addnode", "params": ["192.168.0.6:8233", "onetry"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
+<pre><code>(none)</code></pre><br>
+<h2><a id="clearbanned"></a>clearbanned</h2><hr>
+<p><strong>clearbanned</strong></p>
+<p>The <code>clearbanned</code> method clears all banned IPs.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli clearbanned</code></pre>
+<a>Response:</a>
+<pre><code>(none)</code></pre>
+<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "clearbanned", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
+<pre><code>(none)</code></pre><br>
+<h2><a id="disconnectnode"></a>disconnectnode</h2><hr>
+<p><strong>disconnectnode “node”</strong></p>
+<p>The <code>disconnectnode</code> method instructs the daemon to immediately disconnect from the specified node.</p>
+<p>Use <code>getpeerinfo</code> to determine the result.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“node”</td>
+<td>(string, required)</td>
+<td>the node’s address (see <a href="#getpeerinfo">getpeerinfo</a> for nodes)</td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli disconnectnode <span class="hljs-string">"192.168.0.6:8233"</span></code></pre>
+<a>Response:</a>
+<pre><code>(none)</code></pre>
+<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "disconnectnode", "params": ["192.168.0.6:8233"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
+<pre><code>(none)</code></pre><br>
+<h2><a id="getaddednodeinfo"></a>getaddednodeinfo</h2><hr>
+<p><strong>getaddednodeinfo dns ( “node” )</strong></p>
+<p>The <code>getaddednodeinfo</code> method returns information about the given added node, or all added nodes.</p>
+<p>If <code>dns</code> is set to <code>false</code>, only a list of added nodes is returned. Otherwise, connection information is also provided.</p>
+<p>::: tip<br>
+Nodes added via &lt;b&gt;onetry&lt;/b&gt; are not listed here.<br>
+:::</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dns</td>
+<td>(boolean, required)</td>
+<td>if false, only a list of added nodes will be provided; otherwise, connection information is also provided</td>
+</tr>
+<tr>
+<td>“node”</td>
+<td>(string, optional)</td>
+<td>if provided, the method returns information about this specific node; otherwise, all nodes are returned</td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“addednode”</td>
+<td>(string)</td>
+<td>the node ip address</td>
+</tr>
+<tr>
+<td>“connected”</td>
+<td>(boolean)</td>
+<td>if connected</td>
+</tr>
+<tr>
+<td>“addresses” : [ … ]</td>
+<td>(array of jsons)</td>
+<td></td>
+</tr>
+<tr>
+<td>“address”</td>
+<td>(string)</td>
+<td>the server host and port</td>
+</tr>
+<tr>
+<td>“connected”</td>
+<td>(string)</td>
+<td>“connected” accepts two possible values: “inbound” or “outbound”</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli getaddednodeinfo <span class="hljs-literal">true</span></code></pre>
+<a>Response:</a>
+<pre><code>[
+  {
+    "<span class="hljs-attribute">addednode</span>": <span class="hljs-value"><span class="hljs-string">"78.47.196.146"</span></span>,
+    "<span class="hljs-attribute">connected</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+    "<span class="hljs-attribute">addresses</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"78.47.196.146:7770"</span></span>,
+        "<span class="hljs-attribute">connected</span>": <span class="hljs-value"><span class="hljs-string">"outbound"</span>
+      </span>}
+    ]
+  </span>}
+]</code></pre>
+<a>Command:</a>
+<pre><code>./hush-cli getaddednodeinfo <span class="hljs-literal">true</span> <span class="hljs-string">"78.47.205.239"</span></code></pre>
+<a>Response:</a>
+<pre><code>[
+  {
+    "<span class="hljs-attribute">addednode</span>": <span class="hljs-value"><span class="hljs-string">"78.47.205.239"</span></span>,
+    "<span class="hljs-attribute">connected</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+    "<span class="hljs-attribute">addresses</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"78.47.205.239:7770"</span></span>,
+        "<span class="hljs-attribute">connected</span>": <span class="hljs-value"><span class="hljs-string">"outbound"</span>
+      </span>}
+    ]
+  </span>}
+]</code></pre>
+<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getaddednodeinfo", "params": [true, "78.47.205.239"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
+<pre><code>{
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">addednode</span>": <span class="hljs-value"><span class="hljs-string">"78.47.205.239"</span></span>,
+      "<span class="hljs-attribute">connected</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+      "<span class="hljs-attribute">addresses</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"78.47.205.239:7770"</span></span>,
+          "<span class="hljs-attribute">connected</span>": <span class="hljs-value"><span class="hljs-string">"outbound"</span>
+        </span>}
+      ]
+    </span>}
+  ]</span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+<h2><a id="getconnectioncount"></a>getconnectioncount</h2><hr>
+<p><strong>getconnectioncount</strong></p>
+<p>The <code>getconnectioncount</code> method returns the number of connections to other nodes.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n</td>
+<td>(numeric)</td>
+<td>the connection count</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli getconnectioncount</code></pre>
+<a>Response:</a>
+<pre><code><span class="hljs-number">10</span></code></pre>
+<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in the <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getconnectioncount", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
+<pre><code>{
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-number">10</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+<h2><a id="getdeprecationinfo"></a>getdeprecationinfo</h2><hr>
+<p><strong>getdeprecationinfo</strong></p>
+<p>The <code>getdeprecationinfo</code> method returns an object containing current version and deprecation block height.</p>
+<p>::: tip<br>
+This method is applicable only to the KMD main net.<br>
+:::</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“version”</td>
+<td>(numeric)</td>
+<td>the server version</td>
+</tr>
+<tr>
+<td>“subversion”</td>
+<td>(string)</td>
+<td>the server sub-version string (i.e. “/MagicBean:x.y.z[-v]/”)</td>
+</tr>
+<tr>
+<td>“deprecationheight”</td>
+<td>(numeric)</td>
+<td>the block height at which this version will deprecate and shut down (unless <a href="https://z.cash/blog/new-release-1-1-2/">disabledeprecation</a> is set)</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli getdeprecationinfo</code></pre>
+<a>Response:</a>
+<pre><code>{
+  "<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-number">1001550</span></span>,
+  "<span class="hljs-attribute">subversion</span>": <span class="hljs-value"><span class="hljs-string">"/MagicBean:1.0.15/"</span></span>,
+  "<span class="hljs-attribute">deprecationheight</span>": <span class="hljs-value"><span class="hljs-number">1400000</span>
+</span>}</code></pre>
+<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getdeprecationinfo", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
+<pre><code>{
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-number">1001550</span></span>,
+    "<span class="hljs-attribute">subversion</span>": <span class="hljs-value"><span class="hljs-string">"/MagicBean:1.0.15/"</span></span>,
+    "<span class="hljs-attribute">deprecationheight</span>": <span class="hljs-value"><span class="hljs-number">1400000</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+<h2><a id="getnettotals"></a>getnettotals</h2><hr>
+<p><strong>getnettotals</strong></p>
+<p>The <code>getnettotals</code> method returns information about network traffic, including bytes in, bytes out, and current time.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“totalbytesrecv”</td>
+<td>(numeric)</td>
+<td>total bytes received</td>
+</tr>
+<tr>
+<td>“totalbytessent”</td>
+<td>(numeric)</td>
+<td>total bytes sent</td>
+</tr>
+<tr>
+<td>“timemillis”</td>
+<td>(numeric)</td>
+<td>total cpu time</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli getnettotals</code></pre>
+<a>Response:</a>
+<pre><code>{
+  "<span class="hljs-attribute">totalbytesrecv</span>": <span class="hljs-value"><span class="hljs-number">29853501</span></span>,
+  "<span class="hljs-attribute">totalbytessent</span>": <span class="hljs-value"><span class="hljs-number">15589555</span></span>,
+  "<span class="hljs-attribute">timemillis</span>": <span class="hljs-value"><span class="hljs-number">1536821874559</span>
+</span>}</code></pre>
+<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getnettotals", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
+<pre><code>{
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">totalbytesrecv</span>": <span class="hljs-value"><span class="hljs-number">29872297</span></span>,
+    "<span class="hljs-attribute">totalbytessent</span>": <span class="hljs-value"><span class="hljs-number">15650741</span></span>,
+    "<span class="hljs-attribute">timemillis</span>": <span class="hljs-value"><span class="hljs-number">1536821938902</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+<h2><a id="getnetworkinfo"></a>getnetworkinfo</h2><hr>
+<p><strong>getnetworkinfo</strong></p>
+<p>The <code>getnetworkinfo</code> method returns an object containing various state info regarding p2p networking.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“version”</td>
+<td>(numeric)</td>
+<td>the server version</td>
+</tr>
+<tr>
+<td>“subversion”</td>
+<td>(string)</td>
+<td>the server subversion string (i.e. “/MagicBean:x.y.z[-v]/”)</td>
+</tr>
+<tr>
+<td>“protocolversion”</td>
+<td>(numeric)</td>
+<td>the protocol version</td>
+</tr>
+<tr>
+<td>“localservices”</td>
+<td>(string)</td>
+<td>the services we offer to the network</td>
+</tr>
+<tr>
+<td>“timeoffset”</td>
+<td>(numeric)</td>
+<td>the time offset</td>
+</tr>
+<tr>
+<td>“connections”</td>
+<td>(numeric)</td>
+<td>the number of connections</td>
+</tr>
+<tr>
+<td>“networks”: [ … ]</td>
+<td>(array of jsons)</td>
+<td>information per network</td>
+</tr>
+<tr>
+<td>“name”</td>
+<td>(string)</td>
+<td>network (ipv4, ipv6 or onion)</td>
+</tr>
+<tr>
+<td>“limited”</td>
+<td>(boolean)</td>
+<td>whether the network is limited using -onlynet</td>
+</tr>
+<tr>
+<td>“reachable”</td>
+<td>(boolean)</td>
+<td>whether the network is reachable</td>
+</tr>
+<tr>
+<td>“proxy”</td>
+<td>(string)</td>
+<td>(submitted as “host:port”) the proxy that is used for this network, or empty if none</td>
+</tr>
+<tr>
+<td>“relayfee”</td>
+<td>(numeric)</td>
+<td>minimum relay fee for non-free transactions in COIN/kB</td>
+</tr>
+<tr>
+<td>“localaddresses”: [ … ]</td>
+<td>(array of jsons)</td>
+<td>list of local addresses</td>
+</tr>
+<tr>
+<td>“address”</td>
+<td>(string)</td>
+<td>network address</td>
+</tr>
+<tr>
+<td>“port”</td>
+<td>(numeric)</td>
+<td>network port</td>
+</tr>
+<tr>
+<td>“score”</td>
+<td>(numeric)</td>
+<td>relative score</td>
+</tr>
+<tr>
+<td>“warnings”</td>
+<td>(string)</td>
+<td>any network warnings (such as alert messages)</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code >./hush-cli getnetworkinfo</code></pre>
+<a>Response:</a>
+<pre><code>{
+  "<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-number">1001550</span></span>,
+  "<span class="hljs-attribute">subversion</span>": <span class="hljs-value"><span class="hljs-string">"/MagicBean:1.0.15/"</span></span>,
+  "<span class="hljs-attribute">protocolversion</span>": <span class="hljs-value"><span class="hljs-number">170003</span></span>,
+  "<span class="hljs-attribute">localservices</span>": <span class="hljs-value"><span class="hljs-string">"0000000000000001"</span></span>,
+  "<span class="hljs-attribute">timeoffset</span>": <span class="hljs-value">-<span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">connections</span>": <span class="hljs-value"><span class="hljs-number">10</span></span>,
+  "<span class="hljs-attribute">networks</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"ipv4"</span></span>,
+      "<span class="hljs-attribute">limited</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+      "<span class="hljs-attribute">reachable</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+      "<span class="hljs-attribute">proxy</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+      "<span class="hljs-attribute">proxy_randomize_credentials</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"ipv6"</span></span>,
+      "<span class="hljs-attribute">limited</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+      "<span class="hljs-attribute">reachable</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+      "<span class="hljs-attribute">proxy</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+      "<span class="hljs-attribute">proxy_randomize_credentials</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"onion"</span></span>,
+      "<span class="hljs-attribute">limited</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+      "<span class="hljs-attribute">reachable</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+      "<span class="hljs-attribute">proxy</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+      "<span class="hljs-attribute">proxy_randomize_credentials</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+    </span>}
+  ]</span>,
+  "<span class="hljs-attribute">relayfee</span>": <span class="hljs-value"><span class="hljs-number">0.000001</span></span>,
+  "<span class="hljs-attribute">localaddresses</span>": <span class="hljs-value">[]</span>,
+  "<span class="hljs-attribute">warnings</span>": <span class="hljs-value"><span class="hljs-string">""</span>
+</span>}</code></pre>
+<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getnetworkinfo", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
+<pre><code>{
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-number">1001550</span></span>,
+    "<span class="hljs-attribute">subversion</span>": <span class="hljs-value"><span class="hljs-string">"/MagicBean:1.0.15/"</span></span>,
+    "<span class="hljs-attribute">protocolversion</span>": <span class="hljs-value"><span class="hljs-number">170003</span></span>,
+    "<span class="hljs-attribute">localservices</span>": <span class="hljs-value"><span class="hljs-string">"0000000000000001"</span></span>,
+    "<span class="hljs-attribute">timeoffset</span>": <span class="hljs-value">-<span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">connections</span>": <span class="hljs-value"><span class="hljs-number">10</span></span>,
+    "<span class="hljs-attribute">networks</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"ipv4"</span></span>,
+        "<span class="hljs-attribute">limited</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+        "<span class="hljs-attribute">reachable</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+        "<span class="hljs-attribute">proxy</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+        "<span class="hljs-attribute">proxy_randomize_credentials</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>},
+      {
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"ipv6"</span></span>,
+        "<span class="hljs-attribute">limited</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+        "<span class="hljs-attribute">reachable</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+        "<span class="hljs-attribute">proxy</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+        "<span class="hljs-attribute">proxy_randomize_credentials</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>},
+      {
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"onion"</span></span>,
+        "<span class="hljs-attribute">limited</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+        "<span class="hljs-attribute">reachable</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+        "<span class="hljs-attribute">proxy</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+        "<span class="hljs-attribute">proxy_randomize_credentials</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>}
+    ]</span>,
+    "<span class="hljs-attribute">relayfee</span>": <span class="hljs-value"><span class="hljs-number">1e-6</span></span>,
+    "<span class="hljs-attribute">localaddresses</span>": <span class="hljs-value">[]</span>,
+    "<span class="hljs-attribute">warnings</span>": <span class="hljs-value"><span class="hljs-string">""</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+<h2><a id="getpeerinfo"></a>getpeerinfo</h2><hr>
+<p><strong>getpeerinfo</strong></p>
+<p>The <code>getpeerinfo</code> method returns data about each connected network node as a json array of objects.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“id”</td>
+<td>(numeric)</td>
+<td>peer index</td>
+</tr>
+<tr>
+<td>“addr”:,</td>
+<td>(string)</td>
+<td>the ip address and port of the peer (“host:port”)</td>
+</tr>
+<tr>
+<td>“addrlocal”</td>
+<td>(string)</td>
+<td>local address (“ip:port”)</td>
+</tr>
+<tr>
+<td>“services”</td>
+<td>(string)</td>
+<td>the services offered</td>
+</tr>
+<tr>
+<td>“lastsend”</td>
+<td>(numeric)</td>
+<td>the time in seconds since epoch (Jan 1 1970 GMT) of the last send</td>
+</tr>
+<tr>
+<td>“lastrecv”</td>
+<td>(numeric)</td>
+<td>the time in seconds since epoch (Jan 1 1970 GMT) of the last receive</td>
+</tr>
+<tr>
+<td>“bytessent”</td>
+<td>(numeric)</td>
+<td>the total bytes sent</td>
+</tr>
+<tr>
+<td>“bytesrecv”</td>
+<td>(numeric)</td>
+<td>the total bytes received</td>
+</tr>
+<tr>
+<td>“conntime”</td>
+<td>(numeric)</td>
+<td>the connection time in seconds since epoch (Jan 1 1970 GMT)</td>
+</tr>
+<tr>
+<td>“timeoffset”</td>
+<td>(numeric)</td>
+<td>the time offset in seconds</td>
+</tr>
+<tr>
+<td>“pingtime”</td>
+<td>(numeric)</td>
+<td>ping time</td>
+</tr>
+<tr>
+<td>“pingwait”</td>
+<td>(numeric)</td>
+<td>ping wait</td>
+</tr>
+<tr>
+<td>“version”</td>
+<td>(numeric)</td>
+<td>the peer version, such as 170002</td>
+</tr>
+<tr>
+<td>“subver”</td>
+<td>(string)</td>
+<td>the string version (i.e. “/MagicBean:x.y.z[-v]/”)</td>
+</tr>
+<tr>
+<td>“inbound”</td>
+<td>(boolean)</td>
+<td>inbound (true) or outbound (false)</td>
+</tr>
+<tr>
+<td>“startingheight”</td>
+<td>(numeric)</td>
+<td>the starting height (block) of the peer</td>
+</tr>
+<tr>
+<td>“banscore”</td>
+<td>(numeric)</td>
+<td>the ban score</td>
+</tr>
+<tr>
+<td>“synced_headers”</td>
+<td>(numeric)</td>
+<td>the last header we have in common with this peer</td>
+</tr>
+<tr>
+<td>“synced_blocks”</td>
+<td>(numeric)</td>
+<td>the last block we have in common with this peer</td>
+</tr>
+<tr>
+<td>“inflight”: [ … ]</td>
+<td>(array)</td>
+<td></td>
+</tr>
+<tr>
+<td>number</td>
+<td>(numeric)</td>
+<td>the block height requested from this peer</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli getpeerinfo</code></pre>
+<a>Response:</a>
+<pre><code>[
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">addr</span>": <span class="hljs-value"><span class="hljs-string">"78.47.196.146:7770"</span></span>,
+    "<span class="hljs-attribute">addrlocal</span>": <span class="hljs-value"><span class="hljs-string">"69.178.104.172:49724"</span></span>,
+    "<span class="hljs-attribute">services</span>": <span class="hljs-value"><span class="hljs-string">"0000000000000001"</span></span>,
+    "<span class="hljs-attribute">lastsend</span>": <span class="hljs-value"><span class="hljs-number">1536827621</span></span>,
+    "<span class="hljs-attribute">lastrecv</span>": <span class="hljs-value"><span class="hljs-number">1536827617</span></span>,
+    "<span class="hljs-attribute">bytessent</span>": <span class="hljs-value"><span class="hljs-number">5181633</span></span>,
+    "<span class="hljs-attribute">bytesrecv</span>": <span class="hljs-value"><span class="hljs-number">6245958</span></span>,
+    "<span class="hljs-attribute">conntime</span>": <span class="hljs-value"><span class="hljs-number">1536792412</span></span>,
+    "<span class="hljs-attribute">timeoffset</span>": <span class="hljs-value">-<span class="hljs-number">2</span></span>,
+    "<span class="hljs-attribute">pingtime</span>": <span class="hljs-value"><span class="hljs-number">0.234065</span></span>,
+    "<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-number">170003</span></span>,
+    "<span class="hljs-attribute">subver</span>": <span class="hljs-value"><span class="hljs-string">"/MagicBean:1.0.15/"</span></span>,
+    "<span class="hljs-attribute">inbound</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+    "<span class="hljs-attribute">startingheight</span>": <span class="hljs-value"><span class="hljs-number">1007074</span></span>,
+    "<span class="hljs-attribute">banscore</span>": <span class="hljs-value"><span class="hljs-number">45</span></span>,
+    "<span class="hljs-attribute">synced_headers</span>": <span class="hljs-value"><span class="hljs-number">1007671</span></span>,
+    "<span class="hljs-attribute">synced_blocks</span>": <span class="hljs-value"><span class="hljs-number">1007671</span></span>,
+    "<span class="hljs-attribute">inflight</span>": <span class="hljs-value">[]</span>,
+    "<span class="hljs-attribute">whitelisted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+  </span>}
+]</code></pre>
+<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getpeerinfo", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
+<pre><code>{
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">addr</span>": <span class="hljs-value"><span class="hljs-string">"78.47.196.146:7770"</span></span>,
+      "<span class="hljs-attribute">addrlocal</span>": <span class="hljs-value"><span class="hljs-string">"69.178.104.172:49724"</span></span>,
+      "<span class="hljs-attribute">services</span>": <span class="hljs-value"><span class="hljs-string">"0000000000000001"</span></span>,
+      "<span class="hljs-attribute">lastsend</span>": <span class="hljs-value"><span class="hljs-number">1536827702</span></span>,
+      "<span class="hljs-attribute">lastrecv</span>": <span class="hljs-value"><span class="hljs-number">1536827698</span></span>,
+      "<span class="hljs-attribute">bytessent</span>": <span class="hljs-value"><span class="hljs-number">5195639</span></span>,
+      "<span class="hljs-attribute">bytesrecv</span>": <span class="hljs-value"><span class="hljs-number">6247781</span></span>,
+      "<span class="hljs-attribute">conntime</span>": <span class="hljs-value"><span class="hljs-number">1536792412</span></span>,
+      "<span class="hljs-attribute">timeoffset</span>": <span class="hljs-value">-<span class="hljs-number">2</span></span>,
+      "<span class="hljs-attribute">pingtime</span>": <span class="hljs-value"><span class="hljs-number">0.234605</span></span>,
+      "<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-number">170003</span></span>,
+      "<span class="hljs-attribute">subver</span>": <span class="hljs-value"><span class="hljs-string">"/MagicBean:1.0.15/"</span></span>,
+      "<span class="hljs-attribute">inbound</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+      "<span class="hljs-attribute">startingheight</span>": <span class="hljs-value"><span class="hljs-number">1007074</span></span>,
+      "<span class="hljs-attribute">banscore</span>": <span class="hljs-value"><span class="hljs-number">45</span></span>,
+      "<span class="hljs-attribute">synced_headers</span>": <span class="hljs-value"><span class="hljs-number">1007672</span></span>,
+      "<span class="hljs-attribute">synced_blocks</span>": <span class="hljs-value"><span class="hljs-number">1007672</span></span>,
+      "<span class="hljs-attribute">inflight</span>": <span class="hljs-value">[]</span>,
+      "<span class="hljs-attribute">whitelisted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+    </span>}
+  ]</span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+<h2><a id="listbanned"></a>listbanned</h2><hr>
+<p><strong>listbanned</strong></p>
+<p>The <code>listbanned</code> method lists all banned IP addresses and subnets.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“address”</td>
+<td>(string)</td>
+<td>the address/subnet that is banned</td>
+</tr>
+<tr>
+<td>“banned_until”</td>
+<td>(numeric)</td>
+<td>the timestamp, at which point the ban will be removed</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli listbanned</code></pre>
+<a>Response:</a>
+<pre><code>[
+  {
+    "<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"78.47.205.239/255.255.255.255"</span></span>,
+    "<span class="hljs-attribute">banned_until</span>": <span class="hljs-value"><span class="hljs-number">1536945306</span>
+  </span>}
+]</code></pre>
+<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "listbanned", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
+<pre><code>{
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"78.47.205.239/255.255.255.255"</span></span>,
+      "<span class="hljs-attribute">banned_until</span>": <span class="hljs-value"><span class="hljs-number">1536945306</span>
+    </span>}
+  ]</span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+<h2><a id="ping"></a>ping</h2><hr>
+<p><strong>ping</strong></p>
+<p>The <code>ping</code> method requests that a ping be sent to all other nodes, to measure ping time.</p>
+<p>Results provided in <code>getpeerinfo</code>, <code>pingtime</code> and <code>pingwait</code> fields are decimal seconds.</p>
+<p>The <code>ping</code> command is handled in queue with all other commands, so it measures processing backlog, not just network ping.</p>
+<p>::: tip<br>
+Use &lt;b&gt;getpeerinfo&lt;/b&gt; to see &lt;b&gt;ping&lt;/b&gt; results.<br>
+:::</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli ping</code></pre>
+<a>Response:</a>
+<pre><code>(none)</code></pre>
+<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "ping", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
+<pre><code>{
+  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+<h2>setban</h2><hr>
+<p><strong>setban “ip(/netmask)” “add|remove” (bantime) (absolute)</strong></p>
+<p>The <code>setban</code> method attempts to add or remove an IP address (and subnet, if indicated) from the banned list.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“ip(/netmask)”</td>
+<td>(string, ip required)</td>
+<td>the IP/subnet (see <code>getpeerinfo</code> for nodes ip) with an optional netmask (default is /32 = single ip)</td>
+</tr>
+<tr>
+<td>“command”</td>
+<td>(string, required)</td>
+<td>use “add” to add an IP/subnet to the list, or “remove” to remove an IP/subnet from the list</td>
+</tr>
+<tr>
+<td>bantime</td>
+<td>(numeric, optional)</td>
+<td>indicates how long (in seconds) the ip is banned (or until when, if [absolute] is set). 0 or empty means the ban is using the default time of 24h, which can also be overwritten using the -bantime runtime parameter.</td>
+</tr>
+<tr>
+<td>absolute</td>
+<td>(boolean, optional)</td>
+<td>if set to true, the bantime must be an absolute timestamp (in seconds) since epoch (Jan 1 1970 GMT)</td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>::: tip<br>
+Use <strong>listbanned</strong> to view results.<br>
+:::</p>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli setban <span class="hljs-string">"192.168.0.6"</span> <span class="hljs-string">"add"</span> <span class="hljs-number">86400</span></code></pre>
+<a>Response:</a>
+<pre><code>(none)</code></pre>
+<a>Command:</a>
+<pre><code>./hush-cli setban <span class="hljs-string">"192.168.0.0/24"</span> <span class="hljs-string">"add"</span></code></pre>
+<a>Response:</a>
+<pre><code>(none)</code></pre>
+<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p><p class="has-line-data" data-line-start="895" data-line-end="896">Command:</p>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "setban", "params": ["78.47.205.239", "add", 86400] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
+<pre><code>(none)</code></pre>
+</div>
+</section>
 
 
 
