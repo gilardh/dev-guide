@@ -40,8 +40,7 @@
 					        <li><a href="#address">Address</a></li>
 							<li><a href="#blockchain">Blockchain</a></li>
 							<li><a href="#control">Control</a></li>
-							<li><a href="#generating">Generate</a></li>
-							<li><a href="#mining">Mining</a></li>
+							<li><a href="#generating_mining">Generate / Mining</a></li>
 							<li><a href="#network">Network</a></li>
 							<li><a href="#rawtransactions">Raw Transactions</a></li>
 							<li><a href="#shielded">Shielded</a></li>	
@@ -1222,8 +1221,8 @@
 
 
 	<section class="text-area">
-		<div class="container" id="generating">
-		<h1>Generating</h1><hr>
+		<div class="container" id="generating_mining">
+		<h1>Generating / Mining</h1><hr>
 		<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</p><br>
 		<h2><a id="generate"></a>generate</h2><hr>
 		<p><strong>generate numblocks</strong></p>
@@ -1409,65 +1408,57 @@
 	"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
 	"<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
 	"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
-</span>}</code></pre>
-		</div>
-	</section>
+</span>}</code></pre><br>
 
-	<section class="text-area">
-		<div class="container" id="mining">
-		<h1>Mining</h1>
-		<hr>
-		<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</p>
-		<h2><a id="getblocksubsidy"></a>getblocksubsidy</h2>
-		<hr>
-		<p><strong>getblocksubsidy height_number</strong></p>
-		<p>The <code>getblocksubsidy</code> method returns the block-subsidy reward. The resulting calculation takes into account the mining slow start. This method can be used in conjunction with custom mining rewards designed by the developers of a KMD-based Smart Chain.</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>height</td>
-		<td>(numeric, optional)</td>
-		<td>the block height; if the block height is not provided, the method defaults to the current height of the chain</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“miner”</td>
-		<td>(numeric)</td>
-		<td>the mining reward amount</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli getblocksubsidy <span class="hljs-number">100</span></code></pre>
-		<a>Response:</a>
-		<pre><code>{
+<h2><a id="getblocksubsidy"></a>getblocksubsidy</h2><hr>
+<p><strong>getblocksubsidy height_number</strong></p>
+<p>The <code>getblocksubsidy</code> method returns the block-subsidy reward. The resulting calculation takes into account the mining slow start. This method can be used in conjunction with custom mining rewards designed by the developers of a KMD-based Smart Chain.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>height</td>
+<td>(numeric, optional)</td>
+<td>the block height; if the block height is not provided, the method defaults to the current height of the chain</td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“miner”</td>
+<td>(numeric)</td>
+<td>the mining reward amount</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli getblocksubsidy <span class="hljs-number">100</span></code></pre>
+<a>Response:</a>
+<pre><code>{
 	"<span class="hljs-attribute">miner</span>": <span class="hljs-value"><span class="hljs-number">3.0</span>
 </span>}</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getblocksubsidy", "params": [1000] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Responses</a>
-		<pre><code>{
+<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getblocksubsidy", "params": [1000] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Responses</a>
+<pre><code>{
 		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
 			"<span class="hljs-attribute">miner</span>": <span class="hljs-value"><span class="hljs-number">3.0</span>
 		  </span>}</span>,
@@ -1475,224 +1466,224 @@
 		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
 </span>}</code></pre>
 <br>
-		<h2><a id="getblocktemplate"></a>getblocktemplate</h2>
-		<hr>
-		<p><strong>getblocktemplate ( “jsonrequestobject” )</strong></p>
-		<p>::: tip<br>
-		See <a href="https://en.bitcoin.it/wiki/BIP_0022">https://en.bitcoin.it/wiki/BIP_0022</a> the Bitcoin wiki for the full specification.<br>
-		:::</p>
-		<p>The <code>getblocktemplate</code> method returns data that is necessary to construct a block.</p>
-		<p>If the request parameters include a <code>mode</code> key, it is used to explicitly select between the default ‘template’ request, a ‘proposal’ or ‘disablecb’.</p>
-		<h4>A Note on Unique Mining Circumstances</h4>
-		<p>There are many features in the Komodo Ecosystem that can make a Smart Chain’s daemon produce non-standard coinbase transactions. Examples include a Smart Chain parameter that creates new coins for a specific pubkey in every block or a CC module that adds outputs to the coinbase transaction.</p>
-		<p>This can be dealt using a mode called <code>disablecb</code></p>
-		<a>Usage:</a>
-		<pre><code>./hush-cli getblocktemplate <span class="hljs-string">'{"mode":"disablecb"}'</span></code></pre>
-		<p>The block template produced using this mode doesn’t have the <code>&quot;coinbasetxn&quot;: { ... }</code> json object but adds the coinbase transaction to the <code>&quot;transactions&quot;:[ ... ]</code> array, just like a regular transaction.</p>
-		<p>Now the pool software can use the <code>&quot;transactions&quot;:[ ... ]</code> array to create a block and take fees in the payment processor. The <code>knomp</code> <a href="https://github.com/blackjok3rtt/knomp">fork</a> by <a href="https://github.com/blackjok3rtt">@blackjok3rtt</a> uses this mode.</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“jsonrequestobject” : { … }</td>
-		<td>(string, optional)</td>
-		<td>a json object in the following spec</td>
-		</tr>
-		<tr>
-		<td>“mode”</td>
-		<td>(string, optional)</td>
-		<td>this must be set to “template” or omitted</td>
-		</tr>
-		<tr>
-		<td>“capabilities”: [ … ]</td>
-		<td>(array, optional)</td>
-		<td>a list of strings</td>
-		</tr>
-		<tr>
-		<td>“support”</td>
-		<td>(string)</td>
-		<td>client side supported features: “longpoll”, “coinbasetxn”, “coinbasevalue”, “proposal”, “serverlist”, “workid”</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“version”</td>
-		<td>(numeric)</td>
-		<td>the block version</td>
-		</tr>
-		<tr>
-		<td>“previousblockhash”</td>
-		<td>(string)</td>
-		<td>the hash of current highest block</td>
-		</tr>
-		<tr>
-		<td>“finalsaplingroothash”</td>
-		<td>(string)</td>
-		<td>the hash of the final sapling root</td>
-		</tr>
-		<tr>
-		<td>“transactions”:[ … ]</td>
-		<td>(array)</td>
-		<td>the contents of non-coinbase transactions that should be included in the next block</td>
-		</tr>
-		<tr>
-		<td>“data”</td>
-		<td>(string)</td>
-		<td>transaction data encoded in hexadecimal (byte-for-byte)</td>
-		</tr>
-		<tr>
-		<td>“hash”</td>
-		<td>(string)</td>
-		<td>the hash/id encoded in little-endian hexadecimal</td>
-		</tr>
-		<tr>
-		<td>“depends” : [ … ]</td>
-		<td>(array)</td>
-		<td>an array of numbers</td>
-		</tr>
-		<tr>
-		<td>number</td>
-		<td>(numeric)</td>
-		<td>the indexes of transactions that must be present in the final block if this transaction is present in the final block; the index of the array of transactions starts with “1”</td>
-		</tr>
-		<tr>
-		<td>“fee”</td>
-		<td>(numeric)</td>
-		<td>the difference in value between transaction inputs and outputs in satoshis; for coinbase transactions, this is the negative number of the total collected block fees, not including the block subsidy; if a key is not present, the fee is unknown and clients MUST NOT assume it is not present</td>
-		</tr>
-		<tr>
-		<td>“sigops”</td>
-		<td>(numeric)</td>
-		<td>the total number of sigops, as counted for the purposes of block limits; if a key is not present, the sigop count is unknown and clients MUST NOT assume they are not present.</td>
-		</tr>
-		<tr>
-		<td>“required”</td>
-		<td>(boolean)</td>
-		<td>if provided and true, this transaction must be in the final block</td>
-		</tr>
-		<tr>
-		<td>“coinbasetxn”: { … }</td>
-		<td>(json object)</td>
-		<td>information for the coinbase transaction</td>
-		</tr>
-		<tr>
-		<td>“longpollid”</td>
-		<td>(string)</td>
-		<td>the last seen longpollid when this response was sent by the server</td>
-		</tr>
-		<tr>
-		<td>“data”</td>
-		<td>(string)</td>
-		<td>transaction data encoded in hexadecimal (byte-for-byte)</td>
-		</tr>
-		<tr>
-		<td>“hash”</td>
-		<td>(string)</td>
-		<td>the hash/id encoded in little-endian hexadecimal</td>
-		</tr>
-		<tr>
-		<td>“depends” : [ … ]</td>
-		<td>(array)</td>
-		<td>an array of numbers</td>
-		</tr>
-		<tr>
-		<td>“fee”</td>
-		<td>(numeric)</td>
-		<td>the difference in value between transaction inputs and outputs in satoshis; for coinbase transactions, this is the negative number of the total collected block fees, not including the block subsidy; if a key is not present, the fee is unknown and clients MUST NOT assume it is not present</td>
-		</tr>
-		<tr>
-		<td>“sigops”</td>
-		<td>(numeric)</td>
-		<td>the total number of sigops, as counted for the purposes of block limits; if a key is not present, the sigop count is unknown and clients MUST NOT assume they are not present.</td>
-		</tr>
-		<tr>
-		<td>“foundersreward”</td>
-		<td>(numeric)</td>
-		<td>the founder’s reward that should be paid out in this block; this key is present only in the blocks that payout the founder’s reward; present only in chains with <a href="#ac-founders">ac_founders</a> enabled</td>
-		</tr>
-		<tr>
-		<td>“coinbasevalue”</td>
-		<td>(numeric)</td>
-		<td>the value of the coinbase transaction (in satoshis)</td>
-		</tr>
-		<tr>
-		<td>“required”</td>
-		<td>(boolean)</td>
-		<td>if provided and true, this transaction must be in the final block</td>
-		</tr>
-		<tr>
-		<td>“target”</td>
-		<td>(string)</td>
-		<td>the hash target</td>
-		</tr>
-		<tr>
-		<td>“mintime”</td>
-		<td>(numeric)</td>
-		<td>the minimum timestamp appropriate for next block time in seconds since epoch (Jan 1 1970 GMT)</td>
-		</tr>
-		<tr>
-		<td>“mutable”: [ … ]</td>
-		<td>(array of strings)</td>
-		<td>a list of ways the block template may be changed</td>
-		</tr>
-		<tr>
-		<td>“value”</td>
-		<td>(string)</td>
-		<td>a way the block template may be changed, e.g. “time”, “transactions”, “prevblock”</td>
-		</tr>
-		<tr>
-		<td>“noncerange”</td>
-		<td>(string)</td>
-		<td>a range of valid nonces</td>
-		</tr>
-		<tr>
-		<td>“sigoplimit”</td>
-		<td>(numeric)</td>
-		<td>the limit of sigops in blocks</td>
-		</tr>
-		<tr>
-		<td>“sizelimit”</td>
-		<td>(numeric)</td>
-		<td>the limit of block size</td>
-		</tr>
-		<tr>
-		<td>“curtime”</td>
-		<td>(numeric)</td>
-		<td>current timestamp in seconds since epoch (Jan 1 1970 GMT)</td>
-		</tr>
-		<tr>
-		<td>“bits”</td>
-		<td>(string)</td>
-		<td>the compressed target of the next block</td>
-		</tr>
-		<tr>
-		<td>“height”</td>
-		<td>(numeric)</td>
-		<td>the height of the next block</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli getblocktemplate <span class="hljs-string">'{"mode":"template","capabilities":["workid"]}'</span></code></pre>
-		<a>Response:</a>
+<h2><a id="getblocktemplate"></a>getblocktemplate</h2>
+<hr>
+<p><strong>getblocktemplate ( “jsonrequestobject” )</strong></p>
+<p>::: tip<br>
+See <a href="https://en.bitcoin.it/wiki/BIP_0022">https://en.bitcoin.it/wiki/BIP_0022</a> the Bitcoin wiki for the full specification.<br>
+:::</p>
+<p>The <code>getblocktemplate</code> method returns data that is necessary to construct a block.</p>
+<p>If the request parameters include a <code>mode</code> key, it is used to explicitly select between the default ‘template’ request, a ‘proposal’ or ‘disablecb’.</p>
+<h4>A Note on Unique Mining Circumstances</h4>
+<p>There are many features in the Komodo Ecosystem that can make a Smart Chain’s daemon produce non-standard coinbase transactions. Examples include a Smart Chain parameter that creates new coins for a specific pubkey in every block or a CC module that adds outputs to the coinbase transaction.</p>
+<p>This can be dealt using a mode called <code>disablecb</code></p>
+<a>Usage:</a>
+<pre><code>./hush-cli getblocktemplate <span class="hljs-string">'{"mode":"disablecb"}'</span></code></pre>
+<p>The block template produced using this mode doesn’t have the <code>&quot;coinbasetxn&quot;: { ... }</code> json object but adds the coinbase transaction to the <code>&quot;transactions&quot;:[ ... ]</code> array, just like a regular transaction.</p>
+<p>Now the pool software can use the <code>&quot;transactions&quot;:[ ... ]</code> array to create a block and take fees in the payment processor. The <code>knomp</code> <a href="https://github.com/blackjok3rtt/knomp">fork</a> by <a href="https://github.com/blackjok3rtt">@blackjok3rtt</a> uses this mode.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“jsonrequestobject” : { … }</td>
+<td>(string, optional)</td>
+<td>a json object in the following spec</td>
+</tr>
+<tr>
+<td>“mode”</td>
+<td>(string, optional)</td>
+<td>this must be set to “template” or omitted</td>
+</tr>
+<tr>
+<td>“capabilities”: [ … ]</td>
+<td>(array, optional)</td>
+<td>a list of strings</td>
+</tr>
+<tr>
+<td>“support”</td>
+<td>(string)</td>
+<td>client side supported features: “longpoll”, “coinbasetxn”, “coinbasevalue”, “proposal”, “serverlist”, “workid”</td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“version”</td>
+<td>(numeric)</td>
+<td>the block version</td>
+</tr>
+<tr>
+<td>“previousblockhash”</td>
+<td>(string)</td>
+<td>the hash of current highest block</td>
+</tr>
+<tr>
+<td>“finalsaplingroothash”</td>
+<td>(string)</td>
+<td>the hash of the final sapling root</td>
+</tr>
+<tr>
+<td>“transactions”:[ … ]</td>
+<td>(array)</td>
+<td>the contents of non-coinbase transactions that should be included in the next block</td>
+</tr>
+<tr>
+<td>“data”</td>
+<td>(string)</td>
+<td>transaction data encoded in hexadecimal (byte-for-byte)</td>
+</tr>
+<tr>
+<td>“hash”</td>
+<td>(string)</td>
+<td>the hash/id encoded in little-endian hexadecimal</td>
+</tr>
+<tr>
+<td>“depends” : [ … ]</td>
+<td>(array)</td>
+<td>an array of numbers</td>
+</tr>
+<tr>
+<td>number</td>
+<td>(numeric)</td>
+<td>the indexes of transactions that must be present in the final block if this transaction is present in the final block; the index of the array of transactions starts with “1”</td>
+</tr>
+<tr>
+<td>“fee”</td>
+<td>(numeric)</td>
+<td>the difference in value between transaction inputs and outputs in satoshis; for coinbase transactions, this is the negative number of the total collected block fees, not including the block subsidy; if a key is not present, the fee is unknown and clients MUST NOT assume it is not present</td>
+</tr>
+<tr>
+<td>“sigops”</td>
+<td>(numeric)</td>
+<td>the total number of sigops, as counted for the purposes of block limits; if a key is not present, the sigop count is unknown and clients MUST NOT assume they are not present.</td>
+</tr>
+<tr>
+<td>“required”</td>
+<td>(boolean)</td>
+<td>if provided and true, this transaction must be in the final block</td>
+</tr>
+<tr>
+<td>“coinbasetxn”: { … }</td>
+<td>(json object)</td>
+<td>information for the coinbase transaction</td>
+</tr>
+<tr>
+<td>“longpollid”</td>
+<td>(string)</td>
+<td>the last seen longpollid when this response was sent by the server</td>
+</tr>
+<tr>
+<td>“data”</td>
+<td>(string)</td>
+<td>transaction data encoded in hexadecimal (byte-for-byte)</td>
+</tr>
+<tr>
+<td>“hash”</td>
+<td>(string)</td>
+<td>the hash/id encoded in little-endian hexadecimal</td>
+</tr>
+<tr>
+<td>“depends” : [ … ]</td>
+<td>(array)</td>
+<td>an array of numbers</td>
+</tr>
+<tr>
+<td>“fee”</td>
+<td>(numeric)</td>
+<td>the difference in value between transaction inputs and outputs in satoshis; for coinbase transactions, this is the negative number of the total collected block fees, not including the block subsidy; if a key is not present, the fee is unknown and clients MUST NOT assume it is not present</td>
+</tr>
+<tr>
+<td>“sigops”</td>
+<td>(numeric)</td>
+<td>the total number of sigops, as counted for the purposes of block limits; if a key is not present, the sigop count is unknown and clients MUST NOT assume they are not present.</td>
+</tr>
+<tr>
+<td>“foundersreward”</td>
+<td>(numeric)</td>
+<td>the founder’s reward that should be paid out in this block; this key is present only in the blocks that payout the founder’s reward; present only in chains with <a href="#ac-founders">ac_founders</a> enabled</td>
+</tr>
+<tr>
+<td>“coinbasevalue”</td>
+<td>(numeric)</td>
+<td>the value of the coinbase transaction (in satoshis)</td>
+</tr>
+<tr>
+<td>“required”</td>
+<td>(boolean)</td>
+<td>if provided and true, this transaction must be in the final block</td>
+</tr>
+<tr>
+<td>“target”</td>
+<td>(string)</td>
+<td>the hash target</td>
+</tr>
+<tr>
+<td>“mintime”</td>
+<td>(numeric)</td>
+<td>the minimum timestamp appropriate for next block time in seconds since epoch (Jan 1 1970 GMT)</td>
+</tr>
+<tr>
+<td>“mutable”: [ … ]</td>
+<td>(array of strings)</td>
+<td>a list of ways the block template may be changed</td>
+</tr>
+<tr>
+<td>“value”</td>
+<td>(string)</td>
+<td>a way the block template may be changed, e.g. “time”, “transactions”, “prevblock”</td>
+</tr>
+<tr>
+<td>“noncerange”</td>
+<td>(string)</td>
+<td>a range of valid nonces</td>
+</tr>
+<tr>
+<td>“sigoplimit”</td>
+<td>(numeric)</td>
+<td>the limit of sigops in blocks</td>
+</tr>
+<tr>
+<td>“sizelimit”</td>
+<td>(numeric)</td>
+<td>the limit of block size</td>
+</tr>
+<tr>
+<td>“curtime”</td>
+<td>(numeric)</td>
+<td>current timestamp in seconds since epoch (Jan 1 1970 GMT)</td>
+</tr>
+<tr>
+<td>“bits”</td>
+<td>(string)</td>
+<td>the compressed target of the next block</td>
+</tr>
+<tr>
+<td>“height”</td>
+<td>(numeric)</td>
+<td>the height of the next block</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli getblocktemplate <span class="hljs-string">'{"mode":"template","capabilities":["workid"]}'</span></code></pre>
+<a>Response:</a>
 		<pre><code>{
 		  "<span class="hljs-attribute">capabilities</span>": <span class="hljs-value">[<span class="hljs-string">"proposal"</span>]</span>,
 		  "<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
@@ -1720,11 +1711,11 @@
 		  "<span class="hljs-attribute">bits</span>": <span class="hljs-value"><span class="hljs-string">"200f0f0f"</span></span>,
 		  "<span class="hljs-attribute">height</span>": <span class="hljs-value"><span class="hljs-number">6</span>
 </span>}</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getblocktemplate", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response:</a>
-		<pre><code>{
+<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getblocktemplate", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
+<pre><code>{
 		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
 			"<span class="hljs-attribute">capabilities</span>": <span class="hljs-value">[<span class="hljs-string">"proposal"</span>]</span>,
 			"<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
@@ -1761,159 +1752,159 @@
 		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
 		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
 </span>}</code></pre><br>
-		<h2><a id="getlocalsolps"></a>getlocalsolps</h2>
-		<hr>
-		<p><strong>getlocalsolps</strong></p>
-		<p>The <code>getlocalsolps</code> method returns the average local solutions per second since this node was started.</p>
-		<p>::: tip<br>
-		This is the same information shown on the metrics screen (if enabled).<br>
-		:::</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>(none)</td>
-		<td></td>
-		<td></td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“data”</td>
-		<td>(numeric)</td>
-		<td>the solutions-per-second average</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli getlocalsolps</code></pre>
-		<a>Response:</a>
-		<pre><code><span class="hljs-number">0.4141607577247555</span></code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getlocalsolps", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response:</a>
-		<pre><code>{
+<h2><a id="getlocalsolps"></a>getlocalsolps</h2>
+<hr>
+<p><strong>getlocalsolps</strong></p>
+<p>The <code>getlocalsolps</code> method returns the average local solutions per second since this node was started.</p>
+<p>::: tip<br>
+This is the same information shown on the metrics screen (if enabled).<br>
+:::</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“data”</td>
+<td>(numeric)</td>
+<td>the solutions-per-second average</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli getlocalsolps</code></pre>
+<a>Response:</a>
+<pre><code><span class="hljs-number">0.4141607577247555</span></code></pre>
+<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getlocalsolps", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
+<pre><code>{
 	"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-number">0.4141607577247555</span></span>,
 	"<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
 	"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
 </span>}</code></pre><br>
-		<h2><a id="getmininginfo"></a>getmininginfo</h2>
-		<hr>
-		<p><strong>getmininginfo</strong></p>
-		<p>The <code>getmininginfo</code> method returns a json object containing mining-related information.</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>(none)</td>
-		<td>(none)</td>
-		<td></td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“blocks”</td>
-		<td>(numeric)</td>
-		<td>the current block</td>
-		</tr>
-		<tr>
-		<td>“currentblocksize”</td>
-		<td>(numeric)</td>
-		<td>the last block size</td>
-		</tr>
-		<tr>
-		<td>“currentblocktx”</td>
-		<td>(numeric)</td>
-		<td>the last block transaction</td>
-		</tr>
-		<tr>
-		<td>“difficulty”</td>
-		<td>(numeric)</td>
-		<td>the current difficulty</td>
-		</tr>
-		<tr>
-		<td>“errors”:</td>
-		<td></td>
-		<td></td>
-		</tr>
-		<tr>
-		<td>“generate”</td>
-		<td>(boolean)</td>
-		<td>if the generation is on or off (see <a href="#getgenerate">getgenerate</a> or <a href="#setgenerate">setgenerate</a> calls)</td>
-		</tr>
-		<tr>
-		<td>“genproclimit”</td>
-		<td>(numeric)</td>
-		<td>the processor limit for generation; <code>-1</code> if no generation (see <a href="#getgenerate">getgenerate</a> or <a href="#setgenerate">setgenerate</a> calls)</td>
-		</tr>
-		<tr>
-		<td>“localsolps”</td>
-		<td>(numeric)</td>
-		<td>the average local solution rate (solutions per second) since this node was started</td>
-		</tr>
-		<tr>
-		<td>“networksolps”</td>
-		<td>(numeric)</td>
-		<td>the estimated network solution rate (solutions per second)</td>
-		</tr>
-		<tr>
-		<td>“pooledtx”:</td>
-		<td></td>
-		<td></td>
-		</tr>
-		<tr>
-		<td>“testnet”</td>
-		<td>(boolean)</td>
-		<td>if using testnet or not</td>
-		</tr>
-		<tr>
-		<td>“chain”</td>
-		<td>(string)</td>
-		<td>the current network name as defined in BIP70 (main, test, regtest)</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli getmininginfo</code></pre>
-		<a>Response:</a>
-		<pre><code>{
+<h2><a id="getmininginfo"></a>getmininginfo</h2>
+<hr>
+<p><strong>getmininginfo</strong></p>
+<p>The <code>getmininginfo</code> method returns a json object containing mining-related information.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none)</td>
+<td>(none)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“blocks”</td>
+<td>(numeric)</td>
+<td>the current block</td>
+</tr>
+<tr>
+<td>“currentblocksize”</td>
+<td>(numeric)</td>
+<td>the last block size</td>
+</tr>
+<tr>
+<td>“currentblocktx”</td>
+<td>(numeric)</td>
+<td>the last block transaction</td>
+</tr>
+<tr>
+<td>“difficulty”</td>
+<td>(numeric)</td>
+<td>the current difficulty</td>
+</tr>
+<tr>
+<td>“errors”:</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>“generate”</td>
+<td>(boolean)</td>
+<td>if the generation is on or off (see <a href="#getgenerate">getgenerate</a> or <a href="#setgenerate">setgenerate</a> calls)</td>
+</tr>
+<tr>
+<td>“genproclimit”</td>
+<td>(numeric)</td>
+<td>the processor limit for generation; <code>-1</code> if no generation (see <a href="#getgenerate">getgenerate</a> or <a href="#setgenerate">setgenerate</a> calls)</td>
+</tr>
+<tr>
+<td>“localsolps”</td>
+<td>(numeric)</td>
+<td>the average local solution rate (solutions per second) since this node was started</td>
+</tr>
+<tr>
+<td>“networksolps”</td>
+<td>(numeric)</td>
+<td>the estimated network solution rate (solutions per second)</td>
+</tr>
+<tr>
+<td>“pooledtx”:</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>“testnet”</td>
+<td>(boolean)</td>
+<td>if using testnet or not</td>
+</tr>
+<tr>
+<td>“chain”</td>
+<td>(string)</td>
+<td>the current network name as defined in BIP70 (main, test, regtest)</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli getmininginfo</code></pre>
+<a>Response:</a>
+<pre><code>{
 	"<span class="hljs-attribute">blocks</span>": <span class="hljs-value"><span class="hljs-number">1007341</span></span>,
 	"<span class="hljs-attribute">currentblocksize</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
 	"<span class="hljs-attribute">currentblocktx</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
@@ -1953,64 +1944,64 @@
 		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
 		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
 </span>}</code></pre><br>
-		<h2><a id="getnetworkhashps"></a>getnetworkhashps</h2>
-		<hr>
-		<p><strong>getnetworkhashps ( blocks height )</strong></p>
-		<p>::: warning<br>
-		DEPRECATED: Use getnetworksolps instead.<br>
-		:::</p>
-		<p>The <code>getnetworkhashps</code> method returns the estimated network solutions per second based on the last <code>n</code> blocks.</p>
-		<p>Pass in <code>blocks</code> value to override the default number of blocks. Passing in <code>-1</code> will return a value based on the average <code>hashps</code> of the relevant difficulty window.</p>
-		<p>Pass in <code>height</code> to estimate the network speed at the time when a certain block was found.</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>blocks</td>
-		<td>(numeric, optional, default=120)</td>
-		<td>the number of blocks (use <code>-1</code> to calculate over the relevant difficulty averaging window)</td>
-		</tr>
-		<tr>
-		<td>height</td>
-		<td>(numeric, optional, default=-1)</td>
-		<td>the block height that corresponds to the requested data</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>data</td>
-		<td>(numeric)</td>
-		<td>the solutions-per-second estimate</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli getnetworkhashps</code></pre>
-		<a>Response:</a>
-		<pre><code><span class="hljs-number">10724120</span></code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getnetworkhashps", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response:</a>
-		<pre><code>{
+<h2><a id="getnetworkhashps"></a>getnetworkhashps</h2>
+<hr>
+<p><strong>getnetworkhashps ( blocks height )</strong></p>
+<p>::: warning<br>
+DEPRECATED: Use getnetworksolps instead.<br>
+:::</p>
+<p>The <code>getnetworkhashps</code> method returns the estimated network solutions per second based on the last <code>n</code> blocks.</p>
+<p>Pass in <code>blocks</code> value to override the default number of blocks. Passing in <code>-1</code> will return a value based on the average <code>hashps</code> of the relevant difficulty window.</p>
+<p>Pass in <code>height</code> to estimate the network speed at the time when a certain block was found.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>blocks</td>
+<td>(numeric, optional, default=120)</td>
+<td>the number of blocks (use <code>-1</code> to calculate over the relevant difficulty averaging window)</td>
+</tr>
+<tr>
+<td>height</td>
+<td>(numeric, optional, default=-1)</td>
+<td>the block height that corresponds to the requested data</td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data</td>
+<td>(numeric)</td>
+<td>the solutions-per-second estimate</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli getnetworkhashps</code></pre>
+<a>Response:</a>
+<pre><code><span class="hljs-number">10724120</span></code></pre>
+<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getnetworkhashps", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
+<pre><code>{
 	"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-number">10724120</span></span>,
 	"<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
 	"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
