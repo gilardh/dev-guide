@@ -43,7 +43,8 @@
 							<li><a href="#generating">Generate</a></li>
 							<li><a href="#mining">Mining</a></li>
 							<li><a href="#network">Network</a></li>
-							<li><a href="#rawtransactions">Raw Transactions</a></li>		
+							<li><a href="#rawtransactions">Raw Transactions</a></li>
+							<li><a href="#shielded">Shielded</a></li>	
 							<li><a href="#util">Util</a></li>
 							<li><a href="#wallet">Wallet</a></li>
 			            </ul>
@@ -3308,7 +3309,858 @@ Use <strong>listbanned</strong> to view results.<br>
 
 
 
-
+	<section class="text-area">
+		<div class="container" id="shielded">
+		<h1>Shielded</h1>
+		<hr>
+		<h2><a id="z_importviewingkey"></a>z_importviewingkey</h2>
+		<p><strong>z_importviewingkey “viewing_key” ( rescan startHeight )</strong></p>
+		<p>The <code>z_importviewingkey</code> adds a viewing key to your wallet. This method allows you to view the balance in a z address that otherwise does not belong to your wallet.</p>
+		<p>::: tip<br>
+		See also <strong>z_exportviewingkey</strong>.<br>
+		:::</p>
+		<p>::: tip<br>
+		This call can take minutes to complete if <strong>rescan</strong> is true.<br>
+		:::</p>
+		<p>::: tip<br>
+		The optional parameters are currently not functional for KMD-based blockchains.<br>
+		:::</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“viewing_key”</td>
+		<td>(string, required)</td>
+		<td>the viewing key</td>
+		</tr>
+		<tr>
+		<td>rescan</td>
+		<td>(string, optional, default=“whenkeyisnew”)</td>
+		<td>whether to rescan the wallet for transactions; can be <code>&quot;yes&quot;</code></td>
+		</tr>
+		<tr>
+		<td>startHeight</td>
+		<td>(numeric, optional, default=0)</td>
+		<td>block height to start rescan</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>(none)</td>
+		<td></td>
+		<td></td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_importviewingkey <span class="hljs-string">"ZiVtfYkeyRY3y8Wykm5zjLcnssEkVrkej6j3kQ5B1AE2qp2F3VsKzpoXTzD82hrvMjWB9WxCHbXXrXax2ceyHLWrnQDaMrMja"</span></code></pre>
+		<a>Response:</a>
+		<pre><code>(none)</code></pre>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_importviewingkey <span class="hljs-string">"ZiVtfYkeyRY3y8Wykm5zjLcnssEkVrkej6j3kQ5B1AE2qp2F3VsKzpoXTzD82hrvMjWB9WxCHbXXrXax2ceyHLWrnQDaMrMja"</span> no</code></pre>
+		<a>Response</a>
+		<pre><code>(none)</code></pre>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_importviewingkey <span class="hljs-string">"ZiVtfYkeyRY3y8Wykm5zjLcnssEkVrkej6j3kQ5B1AE2qp2F3VsKzpoXTzD82hrvMjWB9WxCHbXXrXax2ceyHLWrnQDaMrMja"</span> whenkeyisnew <span class="hljs-number">30000</span></code></pre>
+		<a>Response:</a>
+		<pre><code>(none)</code></pre>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_importviewingkey <span class="hljs-string">"ZiVtfYkeyRY3y8Wykm5zjLcnssEkVrkej6j3kQ5B1AE2qp2F3VsKzpoXTzD82hrvMjWB9WxCHbXXrXax2ceyHLWrnQDaMrMja"</span> yes <span class="hljs-number">20000</span></code></pre>
+		<p>Response:</p>
+		<pre><code>(none)</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_importviewingkey", "params": ["ZiVtfYkeyRY3y8Wykm5zjLcnssEkVrkej6j3kQ5B1AE2qp2F3VsKzpoXTzD82hrvMjWB9WxCHbXXrXax2ceyHLWrnQDaMrMja", "no"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>(none)</code></pre><br>
+		<h2><a id="z_importwallet"></a>z_importwallet</h2><hr>
+		<p><strong>z_importwallet “filename”</strong></p>
+		<p>The <code>z_importwallet</code> method imports t address and z address keys from a wallet export file.</p>
+		<p>::: tip<br>
+		See also <strong>z_exportwallet</strong>.<br>
+		:::</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“filename”</td>
+		<td>(string, required)</td>
+		<td>the wallet file</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>(none)</td>
+		<td></td>
+		<td></td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_importwallet <span class="hljs-string">"/mydirectory/nameofbackup"</span></code></pre>
+		<a>Response:</a>
+		<pre><code>(none)</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_importwallet", "params": ["/mydirectory/nameofbackup"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		<h2><a id="z_listaddresses"></a>z_listaddresses</h2><hr>
+		<p><strong>z_listaddresses ( includeWatchonly )</strong></p>
+		<p>The <code>z_listaddresses</code> method returns the list of z addresses belonging to the wallet.</p>
+		<p>::: tip<br>
+		See also <strong>z_importviewingkey</strong>.<br>
+		:::</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>includeWatchonly</td>
+		<td>(bool, optional, default=false)</td>
+		<td>also include watchonly addresses</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“z_address”</td>
+		<td>(string)</td>
+		<td>a z address belonging to the wallet</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_listaddresses</code></pre>
+		<a>Response:</a>
+		<pre><code>[
+		  <span class="hljs-string">"ztYMDvwUqi5FZLQy4so71ZGHXk2fDtEYU9HNns9DNYjXJr9PEzSL8Dq8NcdiRijsgCm4r3nNWA6dUrqW9suGd2F7uuj2BhP"</span>,
+		  <span class="hljs-string">"ztbUD83kXgHt3A1M282wFvT9Ms6SiBCd6GSbQbPa2C7UtPojVZjPENytFqu7JxgnsgL9EN42xWnyhhzniHYSRJDnEPTgo3Y"</span>
+]</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_listaddresses", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span></code></pre>
+		<a>Response</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">[
+			<span class="hljs-string">"ztYMDvwUqi5FZLQy4so71ZGHXk2fDtEYU9HNns9DNYjXJr9PEzSL8Dq8NcdiRijsgCm4r3nNWA6dUrqW9suGd2F7uuj2BhP"</span>,
+			<span class="hljs-string">"ztbUD83kXgHt3A1M282wFvT9Ms6SiBCd6GSbQbPa2C7UtPojVZjPENytFqu7JxgnsgL9EN42xWnyhhzniHYSRJDnEPTgo3Y"</span>
+		  ]</span>,
+		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		<h2><a id="z_listoperationids"></a>z_listoperationids</h2><hr>
+		<p><strong>z_listoperationids</strong></p>
+		<p>The <code>z_listoperationids</code> method returns the list of operation ids currently known to the wallet.</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“status”</td>
+		<td>(string, optional)</td>
+		<td>filter result by the operation’s state e.g. “success”</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“operationid”</td>
+		<td>(string)</td>
+		<td>an operation id belonging to the wallet</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_listoperationids</code></pre>
+		<a>Response:</a>
+		<pre><code>[
+		  <span class="hljs-string">"opid-47e12224-8477-4cd4-852d-d8c3ddbc6375"</span>,
+		  <span class="hljs-string">"opid-b650b582-c2f5-43e0-9a65-9fe23f65c1a5"</span>
+]</code></pre>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_listoperationids <span class="hljs-string">"success"</span></code></pre>
+		<a>Response:</a>
+		<pre><code>[
+		  <span class="hljs-string">"opid-47e12224-8477-4cd4-852d-d8c3ddbc6375"</span>
+]</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_listoperationids", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">[
+			<span class="hljs-string">"opid-47e12224-8477-4cd4-852d-d8c3ddbc6375"</span>,
+			<span class="hljs-string">"opid-b650b582-c2f5-43e0-9a65-9fe23f65c1a5"</span>
+		  ]</span>,
+		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		<h2><a id="z_listreceivedbyaddress_4634"></a>z_listreceivedbyaddress</h2><hr>
+		<p><strong>z_listreceivedbyaddress “address” ( minconf )</strong></p>
+		<p>The <code>z_listreceivedbyaddress</code> method returns a list of amounts received by a z address belonging to the node’s wallet.</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>address</td>
+		<td>(string)</td>
+		<td>the private address.</td>
+		</tr>
+		<tr>
+		<td>minconf</td>
+		<td>(numeric, optional, default=1)</td>
+		<td>only include transactions confirmed at least this many times</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Result</h3>
+		<p>An array of json objects, each having the properties below.</p>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>txid</td>
+		<td>(string)</td>
+		<td>the transaction id</td>
+		</tr>
+		<tr>
+		<td>amount</td>
+		<td>(numeric)</td>
+		<td>the amount of value in the note</td>
+		</tr>
+		<tr>
+		<td>memo</td>
+		<td>(string)</td>
+		<td>hexadecimal string representation of memo field</td>
+		</tr>
+		<tr>
+		<td>“confirmations”</td>
+		<td>(numeric)</td>
+		<td>a confirmation number that is aware of the dPoW security service</td>
+		</tr>
+		<tr>
+		<td>“rawconfirmations”</td>
+		<td>(numeric)</td>
+		<td>the raw confirmations (number of blocks on top of this transaction’s block)</td>
+		</tr>
+		<tr>
+		<td>jsindex</td>
+		<td>(sprout)</td>
+		<td>(numeric, received only by sprout addresses) the joinsplit index</td>
+		</tr>
+		<tr>
+		<td>jsoutindex</td>
+		<td>(numeric, received only by sprout addresses)</td>
+		<td>the output index of the joinsplit</td>
+		</tr>
+		<tr>
+		<td>outindex</td>
+		<td>(numeric, sapling)</td>
+		<td>the output index</td>
+		</tr>
+		<tr>
+		<td>change</td>
+		<td>(boolean)</td>
+		<td>true if the address that received the note is also one of the sending addresses</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_listreceivedbyaddress <span class="hljs-string">"zs1wqykmk74mv2ezjscpxsgzrn4fasqwh50tgk0ym64m45c5yw5fjtpkps64gle963veqzuj04872z"</span></code></pre>
+		<a>Response:</a>
+		<pre><code>[
+		  {
+			<span class="hljs-string">"txid"</span>: <span class="hljs-string">"b9a98f3cbfec7a8a93c240e19e8eea5ab3ee8de3e6372105ffb72308b72ea05f"</span>,
+			<span class="hljs-string">"amount"</span>: <span class="hljs-number">77.00000000</span>,
+			<span class="hljs-string">"memo"</span>: <span class="hljs-string">"f600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span>,
+			<span class="hljs-string">"outindex"</span>: <span class="hljs-number">0</span>,
+			<span class="hljs-string">"rawconfirmations"</span>: <span class="hljs-number">9</span>,
+			<span class="hljs-string">"confirmations"</span>: <span class="hljs-number">9</span>,
+			<span class="hljs-string">"change"</span>: <span class="hljs-literal">false</span>
+		  }
+]</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user rpcuser:rpcpassword --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_listreceivedbyaddress", "params": ["zs1umhaattx6lna933m9zwfqlmkm2qj49hpa9lnymtj5h5c7cwtd3evfpu29hppprax9cs45fzeyqg"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:rpcport/</code></pre>
+		<a>Response:</a>
+		<pre><code>blockHash <span class="hljs-number">0</span>a4f15fe5425ef8bc6eb84e7bc3625c1ceccb3e49132b696a1841ab17a75a705 height <span class="hljs-number">55200</span>
+		{<span class="hljs-string">"result"</span>:[{<span class="hljs-string">"txid"</span>:<span class="hljs-string">"23d33c0c12ba2224b2c9c252e304f491bf76ca05670c8f00d48300776c10850f"</span>,<span class="hljs-string">"amount"</span>:<span class="hljs-number">100.00000000</span>,<span class="hljs-string">"memo"</span>:<span class="hljs-string">"f600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span>,<span class="hljs-string">"outindex"</span>:<span class="hljs-number">0</span>,<span class="hljs-string">"rawconfirmations"</span>:<span class="hljs-number">1</span>,<span class="hljs-string">"confirmations"</span>:<span class="hljs-number">1</span>,<span class="hljs-string">"change"</span>:<span class="hljs-literal">false</span>}],<span class="hljs-string">"error"</span>:null,<span class="hljs-string">"id"</span>:<span class="hljs-string">"curltest"</span>}</code></pre><br>
+		<h2><a id="z_listunspent"></a>z_listunspent</h2><hr>
+		<p><strong>z_listunspent ( minconf maxconf includeWatchonly [“zaddr”, …] )</strong></p>
+		<p>The <code>z_listunspent</code> method returns an array of unspent shielded notes.</p>
+		<p>The method can also filter to only include results that have between <code>minconf</code> and <code>maxconf</code> (inclusive) confirmations, and also for specified z_addresses (<code>[&quot;zaddr&quot;, ...])</code>.</p>
+		<p>When <code>minconf</code> is <code>0</code> unspent notes with zero confirmations are returned, even though they are not immediately spendable.</p>
+		<p>Results are an array of Objects, each of which has:<br>
+		{txid, jsindex, jsoutindex, confirmations, address, amount, memo} (Sprout)<br>
+		{txid, outindex, confirmations, address, amount, memo} (Sapling)</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>minconf</td>
+		<td>(numeric, optional, default=1)</td>
+		<td>the minimum confirmations to filter</td>
+		</tr>
+		<tr>
+		<td>maxconf</td>
+		<td>(numeric, optional, default=9999999)</td>
+		<td>the maximum confirmations to filter</td>
+		</tr>
+		<tr>
+		<td>includeWatchonly</td>
+		<td>(bool, optional, default=false)</td>
+		<td>whether to also include watchonly addresses (see <a href="#z-importviewingkey">z_importviewingkey</a>)</td>
+		</tr>
+		<tr>
+		<td>addresses</td>
+		<td>(array)</td>
+		<td>a json array of z addresses (both Sprout and Sapling) to act as a filter; duplicate addresses are not allowed</td>
+		</tr>
+		<tr>
+		<td>address</td>
+		<td>(string)</td>
+		<td>a z address</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Results</h3>
+		<p>An array of json objects, each having the properties below.</p>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>txid</td>
+		<td>(string)</td>
+		<td>the transaction id</td>
+		</tr>
+		<tr>
+		<td>jsindex</td>
+		<td>(numeric)</td>
+		<td>the joinsplit index</td>
+		</tr>
+		<tr>
+		<td>jsoutindex</td>
+		<td>(numeric, only returned on sprout addresses)</td>
+		<td>the output index of the joinsplit</td>
+		</tr>
+		<tr>
+		<td>outindex</td>
+		<td>(numeric, only returned on sapling addresses)</td>
+		<td>the output index</td>
+		</tr>
+		<tr>
+		<td>“confirmations”</td>
+		<td>(numeric)</td>
+		<td>a confirmation number that is aware of the dPoW security service</td>
+		</tr>
+		<tr>
+		<td>“rawconfirmations”</td>
+		<td>(numeric)</td>
+		<td>the raw confirmations (number of blocks on top of this transaction’s block)</td>
+		</tr>
+		<tr>
+		<td>spendable</td>
+		<td>(boolean)</td>
+		<td>true if note can be spent by wallet, false if note has zero confirmations, false if address is watchonly</td>
+		</tr>
+		<tr>
+		<td>address</td>
+		<td>(string)</td>
+		<td>the shielded address</td>
+		</tr>
+		<tr>
+		<td>amount</td>
+		<td>(numeric)</td>
+		<td>the amount of value in the note</td>
+		</tr>
+		<tr>
+		<td>memo</td>
+		<td>(string)</td>
+		<td>hexadecimal string representation of memo field</td>
+		</tr>
+		<tr>
+		<td>change</td>
+		<td>(boolean)</td>
+		<td>true if the address that received the note is also one of the sending addresses</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_listunspent</code></pre>
+		<a>Response:</a>
+		<pre><code>[
+		  {
+			<span class="hljs-string">"txid"</span>: <span class="hljs-string">"b9a98f3cbfec7a8a93c240e19e8eea5ab3ee8de3e6372105ffb72308b72ea05f"</span>,
+			<span class="hljs-string">"outindex"</span>: <span class="hljs-number">0</span>,
+			<span class="hljs-string">"confirmations"</span>: <span class="hljs-number">1</span>,
+			<span class="hljs-string">"rawconfirmations"</span>: <span class="hljs-number">1</span>,
+			<span class="hljs-string">"spendable"</span>: <span class="hljs-literal">true</span>,
+			<span class="hljs-string">"address"</span>: <span class="hljs-string">"zs1wqykmk74mv2ezjscpxsgzrn4fasqwh50tgk0ym64m45c5yw5fjtpkps64gle963veqzuj04872z"</span>,
+			<span class="hljs-string">"amount"</span>: <span class="hljs-number">77.00000000</span>,
+			<span class="hljs-string">"memo"</span>: <span class="hljs-string">"f600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span>,
+			<span class="hljs-string">"change"</span>: <span class="hljs-literal">false</span>
+		  }
+]</code></pre>
+		<a>Command:</a>
+		<pre><code>./hush-cli -ac_name=BEER z_listunspent <span class="hljs-number">1</span> <span class="hljs-number">100</span> <span class="hljs-literal">false</span> <span class="hljs-string">"[\"zs1wqykmk74mv2ezjscpxsgzrn4fasqwh50tgk0ym64m45c5yw5fjtpkps64gle963veqzuj04872z\"]"</span></code></pre>
+		<a>Response</a>
+		<pre><code>[
+		  {
+			<span class="hljs-string">"txid"</span>: <span class="hljs-string">"b9a98f3cbfec7a8a93c240e19e8eea5ab3ee8de3e6372105ffb72308b72ea05f"</span>,
+			<span class="hljs-string">"outindex"</span>: <span class="hljs-number">0</span>,
+			<span class="hljs-string">"confirmations"</span>: <span class="hljs-number">2</span>,
+			<span class="hljs-string">"rawconfirmations"</span>: <span class="hljs-number">2</span>,
+			<span class="hljs-string">"spendable"</span>: <span class="hljs-literal">true</span>,
+			<span class="hljs-string">"address"</span>: <span class="hljs-string">"zs1wqykmk74mv2ezjscpxsgzrn4fasqwh50tgk0ym64m45c5yw5fjtpkps64gle963veqzuj04872z"</span>,
+			<span class="hljs-string">"amount"</span>: <span class="hljs-number">77.00000000</span>,
+			<span class="hljs-string">"memo"</span>: <span class="hljs-string">"f600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span>,
+			<span class="hljs-string">"change"</span>: <span class="hljs-literal">false</span>
+		  }
+]</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user rpcuser:rpcpassword --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_listunspent", "params": [1, 9999999, false, ["zs1umhaattx6lna933m9zwfqlmkm2qj49hpa9lnymtj5h5c7cwtd3evfpu29hppprax9cs45fzeyqg"] ] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:rpcport/</code></pre>
+		<p>Response:</p>
+		<pre><code>blockHash <span class="hljs-number">0</span>a4f15fe5425ef8bc6eb84e7bc3625c1ceccb3e49132b696a1841ab17a75a705 height <span class="hljs-number">55200</span>
+		{<span class="hljs-string">"result"</span>:[{<span class="hljs-string">"txid"</span>:<span class="hljs-string">"23d33c0c12ba2224b2c9c252e304f491bf76ca05670c8f00d48300776c10850f"</span>,<span class="hljs-string">"outindex"</span>:<span class="hljs-number">0</span>,<span class="hljs-string">"confirmations"</span>:<span class="hljs-number">1</span>,<span class="hljs-string">"rawconfirmations"</span>:<span class="hljs-number">1</span>,<span class="hljs-string">"spendable"</span>:<span class="hljs-literal">true</span>,<span class="hljs-string">"address"</span>:<span class="hljs-string">"zs1umhaattx6lna933m9zwfqlmkm2qj49hpa9lnymtj5h5c7cwtd3evfpu29hppprax9cs45fzeyqg"</span>,<span class="hljs-string">"amount"</span>:<span class="hljs-number">100.00000000</span>,<span class="hljs-string">"memo"</span>:<span class="hljs-string">"f600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span>,<span class="hljs-string">"change"</span>:<span class="hljs-literal">false</span>}],<span class="hljs-string">"error"</span>:null,<span class="hljs-string">"id"</span>:<span class="hljs-string">"curltest"</span>}</code></pre><br>
+		<h2><a id="z_mergetoaddress"></a>z_mergetoaddress</h2><hr>
+		<p><strong>z_mergetoaddress [ “fromaddress”, … ] “toaddress” ( fee ) ( transparent_limit ) ( shielded_limit ) ( memo )</strong></p>
+		<p>::: warning<br>
+		CAUTION: &lt;b&gt;z_mergetoaddress&lt;/b&gt; is DISABLED but can be enabled as an experimental feature.<br>
+		:::</p>
+		<p>The <code>z_mergetoaddress</code> method merges multiple utxos and notes into a single utxo or note. The method works for both t addresses and z addresses, both separately and in combination. Coinbase utxos are ignored; use <code>z_shieldcoinbase</code> to combine those into a single note.</p>
+		<p>This is an asynchronous operation, and utxos selected for merging will be locked. If there is an error, they are unlocked. The RPC call <code>listlockunspent</code> can be used to return a list of locked utxos.</p>
+		<p>The number of utxos and notes selected for merging can be limited by the caller. If the transparent limit parameter is set to <code>0</code>, the <code>mempooltxinputlimit</code> option will determine the number of utxos. Any limit is constrained by the consensus rule defining a maximum transaction size of 100000 bytes.</p>
+		<h3>The fromaddresses array</h3>
+		<p>The following special strings are accepted inside the <code>fromaddresses</code> array:</p>
+		<ul>
+		<li>
+		<p><code>&quot;*&quot;</code>: Merge both utxos and notes from all addresses belonging to the wallet</p>
+		</li>
+		<li>
+		<p><code>&quot;ANY_TADDR&quot;</code>: Merge utxos from all t addresses belonging to the wallet</p>
+		</li>
+		<li>
+		<p><code>&quot;ANY_ZADDR&quot;</code>: Merge notes from all z addresses belonging to the wallet</p>
+		</li>
+		</ul>
+		<p>If a special string is given, any given addresses of that type will be ignored</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>fromaddresses</td>
+		<td>(string, required)</td>
+		<td></td>
+		</tr>
+		<tr>
+		<td>“address”</td>
+		<td>(string)</td>
+		<td>can be a t address or a z address</td>
+		</tr>
+		<tr>
+		<td>“toaddress”</td>
+		<td>(string, required)</td>
+		<td>the t address or z address to receive the combined utxo</td>
+		</tr>
+		<tr>
+		<td>fee</td>
+		<td>(numeric, optional, default=0.0001)</td>
+		<td>the fee amount to attach to this transaction</td>
+		</tr>
+		<tr>
+		<td>transparent_limit</td>
+		<td>(numeric, optional, default=50)</td>
+		<td>limit on the maximum number of transparent utxos to merge; you may set this value to 0 to use the node option <a href="#mempooltxinputlimit">mempooltxinputlimit</a></td>
+		</tr>
+		<tr>
+		<td>shielded_limit</td>
+		<td>(numeric, optional, default=10)</td>
+		<td>limit on the maximum number of hidden notes to merge; you may set this value to 0 to merge as many as will fit in the transaction</td>
+		</tr>
+		<tr>
+		<td>“memo”</td>
+		<td>(string, optional)</td>
+		<td>encoded as hex; when <code>toaddress</code> is a z address, this value will be stored in the memo field of the new note</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“remainingUTXOs”</td>
+		<td>(numeric)</td>
+		<td>the number of utxos still available for merging</td>
+		</tr>
+		<tr>
+		<td>“remainingTransparentValue”</td>
+		<td>(numeric)</td>
+		<td>the value of utxos still available for merging</td>
+		</tr>
+		<tr>
+		<td>“remainingNotes”</td>
+		<td>(numeric)</td>
+		<td>the number of notes still available for merging</td>
+		</tr>
+		<tr>
+		<td>“remainingShieldedValue”</td>
+		<td>(numeric)</td>
+		<td>the value of notes still available for merging</td>
+		</tr>
+		<tr>
+		<td>“mergingUTXOs”</td>
+		<td>(numeric)</td>
+		<td>the number of utxos being merged</td>
+		</tr>
+		<tr>
+		<td>“mergingTransparentValue”</td>
+		<td>(numeric)</td>
+		<td>the value of utxos being merged</td>
+		</tr>
+		<tr>
+		<td>“mergingNotes”</td>
+		<td>(numeric)</td>
+		<td>the number of notes being merged</td>
+		</tr>
+		<tr>
+		<td>“mergingShieldedValue”</td>
+		<td>(numeric)</td>
+		<td>the value of notes being merged</td>
+		</tr>
+		<tr>
+		<td>“opid”</td>
+		<td>(string)</td>
+		<td>an operationid to pass to <code>z_getoperationstatus</code> to get the result of the operation</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_mergetoaddress <span class="hljs-string">'["R1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd"]'</span> ztfaW34Gj9FrnGUEf833ywDVL62NWXBM81u6EQnM6VR45eYnXhwztecW1SjxA7JrmAXKJhxhj3vDNEpVCQoSvVoSpmbhtjf</code></pre>
+		<a>Response:</a>
+		<pre><code>(disabled)</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_mergetoaddress", "params": [["R1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd"], "ztfaW34Gj9FrnGUEf833ywDVL62NWXBM81u6EQnM6VR45eYnXhwztecW1SjxA7JrmAXKJhxhj3vDNEpVCQoSvVoSpmbhtjf"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>(disabled)</code></pre>
+		<h2><a id="z_sendmany"></a>z_sendmany</h2>
+		<p><strong>z_sendmany “fromaddress” [ { “address”: …, “amount”: … }, … ] ( minconf ) ( fee )</strong></p>
+		<p>The <code>z_sendmany</code> method sends one or more transactions at once, and allows for sending transactions of types <code>t --&gt; t</code>, <code>t --&gt; z</code>, <code>z --&gt; z</code>, <code>z --&gt; t</code>. It is the principle method for dealing with shielded <code>z</code> transactions in the Komodo ecosystem.</p>
+		<p >The <code>amount</code> values are double-precision floating point numbers. Change from a t address flows to a new t address address, while change from z address returns to itself. When sending coinbase utxos to a z address, change is not allowed. The entire value of the utxo(s) must be consumed. Currently, the maximum number of z address outputs is 54 due to transaction-size limits.</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“fromaddress”</td>
+		<td>(string, required)</td>
+		<td>the sending t address or z address</td>
+		</tr>
+		<tr>
+		<td>“amounts”</td>
+		<td>(array of json objects)</td>
+		<td></td>
+		</tr>
+		<tr>
+		<td>“address”</td>
+		<td>(string, required)</td>
+		<td>the receiving address; can be a t address or z address</td>
+		</tr>
+		<tr>
+		<td>“amount”</td>
+		<td>(numeric, required)</td>
+		<td>the numeric amount</td>
+		</tr>
+		<tr>
+		<td>“memo”</td>
+		<td>(string, optional)</td>
+		<td>if the address is a z address, this property accepts raw data represented in hexadecimal string format</td>
+		</tr>
+		<tr>
+		<td>minconf</td>
+		<td>(numeric, optional, default=1)</td>
+		<td>only use funds confirmed at least this many times</td>
+		</tr>
+		<tr>
+		<td>fee</td>
+		<td>(numeric, optional, default=0.0001)</td>
+		<td>the fee amount to attach to this transaction</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“operationid”</td>
+		<td>(string)</td>
+		<td>an operationid to pass to z_getoperationstatus to get the result of the operation</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_sendmany <span class="hljs-string">"RUX5vGkxJCKBPGm8b97VUumt2aHkuCjp8e"</span> <span class="hljs-string">'[{"address":"RVEsww91UBdUNGyCC1GjDVuvJShEei2kj4","amount":0.01}]'</span></code></pre>
+		<a>Response:</a>
+		<pre><code>opid-ad947755-b348-<span class="hljs-number">4842</span>-<span class="hljs-number">90</span>ca-<span class="hljs-number">0</span>f0c71d13d34</code></pre>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_sendmany <span class="hljs-string">"RCpMUZwxc3pWsgip5aj3Sy1cKkh86P3Tns"</span> <span class="hljs-string">'[{"address":"ztci8RzNSo2pdiDpAeHpz9Rp91hq12Mn7zcFfBR8Jjs2ydZUCTw8rLZzkVP888M4vGezpZVfsTR8orgxYK3N8gdgbBzakx3","amount":0.01}]'</span></code></pre>
+		<a>Response:</a>
+		<pre><code>opid-cdd6af37-<span class="hljs-number">88</span>a2-<span class="hljs-number">44</span>d7-<span class="hljs-number">9630</span><span class="hljs-operator">-d</span>54d21f8b1c4</code></pre>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_sendmany <span class="hljs-string">"ztci8RzNSo2pdiDpAeHpz9Rp91hq12Mn7zcFfBR8Jjs2ydZUCTw8rLZzkVP888M4vGezpZVfsTR8orgxYK3N8gdgbBzakx3"</span> <span class="hljs-string">'[{"address":"ztYMDvwUqi5FZLQy4so71ZGHXk2fDtEYU9HNns9DNYjXJr9PEzSL8Dq8NcdiRijsgCm4r3nNWA6dUrqW9suGd2F7uuj2BhP","amount":0.0099}]'</span></code></pre>
+		<a>Response:</a>
+		<pre><code>opid-<span class="hljs-number">3</span>c3d6f25<span class="hljs-operator">-f</span>333-<span class="hljs-number">4898</span>-<span class="hljs-number">8</span>a50-<span class="hljs-number">06</span>f4012cf975</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_sendmany", "params": ["RCpMUZwxc3pWsgip5aj3Sy1cKkh86P3Tns", [{"address": "ztfaW34Gj9FrnGUEf833ywDVL62NWXBM81u6EQnM6VR45eYnXhwztecW1SjxA7JrmAXKJhxhj3vDNEpVCQoSvVoSpmbhtjf" ,"amount": 0.01}]] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  <span class="hljs-string">"result"</span>: <span class="hljs-string">"opid-73306924-3466-4944-a8f7-c45c14be0438"</span>,
+		  <span class="hljs-string">"error"</span>: null,
+		  <span class="hljs-string">"id"</span>: <span class="hljs-string">"curltest"</span>
+}</code></pre><br>
+		<h2><a id="z_shieldcoinbase"></a>z_shieldcoinbase</h2><hr>
+		<p><strong>z_shieldcoinbase “fromaddress” “tozaddress” ( fee ) ( limit )</strong></p>
+		<p>The <code>z_shieldcoinbase</code> method shields transparent coinbase funds by sending the funds to a shielded z address. This is an asynchronous operation and utxos selected for shielding will be locked. If there is an error, they are unlocked.</p>
+		<p>The RPC call <code>listlockunspent</code> can be used to return a list of locked utxos. The number of coinbase utxos selected for shielding can be limited by the caller. If the limit parameter is set to zero, the <a href="../../../basic-docs/smart-chains/smart-chain-setup/common-runtime-parameters.html#mempooltxinputlimit">mempooltxinputlimit</a> option will determine the number of uxtos. Any limit is constrained by the consensus rule defining a maximum transaction size of 100000 bytes.</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“fromaddress”</td>
+		<td>(string, required)</td>
+		<td>the address is a t address or <code>&quot;*&quot;</code> for all t address belonging to the wallet</td>
+		</tr>
+		<tr>
+		<td>“toaddress”</td>
+		<td>(string, required)</td>
+		<td>the address is a z address</td>
+		</tr>
+		<tr>
+		<td>fee</td>
+		<td>(numeric, optional, default=0.0001)</td>
+		<td>the fee amount to attach to this transaction</td>
+		</tr>
+		<tr>
+		<td>limit</td>
+		<td>(numeric, optional, default=50)</td>
+		<td>limit on the maximum number of utxos to shield; set to <code>0</code> to use node option <code>mempooltxinputlimit</code></td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“remainingUTXOs”</td>
+		<td>(numeric)</td>
+		<td>the number of coinbase utxos still available for shielding</td>
+		</tr>
+		<tr>
+		<td>“remainingValue”</td>
+		<td>(numeric)</td>
+		<td>the value of coinbase utxos still available for shielding</td>
+		</tr>
+		<tr>
+		<td>“shieldingUTXOs”</td>
+		<td>(numeric)</td>
+		<td>the number of coinbase utxos being shielded</td>
+		</tr>
+		<tr>
+		<td>“shieldingValue”</td>
+		<td>(numeric)</td>
+		<td>the value of coinbase utxos being shielded</td>
+		</tr>
+		<tr>
+		<td>“opid”</td>
+		<td>(string)</td>
+		<td>an operationid to pass to z_getoperationstatus to get the result of the operation</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_shieldcoinbase <span class="hljs-string">"RXN2rxidK4cwzRL44UTnWvQjjvLdoMmCpU"</span> <span class="hljs-string">"ztYMDvwUqi5FZLQy4so71ZGHXk2fDtEYU9HNns9DNYjXJr9PEzSL8Dq8NcdiRijsgCm4r3nNWA6dUrqW9suGd2F7uuj2BhP"</span></code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">remainingUTXOs</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+		  "<span class="hljs-attribute">remainingValue</span>": <span class="hljs-value"><span class="hljs-number">0.0</span></span>,
+		  "<span class="hljs-attribute">shieldingUTXOs</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+		  "<span class="hljs-attribute">shieldingValue</span>": <span class="hljs-value"><span class="hljs-number">0.0003</span></span>,
+		  "<span class="hljs-attribute">opid</span>": <span class="hljs-value"><span class="hljs-string">"opid-c0a7875c-aaa0-4bdc-8f17-b34ab99e8bab"</span>
+</span>}</code></pre>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_shieldcoinbase <span class="hljs-string">"REyaj53EB2nwUnsmVyn8JHCcquKf1zYkEP"</span> <span class="hljs-string">"ztYMDvwUqi5FZLQy4so71ZGHXk2fDtEYU9HNns9DNYjXJr9PEzSL8Dq8NcdiRijsgCm4r3nNWA6dUrqW9suGd2F7uuj2BhP"</span> <span class="hljs-number">0.0001</span> <span class="hljs-number">50</span></code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">remainingUTXOs</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+		  "<span class="hljs-attribute">remainingValue</span>": <span class="hljs-value"><span class="hljs-number">0.0</span></span>,
+		  "<span class="hljs-attribute">shieldingUTXOs</span>": <span class="hljs-value"><span class="hljs-number">14</span></span>,
+		  "<span class="hljs-attribute">shieldingValue</span>": <span class="hljs-value"><span class="hljs-number">0.0016</span></span>,
+		  "<span class="hljs-attribute">opid</span>": <span class="hljs-value"><span class="hljs-string">"opid-08ce931d-876c-45d5-9aea-15cf4c695e72"</span>
+</span>}</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>huqh3.conf</code> file.</p>
+		<p >Command:</p>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_shieldcoinbase", "params": ["RWRSfEYcfLv3yy9mhAuKHQTMCs9fArpPiH", "ztYMDvwUqi5FZLQy4so71ZGHXk2fDtEYU9HNns9DNYjXJr9PEzSL8Dq8NcdiRijsgCm4r3nNWA6dUrqW9suGd2F7uuj2BhP"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+			"<span class="hljs-attribute">remainingUTXOs</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">remainingValue</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+			"<span class="hljs-attribute">shieldingUTXOs</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+			"<span class="hljs-attribute">shieldingValue</span>": <span class="hljs-value"><span class="hljs-number">0.00025</span></span>,
+			"<span class="hljs-attribute">opid</span>": <span class="hljs-value"><span class="hljs-string">"opid-53018a85-cf68-4e7d-a065-0defea6bf061"</span>
+		  </span>}</span>,
+		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		</div>
+	</section>
 
 
 
@@ -3328,12 +4180,12 @@ Use <strong>listbanned</strong> to view results.<br>
 
 	
 
-	<section class="text-area">
-		<div class="container" id="wallet">
-		<h1>Wallet</h1>
-		<p>The following RPC calls interact with the <code>komodod</code> software, and are made available through the <code>komodo-cli</code> software.</p>
-		<h2><a id="addmultisigaddress"></a>addmultisigaddress</h2>
-		<hr>
+<section class="text-area">
+<div class="container" id="wallet">
+<h1>Wallet</h1>
+<p>The following RPC calls interact with the <code>komodod</code> software, and are made available through the <code>komodo-cli</code> software.</p>
+<h2><a id="addmultisigaddress"></a>addmultisigaddress</h2>
+<hr>
 		<p><strong>addmultisigaddress nrequired [ “key”, … ] ( “account” )</strong></p>
 		<p>The <code>addmultisigaddress</code> method adds a multi-signature address to the wallet, where <code>nrequired</code> indicates the number of keys (out of the total provided) required to execute a transaction.</p>
 		<p>The keys function as signatures, allowing multiple parties or entities to manage an account. Each key in the array can be an address or a hex-encoded public key.</p>
@@ -3576,7 +4428,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		:::</p>
 		<p>The <code>encryptwallet</code> method encrypts the wallet with the indicated <code>passphrase</code>.</p>
 		<p>For more information, please see these instructions: <a href="https://docs.komodoplatform.com/komodo/encrypt-wallet.html">Encrypt Hush’s wallet.dat File</a></p>
-		<p>This method is for first-time encryption only. After the first encryption, any calls that interact with private keys will require the passphrase via <a href="../../../basic-docs/smart-chains/smart-chain-api/wallet.html#walletpassphrase">walletpassphrase</a> prior to calling the corresponding method. This includes methods that create a transaction, dump a private key for an address, sign a transaction, etc.</p>
+		<p>This method is for first-time encryption only. After the first encryption, any calls that interact with private keys will require the passphrase via <a href="#walletpassphrase">walletpassphrase</a> prior to calling the corresponding method. This includes methods that create a transaction, dump a private key for an address, sign a transaction, etc.</p>
 		<h3>Arguments</h3>
 		<table class="table table-striped table-bordered">
 		<thead>
@@ -6644,7 +7496,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		<a>Response:</a>
 		<pre><code>(none)</code></pre><br>
 
-		<h2><a id="z_exportkey_3476"></a>z_exportkey</h2><hr>
+		<h2><a id="z_exportkey"></a>z_exportkey</h2><hr>
 		<p><strong>z_exportkey “z_address”</strong></p>
 		<p>The <code>z_exportkey</code> method reveals the private z_key corresponding to <code>z_address</code>.</p>
 		<p>::: tip<br>
@@ -6752,7 +7604,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
 		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
 </span>}</code></pre><br>
-		<h2><a id="z_exportwallet_3604"></a>z_exportwallet</h2><hr>
+		<h2><a id="z_exportwallet"></a>z_exportwallet</h2><hr>
 		<p><strong>z_exportwallet “filename”</strong></p>
 		<p>The <code>z_exportwallet</code> method exports all wallet keys, including both t address and z address types, in a human-readable format. Overwriting an existing file is not permitted.</p>
 		<h3>Arguments</h3>
@@ -7439,852 +8291,6 @@ Use <strong>listbanned</strong> to view results.<br>
 		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
 		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
 </span>}</code></pre>
-		<h2><a id="z_importviewingkey"></a>z_importviewingkey</h2>
-		<p><strong>z_importviewingkey “viewing_key” ( rescan startHeight )</strong></p>
-		<p>The <code>z_importviewingkey</code> adds a viewing key to your wallet. This method allows you to view the balance in a z address that otherwise does not belong to your wallet.</p>
-		<p>::: tip<br>
-		See also <strong>z_exportviewingkey</strong>.<br>
-		:::</p>
-		<p>::: tip<br>
-		This call can take minutes to complete if <strong>rescan</strong> is true.<br>
-		:::</p>
-		<p>::: tip<br>
-		The optional parameters are currently not functional for KMD-based blockchains.<br>
-		:::</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“viewing_key”</td>
-		<td>(string, required)</td>
-		<td>the viewing key</td>
-		</tr>
-		<tr>
-		<td>rescan</td>
-		<td>(string, optional, default=“whenkeyisnew”)</td>
-		<td>whether to rescan the wallet for transactions; can be <code>&quot;yes&quot;</code></td>
-		</tr>
-		<tr>
-		<td>startHeight</td>
-		<td>(numeric, optional, default=0)</td>
-		<td>block height to start rescan</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>(none)</td>
-		<td></td>
-		<td></td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_importviewingkey <span class="hljs-string">"ZiVtfYkeyRY3y8Wykm5zjLcnssEkVrkej6j3kQ5B1AE2qp2F3VsKzpoXTzD82hrvMjWB9WxCHbXXrXax2ceyHLWrnQDaMrMja"</span></code></pre>
-		<a>Response:</a>
-		<pre><code>(none)</code></pre>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_importviewingkey <span class="hljs-string">"ZiVtfYkeyRY3y8Wykm5zjLcnssEkVrkej6j3kQ5B1AE2qp2F3VsKzpoXTzD82hrvMjWB9WxCHbXXrXax2ceyHLWrnQDaMrMja"</span> no</code></pre>
-		<a>Response</a>
-		<pre><code>(none)</code></pre>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_importviewingkey <span class="hljs-string">"ZiVtfYkeyRY3y8Wykm5zjLcnssEkVrkej6j3kQ5B1AE2qp2F3VsKzpoXTzD82hrvMjWB9WxCHbXXrXax2ceyHLWrnQDaMrMja"</span> whenkeyisnew <span class="hljs-number">30000</span></code></pre>
-		<a>Response:</a>
-		<pre><code>(none)</code></pre>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_importviewingkey <span class="hljs-string">"ZiVtfYkeyRY3y8Wykm5zjLcnssEkVrkej6j3kQ5B1AE2qp2F3VsKzpoXTzD82hrvMjWB9WxCHbXXrXax2ceyHLWrnQDaMrMja"</span> yes <span class="hljs-number">20000</span></code></pre>
-		<p>Response:</p>
-		<pre><code>(none)</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_importviewingkey", "params": ["ZiVtfYkeyRY3y8Wykm5zjLcnssEkVrkej6j3kQ5B1AE2qp2F3VsKzpoXTzD82hrvMjWB9WxCHbXXrXax2ceyHLWrnQDaMrMja", "no"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response:</a>
-		<pre><code>(none)</code></pre><br>
-		<h2><a id="z_importwallet"></a>z_importwallet</h2><hr>
-		<p><strong>z_importwallet “filename”</strong></p>
-		<p>The <code>z_importwallet</code> method imports t address and z address keys from a wallet export file.</p>
-		<p>::: tip<br>
-		See also <strong>z_exportwallet</strong>.<br>
-		:::</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“filename”</td>
-		<td>(string, required)</td>
-		<td>the wallet file</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>(none)</td>
-		<td></td>
-		<td></td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_importwallet <span class="hljs-string">"/mydirectory/nameofbackup"</span></code></pre>
-		<a>Response:</a>
-		<pre><code>(none)</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_importwallet", "params": ["/mydirectory/nameofbackup"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response:</a>
-		<pre><code>{
-		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
-		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
-		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
-</span>}</code></pre><br>
-		<h2><a id="z_listaddresses"></a>z_listaddresses</h2><hr>
-		<p><strong>z_listaddresses ( includeWatchonly )</strong></p>
-		<p>The <code>z_listaddresses</code> method returns the list of z addresses belonging to the wallet.</p>
-		<p>::: tip<br>
-		See also <strong>z_importviewingkey</strong>.<br>
-		:::</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>includeWatchonly</td>
-		<td>(bool, optional, default=false)</td>
-		<td>also include watchonly addresses</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“z_address”</td>
-		<td>(string)</td>
-		<td>a z address belonging to the wallet</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_listaddresses</code></pre>
-		<a>Response:</a>
-		<pre><code>[
-		  <span class="hljs-string">"ztYMDvwUqi5FZLQy4so71ZGHXk2fDtEYU9HNns9DNYjXJr9PEzSL8Dq8NcdiRijsgCm4r3nNWA6dUrqW9suGd2F7uuj2BhP"</span>,
-		  <span class="hljs-string">"ztbUD83kXgHt3A1M282wFvT9Ms6SiBCd6GSbQbPa2C7UtPojVZjPENytFqu7JxgnsgL9EN42xWnyhhzniHYSRJDnEPTgo3Y"</span>
-]</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_listaddresses", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span></code></pre>
-		<a>Response</a>
-		<pre><code>{
-		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">[
-			<span class="hljs-string">"ztYMDvwUqi5FZLQy4so71ZGHXk2fDtEYU9HNns9DNYjXJr9PEzSL8Dq8NcdiRijsgCm4r3nNWA6dUrqW9suGd2F7uuj2BhP"</span>,
-			<span class="hljs-string">"ztbUD83kXgHt3A1M282wFvT9Ms6SiBCd6GSbQbPa2C7UtPojVZjPENytFqu7JxgnsgL9EN42xWnyhhzniHYSRJDnEPTgo3Y"</span>
-		  ]</span>,
-		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
-		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
-</span>}</code></pre><br>
-		<h2><a id="z_listoperationids"></a>z_listoperationids</h2><hr>
-		<p><strong>z_listoperationids</strong></p>
-		<p>The <code>z_listoperationids</code> method returns the list of operation ids currently known to the wallet.</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“status”</td>
-		<td>(string, optional)</td>
-		<td>filter result by the operation’s state e.g. “success”</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“operationid”</td>
-		<td>(string)</td>
-		<td>an operation id belonging to the wallet</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_listoperationids</code></pre>
-		<a>Response:</a>
-		<pre><code>[
-		  <span class="hljs-string">"opid-47e12224-8477-4cd4-852d-d8c3ddbc6375"</span>,
-		  <span class="hljs-string">"opid-b650b582-c2f5-43e0-9a65-9fe23f65c1a5"</span>
-]</code></pre>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_listoperationids <span class="hljs-string">"success"</span></code></pre>
-		<a>Response:</a>
-		<pre><code>[
-		  <span class="hljs-string">"opid-47e12224-8477-4cd4-852d-d8c3ddbc6375"</span>
-]</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_listoperationids", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response:</a>
-		<pre><code>{
-		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">[
-			<span class="hljs-string">"opid-47e12224-8477-4cd4-852d-d8c3ddbc6375"</span>,
-			<span class="hljs-string">"opid-b650b582-c2f5-43e0-9a65-9fe23f65c1a5"</span>
-		  ]</span>,
-		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
-		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
-</span>}</code></pre><br>
-		<h2><a id="z_listreceivedbyaddress_4634"></a>z_listreceivedbyaddress</h2><hr>
-		<p><strong>z_listreceivedbyaddress “address” ( minconf )</strong></p>
-		<p>The <code>z_listreceivedbyaddress</code> method returns a list of amounts received by a z address belonging to the node’s wallet.</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>address</td>
-		<td>(string)</td>
-		<td>the private address.</td>
-		</tr>
-		<tr>
-		<td>minconf</td>
-		<td>(numeric, optional, default=1)</td>
-		<td>only include transactions confirmed at least this many times</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Result</h3>
-		<p>An array of json objects, each having the properties below.</p>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>txid</td>
-		<td>(string)</td>
-		<td>the transaction id</td>
-		</tr>
-		<tr>
-		<td>amount</td>
-		<td>(numeric)</td>
-		<td>the amount of value in the note</td>
-		</tr>
-		<tr>
-		<td>memo</td>
-		<td>(string)</td>
-		<td>hexadecimal string representation of memo field</td>
-		</tr>
-		<tr>
-		<td>“confirmations”</td>
-		<td>(numeric)</td>
-		<td>a confirmation number that is aware of the dPoW security service</td>
-		</tr>
-		<tr>
-		<td>“rawconfirmations”</td>
-		<td>(numeric)</td>
-		<td>the raw confirmations (number of blocks on top of this transaction’s block)</td>
-		</tr>
-		<tr>
-		<td>jsindex</td>
-		<td>(sprout)</td>
-		<td>(numeric, received only by sprout addresses) the joinsplit index</td>
-		</tr>
-		<tr>
-		<td>jsoutindex</td>
-		<td>(numeric, received only by sprout addresses)</td>
-		<td>the output index of the joinsplit</td>
-		</tr>
-		<tr>
-		<td>outindex</td>
-		<td>(numeric, sapling)</td>
-		<td>the output index</td>
-		</tr>
-		<tr>
-		<td>change</td>
-		<td>(boolean)</td>
-		<td>true if the address that received the note is also one of the sending addresses</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_listreceivedbyaddress <span class="hljs-string">"zs1wqykmk74mv2ezjscpxsgzrn4fasqwh50tgk0ym64m45c5yw5fjtpkps64gle963veqzuj04872z"</span></code></pre>
-		<a>Response:</a>
-		<pre><code>[
-		  {
-			<span class="hljs-string">"txid"</span>: <span class="hljs-string">"b9a98f3cbfec7a8a93c240e19e8eea5ab3ee8de3e6372105ffb72308b72ea05f"</span>,
-			<span class="hljs-string">"amount"</span>: <span class="hljs-number">77.00000000</span>,
-			<span class="hljs-string">"memo"</span>: <span class="hljs-string">"f600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span>,
-			<span class="hljs-string">"outindex"</span>: <span class="hljs-number">0</span>,
-			<span class="hljs-string">"rawconfirmations"</span>: <span class="hljs-number">9</span>,
-			<span class="hljs-string">"confirmations"</span>: <span class="hljs-number">9</span>,
-			<span class="hljs-string">"change"</span>: <span class="hljs-literal">false</span>
-		  }
-]</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user rpcuser:rpcpassword --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_listreceivedbyaddress", "params": ["zs1umhaattx6lna933m9zwfqlmkm2qj49hpa9lnymtj5h5c7cwtd3evfpu29hppprax9cs45fzeyqg"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:rpcport/</code></pre>
-		<a>Response:</a>
-		<pre><code>blockHash <span class="hljs-number">0</span>a4f15fe5425ef8bc6eb84e7bc3625c1ceccb3e49132b696a1841ab17a75a705 height <span class="hljs-number">55200</span>
-		{<span class="hljs-string">"result"</span>:[{<span class="hljs-string">"txid"</span>:<span class="hljs-string">"23d33c0c12ba2224b2c9c252e304f491bf76ca05670c8f00d48300776c10850f"</span>,<span class="hljs-string">"amount"</span>:<span class="hljs-number">100.00000000</span>,<span class="hljs-string">"memo"</span>:<span class="hljs-string">"f600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span>,<span class="hljs-string">"outindex"</span>:<span class="hljs-number">0</span>,<span class="hljs-string">"rawconfirmations"</span>:<span class="hljs-number">1</span>,<span class="hljs-string">"confirmations"</span>:<span class="hljs-number">1</span>,<span class="hljs-string">"change"</span>:<span class="hljs-literal">false</span>}],<span class="hljs-string">"error"</span>:null,<span class="hljs-string">"id"</span>:<span class="hljs-string">"curltest"</span>}</code></pre><br>
-		<h2><a id="z_listunspent"></a>z_listunspent</h2><hr>
-		<p><strong>z_listunspent ( minconf maxconf includeWatchonly [“zaddr”, …] )</strong></p>
-		<p>The <code>z_listunspent</code> method returns an array of unspent shielded notes.</p>
-		<p>The method can also filter to only include results that have between <code>minconf</code> and <code>maxconf</code> (inclusive) confirmations, and also for specified z_addresses (<code>[&quot;zaddr&quot;, ...])</code>.</p>
-		<p>When <code>minconf</code> is <code>0</code> unspent notes with zero confirmations are returned, even though they are not immediately spendable.</p>
-		<p>Results are an array of Objects, each of which has:<br>
-		{txid, jsindex, jsoutindex, confirmations, address, amount, memo} (Sprout)<br>
-		{txid, outindex, confirmations, address, amount, memo} (Sapling)</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>minconf</td>
-		<td>(numeric, optional, default=1)</td>
-		<td>the minimum confirmations to filter</td>
-		</tr>
-		<tr>
-		<td>maxconf</td>
-		<td>(numeric, optional, default=9999999)</td>
-		<td>the maximum confirmations to filter</td>
-		</tr>
-		<tr>
-		<td>includeWatchonly</td>
-		<td>(bool, optional, default=false)</td>
-		<td>whether to also include watchonly addresses (see <a href="#z-importviewingkey">z_importviewingkey</a>)</td>
-		</tr>
-		<tr>
-		<td>addresses</td>
-		<td>(array)</td>
-		<td>a json array of z addresses (both Sprout and Sapling) to act as a filter; duplicate addresses are not allowed</td>
-		</tr>
-		<tr>
-		<td>address</td>
-		<td>(string)</td>
-		<td>a z address</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Results</h3>
-		<p>An array of json objects, each having the properties below.</p>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>txid</td>
-		<td>(string)</td>
-		<td>the transaction id</td>
-		</tr>
-		<tr>
-		<td>jsindex</td>
-		<td>(numeric)</td>
-		<td>the joinsplit index</td>
-		</tr>
-		<tr>
-		<td>jsoutindex</td>
-		<td>(numeric, only returned on sprout addresses)</td>
-		<td>the output index of the joinsplit</td>
-		</tr>
-		<tr>
-		<td>outindex</td>
-		<td>(numeric, only returned on sapling addresses)</td>
-		<td>the output index</td>
-		</tr>
-		<tr>
-		<td>“confirmations”</td>
-		<td>(numeric)</td>
-		<td>a confirmation number that is aware of the dPoW security service</td>
-		</tr>
-		<tr>
-		<td>“rawconfirmations”</td>
-		<td>(numeric)</td>
-		<td>the raw confirmations (number of blocks on top of this transaction’s block)</td>
-		</tr>
-		<tr>
-		<td>spendable</td>
-		<td>(boolean)</td>
-		<td>true if note can be spent by wallet, false if note has zero confirmations, false if address is watchonly</td>
-		</tr>
-		<tr>
-		<td>address</td>
-		<td>(string)</td>
-		<td>the shielded address</td>
-		</tr>
-		<tr>
-		<td>amount</td>
-		<td>(numeric)</td>
-		<td>the amount of value in the note</td>
-		</tr>
-		<tr>
-		<td>memo</td>
-		<td>(string)</td>
-		<td>hexadecimal string representation of memo field</td>
-		</tr>
-		<tr>
-		<td>change</td>
-		<td>(boolean)</td>
-		<td>true if the address that received the note is also one of the sending addresses</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_listunspent</code></pre>
-		<a>Response:</a>
-		<pre><code>[
-		  {
-			<span class="hljs-string">"txid"</span>: <span class="hljs-string">"b9a98f3cbfec7a8a93c240e19e8eea5ab3ee8de3e6372105ffb72308b72ea05f"</span>,
-			<span class="hljs-string">"outindex"</span>: <span class="hljs-number">0</span>,
-			<span class="hljs-string">"confirmations"</span>: <span class="hljs-number">1</span>,
-			<span class="hljs-string">"rawconfirmations"</span>: <span class="hljs-number">1</span>,
-			<span class="hljs-string">"spendable"</span>: <span class="hljs-literal">true</span>,
-			<span class="hljs-string">"address"</span>: <span class="hljs-string">"zs1wqykmk74mv2ezjscpxsgzrn4fasqwh50tgk0ym64m45c5yw5fjtpkps64gle963veqzuj04872z"</span>,
-			<span class="hljs-string">"amount"</span>: <span class="hljs-number">77.00000000</span>,
-			<span class="hljs-string">"memo"</span>: <span class="hljs-string">"f600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span>,
-			<span class="hljs-string">"change"</span>: <span class="hljs-literal">false</span>
-		  }
-]</code></pre>
-		<a>Command:</a>
-		<pre><code>./hush-cli -ac_name=BEER z_listunspent <span class="hljs-number">1</span> <span class="hljs-number">100</span> <span class="hljs-literal">false</span> <span class="hljs-string">"[\"zs1wqykmk74mv2ezjscpxsgzrn4fasqwh50tgk0ym64m45c5yw5fjtpkps64gle963veqzuj04872z\"]"</span></code></pre>
-		<a>Response</a>
-		<pre><code>[
-		  {
-			<span class="hljs-string">"txid"</span>: <span class="hljs-string">"b9a98f3cbfec7a8a93c240e19e8eea5ab3ee8de3e6372105ffb72308b72ea05f"</span>,
-			<span class="hljs-string">"outindex"</span>: <span class="hljs-number">0</span>,
-			<span class="hljs-string">"confirmations"</span>: <span class="hljs-number">2</span>,
-			<span class="hljs-string">"rawconfirmations"</span>: <span class="hljs-number">2</span>,
-			<span class="hljs-string">"spendable"</span>: <span class="hljs-literal">true</span>,
-			<span class="hljs-string">"address"</span>: <span class="hljs-string">"zs1wqykmk74mv2ezjscpxsgzrn4fasqwh50tgk0ym64m45c5yw5fjtpkps64gle963veqzuj04872z"</span>,
-			<span class="hljs-string">"amount"</span>: <span class="hljs-number">77.00000000</span>,
-			<span class="hljs-string">"memo"</span>: <span class="hljs-string">"f600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span>,
-			<span class="hljs-string">"change"</span>: <span class="hljs-literal">false</span>
-		  }
-]</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user rpcuser:rpcpassword --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_listunspent", "params": [1, 9999999, false, ["zs1umhaattx6lna933m9zwfqlmkm2qj49hpa9lnymtj5h5c7cwtd3evfpu29hppprax9cs45fzeyqg"] ] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:rpcport/</code></pre>
-		<p>Response:</p>
-		<pre><code>blockHash <span class="hljs-number">0</span>a4f15fe5425ef8bc6eb84e7bc3625c1ceccb3e49132b696a1841ab17a75a705 height <span class="hljs-number">55200</span>
-		{<span class="hljs-string">"result"</span>:[{<span class="hljs-string">"txid"</span>:<span class="hljs-string">"23d33c0c12ba2224b2c9c252e304f491bf76ca05670c8f00d48300776c10850f"</span>,<span class="hljs-string">"outindex"</span>:<span class="hljs-number">0</span>,<span class="hljs-string">"confirmations"</span>:<span class="hljs-number">1</span>,<span class="hljs-string">"rawconfirmations"</span>:<span class="hljs-number">1</span>,<span class="hljs-string">"spendable"</span>:<span class="hljs-literal">true</span>,<span class="hljs-string">"address"</span>:<span class="hljs-string">"zs1umhaattx6lna933m9zwfqlmkm2qj49hpa9lnymtj5h5c7cwtd3evfpu29hppprax9cs45fzeyqg"</span>,<span class="hljs-string">"amount"</span>:<span class="hljs-number">100.00000000</span>,<span class="hljs-string">"memo"</span>:<span class="hljs-string">"f600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span>,<span class="hljs-string">"change"</span>:<span class="hljs-literal">false</span>}],<span class="hljs-string">"error"</span>:null,<span class="hljs-string">"id"</span>:<span class="hljs-string">"curltest"</span>}</code></pre><br>
-		<h2><a id="z_mergetoaddress"></a>z_mergetoaddress</h2><hr>
-		<p><strong>z_mergetoaddress [ “fromaddress”, … ] “toaddress” ( fee ) ( transparent_limit ) ( shielded_limit ) ( memo )</strong></p>
-		<p>::: warning<br>
-		CAUTION: &lt;b&gt;z_mergetoaddress&lt;/b&gt; is DISABLED but can be enabled as an experimental feature.<br>
-		:::</p>
-		<p>The <code>z_mergetoaddress</code> method merges multiple utxos and notes into a single utxo or note. The method works for both t addresses and z addresses, both separately and in combination. Coinbase utxos are ignored; use <code>z_shieldcoinbase</code> to combine those into a single note.</p>
-		<p>This is an asynchronous operation, and utxos selected for merging will be locked. If there is an error, they are unlocked. The RPC call <code>listlockunspent</code> can be used to return a list of locked utxos.</p>
-		<p>The number of utxos and notes selected for merging can be limited by the caller. If the transparent limit parameter is set to <code>0</code>, the <code>mempooltxinputlimit</code> option will determine the number of utxos. Any limit is constrained by the consensus rule defining a maximum transaction size of 100000 bytes.</p>
-		<h3>The fromaddresses array</h3>
-		<p>The following special strings are accepted inside the <code>fromaddresses</code> array:</p>
-		<ul>
-		<li>
-		<p><code>&quot;*&quot;</code>: Merge both utxos and notes from all addresses belonging to the wallet</p>
-		</li>
-		<li>
-		<p><code>&quot;ANY_TADDR&quot;</code>: Merge utxos from all t addresses belonging to the wallet</p>
-		</li>
-		<li>
-		<p><code>&quot;ANY_ZADDR&quot;</code>: Merge notes from all z addresses belonging to the wallet</p>
-		</li>
-		</ul>
-		<p>If a special string is given, any given addresses of that type will be ignored</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>fromaddresses</td>
-		<td>(string, required)</td>
-		<td></td>
-		</tr>
-		<tr>
-		<td>“address”</td>
-		<td>(string)</td>
-		<td>can be a t address or a z address</td>
-		</tr>
-		<tr>
-		<td>“toaddress”</td>
-		<td>(string, required)</td>
-		<td>the t address or z address to receive the combined utxo</td>
-		</tr>
-		<tr>
-		<td>fee</td>
-		<td>(numeric, optional, default=0.0001)</td>
-		<td>the fee amount to attach to this transaction</td>
-		</tr>
-		<tr>
-		<td>transparent_limit</td>
-		<td>(numeric, optional, default=50)</td>
-		<td>limit on the maximum number of transparent utxos to merge; you may set this value to 0 to use the node option <a href="#mempooltxinputlimit">mempooltxinputlimit</a></td>
-		</tr>
-		<tr>
-		<td>shielded_limit</td>
-		<td>(numeric, optional, default=10)</td>
-		<td>limit on the maximum number of hidden notes to merge; you may set this value to 0 to merge as many as will fit in the transaction</td>
-		</tr>
-		<tr>
-		<td>“memo”</td>
-		<td>(string, optional)</td>
-		<td>encoded as hex; when <code>toaddress</code> is a z address, this value will be stored in the memo field of the new note</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“remainingUTXOs”</td>
-		<td>(numeric)</td>
-		<td>the number of utxos still available for merging</td>
-		</tr>
-		<tr>
-		<td>“remainingTransparentValue”</td>
-		<td>(numeric)</td>
-		<td>the value of utxos still available for merging</td>
-		</tr>
-		<tr>
-		<td>“remainingNotes”</td>
-		<td>(numeric)</td>
-		<td>the number of notes still available for merging</td>
-		</tr>
-		<tr>
-		<td>“remainingShieldedValue”</td>
-		<td>(numeric)</td>
-		<td>the value of notes still available for merging</td>
-		</tr>
-		<tr>
-		<td>“mergingUTXOs”</td>
-		<td>(numeric)</td>
-		<td>the number of utxos being merged</td>
-		</tr>
-		<tr>
-		<td>“mergingTransparentValue”</td>
-		<td>(numeric)</td>
-		<td>the value of utxos being merged</td>
-		</tr>
-		<tr>
-		<td>“mergingNotes”</td>
-		<td>(numeric)</td>
-		<td>the number of notes being merged</td>
-		</tr>
-		<tr>
-		<td>“mergingShieldedValue”</td>
-		<td>(numeric)</td>
-		<td>the value of notes being merged</td>
-		</tr>
-		<tr>
-		<td>“opid”</td>
-		<td>(string)</td>
-		<td>an operationid to pass to <code>z_getoperationstatus</code> to get the result of the operation</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_mergetoaddress <span class="hljs-string">'["R1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd"]'</span> ztfaW34Gj9FrnGUEf833ywDVL62NWXBM81u6EQnM6VR45eYnXhwztecW1SjxA7JrmAXKJhxhj3vDNEpVCQoSvVoSpmbhtjf</code></pre>
-		<a>Response:</a>
-		<pre><code>(disabled)</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_mergetoaddress", "params": [["R1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd"], "ztfaW34Gj9FrnGUEf833ywDVL62NWXBM81u6EQnM6VR45eYnXhwztecW1SjxA7JrmAXKJhxhj3vDNEpVCQoSvVoSpmbhtjf"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response:</a>
-		<pre><code>(disabled)</code></pre>
-		<h2><a id="z_sendmany"></a>z_sendmany</h2>
-		<p><strong>z_sendmany “fromaddress” [ { “address”: …, “amount”: … }, … ] ( minconf ) ( fee )</strong></p>
-		<p>The <code>z_sendmany</code> method sends one or more transactions at once, and allows for sending transactions of types <code>t --&gt; t</code>, <code>t --&gt; z</code>, <code>z --&gt; z</code>, <code>z --&gt; t</code>. It is the principle method for dealing with shielded <code>z</code> transactions in the Komodo ecosystem.</p>
-		<p >The <code>amount</code> values are double-precision floating point numbers. Change from a t address flows to a new t address address, while change from z address returns to itself. When sending coinbase utxos to a z address, change is not allowed. The entire value of the utxo(s) must be consumed. Currently, the maximum number of z address outputs is 54 due to transaction-size limits.</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“fromaddress”</td>
-		<td>(string, required)</td>
-		<td>the sending t address or z address</td>
-		</tr>
-		<tr>
-		<td>“amounts”</td>
-		<td>(array of json objects)</td>
-		<td></td>
-		</tr>
-		<tr>
-		<td>“address”</td>
-		<td>(string, required)</td>
-		<td>the receiving address; can be a t address or z address</td>
-		</tr>
-		<tr>
-		<td>“amount”</td>
-		<td>(numeric, required)</td>
-		<td>the numeric amount</td>
-		</tr>
-		<tr>
-		<td>“memo”</td>
-		<td>(string, optional)</td>
-		<td>if the address is a z address, this property accepts raw data represented in hexadecimal string format</td>
-		</tr>
-		<tr>
-		<td>minconf</td>
-		<td>(numeric, optional, default=1)</td>
-		<td>only use funds confirmed at least this many times</td>
-		</tr>
-		<tr>
-		<td>fee</td>
-		<td>(numeric, optional, default=0.0001)</td>
-		<td>the fee amount to attach to this transaction</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“operationid”</td>
-		<td>(string)</td>
-		<td>an operationid to pass to z_getoperationstatus to get the result of the operation</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_sendmany <span class="hljs-string">"RUX5vGkxJCKBPGm8b97VUumt2aHkuCjp8e"</span> <span class="hljs-string">'[{"address":"RVEsww91UBdUNGyCC1GjDVuvJShEei2kj4","amount":0.01}]'</span></code></pre>
-		<a>Response:</a>
-		<pre><code>opid-ad947755-b348-<span class="hljs-number">4842</span>-<span class="hljs-number">90</span>ca-<span class="hljs-number">0</span>f0c71d13d34</code></pre>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_sendmany <span class="hljs-string">"RCpMUZwxc3pWsgip5aj3Sy1cKkh86P3Tns"</span> <span class="hljs-string">'[{"address":"ztci8RzNSo2pdiDpAeHpz9Rp91hq12Mn7zcFfBR8Jjs2ydZUCTw8rLZzkVP888M4vGezpZVfsTR8orgxYK3N8gdgbBzakx3","amount":0.01}]'</span></code></pre>
-		<a>Response:</a>
-		<pre><code>opid-cdd6af37-<span class="hljs-number">88</span>a2-<span class="hljs-number">44</span>d7-<span class="hljs-number">9630</span><span class="hljs-operator">-d</span>54d21f8b1c4</code></pre>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_sendmany <span class="hljs-string">"ztci8RzNSo2pdiDpAeHpz9Rp91hq12Mn7zcFfBR8Jjs2ydZUCTw8rLZzkVP888M4vGezpZVfsTR8orgxYK3N8gdgbBzakx3"</span> <span class="hljs-string">'[{"address":"ztYMDvwUqi5FZLQy4so71ZGHXk2fDtEYU9HNns9DNYjXJr9PEzSL8Dq8NcdiRijsgCm4r3nNWA6dUrqW9suGd2F7uuj2BhP","amount":0.0099}]'</span></code></pre>
-		<a>Response:</a>
-		<pre><code>opid-<span class="hljs-number">3</span>c3d6f25<span class="hljs-operator">-f</span>333-<span class="hljs-number">4898</span>-<span class="hljs-number">8</span>a50-<span class="hljs-number">06</span>f4012cf975</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_sendmany", "params": ["RCpMUZwxc3pWsgip5aj3Sy1cKkh86P3Tns", [{"address": "ztfaW34Gj9FrnGUEf833ywDVL62NWXBM81u6EQnM6VR45eYnXhwztecW1SjxA7JrmAXKJhxhj3vDNEpVCQoSvVoSpmbhtjf" ,"amount": 0.01}]] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response:</a>
-		<pre><code>{
-		  <span class="hljs-string">"result"</span>: <span class="hljs-string">"opid-73306924-3466-4944-a8f7-c45c14be0438"</span>,
-		  <span class="hljs-string">"error"</span>: null,
-		  <span class="hljs-string">"id"</span>: <span class="hljs-string">"curltest"</span>
-}</code></pre><br>
-		<h2><a id="z_shieldcoinbase"></a>z_shieldcoinbase</h2><hr>
-		<p><strong>z_shieldcoinbase “fromaddress” “tozaddress” ( fee ) ( limit )</strong></p>
-		<p>The <code>z_shieldcoinbase</code> method shields transparent coinbase funds by sending the funds to a shielded z address. This is an asynchronous operation and utxos selected for shielding will be locked. If there is an error, they are unlocked.</p>
-		<p>The RPC call <code>listlockunspent</code> can be used to return a list of locked utxos. The number of coinbase utxos selected for shielding can be limited by the caller. If the limit parameter is set to zero, the <a href="../../../basic-docs/smart-chains/smart-chain-setup/common-runtime-parameters.html#mempooltxinputlimit">mempooltxinputlimit</a> option will determine the number of uxtos. Any limit is constrained by the consensus rule defining a maximum transaction size of 100000 bytes.</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“fromaddress”</td>
-		<td>(string, required)</td>
-		<td>the address is a t address or <code>&quot;*&quot;</code> for all t address belonging to the wallet</td>
-		</tr>
-		<tr>
-		<td>“toaddress”</td>
-		<td>(string, required)</td>
-		<td>the address is a z address</td>
-		</tr>
-		<tr>
-		<td>fee</td>
-		<td>(numeric, optional, default=0.0001)</td>
-		<td>the fee amount to attach to this transaction</td>
-		</tr>
-		<tr>
-		<td>limit</td>
-		<td>(numeric, optional, default=50)</td>
-		<td>limit on the maximum number of utxos to shield; set to <code>0</code> to use node option <code>mempooltxinputlimit</code></td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“remainingUTXOs”</td>
-		<td>(numeric)</td>
-		<td>the number of coinbase utxos still available for shielding</td>
-		</tr>
-		<tr>
-		<td>“remainingValue”</td>
-		<td>(numeric)</td>
-		<td>the value of coinbase utxos still available for shielding</td>
-		</tr>
-		<tr>
-		<td>“shieldingUTXOs”</td>
-		<td>(numeric)</td>
-		<td>the number of coinbase utxos being shielded</td>
-		</tr>
-		<tr>
-		<td>“shieldingValue”</td>
-		<td>(numeric)</td>
-		<td>the value of coinbase utxos being shielded</td>
-		</tr>
-		<tr>
-		<td>“opid”</td>
-		<td>(string)</td>
-		<td>an operationid to pass to z_getoperationstatus to get the result of the operation</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_shieldcoinbase <span class="hljs-string">"RXN2rxidK4cwzRL44UTnWvQjjvLdoMmCpU"</span> <span class="hljs-string">"ztYMDvwUqi5FZLQy4so71ZGHXk2fDtEYU9HNns9DNYjXJr9PEzSL8Dq8NcdiRijsgCm4r3nNWA6dUrqW9suGd2F7uuj2BhP"</span></code></pre>
-		<a>Response:</a>
-		<pre><code>{
-		  "<span class="hljs-attribute">remainingUTXOs</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
-		  "<span class="hljs-attribute">remainingValue</span>": <span class="hljs-value"><span class="hljs-number">0.0</span></span>,
-		  "<span class="hljs-attribute">shieldingUTXOs</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
-		  "<span class="hljs-attribute">shieldingValue</span>": <span class="hljs-value"><span class="hljs-number">0.0003</span></span>,
-		  "<span class="hljs-attribute">opid</span>": <span class="hljs-value"><span class="hljs-string">"opid-c0a7875c-aaa0-4bdc-8f17-b34ab99e8bab"</span>
-</span>}</code></pre>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_shieldcoinbase <span class="hljs-string">"REyaj53EB2nwUnsmVyn8JHCcquKf1zYkEP"</span> <span class="hljs-string">"ztYMDvwUqi5FZLQy4so71ZGHXk2fDtEYU9HNns9DNYjXJr9PEzSL8Dq8NcdiRijsgCm4r3nNWA6dUrqW9suGd2F7uuj2BhP"</span> <span class="hljs-number">0.0001</span> <span class="hljs-number">50</span></code></pre>
-		<a>Response:</a>
-		<pre><code>{
-		  "<span class="hljs-attribute">remainingUTXOs</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
-		  "<span class="hljs-attribute">remainingValue</span>": <span class="hljs-value"><span class="hljs-number">0.0</span></span>,
-		  "<span class="hljs-attribute">shieldingUTXOs</span>": <span class="hljs-value"><span class="hljs-number">14</span></span>,
-		  "<span class="hljs-attribute">shieldingValue</span>": <span class="hljs-value"><span class="hljs-number">0.0016</span></span>,
-		  "<span class="hljs-attribute">opid</span>": <span class="hljs-value"><span class="hljs-string">"opid-08ce931d-876c-45d5-9aea-15cf4c695e72"</span>
-</span>}</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>huqh3.conf</code> file.</p>
-		<p >Command:</p>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_shieldcoinbase", "params": ["RWRSfEYcfLv3yy9mhAuKHQTMCs9fArpPiH", "ztYMDvwUqi5FZLQy4so71ZGHXk2fDtEYU9HNns9DNYjXJr9PEzSL8Dq8NcdiRijsgCm4r3nNWA6dUrqW9suGd2F7uuj2BhP"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response</a>
-		<pre><code>{
-		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
-			"<span class="hljs-attribute">remainingUTXOs</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
-			"<span class="hljs-attribute">remainingValue</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
-			"<span class="hljs-attribute">shieldingUTXOs</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
-			"<span class="hljs-attribute">shieldingValue</span>": <span class="hljs-value"><span class="hljs-number">0.00025</span></span>,
-			"<span class="hljs-attribute">opid</span>": <span class="hljs-value"><span class="hljs-string">"opid-53018a85-cf68-4e7d-a065-0defea6bf061"</span>
-		  </span>}</span>,
-		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
-		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
-</span>}</code></pre><br>
 		<h2><a id="zcbenchmark"></a>zcbenchmark</h2><hr>
 		<p><strong>zcbenchmark benchmarktype samplecount</strong></p>
 		<p>The <code>zcbenchmark</code> method runs a benchmark of the selected <code>benchmarktype</code>. This benchmark is calculated <code>samplecount</code> times.</p>
