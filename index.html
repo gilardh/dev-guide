@@ -3384,7 +3384,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		<pre><code>(none)</code></pre>
 		<a>Command:</a>
 		<pre><code>./hush-cli z_importviewingkey <span class="hljs-string">"ZiVtfYkeyRY3y8Wykm5zjLcnssEkVrkej6j3kQ5B1AE2qp2F3VsKzpoXTzD82hrvMjWB9WxCHbXXrXax2ceyHLWrnQDaMrMja"</span> yes <span class="hljs-number">20000</span></code></pre>
-		<p>Response:</p>
+		<a>Response:</a>
 		<pre><code>(none)</code></pre>
 		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<a>Command:</a>
@@ -3821,7 +3821,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<a>Command:</a>
 		<pre><code>curl --user rpcuser:rpcpassword --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_listunspent", "params": [1, 9999999, false, ["zs1umhaattx6lna933m9zwfqlmkm2qj49hpa9lnymtj5h5c7cwtd3evfpu29hppprax9cs45fzeyqg"] ] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:rpcport/</code></pre>
-		<p>Response:</p>
+		<a>Response:</a>
 		<pre><code>blockHash <span class="hljs-number">0</span>a4f15fe5425ef8bc6eb84e7bc3625c1ceccb3e49132b696a1841ab17a75a705 height <span class="hljs-number">55200</span>
 		{<span class="hljs-string">"result"</span>:[{<span class="hljs-string">"txid"</span>:<span class="hljs-string">"23d33c0c12ba2224b2c9c252e304f491bf76ca05670c8f00d48300776c10850f"</span>,<span class="hljs-string">"outindex"</span>:<span class="hljs-number">0</span>,<span class="hljs-string">"confirmations"</span>:<span class="hljs-number">1</span>,<span class="hljs-string">"rawconfirmations"</span>:<span class="hljs-number">1</span>,<span class="hljs-string">"spendable"</span>:<span class="hljs-literal">true</span>,<span class="hljs-string">"address"</span>:<span class="hljs-string">"zs1umhaattx6lna933m9zwfqlmkm2qj49hpa9lnymtj5h5c7cwtd3evfpu29hppprax9cs45fzeyqg"</span>,<span class="hljs-string">"amount"</span>:<span class="hljs-number">100.00000000</span>,<span class="hljs-string">"memo"</span>:<span class="hljs-string">"f600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"</span>,<span class="hljs-string">"change"</span>:<span class="hljs-literal">false</span>}],<span class="hljs-string">"error"</span>:null,<span class="hljs-string">"id"</span>:<span class="hljs-string">"curltest"</span>}</code></pre><br>
 		<h2><a id="z_mergetoaddress"></a>z_mergetoaddress</h2><hr>
@@ -6205,7 +6205,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		<h4>Examples</h4>
 		<a>Command:</a>
 		<pre><code>./hush3-cli listsinceblock</code></pre>
-		<p>Response:</p>
+		<a>Response:</a>
 		<pre><code>{
 		  "<span class="hljs-attribute">transactions</span>": <span class="hljs-value">[
 			{
@@ -7544,7 +7544,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_exportkey", "params": ["ztffWAUUY9PnLiBVXY2pnX67kfm71SevtPC5d9LLM3xZqehy4XxV1FeyxPWcHGTiCd7GtQ17gk5jDTQxhHB13K1A7HT6hZH"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<p>Response:</p>
+		<a>Response:</a>
 		<pre><code>{
 		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"DONOTUSExxxxxxxxxxxxxxxxV6EyPpaZFVDsqeNB6k8eoLFERdag"</span></span>,
 		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
@@ -8089,7 +8089,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_getoperationstatus", "params": [["opid-47e12224-8477-4cd4-852d-d8c3ddbc6375"]] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<p>Response:</p>
+		<a>Response:</a>
 		<pre><code>{
 		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">[
 			{
@@ -8202,7 +8202,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_gettotalbalance", "params": [5] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<p>Response:</p>
+		<a>Response:</a>
 		<pre><code>{
 		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
 			"<span class="hljs-attribute">transparent</span>": <span class="hljs-value"><span class="hljs-string">"0.00615"</span></span>,
