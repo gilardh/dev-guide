@@ -61,7 +61,7 @@
 							</li>
 
 
-							<li><a href="#generate">Generate</a></li>
+							<li><a href="#generating">Generate</a></li>
 
 							<li class="menu-has-children"><a href="#mining">Mining</a>
 								<ul>
@@ -624,7 +624,7 @@
 			</tbody>
 			</table>
 			<h4>Examples</h4>
-			<p>Command:</p>
+			<a>Command:</a>
 			<pre><code>hush-cli getaddresstxids <span class="hljs-string">'{"addresses": ["RTTg3izdeVnqkTTxjzsPFrdUQexgqCy1qb","RQUAkqRiRMqxcNrB29B4duTK4qkqfV9HVJ"]}'</span></code></pre>
 			<a>Response:</a>
 			<pre><code>[
@@ -1324,10 +1324,194 @@
 
 
 	<section class="text-area">
-		<div class="container" id="generate">
-		<h1>Generate</h1>
-		<hr>
-		In progress
+		<div class="container" id="generating">
+		<h1>Generating</h1><hr>
+		<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>komodo-cli</code> software.</p><br>
+		<h2><a id="generate"></a>generate</h2><hr>
+		<p><strong>generate numblocks</strong></p>
+		<p>::: tip<br>
+		This function can only be used in the &lt;b&gt;regtest&lt;/b&gt; mode (for testing purposes).<br>
+		:::</p>
+		<p>The <code>generate</code> method instructs the coin daemon to immediately mine the indicated number of blocks.</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>numblocks</td>
+		<td>(numeric)</td>
+		<td>the desired number of blocks to generate</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>blockhashes</td>
+		<td>(array)</td>
+		<td>hashes of blocks generated</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli generate <span class="hljs-number">2</span></code></pre>
+		<a>Response</a>
+		<pre><code>[
+	<span class="hljs-string">"0475316d63fe48bb9d58373595cb334fc2553f65496edfb2fb17b9ed06f4c480"</span>,
+	<span class="hljs-string">"00d29a2b7dec52baa9ab8e4264363f32b4989eef7dbb0a9932fbc11274195b5a"</span>
+]</code></pre><br>
+		<h2><a id="getgenerate"></a>getgenerate</h2><hr>
+		<p><strong>getgenerate</strong></p>
+		<p>The <code>getgenerate</code> method returns a boolean value indicating the server’s mining status.</p>
+		<p>The default value is false.</p>
+		<p>::: tip<br>
+		See also &lt;b&gt;gen&lt;/b&gt;.<br>
+		:::</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>(none)</td>
+		<td>(none)</td>
+		<td></td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>true/false</td>
+		<td>(boolean)</td>
+		<td>indicates whether the server is set to generate coins</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli getgenerate</code></pre>
+		<a>Response:</a>
+		<pre><code><span class="hljs-literal">false</span></code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getgenerate", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+	"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+	"<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+	"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		<h2><a id="setgenerate"></a>setgenerate</h2><hr>
+		<p><strong>setgenerate generate ( genproclimit )</strong></p>
+		<p>The <code>setgenerate</code> method allows the user to set the <code>generate</code> property in the coin daemon to <code>true</code> or <code>false</code>, thus turning generation (mining/staking) on or off.</p>
+		<p>Generation is limited to <a href="#genproclimit">genproclimit</a> processors. Set <code>genproclimit</code> to <code>-1</code> to use maximum available processors.</p>
+		<p>::: tip<br>
+		See also the <a href="#getgenerate">getgenerate</a> method to query the current setting, and <a href="#genproclimit">genproclimit</a> for setting the default number of processors the daemon uses through the <code>.conf</code> file.<br>
+		:::</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>generate</td>
+		<td>(boolean, required)</td>
+		<td>set to true to turn on generation; set to off to turn off generation</td>
+		</tr>
+		<tr>
+		<td>genproclimit</td>
+		<td>(numeric, optional)</td>
+		<td>set the processor limit for when generation is on; use value “-1” for unlimited</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>(none)</td>
+		<td>(none)</td>
+		<td></td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<h5>Activate mining with maximum available processors</h5>
+		<a>Command:</a>
+		<pre><code>./hush-cli setgenerate <span class="hljs-literal">true</span> -<span class="hljs-number">1</span></code></pre>
+		<a>Response:</a>
+		<pre><code>(none)</code></pre><br>
+		<h5><a id="Activate_staking"></a>Activate staking</h5><hr>
+		<a>Command:</a>
+		<pre><code>./hush-cli setgenerate <span class="hljs-literal">true</span> <span class="hljs-number">0</span></code></pre>
+		<a>Response:</a>
+		<pre><code>(none)</code></pre>
+		<h5><a id="Activate_mining_with_4_threads"></a>Activate mining with 4 threads</h5>
+		<a>Command:</a>
+		<pre><code>./hush-cli setgenerate <span class="hljs-literal">true</span> <span class="hljs-number">4</span></code></pre>
+		<a>Response:</a>
+		<pre><code>(none)</code></pre>
+		<h5><a id="Check_the_setting"></a>Check the setting</h5>
+		<a>Command:</a>
+		<pre><code>./hush-cli getgenerate</code></pre>
+		<a>Response:</a>
+		<pre><code><span class="hljs-literal">true</span></code></pre>
+		<h5><a id="Turn_off_generation"></a>Turn off generation</h5>
+		<a>Command:</a>
+		<pre><code>./hush-cli setgenerate <span class="hljs-literal">false</span></code></pre>
+		<a>Response:</a>
+		<pre><code>(none)</code></pre>
+		<h5><a id="Turning_the_setting_on_via_json_RPC_212"></a>Turning the setting on via json RPC</h5>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "setgenerate", "params": [true, 1] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/
+		</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+	"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+	"<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+	"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre>
 		</div>
 	</section>
 
@@ -2332,7 +2516,7 @@
 		
 		/home/myusername/myexportdir/mybackupdata</code></pre>
 		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<p>Command:</p>
+		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "backupwallet", "params": ["backupdata"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
 		<a>Response</a>
 		<pre><code>{
@@ -2438,10 +2622,10 @@
 		<h4>Examples</h4>
 		<a>Command:</a>
 		<pre><code>./hush-cli dumpwallet <span class="hljs-string">"test"</span></code></pre>
-		<p>Response</p>
+		<a>Response:</a>
 		<pre><code>/home/myusername/myexportdir/<span class="hljs-built_in">test</span></code></pre>
 		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<p>Command:</p>
+		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "dumpwallet", "params": ["test"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
 		<a>Response:</a>
 		<pre><code>{
@@ -2509,7 +2693,7 @@
 		<p>As a json rpc call:</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "encryptwallet", "params": ["mypassphrase"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<p>Response</p>
+		<a>Response:</a>
 		<pre><code>{
 			<span class="hljs-string">"result"</span>:<span class="hljs-string">"wallet encrypted; Komodo server stopping, restart to run with encrypted wallet. The keypool has been flushed, you need to make a new backup."</span>,
 			<span class="hljs-string">"error"</span>:null,
@@ -2603,7 +2787,7 @@
 		</tbody>
 		</table>
 		<h4>Examples</h4>
-		<p>Command:</p>
+		<a>Command:</a>
 		<pre><code>./hush-cli getaccountaddress</code></pre>
 		<a>Response</a>
 		<pre><code>(deprecated)</code></pre>
@@ -2660,7 +2844,7 @@
 		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressesbyaccount", "params": ["tabby"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<p>Response</p>
+		<a>Response:</a>
 		<pre><code>(deprecated)</code></pre>
 		<h2><a id="getbalance"></a>getbalance</h2>
 		<p><strong>getbalance ( “account” minconf includeWatchonly )</strong></p>
@@ -2726,7 +2910,7 @@
 		<p>As a json rpc call:</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getbalance", "params": ["", 6] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<p>Response</p>
+		<a>Response:</a>
 		<pre><code>{
 		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-number">10.09234883</span></span>,
 		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
@@ -2778,12 +2962,12 @@
 		<h4>Examples</h4>
 		<a>Command:</a>
 		<pre><code>./hush-cli getnewaddress</code></pre>
-		<p>Response</p>
+		<a>Response:</a>
 		<pre><code><span class="hljs-string">"RYDuQ2oQCCz1PQNxUQTDAaRinWKiCoT2E6"</span></code></pre>
 		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getnewaddress", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<p>Response</p>
+		<a>Response:</a>
 		<pre><code>{
 		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"R9iQRG6J9eY8SwaCcYZ65QJxg5UhgLC5Rx"</span></span>,
 		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
@@ -2832,7 +3016,7 @@
 		<h4>Examples</h4>
 		<a>Command:</a>
 		<pre><code>./hush-cli getrawchangeaddress</code></pre>
-		<p>Response</p>
+		<a>Response:</a>
 		<pre><code>RS8oqzbjShKhftmuk2RpRmHH2hTAukp6yP</code></pre>
 		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<a>Command:</a>
@@ -2944,7 +3128,7 @@
 		<pre><code>./hush-cli getreceivedbyaddress <span class="hljs-string">"RJSDZjp7kjBNhHsbECDE1jwYNK7af41pZN"</span> <span class="hljs-number">0</span></code></pre>
 		<a>Response</a>
 		<pre><code><span class="hljs-number">10.0500000</span></code></pre>
-		<p>Command:</p>
+		<a>Command:</a>
 		<pre><code>./hush-cli getreceivedbyaddress <span class="hljs-string">"RJSDZjp7kjBNhHsbECDE1jwYNK7af41pZN"</span> <span class="hljs-number">6</span></code></pre>
 		<a>Response</a>
 		<pre><code><span class="hljs-number">10.0500000</span></code></pre>
@@ -3259,7 +3443,7 @@
 		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getunconfirmedbalance", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<p>Response</p>
+		<a>Response:</a>
 		<pre><code>{
 		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-number">10.05</span></span>,
 		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
@@ -3345,7 +3529,7 @@
 		<h4>Examples</h4>
 		<a>Command:</a>
 		<pre><code>./hush-cli getwalletinfo</code></pre>
-		<p>Response</p>
+		<a>Response:</a>
 		<pre><code>{
 		  "<span class="hljs-attribute">walletversion</span>": <span class="hljs-value"><span class="hljs-number">60000</span></span>,
 		  "<span class="hljs-attribute">balance</span>": <span class="hljs-value"><span class="hljs-number">10.01334496</span></span>,
@@ -3508,7 +3692,7 @@
 		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "importprivkey", "params": ["UwibHKsYfiM19BXQmcUwAfw331GzGQK8aoPqqYEbyoPrzc2965nE", "testing", false] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<p>Response</p>
+		<a>Response:</a>
 		<pre><code>{
 		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"RC5qhqgYRzf3dUXGAst9ah5LcuLjmMgT64"</span></span>,
 		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
@@ -3725,7 +3909,7 @@
 		<h4>Examples</h4>
 		<a>Command:</a>
 		<pre><code>./hush-cli listaddressgroupings</code></pre>
-		<p>Response</p>
+		<a>Response:</a>
 		<p>(note how there are two separate, unique groupings of addresses)</p>
 		<pre><code>[
 		  [
@@ -3933,7 +4117,7 @@
 		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
 		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "listreceivedbyaccount", "params": [6, true, true] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<p>Response</p>
+		<a>Response:</a>
 		<pre><code>{
 		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">[
 			{
@@ -6231,7 +6415,7 @@
 		  "<span class="hljs-attribute">total</span>": <span class="hljs-value"><span class="hljs-string">"10.06999883"</span>
 </span>}</code></pre>
 		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<p>Command:</p>
+		<a>Command:</a>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_gettotalbalance", "params": [5] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
 		<p>Response:</p>
 		<pre><code>{
@@ -7143,7 +7327,7 @@
 		  "<span class="hljs-attribute">shieldingValue</span>": <span class="hljs-value"><span class="hljs-number">0.0003</span></span>,
 		  "<span class="hljs-attribute">opid</span>": <span class="hljs-value"><span class="hljs-string">"opid-c0a7875c-aaa0-4bdc-8f17-b34ab99e8bab"</span>
 </span>}</code></pre>
-		<p>Command:</p>
+		<a>Command:</a>
 		<pre><code>./hush-cli z_shieldcoinbase <span class="hljs-string">"REyaj53EB2nwUnsmVyn8JHCcquKf1zYkEP"</span> <span class="hljs-string">"ztYMDvwUqi5FZLQy4so71ZGHXk2fDtEYU9HNns9DNYjXJr9PEzSL8Dq8NcdiRijsgCm4r3nNWA6dUrqW9suGd2F7uuj2BhP"</span> <span class="hljs-number">0.0001</span> <span class="hljs-number">50</span></code></pre>
 		<a>Response:</a>
 		<pre><code>{
