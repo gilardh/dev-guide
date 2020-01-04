@@ -4157,9 +4157,546 @@ Use <strong>listbanned</strong> to view results.<br>
 
 	<section class="text-area">
 		<div class="container" id="util">
-		<h1>util</h1>
-		<hr>
-		In progress
+			<h1>Util</h1>
+			<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</p><br>
+			<h2><a id="createmultisig"></a>createmultisig</h2><hr>
+			<p><strong>createmultisig nrequired [ “key”, … ]</strong></p>
+			<p>The <code>createmultisig</code> method creates a multi-signature address with <code>n</code> signature(s) of <code>m</code> key(s) required. The method returns a json object with the address and redeemScript.</p>
+			<h3>Arguments</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>number_required</td>
+			<td>(numeric, required)</td>
+			<td>the number of required signatures out of the <code>n</code> key(s) or address(es)</td>
+			</tr>
+			<tr>
+			<td>“keys”</td>
+			<td>(string, required)</td>
+			<td>a json array of keys which are addresses or hex-encoded public keys</td>
+			</tr>
+			<tr>
+			<td>“key”</td>
+			<td>(string)</td>
+			<td>an address or hex-encoded public key</td>
+			</tr>
+			</tbody>
+			</table>
+			<h3>Response</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>“address”</td>
+			<td>(string)</td>
+			<td>the value of the new multisig address</td>
+			</tr>
+			<tr>
+			<td>“redeemScript”</td>
+			<td>(string)</td>
+			<td>the string value of the hex-encoded redemption script</td>
+			</tr>
+			</tbody>
+			</table>
+			<h4>Examples</h4>
+			<a>Command:</a>
+			<pre><code>./hush-cli createmultisig <span class="hljs-number">2</span> <span class="hljs-string">"[\"RJnVEQgucK1iwiRjfTZmreXkF49KgTErDn\",\"RCVyjn9MQ8Tw6YRJnDcsx67kfsmfUgLdfw\"]"</span></code></pre>
+			<p>Response</p>
+			<pre><code>{
+	"<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"bZjsy6bt2ZdyHV5hfCNL2HsuA4eV63s5u6"</span></span>,
+	"<span class="hljs-attribute">redeemScript</span>": <span class="hljs-value"><span class="hljs-string">"52210384c0db4f1eaa142a2745742b942f989375dbec32c55310a793225bb5c43cdc9821021f527b7269ab18da85a50b7f45f572e8b017fce476de06cb80a2550ee7d4b11652ae"</span>
+</span>}</code></pre>
+			<p>You can find the <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+			<a>Command:</a>
+			<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "createmultisig", "params": [2, ["RJnVEQgucK1iwiRjfTZmreXkF49KgTErDn","RCVyjn9MQ8Tw6YRJnDcsx67kfsmfUgLdfw"]] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+			<p>Response</p>
+			<pre><code>{
+			  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+				"<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"bNnKtDC6UuSt5kGJewCQ5b2BhzFK3HTQUV"</span></span>,
+				"<span class="hljs-attribute">redeemScript</span>": <span class="hljs-value"><span class="hljs-string">"522103ae084021ff011b527c34914d2c40148080c09254dd3c7d1f31f32549b53ccd232103bee23783f726ba81b5977473b172497260d9c261b9ef9f5a9dd51c545c8db0ac52ae"</span>
+			  </span>}</span>,
+			  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+			  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+			<h2><a id="decodeccopret"></a>decodeccopret</h2><hr>
+			<p><strong>decodeccopret scriptPubKey</strong></p>
+			<p>The <code>decodeccopret</code> method decodes the OP RETURN data from a CC transaction to output the <code>EVALCODE</code> and <code>function id</code> of the method that produced the transaction.</p>
+			<h4><a id="Finding_the_OP_RETURN_Data_From_a_CC_Transaction"></a>Finding the OP RETURN Data From a CC Transaction</h4>
+			<p class="has-line-data" data-line-start="75" data-line-end="76">The OP RETURN data from a CC transaction can be found by following these steps:</p>
+			<ul>
+			<li class="has-line-data" data-line-start="77" data-line-end="78">Decode a transaction produced by a CC module using the method <a href="../../../basic-docs/smart-chains/smart-chain-api/rawtransactions.html#getrawtransaction">getrawtransaction</a>'s verbose option.</li>
+			<li class="has-line-data" data-line-start="78" data-line-end="79">Look for the <code>vout</code> key; it is an array of jsons</li>
+			<li class="has-line-data" data-line-start="79" data-line-end="80">Find the json that contains the <code>scriptPubkey</code>, and which has the <code>type:nulldata</code> key pair</li>
+			<li class="has-line-data" data-line-start="80" data-line-end="81">Copy the <code>hex</code> value from that <code>scriptPubkey</code> json</li>
+			<li class="has-line-data" data-line-start="81" data-line-end="82">This is the hex-string that is expected as the argument for the above method.</li>
+			<li class="has-line-data" data-line-start="82" data-line-end="84">You can verify that the transaction was produced by a CC module by checking if one of the <code>vout</code> json’s <code>scriptPubkey</code> json has the <code>type:cryptocondition</code> key pair</li>
+			</ul>
+			<h3>Arguments</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>scriptPubKey</td>
+			<td>(string)</td>
+			<td>the hex-string format <code>scriptPubKey</code> of the <code>type</code> : <code>nulldata</code> in the <code>vout</code> of a transaction produced by a CC module</td>
+			</tr>
+			</tbody>
+			</table>
+			<h3>Response</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>result</td>
+			<td>(string)</td>
+			<td>whether the call succeeded</td>
+			</tr>
+			<tr>
+			<td>OpRets</td>
+			<td>(json)</td>
+			<td>a json containing the keys <code>EVALCODE</code> and <code>function id</code></td>
+			</tr>
+			<tr>
+			<td>eval_code</td>
+			<td>(hexadecimal number)</td>
+			<td>the <code>EVALCODE</code> of the method that produced the transaction</td>
+			</tr>
+			<tr>
+			<td>function</td>
+			<td>(string)</td>
+			<td>the <code>function id</code> of the method that produced the transaction</td>
+			</tr>
+			</tbody>
+			</table>
+			<h4>Examples</h4>
+			<a>Command:</a>
+			<pre><code>./hush-cli decodeccopret <span class="hljs-number">6</span>a2412782103d31479e789014a96ba6dd60d50210045aa8292fe693f293d44615929f04cf57a</code></pre>
+			<p>Response</p>
+			<pre><code>{
+			  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"success"</span></span>,
+			  "<span class="hljs-attribute">OpRets</span>": <span class="hljs-value">[
+				{
+				  "<span class="hljs-attribute">eval_code</span>": <span class="hljs-value"><span class="hljs-string">"0x12"</span></span>,
+				  "<span class="hljs-attribute">function</span>": <span class="hljs-value"><span class="hljs-string">"x"</span>
+				</span>}
+			  ]
+</span>}</code></pre>
+			<p>You can find the <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+			<a>Command:</a>
+			<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "decodeccopret", "params": ["6a2412782103d31479e789014a96ba6dd60d50210045aa8292fe693f293d44615929f04cf57a"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+			<p>Response</p>
+			<pre><code>{
+			  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+				"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"success"</span></span>,
+				"<span class="hljs-attribute">OpRets</span>": <span class="hljs-value">[
+				  {
+					"<span class="hljs-attribute">eval_code</span>": <span class="hljs-value"><span class="hljs-string">"0x12"</span></span>,
+					"<span class="hljs-attribute">function</span>": <span class="hljs-value"><span class="hljs-string">"x"</span>
+				  </span>}
+				]
+			  </span>}</span>,
+			  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+			  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+			<h2><a id="estimatefee"></a>estimatefee</h2><hr>
+			<p><strong>estimatefee nblocks</strong></p>
+			<p>The <code>estimatefee</code> method estimates the approximate fee per kilobyte. The method is needed for a transaction to begin confirmation within <code>nblocks</code> blocks.</p>
+			<p>The value <code>-1.0</code> is returned if not enough transactions and blocks have been observed to make an estimate.</p>
+			<h3>Arguments</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>nblocks</td>
+			<td>(numeric)</td>
+			<td>the number of blocks within which the fee should be tested</td>
+			</tr>
+			</tbody>
+			</table>
+			<h3>Response</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>n</td>
+			<td>(numeric)</td>
+			<td>the estimated fee</td>
+			</tr>
+			</tbody>
+			</table>
+			<h4>Examples</h4>
+			<a>Command:</a>
+			<pre><code>./hush-cli estimatefee <span class="hljs-number">6</span></code></pre>
+			<a>Response:</a>
+			<pre><code><span class="hljs-number">0.00019376</span></code></pre><br>
+			<h2><a id="estimatepriority"></a>estimatepriority</h2><hr>
+			<p><strong>estimatepriority nblocks</strong></p>
+			<p>The <code>estimatepriority</code> method estimates the approximate priority of a zero-fee transaction, when it needs to begin confirmation within <code>nblocks</code> blocks.</p>
+			<p>The value <code>-1.0</code> is returned if not enough transactions and blocks have been observed to make an estimate.</p>
+			<h3>Arguments</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>nblocks</td>
+			<td>(numeric)</td>
+			<td>a statement indicating within how many blocks the transaction should be confirmed</td>
+			</tr>
+			</tbody>
+			</table>
+			<h3>Response</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>n</td>
+			<td>(numeric)</td>
+			<td>the estimated priority</td>
+			</tr>
+			</tbody>
+			</table>
+			<h4>Examples</h4>
+			<a>Command:</a>
+			<pre><code>./hush-cli estimatepriority <span class="hljs-number">6</span></code></pre>
+			<a>Response:</a>
+			<pre><code>-<span class="hljs-number">1</span></code></pre><br>
+			<h2><a id="invalidateblock"></a>invalidateblock</h2><hr>
+			<p><strong>invalidateblock “hash”</strong></p>
+			<p>The <code>invalidateblock</code> method permanently marks a block as invalid, as if it violated a consensus rule.</p>
+			<h3>Arguments</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>hash</td>
+			<td>(string, required)</td>
+			<td>the hash of the block to mark as invalid</td>
+			</tr>
+			</tbody>
+			</table>
+			<h3>Response</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>(none)</td>
+			<td></td>
+			<td></td>
+			</tr>
+			</tbody>
+			</table>
+			<h4>Examples</h4>
+			<a>Command:</a>
+			<pre><code>./hush-cli invalidateblock <span class="hljs-string">"02f51fb2793b0728050c5e983ffed669594e0a2dda01dcb7a68d129fd87436e0"</span></code></pre>
+			<a>Response:</a>
+			<pre><code>(none)</code></pre>
+			<p>You can find the <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+			<a>Command:</a>
+			<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "invalidateblock", "params": ["02f51fb2793b0728050c5e983ffed669594e0a2dda01dcb7a68d129fd87436e0"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+			<a>Response:</a>
+			<pre><code>{
+	"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+	"<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+	"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+			<h2><a id="reconsiderblock"></a>reconsiderblock</h2><hr>
+			<p><strong>reconsiderblock “hash”</strong></p>
+			<p>The <code>reconsiderblock</code> method removes invalidity status of a block and its descendants, reconsidering them for activation. This can be used to undo the effects of the <code>invalidateblock</code> method.</p>
+			<h3>Arguments</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>hash</td>
+			<td>(string, required)</td>
+			<td>the hash of the block to reconsider</td>
+			</tr>
+			</tbody>
+			</table>
+			<h3>Response</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>(none)</td>
+			<td></td>
+			<td></td>
+			</tr>
+			</tbody>
+			</table>
+			<h4>Examples</h4>
+			<a>Command:</a>
+			<pre><code>./hush-cli reconsiderblock <span class="hljs-string">"02f51fb2793b0728050c5e983ffed669594e0a2dda01dcb7a68d129fd87436e0"</span></code></pre>
+			<a>Response:</a>
+			<pre><code>(none)</code></pre><br>
+			<h2><a id="txnotarizedconfirmed"></a>txnotarizedconfirmed</h2><hr>
+			<p><strong>txnotarizedconfirmed txid</strong></p>
+			<p>The <code>txnotarizedconfirmed</code> method returns information about a transaction’s state of confirmation.</p>
+			<p>If the transaction is on a chain that has Komodo’s dPoW security service, the method returns <code>true</code> if the transaction is notarized.</p>
+			<p>If the chain does not have dPoW, the method returned <code>true</code> if the confirmation number is greater than <code>60</code>.</p>
+			<h3>Arguments</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>“txid”</td>
+			<td>(string, required)</td>
+			<td>the transaction id</td>
+			</tr>
+			</tbody>
+			</table>
+			<h3>Response</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>“result”</td>
+			<td>(boolean)</td>
+			<td>whether the transaction is confirmed, for dPoW-based chains; for non-dPoW chains, the value indicates whether the transaction has <code>60</code> or more confirmations</td>
+			</tr>
+			</tbody>
+			</table>
+			<h4>Examples</h4>
+			<a>Command:</a>
+			<pre><code>./hush-cli txnotarizedconfirmed ce1e3df1fb24ab3301b4032c3a0af466ca03b9365f8c649511bdd72f5519fecb</code></pre>
+			<a>Response:</a>
+			<pre><code>{
+	"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre><br>
+			<h2><a id="validateaddress"></a>validateaddress</h2><hr>
+			<p><strong>validateaddress “komodoaddress”</strong></p>
+			<p>The <code>validateaddress</code> method returns information about the given address.</p>
+			<h3>Arguments</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>“address”</td>
+			<td>(string, required)</td>
+			<td>the address to validate</td>
+			</tr>
+			</tbody>
+			</table>
+			<h3>Response</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>“isvalid”</td>
+			<td>(boolean)</td>
+			<td>indicates whether the address is valid. If it is not, this is the only property returned.</td>
+			</tr>
+			<tr>
+			<td>“address”</td>
+			<td>(string)</td>
+			<td>the address validated</td>
+			</tr>
+			<tr>
+			<td>“scriptPubKey”</td>
+			<td>(string)</td>
+			<td>the hex encoded scriptPubKey generated by the address</td>
+			</tr>
+			<tr>
+			<td>“ismine”</td>
+			<td>(boolean)</td>
+			<td>indicates whether the address is yours</td>
+			</tr>
+			<tr>
+			<td>“isscript”</td>
+			<td>(boolean)</td>
+			<td>whether the key is a script</td>
+			</tr>
+			<tr>
+			<td>“pubkey”</td>
+			<td>(string)</td>
+			<td>the hex value of the raw public key</td>
+			</tr>
+			<tr>
+			<td>“iscompressed”</td>
+			<td>(boolean)</td>
+			<td>whether the address is compressed</td>
+			</tr>
+			<tr>
+			<td>“account”</td>
+			<td>(string)</td>
+			<td>DEPRECATED the account associated with the address; “” is the default account</td>
+			</tr>
+			</tbody>
+			</table>
+			<h4>Examples</h4>
+			<a>Command:</a>
+			<pre><code>./hush-cli validateaddress <span class="hljs-string">"RDNC9mLrN48pVGDQ5jSoPb2nRsUPJ5t2R7"</span></code></pre>
+			<a>Response:</a>
+			<pre><code>{
+	"<span class="hljs-attribute">isvalid</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+	"<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"RDNC9mLrN48pVGDQ5jSoPb2nRsUPJ5t2R7"</span></span>,
+	"<span class="hljs-attribute">scriptPubKey</span>": <span class="hljs-value"><span class="hljs-string">"76a9142cd2a4e3d1c2738ee4fce61e73ea822dcaacb9b488ac"</span></span>,
+	"<span class="hljs-attribute">segid</span>": <span class="hljs-value"><span class="hljs-number">9</span></span>,
+	"<span class="hljs-attribute">ismine</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+	"<span class="hljs-attribute">iswatchonly</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+	"<span class="hljs-attribute">isscript</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+	"<span class="hljs-attribute">pubkey</span>": <span class="hljs-value"><span class="hljs-string">"03c376b00b3a2ae43b8bf103a6c6962b241de684383301fe628a460b68a79ac1d8"</span></span>,
+	"<span class="hljs-attribute">iscompressed</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+	"<span class="hljs-attribute">account</span>": <span class="hljs-value"><span class="hljs-string">""</span>
+</span>}</code></pre><br>
+			<h2><a id="verifymessage"></a>verifymessage</h2><hr>
+			<p class="has-line-data" data-line-start="405" data-line-end="406"><strong>verifymessage “address” “signature” “message”</strong></p>
+			<p class="has-line-data" data-line-start="407" data-line-end="408">The <code>verifymessage</code> method verifies a signed message.</p>
+			<p class="has-line-data" data-line-start="409" data-line-end="412">::: tip<br>
+			See also <strong>signmessage</strong>.<br>
+			:::</p>
+			<h3>Arguments</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>“address”</td>
+			<td>(string, required)</td>
+			<td>the address to use for the signature</td>
+			</tr>
+			<tr>
+			<td>“signature”</td>
+			<td>(string, required)</td>
+			<td>the signature provided by the signer in base 64 encoding</td>
+			</tr>
+			<tr>
+			<td>“message”</td>
+			<td>(string, required)</td>
+			<td>the message that was signed</td>
+			</tr>
+			</tbody>
+			</table>
+			<h3>Response</h3>
+			<table class="table table-striped table-bordered">
+			<thead>
+			<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>true/false</td>
+			<td>(boolean)</td>
+			<td>indicates whether the signature is verified</td>
+			</tr>
+			</tbody>
+			</table>
+			<h4>Examples</h4>
+			<p>Create the signature:</p>
+			<a>Command:</a>
+			<pre><code>./hush-cli signmessage <span class="hljs-string">"RBtNBJjWKVKPFG4To5Yce9TWWmc2AenzfZ"</span> <span class="hljs-string">"my message"</span></code></pre>
+			<a>Response:</a>
+			<pre><code>H1y0mn/wRv56r1bcfkbQtzjG6XeWSelAsyayBuCwEL9XGXs7ieU55dryt/cFWM9gnRFI7gS01AByuSqRs+o/AZs=</code></pre>
+			<p>Verify the signature:</p>
+			<a>Command:</a>
+			<pre><code>./hush-cli verifymessage <span class="hljs-string">"RBtNBJjWKVKPFG4To5Yce9TWWmc2AenzfZ"</span> <span class="hljs-string">"H1y0mn/wRv56r1bcfkbQtzjG6XeWSelAsyayBuCwEL9XGXs7ieU55dryt/cFWM9gnRFI7gS01AByuSqRs+o/AZs="</span> <span class="hljs-string">"my message"</span></code></pre>
+			<a>Response:</a>
+			<pre><code><span class="hljs-literal">true</span></code></pre>
 		</div>
 	</section>
 
@@ -7491,7 +8028,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		<p><strong>z_exportkey “z_address”</strong></p>
 		<p>The <code>z_exportkey</code> method reveals the private z_key corresponding to <code>z_address</code>.</p>
 		<p>::: tip<br>
-		See also &lt;b&gt;z_importkey&lt;/b&gt;.<br>
+		See also <strong>z_importkey</strong>.<br>
 		:::</p>
 		<h3>Arguments</h3>
 		<table class="table table-striped table-bordered">
@@ -8281,7 +8818,77 @@ Use <strong>listbanned</strong> to view results.<br>
 		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
 		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
 		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+
+<h2><a id="z_validateaddress"></a>z_validateaddress</h2><hr>
+<p><strong>z_validateaddress “zaddr”</strong></p>
+<p>The <code>z_validateaddress</code> method returns information about the given z address.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“zaddr”</td>
+<td>(string, required)</td>
+<td>the z address to validate</td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“isvalid”</td>
+<td>(boolean)</td>
+<td>indicates whether the address is valid; if not, this is the only property returned</td>
+</tr>
+<tr>
+<td>“address”</td>
+<td>(string)</td>
+<td>the z address validated</td>
+</tr>
+<tr>
+<td>“ismine”</td>
+<td>(boolean)</td>
+<td>indicates if the address is yours or not</td>
+</tr>
+<tr>
+<td>“payingkey”</td>
+<td>(string)</td>
+<td>the hex value of the paying key, a_pk</td>
+</tr>
+<tr>
+<td>“transmissionkey”</td>
+<td>(string)</td>
+<td>the hex value of the transmission key, pk_enc</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli z_validateaddress <span class="hljs-string">"zcWsmqT4X2V4jgxbgiCzyrAfRT1vi1F4sn7M5Pkh66izzw8Uk7LBGAH3DtcSMJeUb2pi3W4SQF8LMKkU2cUuVP68yAGcomL"</span></code></pre>
+<p>Response</p>
+<pre><code>{
+"<span class="hljs-attribute">isvalid</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+"<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"ztdChvxs2Z97X7qeBwsnRLbxva1ZVgWhFWZxZTA5bC8XLt9RHF8uXn16MWCU8DhKEt4gTtKqQwzsrk85f5tThWMNoYds2oX"</span></span>,
+"<span class="hljs-attribute">payingkey</span>": <span class="hljs-value"><span class="hljs-string">"d9c09cb974fbe0bf7e36a2318b46396c5112511f90749531428936867d83bd92"</span></span>,
+"<span class="hljs-attribute">transmissionkey</span>": <span class="hljs-value"><span class="hljs-string">"5ce3250912758cbb591e3d585ef110992f25ed7694b88f55315b060698b75404"</span></span>,
+"<span class="hljs-attribute">ismine</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
 </span>}</code></pre>
+
 		<h2><a id="zcbenchmark"></a>zcbenchmark</h2><hr>
 		<p><strong>zcbenchmark benchmarktype samplecount</strong></p>
 		<p>The <code>zcbenchmark</code> method runs a benchmark of the selected <code>benchmarktype</code>. This benchmark is calculated <code>samplecount</code> times.</p>
