@@ -2174,83 +2174,85 @@
 			  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
 			  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
 </span>}</code></pre><br>
-			<h2><a id="getchaintxstats"></a>getchaintxstats</h2><hr>
-			<p><strong>getchaintxstats nblocks blockhash</strong></p>
-			<p>The method <code>getchaintxstats</code> returns statistics about the total number and rate of transactions in the chain.</p>
-			<h3>Arguments</h3>
-			<table class="table table-striped table-bordered">
-			<thead>
-			<tr>
-			<th>Name</th>
-			<th>Type</th>
-			<th>Description</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-			<td>nblocks</td>
-			<td>(numeric, optional)</td>
-			<td>the number of blocks in the averaging window.</td>
-			</tr>
-			<tr>
-			<td>blockhash</td>
-			<td>(string, optional)</td>
-			<td>the hash of the block which ends the window</td>
-			</tr>
-			</tbody>
-			</table>
-			<h3>Response</h3>
-			<table class="table table-striped table-bordered">
-			<thead>
-			<tr>
-			<th>Name</th>
-			<th>Type</th>
-			<th>Description</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-			<td>“time”</td>
-			<td>(numeric)</td>
-			<td>the timestamp for the final block in the window in UNIX format</td>
-			</tr>
-			<tr>
-			<td>“txcount”</td>
-			<td>(numeric)</td>
-			<td>the total number of transactions in the chain up to this point</td>
-			</tr>
-			<tr>
-			<td>“window_final_block_hash”</td>
-			<td>(string)</td>
-			<td>the hash of the final block in the window</td>
-			</tr>
-			<tr>
-			<td>“window_block_count”</td>
-			<td>(numeric)</td>
-			<td>the size of the window in the number of blocks</td>
-			</tr>
-			<tr>
-			<td>“window_tx_count”</td>
-			<td>(numeric)</td>
-			<td>the number of transactions in the window; this value is only returned if <code>window_block_count</code> is &gt; 0.</td>
-			</tr>
-			<tr>
-			<td>“window_interval”</td>
-			<td>(numeric)</td>
-			<td>the elapsed time in the window in seconds; this value is only returned if <code>window_block_count</code> is &gt; 0.</td>
-			</tr>
-			<tr>
-			<td>“txrate”</td>
-			<td>(numeric)</td>
-			<td>the average rate of transactions per second in the window; this value is only returned if <code>window_interval</code> is &gt; 0.</td>
-			</tr>
-			</tbody>
-			</table>
-			<h4>Examples</h4>
-			<a>Command:</a>
-			<pre><code>./hush-cli getchaintxstats</code></pre>
-			<a>Response:</a>
-			<pre><code>{
+
+<!-- Old 
+<h2><a id="getchaintxstats"></a>getchaintxstats</h2><hr>
+<p><strong>getchaintxstats nblocks blockhash</strong></p>
+<p>The method <code>getchaintxstats</code> returns statistics about the total number and rate of transactions in the chain.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nblocks</td>
+<td>(numeric, optional)</td>
+<td>the number of blocks in the averaging window.</td>
+</tr>
+<tr>
+<td>blockhash</td>
+<td>(string, optional)</td>
+<td>the hash of the block which ends the window</td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“time”</td>
+<td>(numeric)</td>
+<td>the timestamp for the final block in the window in UNIX format</td>
+</tr>
+<tr>
+<td>“txcount”</td>
+<td>(numeric)</td>
+<td>the total number of transactions in the chain up to this point</td>
+</tr>
+<tr>
+<td>“window_final_block_hash”</td>
+<td>(string)</td>
+<td>the hash of the final block in the window</td>
+</tr>
+<tr>
+<td>“window_block_count”</td>
+<td>(numeric)</td>
+<td>the size of the window in the number of blocks</td>
+</tr>
+<tr>
+<td>“window_tx_count”</td>
+<td>(numeric)</td>
+<td>the number of transactions in the window; this value is only returned if <code>window_block_count</code> is &gt; 0.</td>
+</tr>
+<tr>
+<td>“window_interval”</td>
+<td>(numeric)</td>
+<td>the elapsed time in the window in seconds; this value is only returned if <code>window_block_count</code> is &gt; 0.</td>
+</tr>
+<tr>
+<td>“txrate”</td>
+<td>(numeric)</td>
+<td>the average rate of transactions per second in the window; this value is only returned if <code>window_interval</code> is &gt; 0.</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli getchaintxstats</code></pre>
+<a>Response:</a>
+<pre><code>{
 	"<span class="hljs-attribute">time</span>": <span class="hljs-value"><span class="hljs-number">1552568020</span></span>,
 	"<span class="hljs-attribute">txcount</span>": <span class="hljs-value"><span class="hljs-number">4576830</span></span>,
 	"<span class="hljs-attribute">window_final_block_hash</span>": <span class="hljs-value"><span class="hljs-string">"037c7fb68fcdd27cb12bb16b6c4b3a88a4bd652b2c979c771836db97611a62f2"</span></span>,
@@ -2259,11 +2261,11 @@
 	"<span class="hljs-attribute">window_interval</span>": <span class="hljs-value"><span class="hljs-number">2604632</span></span>,
 	"<span class="hljs-attribute">txrate</span>": <span class="hljs-value"><span class="hljs-number">0.1101065332837806</span>
 </span>}</code></pre>
-			<p>You can find the <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-			<a>Command:</a>
-			<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getchaintxstats", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-			<a>Response:</a>
-			<pre><code>{
+<p>You can find the <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getchaintxstats", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
+<pre><code>{
 			  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
 				"<span class="hljs-attribute">time</span>": <span class="hljs-value"><span class="hljs-number">1552568020</span></span>,
 				"<span class="hljs-attribute">txcount</span>": <span class="hljs-value"><span class="hljs-number">4576830</span></span>,
@@ -2276,122 +2278,527 @@
 			  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
 			  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
 </span>}</code></pre><br>
-			<h2><a id="getdifficulty"></a>getdifficulty</h2><hr>
-			<p><strong>getdifficulty</strong></p>
-			<p>The <code>getdifficulty</code> method returns the proof-of-work difficulty as a multiple of the minimum difficulty.</p>
-			<h3>Arguments</h3>
-			<table class="table table-striped table-bordered">
-			<thead>
-			<tr>
-			<th>Name</th>
-			<th>Type</th>
-			<th>Description</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-			<td>(none)</td>
-			<td></td>
-			<td></td>
-			</tr>
-			</tbody>
-			</table>
-			<h3>Response</h3>
-			<table class="table table-striped table-bordered">
-			<thead>
-			<tr>
-			<th>Name</th>
-			<th>Type</th>
-			<th>Description</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-			<td>number</td>
-			<td>(numeric)</td>
-			<td>the proof-of-work difficulty as a multiple of the minimum difficulty</td>
-			</tr>
-			</tbody>
-			</table>
-			<h4>Examples</h4>
-			<a>Command:</a>
-			<pre><code>./hush-cli getdifficulty</code></pre>
-			<a>Response:</a>
-			<pre><code><span class="hljs-number">1.000023305960651</span></code></pre>
-			<p>You can find the <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-			<a>Command:</a>
-			<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getdifficulty", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-			<a>Response:</a>
-			<pre><code>{
+-->
+
+
+<h2><a id="getchaintxstats"></a>getchaintxstats</h2><hr>
+<p><strong>getchaintxstats nblocks blockhash</strong></p>
+<p>The method <code>getchaintxstats</code> returns statistics about the total number and rate of transactions in the chain.</p>
+<p>This RPC will return a large amount of additional data if the shielded index (zindex) is enabled.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nblocks</td>
+<td>(numeric, optional)</td>
+<td>the number of blocks in the averaging window.</td>
+</tr>
+<tr>
+<td>blockhash</td>
+<td>(string, optional)</td>
+<td>the hash of the block which ends the window</td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“time”</td>
+<td>(numeric)</td>
+<td>the timestamp for the final block in the window in UNIX format</td>
+</tr>
+<tr>
+<td>“txcount”</td>
+<td>(numeric)</td>
+<td>the total number of transactions in the chain up to this point</td>
+</tr>
+<tr>
+<td>“nullifiers”</td>
+<td>(numeric)</td>
+<td>The total number of shielded nullifiers in the chain up to that point.</td>
+</tr>
+<tr>
+<td>“shielded_txcount”</td>
+<td>(numeric)</td>
+<td>The total number of shielded (containing a zaddr) transactions in the chain up to that point.</td>
+</tr>
+<tr>
+<td>“shielded_outputs”</td>
+<td>(numeric)</td>
+<td>The total number of shielded outputs in the chain up to that point.</td>
+</tr>
+<tr>
+<td>“shielded_pool_size”</td>
+<td>(numeric)</td>
+<td>The total number of unspent shielded outputs, i.e. the Shielded Pool or Anonymity Set (anonset).</td>
+</tr>
+<tr>
+<td>“shielding_txcount”</td>
+<td>(numeric)</td>
+<td>The total number of shielding (containing a zaddr output) transactions in the chain up to that point.</td>
+</tr>
+<tr>
+<td>“deshielding_txcount”</td>
+<td>(numeric)</td>
+<td>The total number of deshielding (containing a zaddr input) transactions in the chain up to that point.</td>
+</tr>
+<tr>
+<td>“fully_shielded_txcount”</td>
+<td>(numeric)</td>
+<td>The total number of z2z, AKA fully-shielded (containing only zaddr inputs+outputs) transactions in the chain up to that point.</td>
+</tr>
+<tr>
+<td>“payments”</td>
+<td>(numeric)</td>
+<td>The total number of payments in the chain up to that point</td>
+</tr>
+<tr>
+<td>“shielded_payments”</td>
+<td>(numeric)</td>
+<td>The total number of shielded (containing a zaddr) payments in the chain up to that point.</td>
+</tr>
+<tr>
+<td>“shielding_payments”</td>
+<td>(numeric)</td>
+<td>The total number of shielding (containing a zaddr output) payments in the chain up to that point.</td>
+</tr>
+<tr>
+<td>“deshielding_payments”</td>
+<td>(numeric)</td>
+<td>The total number of deshielding (containing a zaddr input) payments in the chain up to that point.</td>
+</tr>
+<tr>
+<td>“fully_shielded_payments”</td>
+<td>(numeric)</td>
+<td>The total number of z2z, AKA fully-shielded (containing only zaddr inputs+outputs) payments in the chain up to that point</td>
+</tr>
+<tr>
+<td>“notarizations”</td>
+<td>(numeric)</td>
+<td>The total number of notarization transactions in the chain up to that point</td>
+</tr>
+<tr>
+<td>“window_final_block_hash”</td>
+<td>(string)</td>
+<td>the hash of the final block in the window</td>
+</tr>
+<tr>
+<td>“window_final_block_height”</td>
+<td>(numeric)</td>
+<td>Block height of final block in window.</td>
+</tr>
+<tr>
+<td>“window_block_count”</td>
+<td>(numeric)</td>
+<td>the size of the window in the number of blocks</td>
+</tr>
+<tr>
+<td>“window_tx_count”</td>
+<td>(numeric)</td>
+<td>the number of transactions in the window; this value is only returned if <code>window_block_count</code> is &gt; 0.</td>
+</tr>
+<tr>
+<td>“window_interval”</td>
+<td>(numeric)</td>
+<td>the elapsed time in the window in seconds; this value is only returned if <code>window_block_count</code> is &gt; 0.</td>
+</tr>
+<tr>
+<td>“window_shielded_txcount”</td>
+<td>(numeric)</td>
+<td>The total number of shielded (containing a zaddr) transactions in the chain up to that point.</td>
+</tr>
+<tr>
+<td>“window_shielding_txcount”</td>
+<td>(numeric)</td>
+<td>The total number of shielding (containing a zaddr output) transactions in the chain up to that point.</td>
+</tr>
+<tr>
+<td>“window_deshielding_txcount”</td>
+<td>(numeric)</td>
+<td>The total number of deshielding (containing a zaddr input) transactions in the chain up to that point.</td>
+</tr>
+<tr>
+<td>“window_fully_shielded_txcount”</td>
+<td>(numeric)</td>
+<td>The total number of z2z, AKA fully-shielded (containing only zaddr inputs+outputs) transactions in the chain up to that point.</td>
+</tr>
+<tr>
+<td>“window_shielded_payments”</td>
+<td>(numeric)</td>
+<td>The total number of shielded (containing a zaddr) payments in the chain up to that point</td>
+</tr>
+<tr>
+<td>“window_shielding_payments”</td>
+<td>(numeric)</td>
+<td>The total number of shielding (containing a zaddr output) payments in the chain up to that point</td>
+</tr>
+<tr>
+<td>“window_deshielding_payments”</td>
+<td>(numeric)</td>
+<td>The total number of deshielding (containing a zaddr input) payments in the chain up to that point.</td>
+</tr>
+<tr>
+<td>“window_fully_shielded_payments”</td>
+<td>(numeric)</td>
+<td>The total number of z2z, AKA fully-shielded (containing only zaddr inputs+outputs) payments in the chain up to that point.</td>
+</tr>
+<tr>
+<td>“txrate”</td>
+<td>(numeric)</td>
+<td>the average rate of transactions per second in the window; this value is only returned if <code>window_interval</code> is &gt; 0.</td>
+</tr>
+<tr>
+<td>“shielded”</td>
+<td>(json object)</td>
+<td>The set of stats specific to only shieled transactions.</td>
+</tr>
+<tr>
+<td>“fully_shielded_tx_percent”</td>
+<td>(numeric)</td>
+<td>The percentage of fully shielded transactions.</td>
+</tr>
+<tr>
+<td>“shielding_tx_percent”</td>
+<td>(numeric)</td>
+<td>The percentage of shielding transactions.</td>
+</tr>
+<tr>
+<td>“deshielding_tx_percent”</td>
+<td>(numeric)</td>
+<td>The percentage of deshielding transactions</td>
+</tr>
+<tr>
+<td>“fully_shielded_payments_percent”</td>
+<td>(numeric)</td>
+<td>The percentage of fully shielded payments</td>
+</tr>
+<tr>
+<td>“shielding_payments_percent”</td>
+<td>(numeric)</td>
+<td>The percentage of shielding payments.</td>
+</tr>
+<tr>
+<td>“deshielding_payments_percent”</td>
+<td>(numeric)</td>
+<td>The percentage of deshielding payments</td>
+</tr>
+<tr>
+<td>“organic”</td>
+<td>(json object)</td>
+<td>The set of stats about organic transactions, i.e. those that are not coinbase and not notarizations</td>
+</tr>
+<tr>
+<td>“fully_shielded_tx_percent”</td>
+<td>(numeric)</td>
+<td>The percentage of fully shielded organic transactions</td>
+</tr>
+<tr>
+<td>“shielding_tx_percent”</td>
+<td>(numeric)</td>
+<td>The percentage of shielding organic transactions</td>
+</tr>
+<tr>
+<td>“deshielding_tx_percent”</td>
+<td>(numeric)</td>
+<td>The percentage of deshielding organic transactions.</td>
+</tr>
+<tr>
+<td>“fully_shielded_payments_percent”</td>
+<td>(numeric)</td>
+<td>The percentage of fully shielded organic payments</td>
+</tr>
+<tr>
+<td>“shielding_payments_percent”</td>
+<td>(numeric)</td>
+<td>The percentage of shielding organic payments</td>
+</tr>
+<tr>
+<td>“deshielding_payments_percent”</td>
+<td>(numeric)</td>
+<td>The percentage of deshielding organic payments.</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli getchaintxstats</code></pre>
+<a>Response:</a>
+<pre><code>{
+	  "time": 1578244656,
+	  "txcount": 304823,
+	  "window_final_block_hash": "00000001aac0e5ee4567a228858bbec75adef3bf84830924c212161316662858",
+	  "window_final_block_height": 152458,
+	  "window_block_count": 17280,
+	  "notarizations": 24467,
+	  "shielded_txcount": 18721,
+	  "fully_shielded_txcount": 514,
+	  "deshielding_txcount": 9057,
+	  "shielding_txcount": 9150,
+	  "shielded_payments": 73882,
+	  "fully_shielded_payments": 31148,
+	  "deshielding_payments": 999,
+	  "shielding_payments": 18505,
+	  "nullifiers": 18105,
+	  "shielded_pool_size": 32578,
+	  "shielded_outputs": 50683,
+	  "window_tx_count": 32733,
+	  "window_interval": 2624536,
+	  "txrate": 0.01247191884584551,
+	  "notarization_txrate": 0.0008755833412077411,
+	  "shielded_txrate": 0.0008508170587105682,
+	  "fully_shielded_txrate": 0.0001329758860232818,
+	  "paymentrate": 0.06856640564274981,
+	  "shielded_paymentrate": 0.01358678257794902,
+	  "fully_shielded_paymentrate": 0.01179827596192241,
+	  "window_payments": 179955,
+	  "window_notarizations": 2298,
+	  "window_fully_shielded_txcount": 349,
+	  "window_deshielding_txcount": 854,
+	  "window_shielding_txcount": 1030,
+	  "window_shielded_txcount": 2233,
+	  "window_fully_shielded_payments": 30965,
+	  "window_shielded_payments": 35659,
+	  "window_shielding_payments": 2664,
+	  "window_deshielding_payments": 10,
+	  "shielded_tx_percent": 0.06821861729752848,
+	  "fully_shielded_tx_percent": 0.01066202303485779,
+	  "shielding_tx_percent": 0.0314667155470015,
+	  "deshielding_tx_percent": 0.0260898787156692,
+	  "shielded_payments_percent": 0.1981550943291378,
+	  "fully_shielded_payments_percent": 0.1720707954766469,
+	  "shielding_payments_percent": 0.01480370092523131,
+	  "deshielding_payments_percent": 5.556944791753494e-05,
+	  "shielded": {
+		"fully_shielded_tx_percent": 0.1562919838781908,
+		"shielding_tx_percent": 0.4612628750559785,
+		"deshielding_tx_percent": 0.3824451410658307,
+		"fully_shielded_payments_percent": 0.8683642278246726,
+		"shielding_payments_percent": 0.07470764743823438,
+		"deshielding_payments_percent": 0.0002804341120053843
+	  },
+	  "organic": {
+		"shielded_tx_percent": 0.1697453439756746,
+		"fully_shielded_tx_percent": 0.02652983656404409,
+		"shielding_tx_percent": 0.07829722538958571,
+		"deshielding_tx_percent": 0.06491828202204485,
+		"shielded_payments_percent": 0.2223448499473117,
+		"fully_shielded_payments_percent": 0.19307631393529,
+		"shielding_payments_percent": 0.01661086065957089,
+		"deshielding_payments_percent": 6.235308055394477e-05,
+		"paymentrate": 0.06110680135460134,
+		"txrate": 0.005012314557697056,
+		"txcount": 13155,
+		"payments": 160377
+	  }
+}</code></pre>
+<p>You can find the <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getchaintxstats", "params": [2016] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
+<pre><code>{
+	"time": 1578244656,
+	"txcount": 304823,
+	"window_final_block_hash": "00000001aac0e5ee4567a228858bbec75adef3bf84830924c212161316662858",
+	"window_final_block_height": 152458,
+	"window_block_count": 17280,
+	"notarizations": 24467,
+	"shielded_txcount": 18721,
+	"fully_shielded_txcount": 514,
+	"deshielding_txcount": 9057,
+	"shielding_txcount": 9150,
+	"shielded_payments": 73882,
+	"fully_shielded_payments": 31148,
+	"deshielding_payments": 999,
+	"shielding_payments": 18505,
+	"nullifiers": 18105,
+	"shielded_pool_size": 32578,
+	"shielded_outputs": 50683,
+	"window_tx_count": 32733,
+	"window_interval": 2624536,
+	"txrate": 0.01247191884584551,
+	"notarization_txrate": 0.0008755833412077411,
+	"shielded_txrate": 0.0008508170587105682,
+	"fully_shielded_txrate": 0.0001329758860232818,
+	"paymentrate": 0.06856640564274981,
+	"shielded_paymentrate": 0.01358678257794902,
+	"fully_shielded_paymentrate": 0.01179827596192241,
+	"window_payments": 179955,
+	"window_notarizations": 2298,
+	"window_fully_shielded_txcount": 349,
+	"window_deshielding_txcount": 854,
+	"window_shielding_txcount": 1030,
+	"window_shielded_txcount": 2233,
+	"window_fully_shielded_payments": 30965,
+	"window_shielded_payments": 35659,
+	"window_shielding_payments": 2664,
+	"window_deshielding_payments": 10,
+	"shielded_tx_percent": 0.06821861729752848,
+	"fully_shielded_tx_percent": 0.01066202303485779,
+	"shielding_tx_percent": 0.0314667155470015,
+	"deshielding_tx_percent": 0.0260898787156692,
+	"shielded_payments_percent": 0.1981550943291378,
+	"fully_shielded_payments_percent": 0.1720707954766469,
+	"shielding_payments_percent": 0.01480370092523131,
+	"deshielding_payments_percent": 5.556944791753494e-05,
+	"shielded": {
+	  "fully_shielded_tx_percent": 0.1562919838781908,
+	  "shielding_tx_percent": 0.4612628750559785,
+	  "deshielding_tx_percent": 0.3824451410658307,
+	  "fully_shielded_payments_percent": 0.8683642278246726,
+	  "shielding_payments_percent": 0.07470764743823438,
+	  "deshielding_payments_percent": 0.0002804341120053843
+	},
+	"organic": {
+	  "shielded_tx_percent": 0.1697453439756746,
+	  "fully_shielded_tx_percent": 0.02652983656404409,
+	  "shielding_tx_percent": 0.07829722538958571,
+	  "deshielding_tx_percent": 0.06491828202204485,
+	  "shielded_payments_percent": 0.2223448499473117,
+	  "fully_shielded_payments_percent": 0.19307631393529,
+	  "shielding_payments_percent": 0.01661086065957089,
+	  "deshielding_payments_percent": 6.235308055394477e-05,
+	  "paymentrate": 0.06110680135460134,
+	  "txrate": 0.005012314557697056,
+	  "txcount": 13155,
+	  "payments": 160377
+	},
+	"error": null,
+	"id": "curltest"
+}</code></pre><br>
+
+<h2><a id="getdifficulty"></a>getdifficulty</h2><hr>
+<p><strong>getdifficulty</strong></p>
+<p>The <code>getdifficulty</code> method returns the proof-of-work difficulty as a multiple of the minimum difficulty.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>number</td>
+<td>(numeric)</td>
+<td>the proof-of-work difficulty as a multiple of the minimum difficulty</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli getdifficulty</code></pre>
+<a>Response:</a>
+<pre><code><span class="hljs-number">1.000023305960651</span></code></pre>
+<p>You can find the <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getdifficulty", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
+<pre><code>{
 	"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-number">1.000023305960651</span></span>,
 	"<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
 	"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
 </span>}</code></pre><br>
-			<h2><a id="getlastsegidstakes"></a>getlastsegidstakes</h2><hr>
-			<p><strong>getlastsegidstakes depth</strong></p>
-			<p>The <code>getlastsegidstakes</code> method returns an object containing the number of blocks staked by each segid in the last <code>X</code> number of blocks, where the value of <code>X</code> is equal to the indicated <code>depth</code>.</p>
-			<p>::: tip Note<br>
-			Only applies to <code>-ac_staked</code> Smart Chains<br>
-			:::</p>
-			<h3>Arguments</h3>
-			<table class="table table-striped table-bordered">
-			<thead>
-			<tr>
-			<th>Name</th>
-			<th>Type</th>
-			<th>Description</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-			<td>depth</td>
-			<td>(numeric, required)</td>
-			<td>the number of blocks to scan, starting from the current height and working backwards</td>
-			</tr>
-			</tbody>
-			</table>
-			<h3>Response</h3>
-			<table class="table table-striped table-bordered">
-			<thead>
-			<tr>
-			<th>Name</th>
-			<th>Type</th>
-			<th>Description</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-			<td>“NotSet”</td>
-			<td>(numeric)</td>
-			<td>the number of blocks that have no <code>SegId</code> set</td>
-			</tr>
-			<tr>
-			<td>“PoW”</td>
-			<td>(numeric)</td>
-			<td>the number of blocks created through <code>PoW</code></td>
-			</tr>
-			<tr>
-			<td>“PoSPerc”</td>
-			<td>(numeric)</td>
-			<td>the percentage of blocks created through <code>PoS</code></td>
-			</tr>
-			<tr>
-			<td>“SegIds”</td>
-			<td>(json object)</td>
-			<td>the json containing the data of number of blocks in each <code>SegId</code></td>
-			</tr>
-			<tr>
-			<td>“n”</td>
-			<td>(numeric)</td>
-			<td>the number of blocks staked from <code>SegId n</code> in the last X blocks, where X is equal to the indicated <code>depth</code></td>
-			</tr>
-			</tbody>
-			</table>
-			<h4>Examples</h4>
-			<a>Command:</a>
-			<pre><code>./hush-cli getlastsegidstakes <span class="hljs-number">1000</span></code></pre>
-			<a>Response:</a>
-			<pre><code>{
+
+
+<h2><a id="getlastsegidstakes"></a>getlastsegidstakes</h2><hr>
+<p><strong>getlastsegidstakes depth</strong></p>
+<p>The <code>getlastsegidstakes</code> method returns an object containing the number of blocks staked by each segid in the last <code>X</code> number of blocks, where the value of <code>X</code> is equal to the indicated <code>depth</code>.</p>
+<p>::: tip Note<br>
+Only applies to <code>-ac_staked</code> Smart Chains<br>
+:::</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>depth</td>
+<td>(numeric, required)</td>
+<td>the number of blocks to scan, starting from the current height and working backwards</td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“NotSet”</td>
+<td>(numeric)</td>
+<td>the number of blocks that have no <code>SegId</code> set</td>
+</tr>
+<tr>
+<td>“PoW”</td>
+<td>(numeric)</td>
+<td>the number of blocks created through <code>PoW</code></td>
+</tr>
+<tr>
+<td>“PoSPerc”</td>
+<td>(numeric)</td>
+<td>the percentage of blocks created through <code>PoS</code></td>
+</tr>
+<tr>
+<td>“SegIds”</td>
+<td>(json object)</td>
+<td>the json containing the data of number of blocks in each <code>SegId</code></td>
+</tr>
+<tr>
+<td>“n”</td>
+<td>(numeric)</td>
+<td>the number of blocks staked from <code>SegId n</code> in the last X blocks, where X is equal to the indicated <code>depth</code></td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli getlastsegidstakes <span class="hljs-number">1000</span></code></pre>
+<a>Response:</a>
+<pre><code>{
 				"NotSet": 0,
 				"PoW": 12,
 				"PoSPerc": 98,
@@ -2410,11 +2817,11 @@
 					"63": 17
 				}
 }</code></pre>
-			<p>You can find the <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-			<a>Command:</a>
-			<pre><code>curl --user $rpcuser:$rpcpassword --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getlastsegidstakes", "params": [1000] }' -H 'content-type: text/plain;' http://127.0.0.1:$rpcport/</code></pre>
-			<a>Response:</a>
-			<pre><code>{
+<p>You can find the <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user $rpcuser:$rpcpassword --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getlastsegidstakes", "params": [1000] }' -H 'content-type: text/plain;' http://127.0.0.1:$rpcport/</code></pre>
+<a>Response:</a>
+<pre><code>{
 				"result": {
 					"NotSet": 0,
 					"PoW": 11,
@@ -2436,6 +2843,8 @@
 				"error": null,
 				"id": "curltest"
 }</code></pre><br>
+
+
 			<h2><a id="getmempoolinfo"></a>getmempoolinfo</h2><hr>
 			<p><strong>getmempoolinfo</strong></p>
 			<p>The <code>getmempoolinfo</code> method returns details on the active state of the transaction memory pool.</p>
