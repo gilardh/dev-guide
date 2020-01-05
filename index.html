@@ -96,12 +96,12 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-9 col-md-9">
-						<h2>What’s is?</h2>
+						<h2>What’s is hushd and hush-cli ?</h2>
 						<hr>
 						<p><strong>hushd</strong> is a Hush service daemon, which is a program that runs in the background and with which a user can’t usually interact directly during it’s runtime. This is a full node server that downloads that creates a P2P network and synchronizes the blockchain and verifies transactions and blocks.</p>
 						<p><strong>hush-cli</strong> is a command-line interface for Hush Core client that connects to a running instance of hushd daemon. User can interact with this program and do any necessary functions with it that will control the hushd service as well as the possibility of using a Hush wallet to send and receive funds, among other functions that Hush Core client provides.</p>
 
-						<h2>Why use hushd?</h2>
+						<!-- <h2>Why use hushd?</h2>
 						<hr>
 						<p>In progress</p><br>
 						<h2>Why use hush-cli?</h2>
@@ -109,7 +109,7 @@
 						<p>In progress</p><br>
 						<h2>How Does it Work?</h2>
 						<hr>
-						<p>In progress</p><br>
+						<p>In progress</p><br> -->
 						<h2>How does it set up?</h2>
 						<hr>
 						<h3>Install</h3>
@@ -8898,280 +8898,293 @@ Use <strong>listbanned</strong> to view results.<br>
 			<span class="hljs-string">"error"</span>:null,
 			<span class="hljs-string">"id"</span>:<span class="hljs-string">"curltest"</span>
 }</code></pre><br>
-		<h2><a id="getaccount"></a>getaccount</h2><hr>
-		<p><strong>getaccount “address”</strong></p>
-		<p>The <code>getaccount</code> method returns the account associated with the given address.</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“address”</td>
-		<td>(string, required)</td>
-		<td>the address</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“accountname”</td>
-		<td>(string)</td>
-		<td>the account address</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli getaccount <span class="hljs-string">"RBtNBJjWKVKPFG4To5Yce9TWWmc2AenzfZ"</span></code></pre>
-		<a>Response</a>
-		<pre><code>(deprecated)</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code>hush3 hush3file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getaccount", "params": ["RBtNBJjWKVKPFG4To5Yce9TWWmc2AenzfZ"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response</a>
-		<pre><code>(deprecated)</code></pre><br>
-		<h2><a id="getaccountaddress"></a>getaccountaddress</h2><hr>
-		<p><strong>getaccountaddress “account”</strong></p>
-		<p>::: tip<br>
-		DEPRECATED<br>
-		:::</p>
-		<p>The <code>getaccountaddress</code> method returns the current address for receiving payments to this account.</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“account”</td>
-		<td>(string, required)</td>
-		<td>MUST be set to the empty string “” to represent the default account; passing any other string will result in an error</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“address”</td>
-		<td>(string)</td>
-		<td>the account address</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli getaccountaddress</code></pre>
-		<a>Response</a>
-		<pre><code>(deprecated)</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getaccountaddress", "params": ["myaccount"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response</a>
-		<pre><code>(deprecated)</code></pre><br>
-		<h2><a id="getaddressesbyaccount"></a>getaddressesbyaccount</h2><hr>
-		<p><strong>getaddressesbyaccount “account”</strong></p>
-		<p>::: tip<br>
-		DEPRECATED<br>
-		:::</p>
-		<p>The <code>getaddressesbyaccount</code> method returns the list of addresses for the given <code>account</code>.</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“account”</td>
-		<td>(string, required)</td>
-		<td>MUST be set to the empty string “” to represent the default account; passing any other string will result in an error</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response:</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“address”</td>
-		<td>(string)</td>
-		<td>an address associated with the given account</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli getaddressesbyaccount <span class="hljs-string">"tabby"</span></code></pre>
-		<a>Response</a>
-		<pre><code>(deprecated)</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressesbyaccount", "params": ["tabby"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response:</a>
-		<pre><code>(deprecated)</code></pre>
-		<h2><a id="getbalance"></a>getbalance</h2>
-		<p><strong>getbalance ( “account” minconf includeWatchonly )</strong></p>
-		<p>The <code>getbalance</code> method returns the server’s total available balance.</p>
-		<p>::: tip<br>
-		The <strong>account</strong> input is deprecated.<br>
-		:::</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“account”</td>
-		<td>(string, optional)</td>
-		<td>DEPRECATED if provided, it MUST be set to the empty string <code>&quot;&quot;</code> or to the string <code>&quot;*&quot;</code></td>
-		</tr>
-		<tr>
-		<td>minconf</td>
-		<td>(numeric, optional, default=1)</td>
-		<td>only include transactions confirmed at least this many times</td>
-		</tr>
-		<tr>
-		<td>includeWatchonly</td>
-		<td>(bool, optional, default=false)</td>
-		<td>also include balance in watchonly addresses (see <code>importaddress</code>)</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>amount</td>
-		<td>(numeric)</td>
-		<td>the total amount</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<p>The total amount in the wallet:</p>
-		<a>Command:</a>
-		<pre><code>./hush-cli getbalance</code></pre>
-		<a>Response</a>
-		<pre><code><span class="hljs-number">10.05000000</span></code></pre>
-		<p>The total amount in the wallet where at least five blocks are confirmed:</p>
-		<a>Command:</a>
-		<pre><code>./hush-cli getbalance <span class="hljs-string">"*"</span> <span class="hljs-number">5</span></code></pre>
-		<a>Response</a>
-		<pre><code><span class="hljs-number">10.05000000</span></code></pre>
-		<p>As a json rpc call:</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getbalance", "params": ["", 6] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response:</a>
-		<pre><code>{
+
+
+<h2><a id="getaccount"></a>getaccount</h2><hr>
+<p><strong>getaccount “address”</strong></p>
+<p>The <code>getaccount</code> method returns the account associated with the given address.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“address”</td>
+<td>(string, required)</td>
+<td>the address</td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“accountname”</td>
+<td>(string)</td>
+<td>the account address</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli getaccount <span class="hljs-string">"RBtNBJjWKVKPFG4To5Yce9TWWmc2AenzfZ"</span></code></pre>
+<a>Response</a>
+<pre><code>(deprecated)</code></pre>
+<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code>hush3 hush3file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getaccount", "params": ["RBtNBJjWKVKPFG4To5Yce9TWWmc2AenzfZ"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response</a>
+<pre><code>(deprecated)</code></pre><br>
+
+
+<h2><a id="getaccountaddress"></a>getaccountaddress</h2><hr>
+<p><strong>getaccountaddress “account”</strong></p>
+<p>::: tip<br>
+DEPRECATED<br>
+:::</p>
+<p>The <code>getaccountaddress</code> method returns the current address for receiving payments to this account.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“account”</td>
+<td>(string, required)</td>
+<td>MUST be set to the empty string “” to represent the default account; passing any other string will result in an error</td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“address”</td>
+<td>(string)</td>
+<td>the account address</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli getaccountaddress</code></pre>
+<a>Response</a>
+<pre><code>(deprecated)</code></pre>
+<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getaccountaddress", "params": ["myaccount"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response</a>
+<pre><code>(deprecated)</code></pre><br>
+
+
+<h2><a id="getaddressesbyaccount"></a>getaddressesbyaccount</h2><hr>
+<p><strong>getaddressesbyaccount “account”</strong></p>
+<p>::: tip<br>
+DEPRECATED<br>
+:::</p>
+<p>The <code>getaddressesbyaccount</code> method returns the list of addresses for the given <code>account</code>.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“account”</td>
+<td>(string, required)</td>
+<td>MUST be set to the empty string “” to represent the default account; passing any other string will result in an error</td>
+</tr>
+</tbody>
+</table>
+<h3>Response:</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“address”</td>
+<td>(string)</td>
+<td>an address associated with the given account</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli getaddressesbyaccount <span class="hljs-string">"tabby"</span></code></pre>
+<a>Response</a>
+<pre><code>(deprecated)</code></pre>
+<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressesbyaccount", "params": ["tabby"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
+<pre><code>(deprecated)</code></pre>
+
+
+<h2><a id="getbalance"></a>getbalance</h2>
+<p><strong>getbalance ( “account” minconf includeWatchonly )</strong></p>
+<p>The <code>getbalance</code> method returns the server’s total available balance.</p>
+<p>::: tip<br>
+The <strong>account</strong> input is deprecated.<br>
+:::</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“account”</td>
+<td>(string, optional)</td>
+<td>DEPRECATED if provided, it MUST be set to the empty string <code>&quot;&quot;</code> or to the string <code>&quot;*&quot;</code></td>
+</tr>
+<tr>
+<td>minconf</td>
+<td>(numeric, optional, default=1)</td>
+<td>only include transactions confirmed at least this many times</td>
+</tr>
+<tr>
+<td>includeWatchonly</td>
+<td>(bool, optional, default=false)</td>
+<td>also include balance in watchonly addresses (see <code>importaddress</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>amount</td>
+<td>(numeric)</td>
+<td>the total amount</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<p>The total amount in the wallet:</p>
+<a>Command:</a>
+<pre><code>./hush-cli getbalance</code></pre>
+<a>Response</a>
+<pre><code><span class="hljs-number">10.05000000</span></code></pre>
+<p>The total amount in the wallet where at least five blocks are confirmed:</p>
+<a>Command:</a>
+<pre><code>./hush-cli getbalance <span class="hljs-string">"*"</span> <span class="hljs-number">5</span></code></pre>
+<a>Response</a>
+<pre><code><span class="hljs-number">10.05000000</span></code></pre>
+<p>As a json rpc call:</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getbalance", "params": ["", 6] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
+<pre><code>{
 		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-number">10.09234883</span></span>,
 		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
 		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
 </span>}</code></pre><br>
-		<h2><a id="getbalance64"></a>getbalance64</h2><hr>
-		<p><strong>getbalance64</strong></p>
-		<p>::: tip<br>
-		This method is part of the new <strong>ac_staked</strong> functionality.<br>
-		:::</p>
-		<p>The <code>getbalance64</code> method is used only on Smart Chains that are utilizing the <code>ac_staked</code> functionality. On KMD-based Proof-of-Stake (PoS) Smart Chains, all staked coins are placed into one of 64 segments (<code>segid</code>‘s’). The <code>getbalance64</code> method returns the balance of coins in each <code>segid</code>. For further information, please reach out to our support team.</p><br>
-		<h2><a id="getnewaddress"></a>getnewaddress</h2><hr>
-		<p><strong>getnewaddress ( “account” )</strong></p>
-		<p>The <code>getnewaddress</code> method returns a new address for receiving payments.</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“account”</td>
-		<td>(string, optional)</td>
-		<td>DEPRECATED: If provided, the account MUST be set to the empty string <code>&quot;&quot;</code> to represent the default account; passing any other string will result in an error</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“address”</td>
-		<td>(string)</td>
-		<td>the new address</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli getnewaddress</code></pre>
-		<a>Response:</a>
-		<pre><code><span class="hljs-string">"RYDuQ2oQCCz1PQNxUQTDAaRinWKiCoT2E6"</span></code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getnewaddress", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response:</a>
+
+
+<h2><a id="getbalance64"></a>getbalance64</h2><hr>
+<p><strong>getbalance64</strong></p>
+<p>::: tip<br>
+This method is part of the new <strong>ac_staked</strong> functionality.<br>
+:::</p>
+<p>The <code>getbalance64</code> method is used only on Smart Chains that are utilizing the <code>ac_staked</code> functionality. On KMD-based Proof-of-Stake (PoS) Smart Chains, all staked coins are placed into one of 64 segments (<code>segid</code>‘s’). The <code>getbalance64</code> method returns the balance of coins in each <code>segid</code>. For further information, please reach out to our support team.</p><br>
+
+
+<h2><a id="getnewaddress"></a>getnewaddress</h2><hr>
+<p><strong>getnewaddress ( “account” )</strong></p>
+<p>The <code>getnewaddress</code> method returns a new address for receiving payments.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“account”</td>
+<td>(string, optional)</td>
+<td>DEPRECATED: If provided, the account MUST be set to the empty string <code>&quot;&quot;</code> to represent the default account; passing any other string will result in an error</td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“address”</td>
+<td>(string)</td>
+<td>the new address</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli getnewaddress</code></pre>
+<a>Response:</a>
+<pre><code><span class="hljs-string">"RYDuQ2oQCCz1PQNxUQTDAaRinWKiCoT2E6"</span></code></pre>
+<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+<a>Command:</a>
+<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "getnewaddress", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+<a>Response:</a>
 		<pre><code>{
 		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"R9iQRG6J9eY8SwaCcYZ65QJxg5UhgLC5Rx"</span></span>,
 		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
 		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
 </span>}</code></pre><br>
+
 		<h2><a id="getrawchangeaddress"></a>getrawchangeaddress</h2><hr>
 		<p><strong>getrawchangeaddress</strong></p>
 		<p>The <code>getrawchangeaddress</code> returns a new address that can be used to receive change.</p>
