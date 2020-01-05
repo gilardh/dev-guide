@@ -1397,7 +1397,7 @@
 			<p><strong>getblockchaininfo</strong></p>
 			<p>The <code>getblockchaininfo</code> method returns a json object containing state information about blockchain processing.</p>
 			<p>::: tip</p>
-			<p>When the chain tip is at the last block before a network upgrade activation, the &lt;b&gt;consensus.chaintip&lt;/b&gt; value is not equal to the &lt;b&gt;consensus.nextblock&lt;/b&gt; value.</p>
+			<p>When the chain tip is at the last block before a network upgrade activation, the <strong>consensus.chaintip</strong> value is not equal to the <strong>consensus.nextblock</strong> value.</p>
 			<p>:::</p>
 			<p>The <code>getblockchaininfo</code> method now returns a new size_on_disk key, which is the size of the blockchain, on disk, in bytes.</p>
 			<h3>Arguments</h3>
@@ -3884,7 +3884,7 @@
 		<p>The <code>stop</code> method instructs the Hush daemon to shut down.</p>
 		<p>The amount of time it takes to shut down the chain will vary depending on the chain’s current state.</p>
 		<p>::: warning<br>
-		Forcefully stopping the chain should be avoided, as it may corrupt the local database. In the event of a corrupted database, the user will need to &lt;b&gt;resync&lt;/b&gt;.<br>
+		Forcefully stopping the chain should be avoided, as it may corrupt the local database. In the event of a corrupted database, the user will need to <strong>resync</strong>.<br>
 		:::</p>
 		<h3>Arguments</h3>
 		<table class="table table-striped table-bordered">
@@ -3996,7 +3996,7 @@
 		<p>The <code>getgenerate</code> method returns a boolean value indicating the server’s mining status.</p>
 		<p>The default value is false.</p>
 		<p>::: tip<br>
-		See also &lt;b&gt;gen&lt;/b&gt;.<br>
+		See also <strong>gen</strong>.<br>
 		:::</p>
 		<h3>Arguments</h3>
 		<table class="table table-striped table-bordered">
@@ -5102,7 +5102,7 @@ DEPRECATED: Use getnetworksolps instead.<br>
 <p>The <code>getaddednodeinfo</code> method returns information about the given added node, or all added nodes.</p>
 <p>If <code>dns</code> is set to <code>false</code>, only a list of added nodes is returned. Otherwise, connection information is also provided.</p>
 <p>::: tip<br>
-Nodes added via &lt;b&gt;onetry&lt;/b&gt; are not listed here.<br>
+Nodes added via <strong>onetry</strong> are not listed here.<br>
 :::</p>
 <h3>Arguments</h3>
 <table class="table table-striped table-bordered">
@@ -5872,7 +5872,7 @@ This method is applicable only to the KMD main net.<br>
 <p>Results provided in <code>getpeerinfo</code>, <code>pingtime</code> and <code>pingwait</code> fields are decimal seconds.</p>
 <p>The <code>ping</code> command is handled in queue with all other commands, so it measures processing backlog, not just network ping.</p>
 <p>::: tip<br>
-Use &lt;b&gt;getpeerinfo&lt;/b&gt; to see &lt;b&gt;ping&lt;/b&gt; results.<br>
+Use <strong>getpeerinfo</strong> to see <strong>ping</strong> results.<br>
 :::</p>
 <h3>Arguments</h3>
 <table class="table table-striped table-bordered">
@@ -7704,7 +7704,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		<h2><a id="z_mergetoaddress"></a>z_mergetoaddress</h2><hr>
 		<p><strong>z_mergetoaddress [ “fromaddress”, … ] “toaddress” ( fee ) ( transparent_limit ) ( shielded_limit ) ( memo )</strong></p>
 		<p>::: warning<br>
-		CAUTION: &lt;b&gt;z_mergetoaddress&lt;/b&gt; is DISABLED but can be enabled as an experimental feature.<br>
+		CAUTION: <strong>z_mergetoaddress</strong> is DISABLED but can be enabled as an experimental feature.<br>
 		:::</p>
 		<p>The <code>z_mergetoaddress</code> method merges multiple utxos and notes into a single utxo or note. The method works for both t addresses and z addresses, both separately and in combination. Coinbase utxos are ignored; use <code>z_shieldcoinbase</code> to combine those into a single note.</p>
 		<p>This is an asynchronous operation, and utxos selected for merging will be locked. If there is an error, they are unlocked. The RPC call <code>listlockunspent</code> can be used to return a list of locked utxos.</p>
@@ -8604,7 +8604,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		<p>The <code>addmultisigaddress</code> method adds a multi-signature address to the wallet, where <code>nrequired</code> indicates the number of keys (out of the total provided) required to execute a transaction.</p>
 		<p>The keys function as signatures, allowing multiple parties or entities to manage an account. Each key in the array can be an address or a hex-encoded public key.</p>
 		<p>::: tip<br>
-		DEPRECATED: If &lt;b&gt;account&lt;/b&gt; is specified, the method assigns the multi-signature address to that account.<br>
+		DEPRECATED: If <strong>account</strong> is specified, the method assigns the multi-signature address to that account.<br>
 		:::</p>
 		<h3>Arguments</h3>
 		<table class="table table-striped table-bordered">
@@ -8674,7 +8674,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		<p><strong>backupwallet “destination”</strong></p>
 		<p>The <code>backupwallet</code> method safely copies the <code>wallet.dat</code> file to the indicated destination. The <code>destination</code> input accepts only alphanumeric characters.</p>
 		<p>::: tip<br>
-		This method requires that the coin daemon have the &lt;b&gt;exportdir&lt;/b&gt; runtime parameter enabled.<br>
+		This method requires that the coin daemon have the <strong>exportdir</strong> runtime parameter enabled.<br>
 		:::</p>
 		<h3>Arguments</h3>
 		<table class="table table-striped table-bordered">
@@ -8727,7 +8727,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		<p><strong>dumpprivkey “address”</strong></p>
 		<p>The <code>dumpprivkey</code> method reveals the private key corresponding to the indicated <code>address</code>.</p>
 		<p>::: tip<br>
-		See also &lt;b&gt;importprivkey&lt;/b&gt;.<br>
+		See also <strong>importprivkey</strong>.<br>
 		:::</p>
 		<h3>Arguments</h3>
 		<table class="table table-striped table-bordered">
@@ -9049,7 +9049,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		<p><strong>getbalance ( “account” minconf includeWatchonly )</strong></p>
 		<p>The <code>getbalance</code> method returns the server’s total available balance.</p>
 		<p>::: tip<br>
-		The &lt;b&gt;account&lt;/b&gt; input is deprecated.<br>
+		The <strong>account</strong> input is deprecated.<br>
 		:::</p>
 		<h3>Arguments</h3>
 		<table class="table table-striped table-bordered">
@@ -9118,7 +9118,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		<h2><a id="getbalance64"></a>getbalance64</h2><hr>
 		<p><strong>getbalance64</strong></p>
 		<p>::: tip<br>
-		This method is part of the new &lt;b&gt;ac_staked&lt;/b&gt; functionality.<br>
+		This method is part of the new <strong>ac_staked</strong> functionality.<br>
 		:::</p>
 		<p>The <code>getbalance64</code> method is used only on Smart Chains that are utilizing the <code>ac_staked</code> functionality. On KMD-based Proof-of-Stake (PoS) Smart Chains, all staked coins are placed into one of 64 segments (<code>segid</code>‘s’). The <code>getbalance64</code> method returns the balance of coins in each <code>segid</code>. For further information, please reach out to our support team.</p><br>
 		<h2><a id="getnewaddress"></a>getnewaddress</h2><hr>
@@ -9231,7 +9231,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		<p>::: tip<br>
 		DEPRECATED<br>
 		:::</p>
-		<p>The &lt;b&gt;getreceivedbyaccount&lt;/b&gt; method returns the total amount received by &lt;b&gt;account&lt;/b&gt; in transactions with at least &lt;b&gt;minconf&lt;/b&gt; confirmations.</p>
+		<p>The <strong>getreceivedbyaccount</strong> method returns the total amount received by <strong>account</strong> in transactions with at least <strong>minconf</strong> confirmations.</p>
 		<h3>Arguments</h3>
 		<table class="table table-striped table-bordered">
 		<thead>
@@ -9830,10 +9830,10 @@ Use <strong>listbanned</strong> to view results.<br>
 		<p><strong>importkey “komodoprivkey” ( “label” rescan )</strong></p>
 		<p>The <code>importprivkey</code> method adds a private key to your wallet.</p>
 		<p>::: tip<br>
-		This call can take minutes to complete if &lt;b&gt;rescan&lt;/b&gt; is true.<br>
+		This call can take minutes to complete if <strong>rescan</strong> is true.<br>
 		:::</p>
 		<p>::: tip<br>
-		See also &lt;b&gt;dumpprivkey&lt;/b&gt;.<br>
+		See also <strong>dumpprivkey</strong>.<br>
 		:::</p>
 		<h3>Arguments</h3>
 		<table class="table table-striped table-bordered">
@@ -10008,7 +10008,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		<p>::: tip<br>
 		DEPRECATED<br>
 		:::</p>
-		<p>The &lt;b&gt;listaccounts&lt;/b&gt; method returns an object that has account names as keys and account balances as values.</p>
+		<p>The <strong>listaccounts</strong> method returns an object that has account names as keys and account balances as values.</p>
 		<h3>Arguments</h3>
 		<table class="table table-striped table-bordered">
 		<thead>
@@ -11968,7 +11968,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		<p><strong>z_exportviewingkey “z_address”</strong></p>
 		<p>The <code>z_exportviewingkey</code> method reveals the viewing key corresponding to <code>z_address</code>.</p>
 		<p>::: tip<br>
-		See also &lt;b&gt;z_importviewingkey&lt;/b&gt;.<br>
+		See also <strong>z_importviewingkey</strong>.<br>
 		:::</p>
 		<h3>Arguments</h3>
 		<table class="table table-striped table-bordered">
@@ -12073,7 +12073,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		<p><strong>z_getbalance “address” ( minconf )</strong></p>
 		<p>The <code>z_getbalance</code> method returns the balance of a t address or z address belonging to the node’s wallet.</p>
 		<p>::: warning<br>
-		CAUTION: If &lt;b&gt;address&lt;/b&gt; is a watch-only z address, the returned balance may be larger than the actual balance,<br>
+		CAUTION: If <strong>address</strong> is a watch-only z address, the returned balance may be larger than the actual balance,<br>
 		as spends cannot be detected with incoming viewing keys.<br>
 		:::</p>
 		<h3>Arguments</h3>
@@ -12189,7 +12189,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		<p><strong>z_getoperationresult ([ “operationid”, … ])</strong></p>
 		<p>The <code>z_getoperationresult</code> method retrieves the result and status of an operation which has finished, and then removes the operation from memory.</p>
 		<p>::: tip<br>
-		See also &lt;b&gt;z_getoperationstatus&lt;/b&gt;.<br>
+		See also <strong>z_getoperationstatus</strong>.<br>
 		:::</p>
 		<h3>Arguments</h3>
 		<table class="table table-striped table-bordered">
@@ -12538,7 +12538,7 @@ Use <strong>listbanned</strong> to view results.<br>
 		CAUTION: If the wallet contains watch-only z addresses the returned private balance may be larger than the actual balance, as spends cannot be detected with incoming viewing keys.<br>
 		:::</p>
 		<p>::: tip<br>
-		While the <strong>interest</strong> property is returned for all KMD-based coin daemons, only the main KMD chain utilizes the interest feature. KMD-based Smart Chains will always return a &lt;b&gt;0.00&lt;/b&gt; interest value.<br>
+		While the <strong>interest</strong> property is returned for all KMD-based coin daemons, only the main KMD chain utilizes the interest feature. KMD-based Smart Chains will always return a <strong>0.00</strong> interest value.<br>
 		:::</p>
 		<h3>Arguments</h3>
 		<table class="table table-striped table-bordered">
