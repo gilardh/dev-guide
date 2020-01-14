@@ -13310,12 +13310,12 @@ This method is part of the new <strong>ac_staked</strong> functionality.<br>
 							<div class="title"><h3 class="con1lang">Join us!</h3></div>
 								<p><strong class="con2alang">Hush</strong><span class="con2blang"> is a community project. Everyone is welcomed with open arms!</span></p>
 							<div class="contact-text">				
-									<a class="discord" href="//myhush.org/discord/index.html" target="_blank" data-toggle="tooltip" title="Discord"><img src="images/logo_discord.svg" alt="Discord" height="45px" width="45px"/></a>
-									<a class="telegram" href="//t.me/Hush_Coin" target="_blank" data-toggle="tooltip" title="Telegram"><img src="images/logo_telegram.svg" alt="Telegram" height="45px" width="45px"/></a>
-									<a class="twitter" href="//twitter.com/MyHushTeam" target="_blank" data-toggle="tooltip" title="Twitter"><img src="images/logo_twitter.svg" alt="Twitter" height="45px" width="45px"/></a>
-									<a class="reddit" href="//reddit.com/r/Myhush" target="_blank" data-toggle="tooltip" title="Reddit"><img src="images/logo_reddit.svg" alt="Reddit" height="45px" width="45px"/></a>
-									<a class="btc" href="//bitcointalk.org/index.php?topic=2008578.0" target="_blank" data-toggle="tooltip" title="Bitcointalk"><img src="images/logo_bitcointalk.svg" alt="Bitcointalk" height="45px" width="45px"/></a>
-									<a class="github" href="//github.com/MyHush" target="_blank" data-toggle="tooltip" title="GitHub"><img src="images/logo_github.svg" alt="GitHub" height="45px" width="45px"/></a>
+									<a class="discord" href="//myhush.org/discord/index.html" target="_blank" data-toggle="tooltip" data-offset="0px, 12px" title="Discord"><img src="images/logo_discord.svg" alt="Discord" height="45px" width="45px"/></a>
+									<a class="telegram" href="//t.me/Hush_Coin" target="_blank" data-toggle="tooltip" data-offset="0px, 12px" title="Telegram"><img src="images/logo_telegram.svg" alt="Telegram" height="45px" width="45px"/></a>
+									<a class="twitter" href="//twitter.com/MyHushTeam" target="_blank" data-toggle="tooltip" data-offset="0px, 12px" title="Twitter"><img src="images/logo_twitter.svg" alt="Twitter" height="45px" width="45px"/></a>
+									<a class="reddit" href="//reddit.com/r/Myhush" target="_blank" data-toggle="tooltip" data-offset="0px, 12px" title="Reddit"><img src="images/logo_reddit.svg" alt="Reddit" height="45px" width="45px"/></a>
+									<a class="btc" href="//bitcointalk.org/index.php?topic=2008578.0" target="_blank" data-toggle="tooltip" data-offset="0px, 12px" title="Bitcointalk"><img src="images/logo_bitcointalk.svg" alt="Bitcointalk" height="45px" width="45px"/></a>
+									<a class="github" href="//github.com/MyHush" target="_blank" data-toggle="tooltip" data-offset="0px, 12px" title="GitHub"><img src="images/logo_github.svg" alt="GitHub" height="45px" width="45px"/></a>
 							</div>
 							<div class="contact-copyright">
 								<p>Copyright &copy; 2016-<span id="s_year"></span> The Hush developers</p>
@@ -13345,6 +13345,12 @@ This method is part of the new <strong>ac_staked</strong> functionality.<br>
 				var syear = document.getElementById('s_year');
 				syear.innerHTML = year;
 		   </script>
+
+<script>
+$(document).ready(function(){
+$('[data-toggle=\'tooltip\']').tooltip({container: 'body'});
+});
+</script>
 
 			<script>
 				$(document).ready(function() {
