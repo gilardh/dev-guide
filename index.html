@@ -7227,7 +7227,7 @@ Use <strong>listbanned</strong> to view results.<br>
 			</tr>
 			</tbody>
 			</table>
-			<h4><a id="pushpin_Examples_461"></a>:pushpin: Examples</h4>
+			<h4>Examples</h4>
 			<a>Command:</a>
 			<pre><code>./hush-cli getrawtransaction <span class="hljs-string">"a44feb2e788d0332e283d8ca69c6a20999944dccac93246cbf9b36d841b08c95"</span></code></pre>
 			<a>Response:</a>
@@ -11691,8 +11691,8 @@ This method is part of the new <strong>ac_staked</strong> functionality.<br>
 		  ]</span>,
 		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
 		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
-</span>}</code></pre>
-		<h2><a id="sendfrom"></a>sendfrom</h2>
+</span>}</code></pre><br>
+		<h2><a id="sendfrom"></a>sendfrom</h2><hr>
 		<p><strong>sendfrom “account” “address” amount ( minconf “comment” “comment-to” )</strong></p>
 		<p>::: tip<br>
 		DEPRECATED: Use <strong>sendtoaddress</strong> instead.<br>
@@ -12044,8 +12044,8 @@ This method is part of the new <strong>ac_staked</strong> functionality.<br>
 		  },
 		  <span class="hljs-string">"error"</span>: null,
 		  <span class="hljs-string">"id"</span>: <span class="hljs-string">"curltest"</span>
-}</code></pre>
-		<h2><a id="settxfee"></a>settxfee</h2>
+}</code></pre><br>
+		<h2><a id="settxfee"></a>settxfee</h2><hr>
 		<p><strong>settxfee amount</strong></p>
 		<p>The <code>settxfee</code> method sets the transaction fee per kB.</p>
 		<h3>Arguments</h3>
@@ -12370,9 +12370,9 @@ This method is part of the new <strong>ac_staked</strong> functionality.<br>
 		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_exportkey", "params": ["ztffWAUUY9PnLiBVXY2pnX67kfm71SevtPC5d9LLM3xZqehy4XxV1FeyxPWcHGTiCd7GtQ17gk5jDTQxhHB13K1A7HT6hZH"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
 		<a>Response:</a>
 		<pre><code>{
-		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"DONOTUSExxxxxxxxxxxxxxxxV6EyPpaZFVDsqeNB6k8eoLFERdag"</span></span>,
-		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
-		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+	"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"DONOTUSExxxxxxxxxxxxxxxxV6EyPpaZFVDsqeNB6k8eoLFERdag"</span></span>,
+	"<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+	"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
 </span>}</code></pre><br>
 		<h2><a id="z_exportviewingkey"></a>z_exportviewingkey</h2><hr>
 		<p><strong>z_exportviewingkey “z_address”</strong></p>
@@ -13004,7 +13004,7 @@ This method is part of the new <strong>ac_staked</strong> functionality.<br>
 		</tr>
 		</tbody>
 		</table>
-		<h4><a id="pushpin_Examples_4112"></a>:pushpin: Examples</h4>
+		<h4>Examples</h4>
 		<a>Command:</a>
 		<pre><code>./hush-cli z_gettotalbalance</code></pre>
 		<a>Response:</a>
