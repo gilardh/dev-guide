@@ -19,7 +19,7 @@
      		<link rel="stylesheet" href="css/magnific-popup.css">
 			<link rel="stylesheet" href="css/nice-select.css">							
 			<link rel="stylesheet" href="css/font-awesome.min.css">
-			<link rel="stylesheet" href="css/bootstrap.css">			
+			<link rel="stylesheet" href="css/bootstrap.min.css">			
 			<link rel="stylesheet" href="css/jquery-ui.css">			
 			<link rel="stylesheet" href="css/styles.css">
 	</head>
@@ -153,7 +153,7 @@
 		<section class="text-area" id="preview">
 			<div class="container" id="address">
 			<h1>Address</h1>
-			<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</p><br>
+			<a>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</a><br><br>
 			<h2><a id="getaddressbalance"></a>getaddressbalance</h2>
 			<hr>
 			<p><strong>getaddressbalance ‘{ “addresses” : [ “address” , … ] }’</strong></p>
@@ -872,7 +872,7 @@
 	<section class="text-area">
 		<div class="container" id="blockchain">
 			<h1>Blockchain</h1>
-			<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</p><br>
+			<a>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</a><br><br>
 			<h2><a id="coinsupply"></a>coinsupply</h2><hr>
 			<p><strong>coinsupply height</strong></p>
 			<p>The <code>coinsupply</code> method returns the coin supply information for the indicated block <code>height</code>. If no height is given, the method defaults to the blockchain’s current height.</p>
@@ -4007,9 +4007,7 @@ Only applies to <code>-ac_staked</code> Smart Chains<br>
 	<section class="text-area">
 		<div class="container" id="control">
 		<h1>Control</h1>
-		<hr>
-		<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</p>
-		<br>
+		<a>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</a><br><br>
 		<h2><a id="getinfo"></a>getinfo</h2><hr>
 		<p><strong>getinfo</strong></p>
 		<p>The <code>getinfo</code> method returns an object containing various state info.</p>
@@ -4351,7 +4349,7 @@ Only applies to <code>-ac_staked</code> Smart Chains<br>
 	<section class="text-area">
 		<div class="container" id="generating_mining">
 		<h1>Generating / Mining</h1><hr>
-		<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</p><br>
+		<a>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</a><br><br>
 		<h2><a id="generate"></a>generate</h2><hr>
 		<p><strong>generate numblocks</strong></p>
 		<p>::: tip<br>
@@ -5358,7 +5356,7 @@ DEPRECATED: Use getnetworksolps instead.<br>
 <section class="text-area">
 <div class="container" id="network">
 <h1>Network</h1><hr>
-<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</p><br>
+<a>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</a><br><br>
 <h2><a id="addnode"></a>addnode</h2><hr>
 <p><strong>addnode “node” “add|remove|onetry”</strong></p>
 <p>The <code>addnode</code> method attempts to add or remove a node from the addnode list, or to make a single attempt to connect to a node.</p>
@@ -6410,19 +6408,10 @@ Use <strong>listbanned</strong> to view results.<br>
 
 
 
-
-
-
-
-
-
-
-
-
 	<section class="text-area">
 		<div class="container" id="rawtransactions">
 			<h1>Rawtransactions</h1>
-			<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</p>
+			<a>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</a><br><br>
 			<h2><a id="createrawtransaction"></a>createrawtransaction</h2>
 			<p><strong>createrawtransaction ‘[{ “txid”: “id_string”, “vout”: number }, … ]’ ‘{ “address”: amount, … }’</strong></p>
 			<p>The <code>createrawtransaction</code> method creates a transaction, spending the given inputs and sending to the given addresses. The method returns a hex-encoded raw transaction.</p>
@@ -7597,9 +7586,8 @@ Use <strong>listbanned</strong> to view results.<br>
 
 	<section class="text-area">
 		<div class="container" id="shielded">
-		<h1>Shielded</h1>
-		<hr>
-		<h2><a id="z_importviewingkey"></a>z_importviewingkey</h2>
+		<h1>Shielded</h1><br><br>
+		<h2><a id="z_importviewingkey"></a>z_importviewingkey</h2><hr>
 		<p><strong>z_importviewingkey “viewing_key” ( rescan startHeight )</strong></p>
 		<p>The <code>z_importviewingkey</code> adds a viewing key to your wallet. This method allows you to view the balance in a z address that otherwise does not belong to your wallet.</p>
 		<p>::: tip<br>
@@ -8453,7 +8441,7 @@ Use <strong>listbanned</strong> to view results.<br>
 	<section class="text-area">
 		<div class="container" id="util">
 			<h1>Util</h1>
-			<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</p><br>
+			<a>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</a><br><br>
 			<h2><a id="createmultisig"></a>createmultisig</h2><hr>
 			<p><strong>createmultisig nrequired [ “key”, … ]</strong></p>
 			<p>The <code>createmultisig</code> method creates a multi-signature address with <code>n</code> signature(s) of <code>m</code> key(s) required. The method returns a json object with the address and redeemScript.</p>
@@ -9006,7 +8994,7 @@ Use <strong>listbanned</strong> to view results.<br>
 <section class="text-area">
 <div class="container" id="wallet">
 <h1>Wallet</h1>
-<p>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</p>
+<a>The following RPC calls interact with the <code>hushd</code> software, and are made available through the <code>hush-cli</code> software.</a><br><br>
 <h2><a id="addmultisigaddress"></a>addmultisigaddress</h2>
 <hr>
 		<p><strong>addmultisigaddress nrequired [ “key”, … ] ( “account” )</strong></p>
