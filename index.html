@@ -50,6 +50,7 @@
 									<li><a href="#wallet">Wallet</a></li>
 								</ul>
 							</li>
+							<li><a href="#creating-hush-smart-chains">Creating Hush Smart Chains</a></li>
 			            </ul>
 			         </li>					          					          		          
 					  <li><a href="#contact">Contact</a></li>
@@ -9700,7 +9701,7 @@ Use <strong>listbanned</strong> to view results.<br>
 	"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
 </span>}</code></pre><br>
 			<h2><a id="validateaddress"></a>validateaddress</h2><hr>
-			<p><strong>validateaddress “komodoaddress”</strong></p>
+			<p><strong>validateaddress “hushaddress”</strong></p>
 			<p>The <code>validateaddress</code> method returns information about the given address.</p>
 			<h3>Arguments</h3>
 			<table class="table table-striped table-bordered">
@@ -13295,6 +13296,149 @@ This method is part of the new <strong>ac_staked</strong> functionality.<br>
 		<h2><a id="zcsamplejoinsplit"></a>zcsamplejoinsplit</h2><hr>
 		<p>Perform a joinsplit and return the JSDescription.</p>
 
+		</div>
+	</section>
+
+
+	<section class="head-section" id="creating-hush-smart-chains">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-9 col-md-9 cta-left">
+					<h1>Creating Hush Smart Chains</h1>
+				</div>
+			</div>
+		</div>
+	</section>
+
+<section class="text-area">
+<div class="container">
+<h1><a>Creating Hush Smart Chains</a></h1><hr><br>
+<h2>Introduction</h2>
+<h4>Requirements for Creating a New Chain</h4>
+<ul>
+<li>2 nodes with the ability to open ports (a node can be either a computer or a VPS)</li>
+<li>At least 4GB RAM each</li>
+<li>At least 2 CPU cores each</li>
+<li>64-bit Operating System (Ubuntu 18.04 recommended)</li>
+<li>Hush Smart Chain software installed on each
+<ul>
+<li>(when the goal is only to build a new Smart Chain, there is no need to sync the HUSH main chain)</li>
+</ul>
+</li>
+</ul>
+<br>
+<p>::: tip<br>
+When you are building and testing a Hush Smart Chain, please do not hesitate to reach out to us when you are stuck. We wish to make this as easy as possible. Our support agents are available in our <a href="https://myhush.org/discord">Discord</a> for many hours each day.<br>
+:::</p>
+<h3><a id="Basic_Info_for_Connecting_At_Least_Two_Nodes"></a>Basic Info for Connecting At Least Two Nodes</h3>
+<p>Basic knowledge about how to connect two nodes is recommended for the initial setup.</p>
+<p>As per the original blockchain designs of Satoshi Nakamoto, a Komodo Smart Chain does not exist on a single node. Rather, it exists via a connection between two or more nodes. This is the nature of decentralization: it is on the network we rely, rather than a single authority. Therefore, the design of the technology encourages the developer to have two separate nodes which are able to connect over a network.</p>
+<p>In the most ideal circumstance, the new Komodo developer will already have two virtual private servers (VPS’s) available for testing. VPS’s can be cheap and easy to manage. A typical VPS will either have a static external IP or can be assigned one.</p>
+<p>If the new developer does not have two VPS’s available, setting up a test Smart Chain on two local machines in a home or office-type setting is still achievable, but it may require more troubleshooting.</p>
+<p>When using a home or office-type setup, the challenge lies in the way the network is created, and there are myriad network setups.</p>
+<p>For example, if the developers are operating on a local router, where the two machines are connected via wifi, the local ip addresses of the machines are harder to find. This is because the router assigns new local ip addresses to the machines each time they re-connect to the router. It is not possible to see the ip addresses from the Internet. In this situation, the developer must log into the router’s software interface and search for the currently assigned local ip addresses.</p>
+<p>A home or office-type setup can suffice, if you’re just looking to test an Smart Chain quickly and don’t want to spend money on a VPS. However, don’t be surprised if you need to ask for help. Please reach out to us, and we’ll help the best we can.</p>
+<p>To test the creation of a Smart Chain using only a single node, <a href="https://developers.komodoplatform.com/basic-docs/smart-chains/smart-chain-tutorials/creating-a-smart-chain-on-a-single-node.html#introduction">see these linked instructions.</a></p>
+<p>To prepare for the next step, execute the following command in the terminal on both machines:</p>
+<pre><code>curl ifconfig.me</code></pre>
+<p class="has-line-data" data-line-start="41" data-line-end="42">From the response, record the <code>ip address</code> value for additional use.</p>
+<p class="has-line-data" data-line-start="43" data-line-end="44">With the ip addresses available, we are now prepared to test the connection between the machines.</p>
+<pre><code>ping &lt;insert the ip address of the other machine here&gt;</code></pre>
+<p>This command will generate a response every second, indicating the <code>ping</code> speed with which your machines are able to connect.</p>
+<pre><code>$ ping <span class="hljs-number">192.168</span>.<span class="hljs-number">1.101</span>
+
+	PING <span class="hljs-number">192.168</span>.<span class="hljs-number">1.101</span> (<span class="hljs-number">192.168</span>.<span class="hljs-number">1.101</span>) <span class="hljs-number">56</span>(<span class="hljs-number">84</span>) bytes of data
+			
+	<span class="hljs-number">64</span> bytes from <span class="hljs-number">192.168</span>.<span class="hljs-number">1.101</span>: icmp_seq=<span class="hljs-number">1</span> ttl=<span class="hljs-number">64</span> time=<span class="hljs-number">131</span> ms
+			
+	<span class="hljs-number">64</span> bytes from <span class="hljs-number">192.168</span>.<span class="hljs-number">1.101</span>: icmp_seq=<span class="hljs-number">2</span> ttl=<span class="hljs-number">64</span> time=<span class="hljs-number">2.40</span> ms</code></pre>
+<p>If you do not see a similar response in the shell, your machines are not able to connect. Please reach out to our team and we will do our best to assist you.</p>
+<h2><a id="Part_I_Creating_a_New_Hush_Smart_Chain"></a>Part I: Creating a New Hush Smart Chain</h2>
+<p>With your machines successfully able to <code>ping</code> each other, you are ready to create your first Smart Chain.</p>
+<p>The following instructions use the simplest possible set of parameters in creating a new Smart Chain: a coin with the ticker symbol <code>HUSH3</code>, <code>123456789</code> pre-mined coins, and a block reward of <code>.0001</code>.</p>
+<p>On your first node, change into the directory where Komodo’s <code>hushd</code> and <code>hush-cli</code> are installed and execute the following commands in the terminal:</p>
+<h4><a id="Mac__GNULinux"></a>Mac &amp; GNU/Linux</h4>
+<pre><code>./hushd -ac_name=HUSH3 -ac_supply=<span class="hljs-number">123456789</span> -addnode=&lt;IP address of the second node&gt; &amp;</code></pre>
+<h4><a id="Windows"></a>Windows</h4>
+<pre><code>./hushd.exe -ac_name=HUSH3 -ac_supply=<span class="hljs-number">123456789</span> -addnode=&lt;IP address of the second node&gt; &amp;</code></pre>
+<h3><a id="Verify_the_Response"></a>Verify the Response</h3>
+<p>After issuing this command in the terminal on both machines, you will find the p2p port in the terminal window.</p>
+<pre><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; HUSH3: p2p.<span class="hljs-number">8096</span> rpc.<span class="hljs-number">8097</span> magic.c89a5b16 <span class="hljs-number">3365559062</span> <span class="hljs-number">123456789</span> coins</code></pre>
+<p>In the above string, take note of the p2p and RPC ports, as well as the magic number. These values must match on both nodes for the chains to be identical. If they are not the same, verify that the launch command is the same on both the nodes.</p>
+<p>In the example above, the p2p port is <code>8096</code>. Make sure that the p2p port is open to the internet or any other network from which the second node connects.</p>
+<p>This completes the first half of the Smart Chain creation process. Scroll down to <a href="https://developers.komodoplatform.com/basic-docs/smart-chains/smart-chain-tutorials/create-a-default-smart-chain.html#part-ii-connecting-the-second-node">Part II</a>.</p><br>
+<p>::: tip<br>
+Please refer to <a href="https://developers.komodoplatform.com/basic-docs/antara/antara-setup/antara-customizations.html#ac-algo">Antara Customization parameters</a> for a full list of parameters to customize the characteristics of your blockchain.<br>
+:::</p>
+<p>::: tip<br>
+Please note the requirements for <a href="https://developers.komodoplatform.com/basic-docs/antara/antara-setup/antara-customizations.html#ac-supply">ac_supply</a>, and instructions for using <a href="https://developers.komodoplatform.com/basic-docs/smart-chains/smart-chain-setup/common-runtime-parameters.html#addnode">addnode</a> under various network conditions, including firewalls and LANs.<br>
+:::</p>
+<h2><a id="Part_II_Connecting_the_Second_Node"></a>Part II: Connecting the Second Node</h2>
+<p class="has-line-data" data-line-start="108" data-line-end="109">On the second node you issue the same command, but with a key difference. This time, use the first node’s IP address.</p>
+<pre><code>./hushd -ac_name=HUSH3 -ac_supply=<span class="hljs-number">123456789</span> -addnode=<strong>IP address of the first node</strong></code></pre>
+<p>Once the daemon loads, compare the string that starts with <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> in the second node to the one from the first node to make sure they are identical.</p>
+<p>Mining can be started on a node using the following command:</p>
+<pre><code>./hush-cli -ac_name=HUSH3 setgenerate <span class="hljs-literal">true</span> $(nproc)</code></pre>
+<p><code>$(nproc)</code> in the above command makes the daemon mine using all the available CPU threads, which might be necessary in a low end VPS.</p>
+<p>On a Komodo-based blockchain, all of the pre-mined coins are mined in the first block. Therefore, whichever machine executes the mining command will receive the entirety of the blockchain’s pre-mined coin supply, as set in the <a href="https://developers.komodoplatform.com/basic-docs/antara/antara-setup/antara-customizations.html#ac-supply">ac_supply</a> parameter. Upon mining the first block, these coins are available in the default <code>wallet.dat</code> file.</p>
+<p>To collect all the mining rewards from the node to a single address, execute the following commands before issuing the <code>setgenerate</code> command:</p>
+<pre><code><span class="hljs-comment"># Get a new address</span>
+	newaddress=$(./hush-cli -ac_name=HUSH3 getnewaddress)
+			
+	<span class="hljs-comment"># Get the corresponding pubkey</span>
+	pubkey=$(./hush-cli -ac_name=HUSH3 validateaddress <span class="hljs-variable">$newaddress</span> | jq -r <span class="hljs-string">'.pubkey'</span> )
+			
+	<span class="hljs-comment"># Indicate the pubkey to the daemon</span>
+	./hush-cli -ac_name=HUSH3 setpubkey <span class="hljs-variable">$pubkey</span></code></pre>
+<p>After issuing the mining command is issued, can check that the two nodes are connected by using the following command:</p>
+<pre><code>./hush-cli -ac_name=HUSH3 getinfo | grep connections</code></pre>
+<p>If the nodes are properly connected, both nodes will respond with: <code>&quot;connections&quot;: 1</code></p>
+<p>These are the coins you will later distribute to your community, using either our native DEX, <a href="https://developers.komodoplatform.com/basic-docs/atomicdex/atomicdex-tutorials/introduction-to-atomicdex.html#why-is-atomicdex-special">AtomicDEX</a>, or our decentralized-ICO software (coming soon), or on any other third-party exchange.</p>
+<p>You can check the contents of the wallet by executing the following command in the terminal:</p>
+<pre><code>./hush-cli -ac_name=HUSH3 getwalletinfo</code></pre>
+<p>To verify that everything is properly initiated, send a few coins from the second node to the first node:</p>
+<p>&lt;collapse-text hidden title=“Commands”&gt;</p>
+<h3><a id="Node1_159"></a>Node1</h3>
+<pre><code>newaddress=$(./hush-cli -ac_name=HUSH3 getnewaddress)
+	<span class="hljs-built_in">echo</span> <span class="hljs-variable">$newaddress</span>
+<span class="hljs-comment"># Copy the returned address for use on the other node</span></code></pre>
+<h3><a id="Node2"></a>Node2</h3>
+<pre><code><span class="hljs-comment"># Send ten coins to the address generated on the first node</span>
+	./hush-cli -ac_name=HUSH3 sendtoaddress Address_from_the_first_node <span class="hljs-number">10</span></code></pre>
+<h3><a id="Node1"></a>Node1</h3>
+<pre><code>./hush-cli -ac_name=HUSH3 getreceivedbyaddress &lt;insert address_from_the_first_node&gt; <span class="hljs-number">0</span>
+<span class="hljs-comment"># The 0 argument in the above command instructs the daemon to include the unconfirmed coin balance in the response</span></code></pre>
+<p>More info can be found in the debug.log of the chain found at:</p>
+<ul>
+<li><strong>MacOS:</strong> <code>~/.komodo/HUSH3/debug.log</code></li>
+<li><strong>Windows:</strong> <code>%appdata%\komodo\HUSH3\debug.log</code></li>
+<li><strong>GNU/Linux:</strong> <code>~/.komodo/HUSH3/debug.log</code></li>
+</ul>
+<h2><a id="Querying_the_Smart_Chain"></a>Querying the Smart Chain</h2>
+<p>Using the <code>hush-cli</code> software, which is included in any default installation of <code>hushd</code>, you can now execute many commands on your new Smart Chain. This enables you to perform transactions, create and execute smart contracts, store data in KV storage, etc.</p>
+<p>Since the Komodo software began as a fork of Zcash and BTC, essentially all commands that are available on these two upstream blockchains are also available on your new Smart Chain.</p>
+<p>Furthermore, a key purpose of the Komodo blockchain is to create features and functions that facilitate and enhance your development experience. Information regarding these enhancements is available throughout this documentation.</p>
+<p>In addition, since you are building on a Komodo-based blockchain, you have easy access to our multi-coin wallet and atomic-swap powered decentralized exchange, <a href="../../../basic-docs/atomicdex/atomicdex-tutorials/introduction-to-atomicdex.html#why-is-atomicdex-special">AtomicDEX</a>, the Antara development framework and modules, our decentralized-ICO software, and our future upgrades.</p>
+<h2>Example commands</h2>
+<p>To see general information about your new Smart Chain, execute this command:</p>
+<p><code>./hush-cli -ac_name=HUSH3 getinfo</code></p>
+<p>The following command returns information about all available RPC and API commands:</p>
+<p><code>./hush-cli -ac_name=HUSH3 help</code></p>
+<h2><a id="Secure_this_Smart_Chain_with_Delayed_Proof_of_Work"></a>Secure this Smart Chain with Delayed Proof of Work</h2>
+<p>Your new Smart Chain can receive the same security of the Bitcoin hash rate through our security mechanism, called “delayed Proof of Work” (dPoW).</p>
+<p>There are two aspects to the cost for dPoW services. The first comes from the cost of making records in your Smart Chain’s database, and in the records of the KMD main chain. These records are called “notarizations.”</p>
+<p>Notarizations are performed as transactions on your blockchain and on the main KMD blockchain. The transactions have messages included inside that indicate the most recent and secure state of your Smart Chain. Your Komodo Smart Chain will know how to recognize and rely on notarizations automatically.</p>
+<p>Every ten to twenty minutes, our notary nodes will hash the history of your Smart Chain and insert it as a record into the KMD main chain. This provides an initial layer of security, but it is not the final layer.</p>
+<p>In another ten to twenty minutes, all of the information in the KMD chain (including your Smart Chain’s hashed data) is hashed and inserted into the BTC blockchain. Once your information is pushed into BTC, your Smart Chain will consider all notarized information effectively settled and immutable; only the recent, un-notarized transactions are still relying on your Smart Chain’s raw consensus mechanism. <a href="../../../basic-docs/antara/antara-setup/antara-customizations.html#ac-staked">Click here to learn more about the types of consensus mechanisms you can choose on a KMD Smart Chain</a>.</p>
+<p>Thus, your Smart Chain will have all the power of Bitcoin securing your blockchain’s history, with the zero-knowledge privacy of the Zcash parameters pre-installed, and all of the interoperability, scalability, and more that Komodo adds to your development experience.</p>
+<p>As the notarizations are transactions, they naturally have a cost, and this cost is covered by you, the Smart Chain developer. Over the course of a year, assuming consistent activity, the cost for performing these transactions is 365 KMD, and also 365 of your Smart Chain’s coins.</p>
+<p>There are extra costs involved that are aimed to compensate the Notary Nodes for the setup and maintainance of the dPOW service. You may reach out to our third-party service providers to receive a quote. They can provide various services related to Smart Chain creation, electrum-server (SPV) setup and maintenance, explorer setup, and other blockchain services.</p>
+<p><a href="https://developers.komodoplatform.com/basic-docs/start-here/about-komodo-platform/orientation.html#production-smart-chains-typically-require-komodo-s-security-services">Click Here for the List of Third-Party Service Providers</a></p>
+<p>Several teams have already signed up for our services and are developing on our platform. From our experience with them we can confidently say that our pricing is competitive compared to other blockchain services. Furthermore, when considering that a Komodo-based Smart Chain does not require KMD for gas and transaction fees, the cost to your end-users can be exponentially cheaper. All things considered, creating a fully independent blockchain on Komodo can cost but a small fraction of what it would cost to deploy a single smart contract on the platforms of some of our competitors.</p>
+<h3><a id="A_Note_About_LowActivity_Blockchains"></a>A Note About Low-Activity Blockchains</h3>
+<p>Blockchain technology relies on a network of users using the blockchain and sharing data to function.</p>
+<p>Smart Chains that are built for low-activity networks require extra steps from the developer to ensure proper syncing between nodes.</p>
+<p>If you are building a Smart Chain and would like more information on maintaining constant syncing across nodes, our <a href="https://developers.komodoplatform.com/basic-docs/start-here/about-komodo-platform/orientation.html#production-smart-chains-typically-require-komodo-s-security-services">third-party service providers</a> can provide dedicated support for this topic. Please also reach out to our support team and community on <a href="https://myhush.org/discord">Discord</a></p>
 		</div>
 	</section>
 
