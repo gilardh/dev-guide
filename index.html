@@ -7587,6 +7587,872 @@ Use <strong>listbanned</strong> to view results.<br>
 	<section class="text-area">
 		<div class="container" id="shielded">
 		<h1>Shielded</h1><br><br>
+
+		<h2><a id="z_exportkey"></a>z_exportkey</h2><hr>
+		<p><strong>z_exportkey “z_address”</strong></p>
+		<p>The <code>z_exportkey</code> method reveals the private z_key corresponding to <code>z_address</code>.</p>
+		<p>::: tip<br>
+		See also <strong>z_importkey</strong>.<br>
+		:::</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“z_address”</td>
+		<td>(string, required)</td>
+		<td>the z_address for the private key</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“key”</td>
+		<td>(string)</td>
+		<td>the private key</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_exportkey <span class="hljs-string">"ztffWAUUY9PnLiBVXY2pnX67kfm71SevtPC5d9LLM3xZqehy4XxV1FeyxPWcHGTiCd7GtQ17gk5jDTQxhHB13K1A7HT6hZH"</span></code></pre>
+		<a>Response:</a>
+		<pre><code>DONOTUSExxxxxxxxxxxxxxxxV6EyPpaZFVDsqeNB6k8eoLFERdag</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_exportkey", "params": ["ztffWAUUY9PnLiBVXY2pnX67kfm71SevtPC5d9LLM3xZqehy4XxV1FeyxPWcHGTiCd7GtQ17gk5jDTQxhHB13K1A7HT6hZH"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+	"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"DONOTUSExxxxxxxxxxxxxxxxV6EyPpaZFVDsqeNB6k8eoLFERdag"</span></span>,
+	"<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+	"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		<h2><a id="z_exportviewingkey"></a>z_exportviewingkey</h2><hr>
+		<p><strong>z_exportviewingkey “z_address”</strong></p>
+		<p>The <code>z_exportviewingkey</code> method reveals the viewing key corresponding to <code>z_address</code>.</p>
+		<p>::: tip<br>
+		See also <strong>z_importviewingkey</strong>.<br>
+		:::</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“z_address”</td>
+		<td>(string, required)</td>
+		<td>the z_address for the viewing key</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“vkey”</td>
+		<td>(string)</td>
+		<td>the viewing key</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_exportviewingkey <span class="hljs-string">"ztffWAUUY9PnLiBVXY2pnX67kfm71SevtPC5d9LLM3xZqehy4XxV1FeyxPWcHGTiCd7GtQ17gk5jDTQxhHB13K1A7HT6hZH"</span></code></pre>
+		<a>Response:</a>
+		<pre><code>ZiVtf1yjjR9DeDNNgd4kvRgS1oovQwfK6xt2csfhTwpbUVjnC9RrEeuVkAfJrxN1jDR3d7vR6XmLne4vC9SCYR5F9XMzW19VJ</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_exportviewingkey", "params": ["ztffWAUUY9PnLiBVXY2pnX67kfm71SevtPC5d9LLM3xZqehy4XxV1FeyxPWcHGTiCd7GtQ17gk5jDTQxhHB13K1A7HT6hZH"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"ZiVtf1yjjR9DeDNNgd4kvRgS1oovQwfK6xt2csfhTwpbUVjnC9RrEeuVkAfJrxN1jDR3d7vR6XmLne4vC9SCYR5F9XMzW19VJ"</span></span>,
+		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		<h2><a id="z_exportwallet"></a>z_exportwallet</h2><hr>
+		<p><strong>z_exportwallet “filename”</strong></p>
+		<p>The <code>z_exportwallet</code> method exports all wallet keys, including both t address and z address types, in a human-readable format. Overwriting an existing file is not permitted.</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“filename”</td>
+		<td>(string, required)</td>
+		<td>the filename, saved to the directory indicated by the <a href="#exportdir">exportdir</a> parameter at daemon runtime (required)</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“path”</td>
+		<td>(string)</td>
+		<td>the full path of the destination file</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_exportwallet <span class="hljs-string">"test"</span></code></pre>
+		<a>Response:</a>
+		<pre><code>/home/myusername/mydirectory/<span class="hljs-built_in">test</span></code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_exportwallet", "params": ["test"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"/home/myusername/mydirectory/test"</span></span>,
+		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		<h2><a id="z_getbalance"></a>z_getbalance</h2><hr>
+		<p><strong>z_getbalance “address” ( minconf )</strong></p>
+		<p>The <code>z_getbalance</code> method returns the balance of a t address or z address belonging to the node’s wallet.</p>
+		<p>::: warning<br>
+		CAUTION: If <strong>address</strong> is a watch-only z address, the returned balance may be larger than the actual balance,<br>
+		as spends cannot be detected with incoming viewing keys.<br>
+		:::</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“address”</td>
+		<td>(string)</td>
+		<td>the selected z or t address</td>
+		</tr>
+		<tr>
+		<td>minconf</td>
+		<td>(numeric, optional, default=1)</td>
+		<td>only include transactions confirmed at least this many times</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>amount</td>
+		<td>(numeric)</td>
+		<td>the total amount received at this address (in the relevant COIN value)</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<p>The total amount received by address “myaddress” at least 5 blocks confirmed</p>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_getbalance <span class="hljs-string">"ztfF6SFBfq2qha73dAgsXnL86F8air32CXKxJg8aYtEPJFdLcw4y3zWzBasocnx1V9GLnnFeKnkPvkScjNkQBfWn2kBDmkn"</span></code></pre>
+		<a>Response:</a>
+		<pre><code><span class="hljs-number">0.01980000</span></code></pre>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_getbalance <span class="hljs-string">"ztfF6SFBfq2qha73dAgsXnL86F8air32CXKxJg8aYtEPJFdLcw4y3zWzBasocnx1V9GLnnFeKnkPvkScjNkQBfWn2kBDmkn"</span> <span class="hljs-number">5</span></code></pre>
+		<a>Response:</a>
+		<pre><code><span class="hljs-number">0.01980000</span></code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_getbalance", "params": ["ztfF6SFBfq2qha73dAgsXnL86F8air32CXKxJg8aYtEPJFdLcw4y3zWzBasocnx1V9GLnnFeKnkPvkScjNkQBfWn2kBDmkn", 5] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<p>Response”&gt;</p>
+		<pre><code>{
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-number">0.0198</span></span>,
+		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		<h2><a id="z_getnewaddress"></a>z_getnewaddress</h2><hr>
+		<p><strong>z_getnewaddress</strong></p>
+		<p>The <code>z_getnewaddress</code> method returns a new z_address for receiving payments.</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>(none)</td>
+		<td></td>
+		<td></td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“z_address”</td>
+		<td>(string)</td>
+		<td>the new z_address</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_getnewaddress</code></pre>
+		<a>Response:</a>
+		<pre><code>ztbUD83kXgHt3A1M282wFvT9Ms6SiBCd6GSbQbPa2C7UtPojVZjPENytFqu7JxgnsgL9EN42xWnyhhzniHYSRJDnEPTgo3Y</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_getnewaddress", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"ztci8RzNSo2pdiDpAeHpz9Rp91hq12Mn7zcFfBR8Jjs2ydZUCTw8rLZzkVP888M4vGezpZVfsTR8orgxYK3N8gdgbBzakx3"</span></span>,
+		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		<h2><a id="z_getoperationresult"></a>z_getoperationresult</h2><hr>
+		<p><strong>z_getoperationresult ([ “operationid”, … ])</strong></p>
+		<p>The <code>z_getoperationresult</code> method retrieves the result and status of an operation which has finished, and then removes the operation from memory.</p>
+		<p>::: tip<br>
+		See also <strong>z_getoperationstatus</strong>.<br>
+		:::</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“operationid”</td>
+		<td>(string, optional)</td>
+		<td>a list of operation ids to query; if not provided, the method examines all operations known to the node</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“id”</td>
+		<td>(string)</td>
+		<td>the operation id</td>
+		</tr>
+		<tr>
+		<td>“status”</td>
+		<td>(string)</td>
+		<td>the result of the operation; can be <code>success</code></td>
+		</tr>
+		<tr>
+		<td>“creation_time”</td>
+		<td>(numeric)</td>
+		<td>the creation time, in seconds since epoch (Jan 1 1970 GMT)</td>
+		</tr>
+		<tr>
+		<td>“result”: { … }</td>
+		<td>(array of json objects)</td>
+		<td></td>
+		</tr>
+		<tr>
+		<td>“txid”:</td>
+		<td>(string)</td>
+		<td>the transaction id</td>
+		</tr>
+		<tr>
+		<td>“execution_secs”</td>
+		<td>(numeric)</td>
+		<td>the length of time to calculate the transaction</td>
+		</tr>
+		<tr>
+		<td>“method”</td>
+		<td>(string)</td>
+		<td>the name of the method used in the operation</td>
+		</tr>
+		<tr>
+		<td>“params”: { … }</td>
+		<td>(json)</td>
+		<td></td>
+		</tr>
+		<tr>
+		<td>“fromaddress”</td>
+		<td>(string)</td>
+		<td>the address from which funds are drawn</td>
+		</tr>
+		<tr>
+		<td>“amounts”: [ … ]</td>
+		<td>(array of json objects)</td>
+		<td></td>
+		</tr>
+		<tr>
+		<td>“address”</td>
+		<td>(string)</td>
+		<td>the receiving address</td>
+		</tr>
+		<tr>
+		<td>“amount”</td>
+		<td>(numeric)</td>
+		<td>the amount to receive</td>
+		</tr>
+		<tr>
+		<td>“minconf”</td>
+		<td>(numeric)</td>
+		<td>the minimum number of confirmations required</td>
+		</tr>
+		<tr>
+		<td>“fee”</td>
+		<td>(numeric)</td>
+		<td>the transaction fee</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_getoperationresult <span class="hljs-string">'["opid-6e581ee5-4e90-4e70-8961-f95d8d28748c"]'</span></code></pre>
+		<a>Response:</a>
+		<pre><code>[
+		  {
+			"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"opid-6e581ee5-4e90-4e70-8961-f95d8d28748c"</span></span>,
+			"<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"success"</span></span>,
+			"<span class="hljs-attribute">creation_time</span>": <span class="hljs-value"><span class="hljs-number">1537287690</span></span>,
+			"<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+			  "<span class="hljs-attribute">txid</span>": <span class="hljs-value"><span class="hljs-string">"65e01c8485f6a85fbf7093d8233864eed0f31e6e2eff22a7e468e92c37dc864c"</span>
+			</span>}</span>,
+			"<span class="hljs-attribute">execution_secs</span>": <span class="hljs-value"><span class="hljs-number">44.606282288</span></span>,
+			"<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"z_sendmany"</span></span>,
+			"<span class="hljs-attribute">params</span>": <span class="hljs-value">{
+			  "<span class="hljs-attribute">fromaddress</span>": <span class="hljs-value"><span class="hljs-string">"RWUwHqRUYgxfYNNSHWkQuY5sh93VGiiPoX"</span></span>,
+			  "<span class="hljs-attribute">amounts</span>": <span class="hljs-value">[
+				{
+				  "<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"ztci8RzNSo2pdiDpAeHpz9Rp91hq12Mn7zcFfBR8Jjs2ydZUCTw8rLZzkVP888M4vGezpZVfsTR8orgxYK3N8gdgbBzakx3"</span></span>,
+				  "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">0.01</span>
+				</span>}
+			  ]</span>,
+			  "<span class="hljs-attribute">minconf</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+			  "<span class="hljs-attribute">fee</span>": <span class="hljs-value"><span class="hljs-number">0.0001</span>
+			</span>}
+		  </span>}
+]</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_getoperationresult", "params": [["opid-6a9da0dd-a950-4d95-848c-d3c18e44be03"]] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">[
+			{
+			  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"opid-6a9da0dd-a950-4d95-848c-d3c18e44be03"</span></span>,
+			  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"success"</span></span>,
+			  "<span class="hljs-attribute">creation_time</span>": <span class="hljs-value"><span class="hljs-number">1537288235</span></span>,
+			  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+				"<span class="hljs-attribute">txid</span>": <span class="hljs-value"><span class="hljs-string">"f0309f8dc2e33e108dec39285bc8755058375cf6e51bdb452fb45f3d14909fef"</span>
+			  </span>}</span>,
+			  "<span class="hljs-attribute">execution_secs</span>": <span class="hljs-value"><span class="hljs-number">44.978749064</span></span>,
+			  "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"z_sendmany"</span></span>,
+			  "<span class="hljs-attribute">params</span>": <span class="hljs-value">{
+				"<span class="hljs-attribute">fromaddress</span>": <span class="hljs-value"><span class="hljs-string">"RWUwHqRUYgxfYNNSHWkQuY5sh93VGiiPoX"</span></span>,
+				"<span class="hljs-attribute">amounts</span>": <span class="hljs-value">[
+				  {
+					"<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"ztci8RzNSo2pdiDpAeHpz9Rp91hq12Mn7zcFfBR8Jjs2ydZUCTw8rLZzkVP888M4vGezpZVfsTR8orgxYK3N8gdgbBzakx3"</span></span>,
+					"<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">0.01</span>
+				  </span>}
+				]</span>,
+				"<span class="hljs-attribute">minconf</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+				"<span class="hljs-attribute">fee</span>": <span class="hljs-value"><span class="hljs-number">0.0001</span>
+			  </span>}
+			</span>}
+		  ]</span>,
+		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		<h2><a id="z_getoperationstatus"></a>z_getoperationstatus</h2><hr>
+		<p><strong>z_getoperationstatus ([ “operationid”, … ])</strong></p>
+		<p>The <code>z_getoperationstatus</code> message queries the operation status and any associated result or error data of any <code>operationid</code> stored in local memory. The operation will remain in memory (unlike <code>z_getoperationresult</code>, which removes the data from the local memory).</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“operationid”</td>
+		<td>(array, optional)</td>
+		<td>a list of operation ids we are interested in; if an array is not provided, the method examines all operations known to the node</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“id”</td>
+		<td>(string)</td>
+		<td>the operation id</td>
+		</tr>
+		<tr>
+		<td>“status”</td>
+		<td>(string)</td>
+		<td>the status of the operation; can be <code>success</code></td>
+		</tr>
+		<tr>
+		<td>“creation_time”</td>
+		<td>(numeric)</td>
+		<td>the creation time, in seconds since epoch (Jan 1 1970 GMT)</td>
+		</tr>
+		<tr>
+		<td>“error” : { … }</td>
+		<td>(array of json objects)</td>
+		<td></td>
+		</tr>
+		<tr>
+		<td>“code”</td>
+		<td>(numeric)</td>
+		<td>the associated error code</td>
+		</tr>
+		<tr>
+		<td>“message”</td>
+		<td>(string)</td>
+		<td>a message to indicate the nature of the error, if such a message is available</td>
+		</tr>
+		<tr>
+		<td>“method”</td>
+		<td>(string)</td>
+		<td>the name of the method used in the operation</td>
+		</tr>
+		<tr>
+		<td>“params” : { … }</td>
+		<td>(array of json objects)</td>
+		<td></td>
+		</tr>
+		<tr>
+		<td>“fromaddress”</td>
+		<td>(string)</td>
+		<td>the address from which funds are drawn</td>
+		</tr>
+		<tr>
+		<td>“amounts”: [ … ]</td>
+		<td>(array of json objects)</td>
+		<td></td>
+		</tr>
+		<tr>
+		<td>“address”</td>
+		<td>(string)</td>
+		<td>the receiving address</td>
+		</tr>
+		<tr>
+		<td>“amount”</td>
+		<td>(numeric)</td>
+		<td>the amount to receive</td>
+		</tr>
+		<tr>
+		<td>“minconf”</td>
+		<td>(numeric)</td>
+		<td>indicates the required number of mining confirmations</td>
+		</tr>
+		<tr>
+		<td>“fee”</td>
+		<td>(numeric)</td>
+		<td>the fee</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_getoperationstatus
+		</code></pre>
+		<a>Response:</a>
+		<pre><code>[
+		  {
+			"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"opid-b650b582-c2f5-43e0-9a65-9fe23f65c1a5"</span></span>,
+			"<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"failed"</span></span>,
+			"<span class="hljs-attribute">creation_time</span>": <span class="hljs-value"><span class="hljs-number">1537288268</span></span>,
+			"<span class="hljs-attribute">error</span>": <span class="hljs-value">{
+			  "<span class="hljs-attribute">code</span>": <span class="hljs-value">-<span class="hljs-number">6</span></span>,
+			  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Insufficient funds, no UTXOs found for taddr from address."</span>
+			</span>}</span>,
+			"<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"z_sendmany"</span></span>,
+			"<span class="hljs-attribute">params</span>": <span class="hljs-value">{
+			  "<span class="hljs-attribute">fromaddress</span>": <span class="hljs-value"><span class="hljs-string">"RWUwHqRUYgxfYNNSHWkQuY5sh93VGiiPoX"</span></span>,
+			  "<span class="hljs-attribute">amounts</span>": <span class="hljs-value">[
+				{
+				  "<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"ztci8RzNSo2pdiDpAeHpz9Rp91hq12Mn7zcFfBR8Jjs2ydZUCTw8rLZzkVP888M4vGezpZVfsTR8orgxYK3N8gdgbBzakx3"</span></span>,
+				  "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">0.01</span>
+				</span>}
+			  ]</span>,
+			  "<span class="hljs-attribute">minconf</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+			  "<span class="hljs-attribute">fee</span>": <span class="hljs-value"><span class="hljs-number">0.0001</span>
+			</span>}
+		  </span>}
+]</code></pre>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_getoperationstatus <span class="hljs-string">'["opid-47e12224-8477-4cd4-852d-d8c3ddbc6375"]'</span></code></pre>
+		<a>Response:</a>
+		<pre><code>[
+		  {
+			"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"opid-47e12224-8477-4cd4-852d-d8c3ddbc6375"</span></span>,
+			"<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"executing"</span></span>,
+			"<span class="hljs-attribute">creation_time</span>": <span class="hljs-value"><span class="hljs-number">1537289777</span></span>,
+			"<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"z_sendmany"</span></span>,
+			"<span class="hljs-attribute">params</span>": <span class="hljs-value">{
+			  "<span class="hljs-attribute">fromaddress</span>": <span class="hljs-value"><span class="hljs-string">"RWUwHqRUYgxfYNNSHWkQuY5sh93VGiiPoX"</span></span>,
+			  "<span class="hljs-attribute">amounts</span>": <span class="hljs-value">[
+				{
+				  "<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"ztci8RzNSo2pdiDpAeHpz9Rp91hq12Mn7zcFfBR8Jjs2ydZUCTw8rLZzkVP888M4vGezpZVfsTR8orgxYK3N8gdgbBzakx3"</span></span>,
+				  "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">0.01</span>
+				</span>}
+			  ]</span>,
+			  "<span class="hljs-attribute">minconf</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+			  "<span class="hljs-attribute">fee</span>": <span class="hljs-value"><span class="hljs-number">0.0001</span>
+			</span>}
+		  </span>}
+]</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_getoperationstatus", "params": [["opid-47e12224-8477-4cd4-852d-d8c3ddbc6375"]] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">[
+			{
+			  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"opid-47e12224-8477-4cd4-852d-d8c3ddbc6375"</span></span>,
+			  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"success"</span></span>,
+			  "<span class="hljs-attribute">creation_time</span>": <span class="hljs-value"><span class="hljs-number">1537289777</span></span>,
+			  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+				"<span class="hljs-attribute">txid</span>": <span class="hljs-value"><span class="hljs-string">"2b988a708db2b8d99a92bbff65a57d0d73fdb22c30fc3f3e4f81ab15cfeafc45"</span>
+			  </span>}</span>,
+			  "<span class="hljs-attribute">execution_secs</span>": <span class="hljs-value"><span class="hljs-number">45.200043917</span></span>,
+			  "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"z_sendmany"</span></span>,
+			  "<span class="hljs-attribute">params</span>": <span class="hljs-value">{
+				"<span class="hljs-attribute">fromaddress</span>": <span class="hljs-value"><span class="hljs-string">"RWUwHqRUYgxfYNNSHWkQuY5sh93VGiiPoX"</span></span>,
+				"<span class="hljs-attribute">amounts</span>": <span class="hljs-value">[
+				  {
+					"<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"ztci8RzNSo2pdiDpAeHpz9Rp91hq12Mn7zcFfBR8Jjs2ydZUCTw8rLZzkVP888M4vGezpZVfsTR8orgxYK3N8gdgbBzakx3"</span></span>,
+					"<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">0.01</span>
+				  </span>}
+				]</span>,
+				"<span class="hljs-attribute">minconf</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+				"<span class="hljs-attribute">fee</span>": <span class="hljs-value"><span class="hljs-number">0.0001</span>
+			  </span>}
+			</span>}
+		  ]</span>,
+		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		<h2><a id="z_gettotalbalance"></a>z_gettotalbalance</h2><hr>
+		<p><strong>z_gettotalbalance ( minconf includeWatchonly )</strong></p>
+		<p>The <code>z_gettotalbalance</code> method returns the total value of funds, including both transparent and private, stored in the node’s wallet.</p>
+		<p>::: warning<br>
+		CAUTION: If the wallet contains watch-only z addresses the returned private balance may be larger than the actual balance, as spends cannot be detected with incoming viewing keys.<br>
+		:::</p>
+		<p>::: tip<br>
+		While the <strong>interest</strong> property is returned for all KMD-based coin daemons, only the main KMD chain utilizes the interest feature. KMD-based Smart Chains will always return a <strong>0.00</strong> interest value.<br>
+		:::</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>minconf</td>
+		<td>(numeric, optional, default=1)</td>
+		<td>only include private and transparent transactions confirmed at least this many times</td>
+		</tr>
+		<tr>
+		<td>includeWatchonly</td>
+		<td>(bool, optional, default=false)</td>
+		<td>also include balance in watchonly addresses (see ‘importaddress’ and ‘z_importviewingkey’)</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“transparent”</td>
+		<td>(numeric)</td>
+		<td>the total balance of transparent funds</td>
+		</tr>
+		<tr>
+		<td>“interest”</td>
+		<td>(numeric)</td>
+		<td>the total balance of unclaimed interest earned</td>
+		</tr>
+		<tr>
+		<td>“private”</td>
+		<td>(numeric)</td>
+		<td>the total balance of private funds</td>
+		</tr>
+		<tr>
+		<td>“total”</td>
+		<td>(numeric)</td>
+		<td>the total balance of both transparent and private funds</td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_gettotalbalance</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">transparent</span>": <span class="hljs-value"><span class="hljs-string">"9.98794883"</span></span>,
+		  "<span class="hljs-attribute">interest</span>": <span class="hljs-value"><span class="hljs-string">"0.00"</span></span>,
+		  "<span class="hljs-attribute">private</span>": <span class="hljs-value"><span class="hljs-string">"0.08205"</span></span>,
+		  "<span class="hljs-attribute">total</span>": <span class="hljs-value"><span class="hljs-string">"10.06999883"</span>
+</span>}</code></pre>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_gettotalbalance <span class="hljs-number">5</span></code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">transparent</span>": <span class="hljs-value"><span class="hljs-string">"9.98794883"</span></span>,
+		  "<span class="hljs-attribute">interest</span>": <span class="hljs-value"><span class="hljs-string">"0.00"</span></span>,
+		  "<span class="hljs-attribute">private</span>": <span class="hljs-value"><span class="hljs-string">"0.08205"</span></span>,
+		  "<span class="hljs-attribute">total</span>": <span class="hljs-value"><span class="hljs-string">"10.06999883"</span>
+</span>}</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_gettotalbalance", "params": [5] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
+			"<span class="hljs-attribute">transparent</span>": <span class="hljs-value"><span class="hljs-string">"0.00615"</span></span>,
+			"<span class="hljs-attribute">interest</span>": <span class="hljs-value"><span class="hljs-string">"0.00"</span></span>,
+			"<span class="hljs-attribute">private</span>": <span class="hljs-value"><span class="hljs-string">"0.06205"</span></span>,
+			"<span class="hljs-attribute">total</span>": <span class="hljs-value"><span class="hljs-string">"0.0682"</span>
+		  </span>}</span>,
+		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+		<h2><a id="z_importkey"></a>z_importkey</h2><hr>
+		<p><strong>z_importkey “z_privatekey” ( rescan startHeight )</strong></p>
+		<p>The <code>z_importkey</code> method imports <code>z_privatekey</code> to your wallet.</p>
+		<p>::: tip<br>
+		This call can take minutes to complete if <strong>rescan</strong> is true.<br>
+		:::</p>
+		<p>::: tip<br>
+		The optional parameters are currently not functional with KMD-based blockchains.<br>
+		:::</p>
+		<p>::: tip<br>
+		See also <strong>z_exportkey</strong>.<br>
+		:::</p>
+		<h3>Arguments</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>“z_privatekey”</td>
+		<td>(string, required)</td>
+		<td>the z_privatekey (see <a href="#z-exportkey">z_exportkey</a>)</td>
+		</tr>
+		<tr>
+		<td>rescan</td>
+		<td>(string, optional, default=<code>&quot;whenkeyisnew&quot;</code>)</td>
+		<td>rescan the wallet for transactions; can be <code>yes</code></td>
+		</tr>
+		<tr>
+		<td>startHeight</td>
+		<td>(numeric, optional, default=0)</td>
+		<td>the block height at which to begin the rescan</td>
+		</tr>
+		</tbody>
+		</table>
+		<h3>Response</h3>
+		<table class="table table-striped table-bordered">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>(none)</td>
+		<td></td>
+		<td></td>
+		</tr>
+		</tbody>
+		</table>
+		<h4>Examples</h4>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_importkey DONOTUSExxxxxxxxxxxxxxxxBP6ipkmBxmEQbugcCQ16vUaWGFK</code></pre>
+		<a>Response:</a>
+		<pre><code>(none)</code></pre>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_importkey DONOTUSExxxxxxxxxxxxxxxxBP6ipkmBxmEQbugcCQ16vUaWGFK whenkeyisnew <span class="hljs-number">30000</span></code></pre>
+		<a>Response:</a>
+		<pre><code>(none)</code></pre>
+		<a>Command:</a>
+		<pre><code>./hush-cli z_importkey DONOTUSExxxxxxxxxxxxxxxxBP6ipkmBxmEQbugcCQ16vUaWGFK yes <span class="hljs-number">20000</span></code></pre>
+		<a>Response:</a>
+		<pre><code>(none)</code></pre>
+		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
+		<a>Command:</a>
+		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_importkey", "params": ["DONOTUSExxxxxxxxxxxxxxxxBP6ipkmBxmEQbugcCQ16vUaWGFK", "no"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
+		<a>Response:</a>
+		<pre><code>{
+	"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+	"<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+	"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
+</span>}</code></pre><br>
+
+<h2><a id="z_validateaddress"></a>z_validateaddress</h2><hr>
+<p><strong>z_validateaddress “zaddr”</strong></p>
+<p>The <code>z_validateaddress</code> method returns information about the given z address.</p>
+<h3>Arguments</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“zaddr”</td>
+<td>(string, required)</td>
+<td>the z address to validate</td>
+</tr>
+</tbody>
+</table>
+<h3>Response</h3>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“isvalid”</td>
+<td>(boolean)</td>
+<td>indicates whether the address is valid; if not, this is the only property returned</td>
+</tr>
+<tr>
+<td>“address”</td>
+<td>(string)</td>
+<td>the z address validated</td>
+</tr>
+<tr>
+<td>“ismine”</td>
+<td>(boolean)</td>
+<td>indicates if the address is yours or not</td>
+</tr>
+<tr>
+<td>“payingkey”</td>
+<td>(string)</td>
+<td>the hex value of the paying key, a_pk</td>
+</tr>
+<tr>
+<td>“transmissionkey”</td>
+<td>(string)</td>
+<td>the hex value of the transmission key, pk_enc</td>
+</tr>
+</tbody>
+</table>
+<h4>Examples</h4>
+<a>Command:</a>
+<pre><code>./hush-cli z_validateaddress <span class="hljs-string">"zcWsmqT4X2V4jgxbgiCzyrAfRT1vi1F4sn7M5Pkh66izzw8Uk7LBGAH3DtcSMJeUb2pi3W4SQF8LMKkU2cUuVP68yAGcomL"</span></code></pre>
+<a>Response:</a>
+<pre><code>{
+	"<span class="hljs-attribute">isvalid</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+	"<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"ztdChvxs2Z97X7qeBwsnRLbxva1ZVgWhFWZxZTA5bC8XLt9RHF8uXn16MWCU8DhKEt4gTtKqQwzsrk85f5tThWMNoYds2oX"</span></span>,
+	"<span class="hljs-attribute">payingkey</span>": <span class="hljs-value"><span class="hljs-string">"d9c09cb974fbe0bf7e36a2318b46396c5112511f90749531428936867d83bd92"</span></span>,
+	"<span class="hljs-attribute">transmissionkey</span>": <span class="hljs-value"><span class="hljs-string">"5ce3250912758cbb591e3d585ef110992f25ed7694b88f55315b060698b75404"</span></span>,
+	"<span class="hljs-attribute">ismine</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+</span>}</code></pre>
+
 		<h2><a id="z_importviewingkey"></a>z_importviewingkey</h2><hr>
 		<p><strong>z_importviewingkey “viewing_key” ( rescan startHeight )</strong></p>
 		<p>The <code>z_importviewingkey</code> adds a viewing key to your wallet. This method allows you to view the balance in a z address that otherwise does not belong to your wallet.</p>
@@ -8433,6 +9299,8 @@ Use <strong>listbanned</strong> to view results.<br>
 		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
 		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
 </span>}</code></pre><br>
+
+
 		</div>
 	</section>
 
@@ -12320,870 +13188,7 @@ This method is part of the new <strong>ac_staked</strong> functionality.<br>
 		<a>Response:</a>
 		<pre><code>(none)</code></pre><br>
 
-		<h2><a id="z_exportkey"></a>z_exportkey</h2><hr>
-		<p><strong>z_exportkey “z_address”</strong></p>
-		<p>The <code>z_exportkey</code> method reveals the private z_key corresponding to <code>z_address</code>.</p>
-		<p>::: tip<br>
-		See also <strong>z_importkey</strong>.<br>
-		:::</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“z_address”</td>
-		<td>(string, required)</td>
-		<td>the z_address for the private key</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“key”</td>
-		<td>(string)</td>
-		<td>the private key</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_exportkey <span class="hljs-string">"ztffWAUUY9PnLiBVXY2pnX67kfm71SevtPC5d9LLM3xZqehy4XxV1FeyxPWcHGTiCd7GtQ17gk5jDTQxhHB13K1A7HT6hZH"</span></code></pre>
-		<a>Response:</a>
-		<pre><code>DONOTUSExxxxxxxxxxxxxxxxV6EyPpaZFVDsqeNB6k8eoLFERdag</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_exportkey", "params": ["ztffWAUUY9PnLiBVXY2pnX67kfm71SevtPC5d9LLM3xZqehy4XxV1FeyxPWcHGTiCd7GtQ17gk5jDTQxhHB13K1A7HT6hZH"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response:</a>
-		<pre><code>{
-	"<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"DONOTUSExxxxxxxxxxxxxxxxV6EyPpaZFVDsqeNB6k8eoLFERdag"</span></span>,
-	"<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
-	"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
-</span>}</code></pre><br>
-		<h2><a id="z_exportviewingkey"></a>z_exportviewingkey</h2><hr>
-		<p><strong>z_exportviewingkey “z_address”</strong></p>
-		<p>The <code>z_exportviewingkey</code> method reveals the viewing key corresponding to <code>z_address</code>.</p>
-		<p>::: tip<br>
-		See also <strong>z_importviewingkey</strong>.<br>
-		:::</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“z_address”</td>
-		<td>(string, required)</td>
-		<td>the z_address for the viewing key</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“vkey”</td>
-		<td>(string)</td>
-		<td>the viewing key</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_exportviewingkey <span class="hljs-string">"ztffWAUUY9PnLiBVXY2pnX67kfm71SevtPC5d9LLM3xZqehy4XxV1FeyxPWcHGTiCd7GtQ17gk5jDTQxhHB13K1A7HT6hZH"</span></code></pre>
-		<a>Response:</a>
-		<pre><code>ZiVtf1yjjR9DeDNNgd4kvRgS1oovQwfK6xt2csfhTwpbUVjnC9RrEeuVkAfJrxN1jDR3d7vR6XmLne4vC9SCYR5F9XMzW19VJ</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_exportviewingkey", "params": ["ztffWAUUY9PnLiBVXY2pnX67kfm71SevtPC5d9LLM3xZqehy4XxV1FeyxPWcHGTiCd7GtQ17gk5jDTQxhHB13K1A7HT6hZH"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response:</a>
-		<pre><code>{
-		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"ZiVtf1yjjR9DeDNNgd4kvRgS1oovQwfK6xt2csfhTwpbUVjnC9RrEeuVkAfJrxN1jDR3d7vR6XmLne4vC9SCYR5F9XMzW19VJ"</span></span>,
-		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
-		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
-</span>}</code></pre><br>
-		<h2><a id="z_exportwallet"></a>z_exportwallet</h2><hr>
-		<p><strong>z_exportwallet “filename”</strong></p>
-		<p>The <code>z_exportwallet</code> method exports all wallet keys, including both t address and z address types, in a human-readable format. Overwriting an existing file is not permitted.</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“filename”</td>
-		<td>(string, required)</td>
-		<td>the filename, saved to the directory indicated by the <a href="#exportdir">exportdir</a> parameter at daemon runtime (required)</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“path”</td>
-		<td>(string)</td>
-		<td>the full path of the destination file</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_exportwallet <span class="hljs-string">"test"</span></code></pre>
-		<a>Response:</a>
-		<pre><code>/home/myusername/mydirectory/<span class="hljs-built_in">test</span></code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_exportwallet", "params": ["test"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response:</a>
-		<pre><code>{
-		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"/home/myusername/mydirectory/test"</span></span>,
-		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
-		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
-</span>}</code></pre><br>
-		<h2><a id="z_getbalance"></a>z_getbalance</h2><hr>
-		<p><strong>z_getbalance “address” ( minconf )</strong></p>
-		<p>The <code>z_getbalance</code> method returns the balance of a t address or z address belonging to the node’s wallet.</p>
-		<p>::: warning<br>
-		CAUTION: If <strong>address</strong> is a watch-only z address, the returned balance may be larger than the actual balance,<br>
-		as spends cannot be detected with incoming viewing keys.<br>
-		:::</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“address”</td>
-		<td>(string)</td>
-		<td>the selected z or t address</td>
-		</tr>
-		<tr>
-		<td>minconf</td>
-		<td>(numeric, optional, default=1)</td>
-		<td>only include transactions confirmed at least this many times</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>amount</td>
-		<td>(numeric)</td>
-		<td>the total amount received at this address (in the relevant COIN value)</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<p>The total amount received by address “myaddress” at least 5 blocks confirmed</p>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_getbalance <span class="hljs-string">"ztfF6SFBfq2qha73dAgsXnL86F8air32CXKxJg8aYtEPJFdLcw4y3zWzBasocnx1V9GLnnFeKnkPvkScjNkQBfWn2kBDmkn"</span></code></pre>
-		<a>Response:</a>
-		<pre><code><span class="hljs-number">0.01980000</span></code></pre>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_getbalance <span class="hljs-string">"ztfF6SFBfq2qha73dAgsXnL86F8air32CXKxJg8aYtEPJFdLcw4y3zWzBasocnx1V9GLnnFeKnkPvkScjNkQBfWn2kBDmkn"</span> <span class="hljs-number">5</span></code></pre>
-		<a>Response:</a>
-		<pre><code><span class="hljs-number">0.01980000</span></code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_getbalance", "params": ["ztfF6SFBfq2qha73dAgsXnL86F8air32CXKxJg8aYtEPJFdLcw4y3zWzBasocnx1V9GLnnFeKnkPvkScjNkQBfWn2kBDmkn", 5] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<p>Response”&gt;</p>
-		<pre><code>{
-		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-number">0.0198</span></span>,
-		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
-		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
-</span>}</code></pre><br>
-		<h2><a id="z_getnewaddress"></a>z_getnewaddress</h2><hr>
-		<p><strong>z_getnewaddress</strong></p>
-		<p>The <code>z_getnewaddress</code> method returns a new z_address for receiving payments.</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>(none)</td>
-		<td></td>
-		<td></td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“z_address”</td>
-		<td>(string)</td>
-		<td>the new z_address</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_getnewaddress</code></pre>
-		<a>Response:</a>
-		<pre><code>ztbUD83kXgHt3A1M282wFvT9Ms6SiBCd6GSbQbPa2C7UtPojVZjPENytFqu7JxgnsgL9EN42xWnyhhzniHYSRJDnEPTgo3Y</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_getnewaddress", "params": [] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response</a>
-		<pre><code>{
-		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-string">"ztci8RzNSo2pdiDpAeHpz9Rp91hq12Mn7zcFfBR8Jjs2ydZUCTw8rLZzkVP888M4vGezpZVfsTR8orgxYK3N8gdgbBzakx3"</span></span>,
-		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
-		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
-</span>}</code></pre><br>
-		<h2><a id="z_getoperationresult"></a>z_getoperationresult</h2><hr>
-		<p><strong>z_getoperationresult ([ “operationid”, … ])</strong></p>
-		<p>The <code>z_getoperationresult</code> method retrieves the result and status of an operation which has finished, and then removes the operation from memory.</p>
-		<p>::: tip<br>
-		See also <strong>z_getoperationstatus</strong>.<br>
-		:::</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“operationid”</td>
-		<td>(string, optional)</td>
-		<td>a list of operation ids to query; if not provided, the method examines all operations known to the node</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“id”</td>
-		<td>(string)</td>
-		<td>the operation id</td>
-		</tr>
-		<tr>
-		<td>“status”</td>
-		<td>(string)</td>
-		<td>the result of the operation; can be <code>success</code></td>
-		</tr>
-		<tr>
-		<td>“creation_time”</td>
-		<td>(numeric)</td>
-		<td>the creation time, in seconds since epoch (Jan 1 1970 GMT)</td>
-		</tr>
-		<tr>
-		<td>“result”: { … }</td>
-		<td>(array of json objects)</td>
-		<td></td>
-		</tr>
-		<tr>
-		<td>“txid”:</td>
-		<td>(string)</td>
-		<td>the transaction id</td>
-		</tr>
-		<tr>
-		<td>“execution_secs”</td>
-		<td>(numeric)</td>
-		<td>the length of time to calculate the transaction</td>
-		</tr>
-		<tr>
-		<td>“method”</td>
-		<td>(string)</td>
-		<td>the name of the method used in the operation</td>
-		</tr>
-		<tr>
-		<td>“params”: { … }</td>
-		<td>(json)</td>
-		<td></td>
-		</tr>
-		<tr>
-		<td>“fromaddress”</td>
-		<td>(string)</td>
-		<td>the address from which funds are drawn</td>
-		</tr>
-		<tr>
-		<td>“amounts”: [ … ]</td>
-		<td>(array of json objects)</td>
-		<td></td>
-		</tr>
-		<tr>
-		<td>“address”</td>
-		<td>(string)</td>
-		<td>the receiving address</td>
-		</tr>
-		<tr>
-		<td>“amount”</td>
-		<td>(numeric)</td>
-		<td>the amount to receive</td>
-		</tr>
-		<tr>
-		<td>“minconf”</td>
-		<td>(numeric)</td>
-		<td>the minimum number of confirmations required</td>
-		</tr>
-		<tr>
-		<td>“fee”</td>
-		<td>(numeric)</td>
-		<td>the transaction fee</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_getoperationresult <span class="hljs-string">'["opid-6e581ee5-4e90-4e70-8961-f95d8d28748c"]'</span></code></pre>
-		<a>Response:</a>
-		<pre><code>[
-		  {
-			"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"opid-6e581ee5-4e90-4e70-8961-f95d8d28748c"</span></span>,
-			"<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"success"</span></span>,
-			"<span class="hljs-attribute">creation_time</span>": <span class="hljs-value"><span class="hljs-number">1537287690</span></span>,
-			"<span class="hljs-attribute">result</span>": <span class="hljs-value">{
-			  "<span class="hljs-attribute">txid</span>": <span class="hljs-value"><span class="hljs-string">"65e01c8485f6a85fbf7093d8233864eed0f31e6e2eff22a7e468e92c37dc864c"</span>
-			</span>}</span>,
-			"<span class="hljs-attribute">execution_secs</span>": <span class="hljs-value"><span class="hljs-number">44.606282288</span></span>,
-			"<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"z_sendmany"</span></span>,
-			"<span class="hljs-attribute">params</span>": <span class="hljs-value">{
-			  "<span class="hljs-attribute">fromaddress</span>": <span class="hljs-value"><span class="hljs-string">"RWUwHqRUYgxfYNNSHWkQuY5sh93VGiiPoX"</span></span>,
-			  "<span class="hljs-attribute">amounts</span>": <span class="hljs-value">[
-				{
-				  "<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"ztci8RzNSo2pdiDpAeHpz9Rp91hq12Mn7zcFfBR8Jjs2ydZUCTw8rLZzkVP888M4vGezpZVfsTR8orgxYK3N8gdgbBzakx3"</span></span>,
-				  "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">0.01</span>
-				</span>}
-			  ]</span>,
-			  "<span class="hljs-attribute">minconf</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
-			  "<span class="hljs-attribute">fee</span>": <span class="hljs-value"><span class="hljs-number">0.0001</span>
-			</span>}
-		  </span>}
-]</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_getoperationresult", "params": [["opid-6a9da0dd-a950-4d95-848c-d3c18e44be03"]] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response:</a>
-		<pre><code>{
-		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">[
-			{
-			  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"opid-6a9da0dd-a950-4d95-848c-d3c18e44be03"</span></span>,
-			  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"success"</span></span>,
-			  "<span class="hljs-attribute">creation_time</span>": <span class="hljs-value"><span class="hljs-number">1537288235</span></span>,
-			  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
-				"<span class="hljs-attribute">txid</span>": <span class="hljs-value"><span class="hljs-string">"f0309f8dc2e33e108dec39285bc8755058375cf6e51bdb452fb45f3d14909fef"</span>
-			  </span>}</span>,
-			  "<span class="hljs-attribute">execution_secs</span>": <span class="hljs-value"><span class="hljs-number">44.978749064</span></span>,
-			  "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"z_sendmany"</span></span>,
-			  "<span class="hljs-attribute">params</span>": <span class="hljs-value">{
-				"<span class="hljs-attribute">fromaddress</span>": <span class="hljs-value"><span class="hljs-string">"RWUwHqRUYgxfYNNSHWkQuY5sh93VGiiPoX"</span></span>,
-				"<span class="hljs-attribute">amounts</span>": <span class="hljs-value">[
-				  {
-					"<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"ztci8RzNSo2pdiDpAeHpz9Rp91hq12Mn7zcFfBR8Jjs2ydZUCTw8rLZzkVP888M4vGezpZVfsTR8orgxYK3N8gdgbBzakx3"</span></span>,
-					"<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">0.01</span>
-				  </span>}
-				]</span>,
-				"<span class="hljs-attribute">minconf</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
-				"<span class="hljs-attribute">fee</span>": <span class="hljs-value"><span class="hljs-number">0.0001</span>
-			  </span>}
-			</span>}
-		  ]</span>,
-		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
-		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
-</span>}</code></pre><br>
-		<h2><a id="z_getoperationstatus"></a>z_getoperationstatus</h2><hr>
-		<p><strong>z_getoperationstatus ([ “operationid”, … ])</strong></p>
-		<p>The <code>z_getoperationstatus</code> message queries the operation status and any associated result or error data of any <code>operationid</code> stored in local memory. The operation will remain in memory (unlike <code>z_getoperationresult</code>, which removes the data from the local memory).</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“operationid”</td>
-		<td>(array, optional)</td>
-		<td>a list of operation ids we are interested in; if an array is not provided, the method examines all operations known to the node</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“id”</td>
-		<td>(string)</td>
-		<td>the operation id</td>
-		</tr>
-		<tr>
-		<td>“status”</td>
-		<td>(string)</td>
-		<td>the status of the operation; can be <code>success</code></td>
-		</tr>
-		<tr>
-		<td>“creation_time”</td>
-		<td>(numeric)</td>
-		<td>the creation time, in seconds since epoch (Jan 1 1970 GMT)</td>
-		</tr>
-		<tr>
-		<td>“error” : { … }</td>
-		<td>(array of json objects)</td>
-		<td></td>
-		</tr>
-		<tr>
-		<td>“code”</td>
-		<td>(numeric)</td>
-		<td>the associated error code</td>
-		</tr>
-		<tr>
-		<td>“message”</td>
-		<td>(string)</td>
-		<td>a message to indicate the nature of the error, if such a message is available</td>
-		</tr>
-		<tr>
-		<td>“method”</td>
-		<td>(string)</td>
-		<td>the name of the method used in the operation</td>
-		</tr>
-		<tr>
-		<td>“params” : { … }</td>
-		<td>(array of json objects)</td>
-		<td></td>
-		</tr>
-		<tr>
-		<td>“fromaddress”</td>
-		<td>(string)</td>
-		<td>the address from which funds are drawn</td>
-		</tr>
-		<tr>
-		<td>“amounts”: [ … ]</td>
-		<td>(array of json objects)</td>
-		<td></td>
-		</tr>
-		<tr>
-		<td>“address”</td>
-		<td>(string)</td>
-		<td>the receiving address</td>
-		</tr>
-		<tr>
-		<td>“amount”</td>
-		<td>(numeric)</td>
-		<td>the amount to receive</td>
-		</tr>
-		<tr>
-		<td>“minconf”</td>
-		<td>(numeric)</td>
-		<td>indicates the required number of mining confirmations</td>
-		</tr>
-		<tr>
-		<td>“fee”</td>
-		<td>(numeric)</td>
-		<td>the fee</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_getoperationstatus
-		</code></pre>
-		<a>Response:</a>
-		<pre><code>[
-		  {
-			"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"opid-b650b582-c2f5-43e0-9a65-9fe23f65c1a5"</span></span>,
-			"<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"failed"</span></span>,
-			"<span class="hljs-attribute">creation_time</span>": <span class="hljs-value"><span class="hljs-number">1537288268</span></span>,
-			"<span class="hljs-attribute">error</span>": <span class="hljs-value">{
-			  "<span class="hljs-attribute">code</span>": <span class="hljs-value">-<span class="hljs-number">6</span></span>,
-			  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Insufficient funds, no UTXOs found for taddr from address."</span>
-			</span>}</span>,
-			"<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"z_sendmany"</span></span>,
-			"<span class="hljs-attribute">params</span>": <span class="hljs-value">{
-			  "<span class="hljs-attribute">fromaddress</span>": <span class="hljs-value"><span class="hljs-string">"RWUwHqRUYgxfYNNSHWkQuY5sh93VGiiPoX"</span></span>,
-			  "<span class="hljs-attribute">amounts</span>": <span class="hljs-value">[
-				{
-				  "<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"ztci8RzNSo2pdiDpAeHpz9Rp91hq12Mn7zcFfBR8Jjs2ydZUCTw8rLZzkVP888M4vGezpZVfsTR8orgxYK3N8gdgbBzakx3"</span></span>,
-				  "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">0.01</span>
-				</span>}
-			  ]</span>,
-			  "<span class="hljs-attribute">minconf</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
-			  "<span class="hljs-attribute">fee</span>": <span class="hljs-value"><span class="hljs-number">0.0001</span>
-			</span>}
-		  </span>}
-]</code></pre>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_getoperationstatus <span class="hljs-string">'["opid-47e12224-8477-4cd4-852d-d8c3ddbc6375"]'</span></code></pre>
-		<a>Response:</a>
-		<pre><code>[
-		  {
-			"<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"opid-47e12224-8477-4cd4-852d-d8c3ddbc6375"</span></span>,
-			"<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"executing"</span></span>,
-			"<span class="hljs-attribute">creation_time</span>": <span class="hljs-value"><span class="hljs-number">1537289777</span></span>,
-			"<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"z_sendmany"</span></span>,
-			"<span class="hljs-attribute">params</span>": <span class="hljs-value">{
-			  "<span class="hljs-attribute">fromaddress</span>": <span class="hljs-value"><span class="hljs-string">"RWUwHqRUYgxfYNNSHWkQuY5sh93VGiiPoX"</span></span>,
-			  "<span class="hljs-attribute">amounts</span>": <span class="hljs-value">[
-				{
-				  "<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"ztci8RzNSo2pdiDpAeHpz9Rp91hq12Mn7zcFfBR8Jjs2ydZUCTw8rLZzkVP888M4vGezpZVfsTR8orgxYK3N8gdgbBzakx3"</span></span>,
-				  "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">0.01</span>
-				</span>}
-			  ]</span>,
-			  "<span class="hljs-attribute">minconf</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
-			  "<span class="hljs-attribute">fee</span>": <span class="hljs-value"><span class="hljs-number">0.0001</span>
-			</span>}
-		  </span>}
-]</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_getoperationstatus", "params": [["opid-47e12224-8477-4cd4-852d-d8c3ddbc6375"]] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response:</a>
-		<pre><code>{
-		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">[
-			{
-			  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"opid-47e12224-8477-4cd4-852d-d8c3ddbc6375"</span></span>,
-			  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"success"</span></span>,
-			  "<span class="hljs-attribute">creation_time</span>": <span class="hljs-value"><span class="hljs-number">1537289777</span></span>,
-			  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
-				"<span class="hljs-attribute">txid</span>": <span class="hljs-value"><span class="hljs-string">"2b988a708db2b8d99a92bbff65a57d0d73fdb22c30fc3f3e4f81ab15cfeafc45"</span>
-			  </span>}</span>,
-			  "<span class="hljs-attribute">execution_secs</span>": <span class="hljs-value"><span class="hljs-number">45.200043917</span></span>,
-			  "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"z_sendmany"</span></span>,
-			  "<span class="hljs-attribute">params</span>": <span class="hljs-value">{
-				"<span class="hljs-attribute">fromaddress</span>": <span class="hljs-value"><span class="hljs-string">"RWUwHqRUYgxfYNNSHWkQuY5sh93VGiiPoX"</span></span>,
-				"<span class="hljs-attribute">amounts</span>": <span class="hljs-value">[
-				  {
-					"<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"ztci8RzNSo2pdiDpAeHpz9Rp91hq12Mn7zcFfBR8Jjs2ydZUCTw8rLZzkVP888M4vGezpZVfsTR8orgxYK3N8gdgbBzakx3"</span></span>,
-					"<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">0.01</span>
-				  </span>}
-				]</span>,
-				"<span class="hljs-attribute">minconf</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
-				"<span class="hljs-attribute">fee</span>": <span class="hljs-value"><span class="hljs-number">0.0001</span>
-			  </span>}
-			</span>}
-		  ]</span>,
-		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
-		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
-</span>}</code></pre><br>
-		<h2><a id="z_gettotalbalance"></a>z_gettotalbalance</h2><hr>
-		<p><strong>z_gettotalbalance ( minconf includeWatchonly )</strong></p>
-		<p>The <code>z_gettotalbalance</code> method returns the total value of funds, including both transparent and private, stored in the node’s wallet.</p>
-		<p>::: warning<br>
-		CAUTION: If the wallet contains watch-only z addresses the returned private balance may be larger than the actual balance, as spends cannot be detected with incoming viewing keys.<br>
-		:::</p>
-		<p>::: tip<br>
-		While the <strong>interest</strong> property is returned for all KMD-based coin daemons, only the main KMD chain utilizes the interest feature. KMD-based Smart Chains will always return a <strong>0.00</strong> interest value.<br>
-		:::</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>minconf</td>
-		<td>(numeric, optional, default=1)</td>
-		<td>only include private and transparent transactions confirmed at least this many times</td>
-		</tr>
-		<tr>
-		<td>includeWatchonly</td>
-		<td>(bool, optional, default=false)</td>
-		<td>also include balance in watchonly addresses (see ‘importaddress’ and ‘z_importviewingkey’)</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“transparent”</td>
-		<td>(numeric)</td>
-		<td>the total balance of transparent funds</td>
-		</tr>
-		<tr>
-		<td>“interest”</td>
-		<td>(numeric)</td>
-		<td>the total balance of unclaimed interest earned</td>
-		</tr>
-		<tr>
-		<td>“private”</td>
-		<td>(numeric)</td>
-		<td>the total balance of private funds</td>
-		</tr>
-		<tr>
-		<td>“total”</td>
-		<td>(numeric)</td>
-		<td>the total balance of both transparent and private funds</td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_gettotalbalance</code></pre>
-		<a>Response:</a>
-		<pre><code>{
-		  "<span class="hljs-attribute">transparent</span>": <span class="hljs-value"><span class="hljs-string">"9.98794883"</span></span>,
-		  "<span class="hljs-attribute">interest</span>": <span class="hljs-value"><span class="hljs-string">"0.00"</span></span>,
-		  "<span class="hljs-attribute">private</span>": <span class="hljs-value"><span class="hljs-string">"0.08205"</span></span>,
-		  "<span class="hljs-attribute">total</span>": <span class="hljs-value"><span class="hljs-string">"10.06999883"</span>
-</span>}</code></pre>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_gettotalbalance <span class="hljs-number">5</span></code></pre>
-		<a>Response:</a>
-		<pre><code>{
-		  "<span class="hljs-attribute">transparent</span>": <span class="hljs-value"><span class="hljs-string">"9.98794883"</span></span>,
-		  "<span class="hljs-attribute">interest</span>": <span class="hljs-value"><span class="hljs-string">"0.00"</span></span>,
-		  "<span class="hljs-attribute">private</span>": <span class="hljs-value"><span class="hljs-string">"0.08205"</span></span>,
-		  "<span class="hljs-attribute">total</span>": <span class="hljs-value"><span class="hljs-string">"10.06999883"</span>
-</span>}</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_gettotalbalance", "params": [5] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response:</a>
-		<pre><code>{
-		  "<span class="hljs-attribute">result</span>": <span class="hljs-value">{
-			"<span class="hljs-attribute">transparent</span>": <span class="hljs-value"><span class="hljs-string">"0.00615"</span></span>,
-			"<span class="hljs-attribute">interest</span>": <span class="hljs-value"><span class="hljs-string">"0.00"</span></span>,
-			"<span class="hljs-attribute">private</span>": <span class="hljs-value"><span class="hljs-string">"0.06205"</span></span>,
-			"<span class="hljs-attribute">total</span>": <span class="hljs-value"><span class="hljs-string">"0.0682"</span>
-		  </span>}</span>,
-		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
-		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
-</span>}</code></pre><br>
-		<h2><a id="z_importkey"></a>z_importkey</h2><hr>
-		<p><strong>z_importkey “z_privatekey” ( rescan startHeight )</strong></p>
-		<p>The <code>z_importkey</code> method imports <code>z_privatekey</code> to your wallet.</p>
-		<p>::: tip<br>
-		This call can take minutes to complete if <strong>rescan</strong> is true.<br>
-		:::</p>
-		<p>::: tip<br>
-		The optional parameters are currently not functional with KMD-based blockchains.<br>
-		:::</p>
-		<p>::: tip<br>
-		See also <strong>z_exportkey</strong>.<br>
-		:::</p>
-		<h3>Arguments</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>“z_privatekey”</td>
-		<td>(string, required)</td>
-		<td>the z_privatekey (see <a href="#z-exportkey">z_exportkey</a>)</td>
-		</tr>
-		<tr>
-		<td>rescan</td>
-		<td>(string, optional, default=<code>&quot;whenkeyisnew&quot;</code>)</td>
-		<td>rescan the wallet for transactions; can be <code>yes</code></td>
-		</tr>
-		<tr>
-		<td>startHeight</td>
-		<td>(numeric, optional, default=0)</td>
-		<td>the block height at which to begin the rescan</td>
-		</tr>
-		</tbody>
-		</table>
-		<h3>Response</h3>
-		<table class="table table-striped table-bordered">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Description</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td>(none)</td>
-		<td></td>
-		<td></td>
-		</tr>
-		</tbody>
-		</table>
-		<h4>Examples</h4>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_importkey DONOTUSExxxxxxxxxxxxxxxxBP6ipkmBxmEQbugcCQ16vUaWGFK</code></pre>
-		<a>Response:</a>
-		<pre><code>(none)</code></pre>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_importkey DONOTUSExxxxxxxxxxxxxxxxBP6ipkmBxmEQbugcCQ16vUaWGFK whenkeyisnew <span class="hljs-number">30000</span></code></pre>
-		<a>Response:</a>
-		<pre><code>(none)</code></pre>
-		<a>Command:</a>
-		<pre><code>./hush-cli z_importkey DONOTUSExxxxxxxxxxxxxxxxBP6ipkmBxmEQbugcCQ16vUaWGFK yes <span class="hljs-number">20000</span></code></pre>
-		<a>Response:</a>
-		<pre><code>(none)</code></pre>
-		<p>You can find your <code>rpcuser</code>, <code>rpcpassword</code>, and <code>rpcport</code> in <code>hush3.conf</code> file.</p>
-		<a>Command:</a>
-		<pre><code>curl --user <span class="hljs-variable">$rpcuser</span>:<span class="hljs-variable">$rpcpassword</span> --data-binary <span class="hljs-string">'{"jsonrpc": "1.0", "id":"curltest", "method": "z_importkey", "params": ["DONOTUSExxxxxxxxxxxxxxxxBP6ipkmBxmEQbugcCQ16vUaWGFK", "no"] }'</span> -H <span class="hljs-string">'content-type: text/plain;'</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-variable">$rpcport</span>/</code></pre>
-		<a>Response:</a>
-		<pre><code>{
-		  "<span class="hljs-attribute">result</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
-		  "<span class="hljs-attribute">error</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
-		  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"curltest"</span>
-</span>}</code></pre><br>
 
-<h2><a id="z_validateaddress"></a>z_validateaddress</h2><hr>
-<p><strong>z_validateaddress “zaddr”</strong></p>
-<p>The <code>z_validateaddress</code> method returns information about the given z address.</p>
-<h3>Arguments</h3>
-<table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>“zaddr”</td>
-<td>(string, required)</td>
-<td>the z address to validate</td>
-</tr>
-</tbody>
-</table>
-<h3>Response</h3>
-<table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>“isvalid”</td>
-<td>(boolean)</td>
-<td>indicates whether the address is valid; if not, this is the only property returned</td>
-</tr>
-<tr>
-<td>“address”</td>
-<td>(string)</td>
-<td>the z address validated</td>
-</tr>
-<tr>
-<td>“ismine”</td>
-<td>(boolean)</td>
-<td>indicates if the address is yours or not</td>
-</tr>
-<tr>
-<td>“payingkey”</td>
-<td>(string)</td>
-<td>the hex value of the paying key, a_pk</td>
-</tr>
-<tr>
-<td>“transmissionkey”</td>
-<td>(string)</td>
-<td>the hex value of the transmission key, pk_enc</td>
-</tr>
-</tbody>
-</table>
-<h4>Examples</h4>
-<a>Command:</a>
-<pre><code>./hush-cli z_validateaddress <span class="hljs-string">"zcWsmqT4X2V4jgxbgiCzyrAfRT1vi1F4sn7M5Pkh66izzw8Uk7LBGAH3DtcSMJeUb2pi3W4SQF8LMKkU2cUuVP68yAGcomL"</span></code></pre>
-<a>Response:</a>
-<pre><code>{
-"<span class="hljs-attribute">isvalid</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
-"<span class="hljs-attribute">address</span>": <span class="hljs-value"><span class="hljs-string">"ztdChvxs2Z97X7qeBwsnRLbxva1ZVgWhFWZxZTA5bC8XLt9RHF8uXn16MWCU8DhKEt4gTtKqQwzsrk85f5tThWMNoYds2oX"</span></span>,
-"<span class="hljs-attribute">payingkey</span>": <span class="hljs-value"><span class="hljs-string">"d9c09cb974fbe0bf7e36a2318b46396c5112511f90749531428936867d83bd92"</span></span>,
-"<span class="hljs-attribute">transmissionkey</span>": <span class="hljs-value"><span class="hljs-string">"5ce3250912758cbb591e3d585ef110992f25ed7694b88f55315b060698b75404"</span></span>,
-"<span class="hljs-attribute">ismine</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
-</span>}</code></pre>
 
 		<h2><a id="zcbenchmark"></a>zcbenchmark</h2><hr>
 		<p><strong>zcbenchmark benchmarktype samplecount</strong></p>
@@ -13238,6 +13243,7 @@ This method is part of the new <strong>ac_staked</strong> functionality.<br>
 		  </span>}
 		  ...
 ]</code></pre><br>
+
 		<h2><a id="zcrawjoinsplit"></a>zcrawjoinsplit</h2><hr>
 		<p><strong>zcrawjoinsplit rawtx inputs outputs vpub_old vpub_new</strong></p>
 		<p>::: warning<br>
